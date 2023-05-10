@@ -53,12 +53,12 @@ const ConversationListItem: React.FC<ConversationListProps> = ({
         />
         <div className="mr-4 w-[calc(100%-96px)]">
           <div className="flex flex-row items-center justify-between">
-            <p className="text-black font-semibold font-sm truncate w-9/12">
-              {title}
+            <p className="text-black font-semibold font-sm truncate w-[72%]">
+              {title}lkasjdflasjdflkjasdlkfjaslkdfj
             </p>
             <div className="flex flex-row items-center">
               <p className="text-gray-500 text-xs ml-1 line-clamp-1">
-                {updatedAt ? timeAgo(updatedAt) : ""}
+                {/* {updatedAt ? timeAgo(updatedAt) : ""} */} Just now
               </p>
               <ArrowRightIcon className="h-3 w-3 ml-1" color="gray" />
             </div>
