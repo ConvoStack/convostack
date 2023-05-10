@@ -1,4 +1,4 @@
-import useConvoStack from "../hooks/useConvoStack";
+import { useConvoStack } from "convostack-component";
 
 interface MyComponentProps {
   text: string;

@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import ConvoStackWrapper from "./ConvoStackWrapper";
+import { ConvoStackWrapper } from "convostack-component";
 import MyComponent from "./components/MyComponent";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(

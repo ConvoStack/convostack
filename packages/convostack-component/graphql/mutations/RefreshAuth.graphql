@@ -1,0 +1,17 @@
+mutation RefreshAuth($refreshToken: String!) {
+  refreshAuth(refreshToken: $refreshToken) {
+    accessToken {
+      token
+      expAt
+    }
+    anonymousId
+    refreshToken {
+      token
+      expAt
+    }
+    anonymous
+    email
+    name
+    userId
+  }
+}

@@ -1,0 +1,15 @@
+mutation sendMessage(
+  $message: MessageInput!
+  $conversationId: String
+  $agent: String
+  $context: JSON
+) {
+  sendMessage(
+    message: $message
+    conversationId: $conversationId
+    agent: $agent
+    context: $context
+  ) {
+    conversationId
+  }
+}

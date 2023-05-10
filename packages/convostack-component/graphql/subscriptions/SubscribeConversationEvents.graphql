@@ -1,0 +1,14 @@
+subscription subscribeConversationEvents(
+  $conversationId: String
+  $agent: String
+  $context: JSON
+) {
+  subscribeConversationEvents(
+    conversationId: $conversationId
+    agent: $agent
+    context: $context
+  ) {
+    kind
+    payload
+  }
+}
