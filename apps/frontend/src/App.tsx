@@ -1,9 +1,16 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createContext, useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import ConversationWindow from "./components/ConversationWindow";
 import LaunchButton from "./components/LaunchButton";
 import { ConvoStackWrapperProps } from "./ConvoStackWrapper";
 import useConvoStack from "./hooks/useConvoStack";
+import {
+  setGraphqlUrl,
+  setStyling,
+  setUserData,
+  setWebsocketlUrl,
+} from "./redux/slice";
 import { CustomIcons } from "./types/CustomStyling";
 
 export const CustomIconsContext = createContext<CustomIcons | undefined>(
@@ -17,22 +24,16 @@ const App: React.FC<Omit<ConvoStackWrapperProps, "children">> = ({
   customStyling,
   icons,
 }) => {
-  const {
-    isConversationWindowVisible,
-    setIsConversationWindowVisible,
-    setGqllUrl,
-    setWsUrl,
-    applyStyling,
-    saveUserData,
-  } = useConvoStack();
+  const { isConversationWindowVisible, toggleWidget } = useConvoStack();
   const queryClient = new QueryClient();
   const [isShowing, setIsShowing] = useState<boolean>(false);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    setWsUrl(websocketUrl);
-    setGqllUrl(graphqlUrl);
-    if (customStyling !== undefined) applyStyling(customStyling);
-    if (userData !== undefined) saveUserData(userData);
+    dispatch(setWebsocketlUrl(websocketUrl));
+    dispatch(setGraphqlUrl(graphqlUrl));
+    if (customStyling !== undefined) dispatch(setStyling(customStyling));
+    if (userData !== undefined) dispatch(setUserData(userData));
   }, [websocketUrl, graphqlUrl, customStyling, userData]);
 
   useEffect(() => {
@@ -60,9 +61,7 @@ const App: React.FC<Omit<ConvoStackWrapperProps, "children">> = ({
               }
             >
               <ConversationWindow
-                onClickClose={() =>
-                  setIsConversationWindowVisible(!isConversationWindowVisible)
-                }
+                onClickClose={() => toggleWidget(!isConversationWindowVisible)}
               />
             </div>
           )}
@@ -77,7 +76,7 @@ const App: React.FC<Omit<ConvoStackWrapperProps, "children">> = ({
               >
                 <LaunchButton
                   onClickClose={() =>
-                    setIsConversationWindowVisible(!isConversationWindowVisible)
+                    toggleWidget(!isConversationWindowVisible)
                   }
                   isConversationWindowVisible={isConversationWindowVisible}
                 />
@@ -86,9 +85,7 @@ const App: React.FC<Omit<ConvoStackWrapperProps, "children">> = ({
           </div>
           <div className="max-sm:hidden">
             <LaunchButton
-              onClickClose={() =>
-                setIsConversationWindowVisible(!isConversationWindowVisible)
-              }
+              onClickClose={() => toggleWidget(!isConversationWindowVisible)}
               isConversationWindowVisible={isConversationWindowVisible}
             />
           </div>

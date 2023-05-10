@@ -1,7 +1,9 @@
 import { SubscribeConversationEventsDocument } from "@graphql";
 import { MutableRefObject, useEffect, useRef, useState } from "react";
+import { useDispatch } from "react-redux";
 import { createWsClient } from "../api/apiClient";
 import useConvoStack from "../hooks/useConvoStack";
+import { setIsCreatingNewConversation } from "../redux/slice";
 import Message from "./Message";
 
 interface MessageSent {
@@ -26,9 +28,9 @@ const MessageList: React.FC<MessageListProps> = ({
     agent,
     context,
     isCreatingNewConversation,
-    setCreatingNewConversation,
     userData,
   } = useConvoStack();
+  const dispatch = useDispatch();
   const [conversationEvents, setConversationEvents] = useState<MessageSent[]>(
     []
   );
@@ -57,7 +59,7 @@ const MessageList: React.FC<MessageListProps> = ({
       ]);
       if (isCreatingNewConversation) {
         setActiveConversationId(conversationEvent.payload.id);
-        setCreatingNewConversation(false);
+        dispatch(setIsCreatingNewConversation(false));
       }
     }
   };

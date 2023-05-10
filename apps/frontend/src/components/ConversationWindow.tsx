@@ -14,7 +14,7 @@ const ConversationWindow: React.FC<ConversationWindowProps> = ({
 }) => {
   const {
     activeConversationId,
-    showConversationList,
+    isConversationListVisible,
     isCreatingNewConversation,
   } = useConvoStack();
   const { styling } = useConvoStack();
@@ -28,7 +28,7 @@ const ConversationWindow: React.FC<ConversationWindowProps> = ({
       } sm:shadow-xl sm:rounded-lg max-sm:w-full max-sm:h-full sm:max-w-[calc(100vw-32px)] sm:max-h-[calc(100vh-100px)]`}
     >
       {isCreatingNewConversation ||
-      (!showConversationList && activeConversationId) ? (
+      (!isConversationListVisible && activeConversationId) ? (
         <>
           <Header onClickClose={onClickClose} />
           <MessageList

@@ -1,10 +1,12 @@
 import { useGetConversationsQuery } from "@graphql";
 import { useContext, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { createApiClient } from "../api/apiClient";
 import { CustomIconsContext } from "../App";
 import PencilSquareIcon from "../assets/PencilSquareIcon";
 import XIcon from "../assets/XIcon";
 import useConvoStack from "../hooks/useConvoStack";
+import { setIsCreatingNewConversation } from "../redux/slice";
 import ConversationListItem from "./ConversationListItem";
 import LoaderSpinner from "./LoaderSpinner";
 
@@ -15,9 +17,9 @@ interface ConversationListProps {
 const ConversationList: React.FC<ConversationListProps> = ({
   onClickClose,
 }) => {
+  const dispatch = useDispatch();
   const icons = useContext(CustomIconsContext);
-  const { graphqlUrl, setCreatingNewConversation, styling, userData } =
-    useConvoStack();
+  const { graphqlUrl, styling, userData } = useConvoStack();
   const { data, isFetching, isLoading } = useGetConversationsQuery(
     createApiClient(graphqlUrl, userData),
     undefined,
@@ -35,7 +37,7 @@ const ConversationList: React.FC<ConversationListProps> = ({
 
   useEffect(() => {
     if (!isFetching && conversationArray.length === 0) {
-      setCreatingNewConversation(true);
+      dispatch(setIsCreatingNewConversation(true));
     }
   }, [isFetching]);
 
@@ -48,7 +50,7 @@ const ConversationList: React.FC<ConversationListProps> = ({
       >
         <div
           className="left-0 absolute hover:cursor-pointer"
-          onClick={() => setCreatingNewConversation(true)}
+          onClick={() => dispatch(setIsCreatingNewConversation(true))}
         >
           {icons?.createNewConversationIcon || (
             <PencilSquareIcon className="w-6 h-6 ml-4" />
@@ -67,7 +69,7 @@ const ConversationList: React.FC<ConversationListProps> = ({
       >
         <div
           className="hover:cursor-pointer"
-          onClick={() => setCreatingNewConversation(true)}
+          onClick={() => dispatch(setIsCreatingNewConversation(true))}
         >
           {icons?.createNewConversationIcon || (
             <PencilSquareIcon className="w-6 h-6 ml-4" />

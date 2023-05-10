@@ -1,5 +1,7 @@
+import { useDispatch } from "react-redux";
 import ArrowRightIcon from "../assets/ArrowRightIcon";
 import useConvoStack from "../hooks/useConvoStack";
+import { setisConversationListVisible } from "../redux/slice";
 
 interface ConversationListProps {
   title: string;
@@ -14,8 +16,8 @@ const ConversationListItem: React.FC<ConversationListProps> = ({
   updatedAt,
   conversationId,
 }) => {
-  const { setActiveConversationId, showConversationListHelper } =
-    useConvoStack();
+  const { setActiveConversationId } = useConvoStack();
+  const dispatch = useDispatch();
   const timeAgo = (dateString: string) => {
     const date = new Date(dateString);
     const now = new Date();
@@ -36,7 +38,7 @@ const ConversationListItem: React.FC<ConversationListProps> = ({
     }
   };
   const onConversationListItemClicked = () => {
-    showConversationListHelper(false);
+    dispatch(setisConversationListVisible(false));
     setActiveConversationId(conversationId);
   };
 

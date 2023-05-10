@@ -7,7 +7,7 @@ import {
   setConversationId,
   setContext,
   setShowConversationWindow,
-  setShowConversationList,
+  setisConversationListVisible,
   setAgent,
   setIsCreatingNewConversation,
   setStyling,
@@ -23,7 +23,7 @@ const useConvoStack = () => {
     websocketUrl,
     activeConversationId,
     isConversationWindowVisible,
-    showConversationList,
+    isConversationListVisible,
     agent,
     context,
     isCreatingNewConversation,
@@ -31,23 +31,11 @@ const useConvoStack = () => {
     userData,
   } = useSelector((state: any) => state.conversation as ConvoStackState);
 
-  const setGqllUrl = (url: string) => {
-    dispatch(setGraphqlUrl(url));
-  };
-
-  const setWsUrl = (url: string) => {
-    dispatch(setWebsocketlUrl(url));
-  };
-
-  const setIsConversationWindowVisible = (arg: boolean) => {
+  const toggleWidget = (arg: boolean) => {
     dispatch(setShowConversationWindow(arg));
   };
 
-  const setCreatingNewConversation = (arg: boolean) => {
-    dispatch(setIsCreatingNewConversation(arg));
-  };
-
-  const openChatWindow = (
+  const openConversation = (
     conversationId: string | null,
     agent?: string | null,
     context?: { [key: string]: string }
@@ -63,17 +51,13 @@ const useConvoStack = () => {
     if (context) {
       dispatch(setContext(context));
     }
-    dispatch(setShowConversationList(false));
+    dispatch(setisConversationListVisible(false));
     dispatch(setShowConversationWindow(true));
   };
 
-  const openConversationListWindow = () => {
-    dispatch(setShowConversationList(true));
+  const openConversationList = () => {
+    dispatch(setisConversationListVisible(true));
     dispatch(setShowConversationWindow(true));
-  };
-
-  const closeConversationWindow = () => {
-    dispatch(setShowConversationWindow(false));
   };
 
   const setActiveConversationId = (
@@ -84,10 +68,6 @@ const useConvoStack = () => {
     if (context) {
       dispatch(setContext(context));
     }
-  };
-
-  const showConversationListHelper = (arg: boolean) => {
-    dispatch(setShowConversationList(arg));
   };
 
   const updateContext = async (
@@ -103,37 +83,22 @@ const useConvoStack = () => {
     );
   };
 
-  const applyStyling = (styling: CustomStyling) => {
-    dispatch(setStyling(styling));
-  };
-
-  const saveUserData = (userData: UserData) => {
-    dispatch(setUserData(userData));
-  };
-
   return {
     graphqlUrl,
     websocketUrl,
-    activeConversationId,
-    isConversationWindowVisible,
-    showConversationList,
     agent,
     context,
-    isCreatingNewConversation,
     styling,
     userData,
-    setGqllUrl,
-    setWsUrl,
-    setIsConversationWindowVisible,
-    openChatWindow,
+    activeConversationId,
+    isConversationWindowVisible,
+    isConversationListVisible,
+    isCreatingNewConversation,
+    toggleWidget,
+    openConversation,
     setActiveConversationId,
-    closeConversationWindow,
-    showConversationListHelper,
-    openConversationListWindow,
-    setCreatingNewConversation,
+    openConversationList,
     updateContext,
-    applyStyling,
-    saveUserData,
   };
 };
 

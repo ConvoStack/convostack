@@ -8,7 +8,7 @@ export interface ConvoStackState {
   context: { [key: string]: string } | null;
   agent: string | null;
   isConversationWindowVisible: boolean;
-  showConversationList: boolean;
+  isConversationListVisible: boolean;
   isCreatingNewConversation: boolean;
   styling: CustomStyling | null;
   userData: UserData | undefined
@@ -21,7 +21,7 @@ const initialState: ConvoStackState = {
   context: null,
   agent: null,
   isConversationWindowVisible: false,
-  showConversationList: false,
+  isConversationListVisible: false,
   isCreatingNewConversation: false,
   styling: null,
   userData: undefined,
@@ -46,8 +46,8 @@ const conversationSlice = createSlice({
     setShowConversationWindow(state, action) {
       state.isConversationWindowVisible = action.payload;
     },
-    setShowConversationList(state, action) {
-      state.showConversationList = action.payload;
+    setisConversationListVisible(state, action) {
+      state.isConversationListVisible = action.payload;
     },
     setAgent(state, action) {
       state.agent = action.payload;
@@ -70,7 +70,7 @@ export const {
   setConversationId, 
   setContext, 
   setShowConversationWindow, 
-  setShowConversationList, 
+  setisConversationListVisible, 
   setAgent, 
   setIsCreatingNewConversation, 
   setStyling, 
