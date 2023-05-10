@@ -1,0 +1,29 @@
+mutation Login(
+  $email: String!
+  $name: String!
+  $hash: String!
+  $anonymousId: String!
+  $externalId: String!
+) {
+  login(
+    email: $email
+    name: $name
+    hash: $hash
+    anonymousId: $anonymousId
+    externalId: $externalId
+  ) {
+    accessToken {
+      token
+      expAt
+    }
+    anonymousId
+    refreshToken {
+      token
+      expAt
+    }
+    anonymous
+    email
+    name
+    userId
+  }
+}

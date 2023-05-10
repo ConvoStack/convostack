@@ -1,0 +1,8 @@
+mutation updateConversationContext($conversationId: String!, $context: JSON!) {
+  updateConversationContext(
+    conversationId: $conversationId
+    context: $context
+  ) {
+    id
+  }
+}

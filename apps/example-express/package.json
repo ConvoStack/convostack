@@ -1,0 +1,19 @@
+{
+  "name": "example-express",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "ts-node server-demo.ts",
+    "dev-sse": "ts-node server-sse-demo.ts",
+    "migrate": "npx convostack-storage-engine-prisma-sqlite migrate --dir ./sqlite-storage --db-url \"file:./dev.db\" && rm -rf generated"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.17",
+    "agent": "*",
+    "agent-echo": "*",
+    "auth-jwt": "*",
+    "backend-express": "*",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
+  }
+}

@@ -1,0 +1,4 @@
+.idea/*
+.turbo
+node_modules
+.env

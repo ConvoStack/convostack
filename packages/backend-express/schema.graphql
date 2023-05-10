@@ -1,0 +1,93 @@
+scalar JSON
+
+type AuthTokenData {
+    token: String!
+    expAt: Int!
+}
+
+type AuthResponse {
+    userId: String!
+    email: String
+    name: String
+    anonymous: Boolean!
+    anonymousId: String
+    externalId: String
+    refreshToken: AuthTokenData!
+    accessToken: AuthTokenData!
+}
+
+type SendMessageResponse {
+    conversationId: String!
+    messageId: String!
+}
+
+type ConversationEvent {
+    kind: String!
+    payload: JSON!
+}
+
+type Conversation {
+    id: String
+    title: String
+    createdAt: String
+    updatedAt: String
+}
+
+type Message {
+    id: String!
+    content: String
+    turn: Int!
+    role: String!
+    pending: Boolean!
+    conversationId: String!
+    userId: String
+    createdAt: String
+    updatedAt: String
+}
+
+type AgentMetadata {
+    key: String!
+    displayName: String!
+    avatarUrl: String
+}
+
+type ConversationListItem {
+    id: String!
+    title: String!
+    agent: AgentMetadata!
+    lastMessage: Message
+}
+
+input MessageInput {
+    content: String!
+}
+
+type Mutation {
+    login(
+        email: String
+        name: String
+        hash: String
+        anonymousId: String
+        externalId: String
+    ): AuthResponse!
+    refreshAuth(refreshToken: String!): AuthResponse!
+    sendMessage(
+        message: MessageInput!
+        conversationId: String
+        agent: String
+        context: JSON
+    ): SendMessageResponse!
+    updateConversationContext(conversationId: String!, context: JSON!): Conversation
+}
+
+type Query {
+    getConversations: [ConversationListItem!]
+}
+
+type Subscription {
+    subscribeConversationEvents(
+        conversationId: String
+        agent: String
+        context: JSON
+    ): ConversationEvent!
+}

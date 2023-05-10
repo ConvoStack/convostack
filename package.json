@@ -1,0 +1,14 @@
+{
+  "name": "convostack-server",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "turbo run dev"
+  },
+  "devDependencies": {
+    "turbo": "^1.9.3"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}
