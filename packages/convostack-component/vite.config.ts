@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import dts from 'vite-plugin-dts'
+import libCss from 'vite-plugin-libcss';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -28,5 +29,5 @@ export default defineConfig({
     sourcemap: true,
     emptyOutDir: true,
   },
-  plugins: [react(), dts()],
+  plugins: [react(), dts(), libCss()],
 })
