@@ -1,5 +1,5 @@
 {
-  "name": "convostack-server",
+  "name": "convostack",
   "version": "1.0.0",
   "scripts": {
     "dev": "turbo run dev"
