@@ -4,6 +4,7 @@
   "dependencies": {
     "agent": "*",
     "shared": "*",
-    "launchdarkly-eventsource": "^1.4.4"
+    "launchdarkly-eventsource": "^1.4.4",
+    "config-tsconfig": "*"
   }
 }

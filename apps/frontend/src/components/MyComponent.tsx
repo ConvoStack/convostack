@@ -1,4 +1,4 @@
-import { useConvoStack } from "convostack-component";
+import { useConvoStack } from "convostack/frontend-react";
 
 interface MyComponentProps {
   text: string;

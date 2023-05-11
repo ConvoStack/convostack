@@ -27,7 +27,7 @@ const schema = makeExecutableSchema({
   resolvers
 });
 
-export class ConvoStackBackend {
+export class ConvoStackBackendExpress {
   private services: ConvoStackServices;
 
   constructor(private config: IConvoStackBackendConfiguration) {

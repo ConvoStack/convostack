@@ -14,6 +14,7 @@
     "@prisma/client": "^4.13.0",
     "minimist": "^1.2.8",
     "models": "*",
-    "prisma": "^4.13.0"
+    "prisma": "^4.13.0",
+    "config-tsconfig": "*"
   }
 }

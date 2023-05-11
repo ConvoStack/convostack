@@ -1,13 +1,13 @@
-import { ConvoStackBackend } from "backend-express";
+import { ConvoStackBackendExpress } from "convostack/backend-express";
 import express from "express";
-import StorageEnginePrismaSqlite from "storage-engine-prisma-sqlite";
+import {StorageEnginePrismaSQLite} from "convostack/storage-engine-prisma-sqlite";
 import cors, { CorsOptions } from "cors";
-import { AuthJWT } from "auth-jwt";
+import { AuthJWT } from "convostack/auth-jwt";
 import { createServer } from "http";
 import * as dotenv from "dotenv";
-import { DefaultAgentManager } from "agent";
-import { AgentSSEClient } from "agent-sse";
-import { serveEchoAgentDev } from "agent-sse-echo-server";
+import { DefaultAgentManager } from "convostack/agent";
+import { AgentSSEClient } from "convostack/agent-sse";
+import { serveEchoAgentDev } from "convostack/agent-sse-echo-server";
 
 dotenv.config();
 
@@ -28,9 +28,9 @@ const main = async () => {
   const app = express();
   app.use(cors(corsOptions));
   const httpServer = createServer(app);
-  const storage = new StorageEnginePrismaSqlite(process.env.DATABASE_URL);
+  const storage = new StorageEnginePrismaSQLite(process.env.DATABASE_URL);
   await storage.init();
-  const backend = new ConvoStackBackend({
+  const backend = new ConvoStackBackendExpress({
     basePath: "/",
     storage,
     auth: new AuthJWT(storage, {

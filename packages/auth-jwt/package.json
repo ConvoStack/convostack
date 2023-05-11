@@ -5,6 +5,7 @@
     "@types/jsonwebtoken": "^9.0.2",
     "auth": "*",
     "jsonwebtoken": "^9.0.0",
-    "models": "*"
+    "models": "*",
+    "config-tsconfig": "*"
   }
 }

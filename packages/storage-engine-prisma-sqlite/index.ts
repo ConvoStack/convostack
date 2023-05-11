@@ -10,7 +10,7 @@ import {
 import { PrismaClient, Prisma } from "./generated/client";
 import * as path from "path";
 
-class PrismaStorageEngine implements IStorageEngine {
+export class StorageEnginePrismaSQLite implements IStorageEngine {
   private prisma: PrismaClient;
 
   constructor(dbUrl: string) {
@@ -138,4 +138,3 @@ class PrismaStorageEngine implements IStorageEngine {
   }
 }
 
-export default PrismaStorageEngine;

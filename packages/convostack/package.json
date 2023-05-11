@@ -14,6 +14,7 @@
     "backend-express": "*",
     "convostack-component": "*",
     "shared": "*",
-    "storage-engine-prisma-sqlite": "*"
+    "storage-engine-prisma-sqlite": "*",
+    "config-tsconfig": "*"
   }
 }
