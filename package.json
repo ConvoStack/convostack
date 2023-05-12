@@ -1,10 +1,12 @@
 {
   "name": "convostack",
-  "version": "1.0.0",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
     "dev": "turbo run dev"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.26.1",
     "tsup": "^6.7.0",
     "turbo": "^1.9.3"
   },

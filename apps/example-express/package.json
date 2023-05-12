@@ -1,6 +1,7 @@
 {
-  "name": "example-express",
+  "name": "@convostack/example-express",
   "version": "0.0.0",
+  "private": true,
   "scripts": {
     "dev": "ts-node server-demo.ts",
     "dev-sse": "ts-node server-sse-demo.ts",
