@@ -1,6 +1,6 @@
 {
   "name": "@convostack/storage-engine-prisma-sqlite",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "license": "MIT",
@@ -19,7 +19,9 @@
     "@prisma/client": "^4.13.0",
     "minimist": "^1.2.8",
     "@convostack/models": "*",
-    "prisma": "^4.13.0",
+    "prisma": "^4.13.0"
+  },
+  "devDependencies": {
     "config-tsconfig": "*"
   }
 }
