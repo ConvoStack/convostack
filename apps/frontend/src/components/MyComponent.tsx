@@ -1,15 +1,17 @@
-import { useConvoStack } from "convostack/frontend-react";
+import { useConvoStack } from "@convostack/frontend-react";
 
 interface MyComponentProps {
   text: string;
 }
 
 const MyComponent: React.FC<MyComponentProps> = ({ text }) => {
-  const {
+    const {
     toggleWidget,
     isConversationWindowVisible,
     openConversationList,
     openConversation,
+    // TODO activeConversationId unused (fix)
+    // @ts-ignore
     activeConversationId,
   } = useConvoStack();
   return (

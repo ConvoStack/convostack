@@ -1,8 +1,0 @@
-{
-  "name": "agent-echo",
-  "version": "1.0.0",
-  "dependencies": {
-    "agent": "*",
-    "config-tsconfig": "*"
-  }
-}

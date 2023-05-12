@@ -5,6 +5,7 @@
     "dev": "turbo run dev"
   },
   "devDependencies": {
+    "tsup": "^6.7.0",
     "turbo": "^1.9.3"
   },
   "workspaces": [

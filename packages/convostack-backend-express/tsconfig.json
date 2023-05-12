@@ -1,0 +1,9 @@
+{
+  "extends": "config-tsconfig/tsconfig.backend.json",
+  "compilerOptions": {
+    "lib": [
+      "es2017",
+      "es2018.asynciterable"
+    ]
+  }
+}

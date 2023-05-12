@@ -1,0 +1,25 @@
+{
+  "name": "@convostack/storage-engine-prisma-sqlite",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs --dts",
+    "dev": "npm run build -- --watch",
+    "codegen": "npx prisma generate",
+    "codegen:backend": "npm run codegen",
+    "db:migrate:dev": "npx prisma migrate dev",
+    "postinstall": "npm run codegen"
+  },
+  "bin": {
+    "convostack-storage-engine-prisma-sqlite": "./bin/cli.js"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.13.0",
+    "minimist": "^1.2.8",
+    "@convostack/models": "*",
+    "prisma": "^4.13.0",
+    "config-tsconfig": "*"
+  }
+}
