@@ -19,8 +19,7 @@
     "build": "vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "codegen": "npx graphql-code-generator --config ./codegen.ts",
-    "codegen:frontend": "npm run codegen"
+    "codegen": "npx graphql-code-generator --config scripts/codegen.ts"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
@@ -55,6 +54,7 @@
     "typescript": "^5.0.4",
     "vite": "^4.3.0",
     "vite-plugin-dts": "^2.3.0",
+    "schema-graphql": "*",
     "vite-plugin-libcss": "^1.0.6"
   }
 }

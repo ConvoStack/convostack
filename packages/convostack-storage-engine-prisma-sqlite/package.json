@@ -8,7 +8,6 @@
     "build": "mkdir -p ./dist && cp prisma/schema.prisma ./dist/schema.prisma && tsup src/index.ts --format cjs --dts",
     "dev": "npm run build -- --watch",
     "codegen": "npx prisma generate",
-    "codegen:backend": "npm run codegen",
     "db:migrate:dev": "npx prisma migrate dev",
     "postinstall": "npm run codegen"
   },

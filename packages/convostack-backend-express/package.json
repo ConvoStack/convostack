@@ -37,12 +37,12 @@
     "@types/node": "^18.16.3",
     "nodemon": "^2.0.22",
     "ts-node": "^10.9.1",
-    "typescript": "^5.0.4"
+    "typescript": "^5.0.4",
+    "schema-graphql": "*"
   },
   "scripts": {
-    "build": "mkdir -p ./dist && cp schema.graphql ./dist/schema.graphql && tsup src/index.ts --format cjs --dts",
+    "build": "mkdir -p ./dist && cp ../schema-graphql/schema.graphql ./dist/schema.graphql && tsup src/index.ts --format cjs --dts",
     "dev": "npm run build -- --watch",
-    "codegen": "graphql-codegen --config codegen.ts",
-    "codegen:backend": "npm run codegen"
+    "codegen": "graphql-codegen --config scripts/codegen.ts"
   }
 }

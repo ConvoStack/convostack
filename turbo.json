@@ -3,34 +3,25 @@
   "pipeline": {
     "build": {
       "dependsOn": [
+        "codegen",
         "^build"
       ],
-      "outputs": ["dist/**"]
+      "outputs": [
+        "dist/**"
+      ]
     },
     "lint": {},
     "dev": {
       "dependsOn": [
-        "codegen:backend",
-        "start:example-express",
-        "codegen:frontend"
+        "codegen"
       ],
       "cache": false
-    },
-    "start:example-express": {
-      "cache": false
-    },
-    "codegen:backend": {
-      "outputs": [
-        "./packages/backend-express/generated/**",
-        "./packages/storage-engine-prisma-sqlite/generated/**"
-      ]
     },
     "codegen": {
       "outputs": [
-        "./apps/frontend/graphql/generated/**"
-      ],
-      "dependsOn": [
-        "start:example-express"
+        "./packages/convostack-frontend-react/graphql/generated/**",
+        "./packages/convostack-backend-express/generated/**",
+        "./packages/convostack-storage-engine-prisma-sqlite/generated/**"
       ]
     }
   }

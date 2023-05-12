@@ -7,8 +7,8 @@ Convo Stack Readme.
 ```bash
 # From repo root
 npm i
-# Enter dev backend app
-cd apps/example-express
+# Enter dev backend example
+cd examples/example-express
 # Init dev sqlite db
 npm run migrate
 # Setup dev backend .env
