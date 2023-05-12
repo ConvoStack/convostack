@@ -1,0 +1,134 @@
+{
+  "name": "convostack",
+  "version": "0.0.2",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "build": "npm run build:esm && npm run build:cjs && node scripts/create-entrypoints.js",
+    "build:esm": "tsc --outDir dist/ && rm -rf dist/tests dist/**/tests",
+    "build:cjs": "tsc --outDir dist-cjs/ -p tsconfig.cjs.json && node scripts/move-cjs-to-dist.js && rm -r dist-cjs",
+    "build:watch": "node scripts/create-entrypoints.js && tsc --outDir dist/ --watch",
+    "dev": "npm run build -- --watch"
+  },
+  "dependencies": {
+    "@convostack/models": "*",
+    "@convostack/agent": "*",
+    "@convostack/agent-echo": "*",
+    "@convostack/agent-sse": "*",
+    "@convostack/agent-sse-echo-server": "*",
+    "@convostack/auth": "*",
+    "@convostack/auth-jwt": "*",
+    "@convostack/backend-express": "*",
+    "@convostack/frontend-react": "*",
+    "@convostack/shared": "*",
+    "@convostack/storage-engine-prisma-sqlite": "*",
+    "config-tsconfig": "*"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.4"
+  },
+  "files": [
+    "dist/",
+    "agent.cjs",
+    "agent.js",
+    "agent.d.ts",
+    "agent-echo.cjs",
+    "agent-echo.js",
+    "agent-echo.d.ts",
+    "agent-sse.cjs",
+    "agent-sse.js",
+    "agent-sse.d.ts",
+    "agent-sse-echo-server.cjs",
+    "agent-sse-echo-server.js",
+    "agent-sse-echo-server.d.ts",
+    "auth.cjs",
+    "auth.js",
+    "auth.d.ts",
+    "auth-jwt.cjs",
+    "auth-jwt.js",
+    "auth-jwt.d.ts",
+    "backend-express.cjs",
+    "backend-express.js",
+    "backend-express.d.ts",
+    "frontend-react.cjs",
+    "frontend-react.js",
+    "frontend-react.d.ts",
+    "models.cjs",
+    "models.js",
+    "models.d.ts",
+    "shared.cjs",
+    "shared.js",
+    "shared.d.ts",
+    "storage-engine-prisma-sqlite.cjs",
+    "storage-engine-prisma-sqlite.js",
+    "storage-engine-prisma-sqlite.d.ts",
+    "index.cjs",
+    "index.js",
+    "index.d.ts"
+  ],
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js",
+      "require": "./index.cjs"
+    },
+    "./agent": {
+      "types": "./agent.d.ts",
+      "import": "./agent.js",
+      "require": "./agent.cjs"
+    },
+    "./agent-echo": {
+      "types": "./agent-echo.d.ts",
+      "import": "./agent-echo.js",
+      "require": "./agent-echo.cjs"
+    },
+    "./agent-sse": {
+      "types": "./agent-sse.d.ts",
+      "import": "./agent-sse.js",
+      "require": "./agent-sse.cjs"
+    },
+    "./agent-sse-echo-server": {
+      "types": "./agent-sse-echo-server.d.ts",
+      "import": "./agent-sse-echo-server.js",
+      "require": "./agent-sse-echo-server.cjs"
+    },
+    "./auth": {
+      "types": "./auth.d.ts",
+      "import": "./auth.js",
+      "require": "./auth.cjs"
+    },
+    "./auth-jwt": {
+      "types": "./auth-jwt.d.ts",
+      "import": "./auth-jwt.js",
+      "require": "./auth-jwt.cjs"
+    },
+    "./backend-express": {
+      "types": "./backend-express.d.ts",
+      "import": "./backend-express.js",
+      "require": "./backend-express.cjs"
+    },
+    "./frontend-react": {
+      "types": "./frontend-react.d.ts",
+      "import": "./frontend-react.js",
+      "require": "./frontend-react.cjs"
+    },
+    "./models": {
+      "types": "./models.d.ts",
+      "import": "./models.js",
+      "require": "./models.cjs"
+    },
+    "./shared": {
+      "types": "./shared.d.ts",
+      "import": "./shared.js",
+      "require": "./shared.cjs"
+    },
+    "./storage-engine-prisma-sqlite": {
+      "types": "./storage-engine-prisma-sqlite.d.ts",
+      "import": "./storage-engine-prisma-sqlite.js",
+      "require": "./storage-engine-prisma-sqlite.cjs"
+    },
+    "./package.json": "./package.json"
+  }
+}

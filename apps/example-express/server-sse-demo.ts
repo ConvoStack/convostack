@@ -1,13 +1,13 @@
-import { ConvoStackBackendExpress } from "@convostack/backend-express";
+import { ConvoStackBackendExpress } from "convostack/backend-express";
 import express from "express";
-import {StorageEnginePrismaSQLite} from "@convostack/storage-engine-prisma-sqlite";
+import {StorageEnginePrismaSQLite} from "convostack/storage-engine-prisma-sqlite";
 import cors, { CorsOptions } from "cors";
-import { AuthJWT } from "@convostack/auth-jwt";
+import { AuthJWT } from "convostack/auth-jwt";
 import { createServer } from "http";
 import * as dotenv from "dotenv";
-import { DefaultAgentManager } from "@convostack/agent";
-import { AgentSSEClient } from "@convostack/agent-sse";
-import { serveEchoAgentDev } from "@convostack/agent-sse-echo-server";
+import { DefaultAgentManager } from "convostack/agent";
+import { AgentSSEClient } from "convostack/agent-sse";
+import { serveEchoAgentDev } from "convostack/agent-sse-echo-server";
 
 dotenv.config();
 

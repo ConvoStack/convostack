@@ -12,7 +12,6 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "noFallthroughCasesInSwitch": false,
-    "declarationMap": true,
     "inlineSources": false,
     "noUnusedLocals": false,
     "noUnusedParameters": false,

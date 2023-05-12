@@ -2,7 +2,7 @@
 // @ts-ignore
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import { ConvoStackWrapper } from "@convostack/frontend-react";
+import { ConvoStackWrapper } from "convostack/frontend-react";
 import MyComponent from "./components/MyComponent";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
