@@ -2,12 +2,14 @@ import { useDispatch } from "react-redux";
 import ArrowRightIcon from "../assets/ArrowRightIcon";
 import useConvoStack from "../hooks/useConvoStack";
 import { setisConversationListVisible } from "../redux/slice";
+import DefaultAvatarUrl from "../images/DefaultAvatarUrl.png";
 
 interface ConversationListProps {
   title: string;
   headline: string;
   updatedAt: string;
   conversationId: string | null;
+  avatarUrl: string | null;
 }
 
 const ConversationListItem: React.FC<ConversationListProps> = ({
@@ -15,6 +17,7 @@ const ConversationListItem: React.FC<ConversationListProps> = ({
   headline,
   updatedAt,
   conversationId,
+  avatarUrl,
 }) => {
   const { setActiveConversationId } = useConvoStack();
   const dispatch = useDispatch();
@@ -50,8 +53,8 @@ const ConversationListItem: React.FC<ConversationListProps> = ({
       <div className="flex flex-row">
         <img
           className="w-12 h-12 rounded-full mr-4 ml-4"
-          src="https://cdn.pixabay.com/photo/2017/10/24/00/39/bot-icon-2883144_960_720.png"
-          alt="Rounded avatar"
+          src={avatarUrl || DefaultAvatarUrl}
+          alt="Agent's Avatar"
         />
         <div className="mr-4 w-[calc(100%-96px)]">
           <div className="flex flex-row items-center justify-between">

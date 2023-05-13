@@ -31,7 +31,9 @@ const LaunchButton: React.FC<LaunchButtonProps> = ({
   return (
     <button
       className={`fixed bottom-4 ${
-        styling?.widgetLocation === "left" ? "sm:left-4" : "sm:right-4"
+        styling?.widgetLocation === "left"
+          ? "left-3 sm:left-4"
+          : "right-3 sm:right-4"
       } p-3 ${
         styling?.widgetLaunchButtonColor || "bg-blue-gradient"
       } text-white rounded-full hover:shadow-xl transition-shadow duration-200`}

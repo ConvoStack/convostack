@@ -46,8 +46,6 @@ const App: React.FC<Omit<ConvoStackWrapperProps, "children">> = ({
     }
   }, [isConversationWindowVisible]);
 
-  console.log("render");
-
   return (
     <QueryClientProvider client={queryClient}>
       <CustomIconsContext.Provider value={icons}>
