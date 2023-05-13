@@ -10,14 +10,30 @@ function setup(dirPath) {
   const dir = path.resolve(dirPath);
 
   if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir, { recursive: true });
+    fs.mkdirSync(dir, {recursive: true});
   }
 
   const schemaPath = path.join(__dirname, "../prisma/schema.prisma");
   const destPath = path.join(dir, "schema.prisma");
 
-  fs.copyFileSync(schemaPath, destPath);
+  // Read the file synchronously
+  let data = fs.readFileSync(schemaPath, 'utf8');
+
+  // Replace the text
+  const regex = new RegExp('"../src/generated/client"', 'g');
+  data = data.replace(regex, '"./tmpgen"');
+
+  // Write the file synchronously
+  fs.writeFileSync(destPath, data);
+
   return dir;
+}
+
+function cleanup(dirPath) {
+  const dir = path.resolve(dirPath);
+  if (fs.existsSync(dir)) {
+    fs.rmSync(dir, {recursive: true, force: true});
+  }
 }
 
 if (command === "migrate") {
@@ -41,17 +57,18 @@ if (command === "migrate") {
   const migrateProcess = spawn("npx", ["prisma", "migrate", "dev", `--schema=${path.join(dir, "schema.prisma")}`], {
     env: {
       ...process.env,
-      __CONVOSTACK_PRISMA_MYSQL_DATABASE_URL: dbUrl
+      __CONVOSTACK_PRISMA_DATABASE_URL: dbUrl
     },
     stdio: "inherit"
   });
 
   migrateProcess.on("error", (err) => {
+    cleanup(path.join(dir, './tmpgen'))
     console.error(err);
   });
 
   migrateProcess.on("close", (code) => {
-    console.log(`child process exited with code ${code}`);
+    cleanup(path.join(dir, './tmpgen'))
   });
 } else {
   console.error(`Invalid command: ${command}`);

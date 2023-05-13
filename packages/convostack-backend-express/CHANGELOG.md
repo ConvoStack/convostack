@@ -1,5 +1,16 @@
 # @convostack/backend-express
 
+## 0.0.4
+
+### Patch Changes
+
+- Update package metadata
+- Updated dependencies
+  - @convostack/agent@0.0.4
+  - @convostack/auth@0.0.4
+  - @convostack/models@0.0.4
+  - @convostack/shared@0.0.4
+
 ## 0.0.3
 
 ### Patch Changes
