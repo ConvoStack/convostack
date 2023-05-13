@@ -1,5 +1,11 @@
 # @convostack/agent-sse-echo-server
 
+## 0.0.3
+
+### Patch Changes
+
+- Update build and packaging strategy
+
 ## 0.0.2
 
 ### Patch Changes
