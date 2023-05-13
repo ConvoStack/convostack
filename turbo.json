@@ -20,8 +20,10 @@
     "codegen": {
       "outputs": [
         "./packages/convostack-frontend-react/graphql/generated/**",
-        "./packages/convostack-backend-express/generated/**",
-        "./packages/convostack-storage-engine-prisma-sqlite/generated/**"
+        "./packages/convostack-backend-express/src/generated/**",
+        "./packages/convostack-storage-engine-prisma-sqlite/src/generated/**",
+        "./packages/convostack-storage-engine-prisma-postgres/src/generated/**",
+        "./packages/convostack-storage-engine-prisma-mysql/src/generated/**"
       ]
     }
   }

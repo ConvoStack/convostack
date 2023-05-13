@@ -2,6 +2,9 @@
   "name": "convostack",
   "version": "0.0.0",
   "private": true,
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "dev": "turbo run dev"
   },

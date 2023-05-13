@@ -7,7 +7,8 @@ import {
   IConversationFilter,
   IMessageFilter, IConversationOrderBy, IMessageOrderBy
 } from "@convostack/models";
-import { PrismaClient, Prisma } from "./generated/client";
+// Import from ../src so that post-build, it will still use the generated prisma client
+import {PrismaClient, Prisma} from "../src/generated/client";
 
 export class StorageEnginePrismaPostgres implements IStorageEngine {
   private prisma: PrismaClient;

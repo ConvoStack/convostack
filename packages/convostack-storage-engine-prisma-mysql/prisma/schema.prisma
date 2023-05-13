@@ -5,7 +5,7 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url      = env("__CONVOSTACK_PRISMA_MYSQL_DATABASE_URL")
+  url      = env("__CONVOSTACK_PRISMA_DATABASE_URL")
 }
 
 model User {

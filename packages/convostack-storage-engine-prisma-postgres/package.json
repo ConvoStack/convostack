@@ -3,9 +3,17 @@
   "version": "0.0.3",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ConvoStack/convostack.git"
+  },
+  "author": "ConvoStack",
   "license": "MIT",
   "scripts": {
-    "build": "mkdir -p ./dist && cp prisma/schema.prisma ./dist/schema.prisma && tsup src/index.ts --format cjs --dts",
+    "build": "tsc --outDir dist/",
     "dev": "npm run build -- --watch",
     "codegen": "npx prisma generate",
     "db:migrate:dev": "npx prisma migrate dev",

@@ -4,6 +4,14 @@
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ConvoStack/convostack.git"
+  },
+  "author": "ConvoStack",
   "license": "MIT",
   "scripts": {
     "build": "npm run build:esm && npm run build:cjs && node scripts/create-entrypoints.js",
