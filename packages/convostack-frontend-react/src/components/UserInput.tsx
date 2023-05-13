@@ -37,8 +37,8 @@ const UserInput: React.FC<UserInputProps> = ({ isAgentTyping }) => {
     event.preventDefault();
   };
   const handleKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (event.key === "Enter" && !event.shiftKey) {
-      event.preventDefault(); // Prevent submitting the form
+    if (event.key === "Enter" && !event.shiftKey && !isAgentTyping) {
+      event.preventDefault();
       handleSubmit(event as unknown as FormEvent<HTMLFormElement>);
       if (textarea !== null) textarea.style.height = "auto";
     }
