@@ -1,0 +1,26 @@
+{
+  "name": "@convostack/storage-engine-prisma-postgres",
+  "version": "0.0.3",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "build": "mkdir -p ./dist && cp prisma/schema.prisma ./dist/schema.prisma && tsup src/index.ts --format cjs --dts",
+    "dev": "npm run build -- --watch",
+    "codegen": "npx prisma generate",
+    "db:migrate:dev": "npx prisma migrate dev",
+    "postinstall": "npm run codegen"
+  },
+  "bin": {
+    "convostack-storage-engine-prisma-postgres": "./bin/cli.js"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.13.0",
+    "minimist": "^1.2.8",
+    "@convostack/models": "*",
+    "prisma": "^4.13.0"
+  },
+  "devDependencies": {
+    "config-tsconfig": "*"
+  }
+}
