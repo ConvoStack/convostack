@@ -8,7 +8,7 @@ Convo Stack Readme.
 # From repo root
 npm i
 # Enter dev backend example
-cd examples/example-express
+cd examples/be-example-express-sqlite
 # Init dev sqlite db
 npm run migrate
 # Setup dev backend .env

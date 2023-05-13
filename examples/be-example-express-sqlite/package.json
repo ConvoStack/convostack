@@ -1,5 +1,5 @@
 {
-  "name": "@convostack/example-express",
+  "name": "be-example-express-sqlite",
   "version": "0.0.0",
   "private": true,
   "scripts": {
