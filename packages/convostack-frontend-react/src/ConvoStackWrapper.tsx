@@ -2,7 +2,6 @@ import { Provider } from "react-redux";
 import App from "./App";
 import store from "./redux";
 import { CustomStyling, CustomIcons, UserData } from "./types/CustomStyling";
-import "../dist/style.css";
 
 export interface ConvoStackWrapperProps {
   graphqlUrl: string;

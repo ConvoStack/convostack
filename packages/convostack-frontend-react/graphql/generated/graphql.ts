@@ -186,7 +186,7 @@ export type UpdateConversationContextMutation = { __typename?: 'Mutation', updat
 export type GetConversationsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetConversationsQuery = { __typename?: 'Query', getConversations?: Array<{ __typename?: 'ConversationListItem', id: string, title: string, lastMessage?: { __typename?: 'Message', id: string, content?: string | null, userId?: string | null, createdAt?: string | null } | null }> | null };
+export type GetConversationsQuery = { __typename?: 'Query', getConversations?: Array<{ __typename?: 'ConversationListItem', id: string, title: string, lastMessage?: { __typename?: 'Message', id: string, content?: string | null, userId?: string | null, createdAt?: string | null } | null, agent: { __typename?: 'AgentMetadata', key: string, displayName: string, avatarUrl?: string | null } }> | null };
 
 export type SubscribeConversationEventsSubscriptionVariables = Exact<{
   conversationId?: InputMaybe<Scalars['String']>;
@@ -323,6 +323,11 @@ export const GetConversationsDocument = `
       content
       userId
       createdAt
+    }
+    agent {
+      key
+      displayName
+      avatarUrl
     }
   }
 }

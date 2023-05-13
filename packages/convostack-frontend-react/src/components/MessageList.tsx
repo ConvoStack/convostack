@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { createWsClient } from "../api/apiClient";
 import useConvoStack from "../hooks/useConvoStack";
 import { setIsCreatingNewConversation } from "../redux/slice";
+import LoaderSpinner from "./LoaderSpinner";
 import Message from "./Message";
 
 interface MessageSent {
@@ -31,6 +32,7 @@ const MessageList: React.FC<MessageListProps> = ({
     userData,
   } = useConvoStack();
   const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(true);
   const [conversationEvents, setConversationEvents] = useState<MessageSent[]>(
     []
   );
@@ -61,6 +63,7 @@ const MessageList: React.FC<MessageListProps> = ({
         setActiveConversationId(conversationEvent.payload.id);
         dispatch(setIsCreatingNewConversation(false));
       }
+      setIsLoading(false);
     }
   };
   useEffect(() => {
@@ -110,26 +113,32 @@ const MessageList: React.FC<MessageListProps> = ({
   return (
     <div ref={outerDiv} className="bg-white relative h-full overflow-scroll">
       <div ref={innerDiv} className="relative flex flex-col">
-        {conversationEvents.map(
-          (message, index) =>
-            message.content && (
+        {isLoading ? (
+          <LoaderSpinner className="mx-auto mt-12" />
+        ) : (
+          <>
+            {conversationEvents.map(
+              (message, index) =>
+                message.content && (
+                  <Message
+                    key={index}
+                    message={{ text: message.content, author: message.role }}
+                    className={
+                      index === conversationEvents.length - 1 &&
+                      streams.length === 0
+                        ? "mb-3"
+                        : ""
+                    }
+                  />
+                )
+            )}
+            {streams.length !== 0 && (
               <Message
-                key={index}
-                message={{ text: message.content, author: message.role }}
-                className={
-                  index === conversationEvents.length - 1 &&
-                  streams.length === 0
-                    ? "mb-3"
-                    : ""
-                }
+                message={{ text: streams.join(""), author: "AI" }}
+                className={"mb-3"}
               />
-            )
-        )}
-        {streams.length !== 0 && (
-          <Message
-            message={{ text: streams.join(""), author: "AI" }}
-            className={"mb-3"}
-          />
+            )}
+          </>
         )}
       </div>
     </div>

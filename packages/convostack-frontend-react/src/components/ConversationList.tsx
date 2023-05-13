@@ -97,6 +97,7 @@ const ConversationList: React.FC<ConversationListProps> = ({
                     headline={item.lastMessage?.content || ""}
                     updatedAt={item.lastMessage?.createdAt || ""}
                     conversationId={item.id}
+                    avatarUrl={item.agent.avatarUrl || ""}
                   />
                 </div>
               ))}
