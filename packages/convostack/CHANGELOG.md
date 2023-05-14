@@ -1,5 +1,13 @@
 # convostack
 
+## 0.0.5
+
+### Patch Changes
+
+- Add langchain memory
+- Updated dependencies
+  - @convostack/langchain-memory@0.0.5
+
 ## 0.0.4
 
 ### Patch Changes

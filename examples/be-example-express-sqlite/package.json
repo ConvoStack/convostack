@@ -1,6 +1,6 @@
 {
   "name": "be-example-express-sqlite",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": true,
   "scripts": {
     "dev": "ts-node server-demo.ts",
@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "@types/express": "^4.17.17",
-    "@convostack/agent": "*",
     "convostack": "*",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",

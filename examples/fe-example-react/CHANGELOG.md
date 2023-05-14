@@ -1,5 +1,13 @@
 # fe-example-react
 
+## 0.0.3
+
+### Patch Changes
+
+- Add langchain memory
+- Updated dependencies
+  - convostack@0.0.5
+
 ## 0.0.2
 
 ### Patch Changes

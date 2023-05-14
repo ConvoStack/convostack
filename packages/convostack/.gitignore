@@ -19,6 +19,9 @@ auth-jwt.d.ts
 backend-express.cjs
 backend-express.js
 backend-express.d.ts
+langchain-memory.cjs
+langchain-memory.js
+langchain-memory.d.ts
 frontend-react.cjs
 frontend-react.js
 frontend-react.d.ts
