@@ -46,9 +46,7 @@ const main = async () => {
         agent: new AgentSSEClient(`http://${sseHost}:${ssePort}/api/chat`),
         metadata: {
           displayName: "Echo Agent",
-          primer: "This is demo echo agent. Write me a message, and I will send it back to you!",
-          humanRole: "Human",
-          aiRole: "AI"
+          primer: "This is demo echo agent. Write me a message, and I will send it back to you!"
         }
       }
     }, "default")

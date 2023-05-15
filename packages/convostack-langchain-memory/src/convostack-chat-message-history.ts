@@ -7,24 +7,23 @@ import {
     SystemChatMessage,
 } from "langchain/schema";
 import {IAgentContextHistory} from "@convostack/agent";
+import {AI_ROLE, HUMAN_ROLE} from "@convostack/shared";
 
-export type ConvostackLangchainChatMessageHistoryInput = {
+export type ConvoStackLangchainChatMessageHistoryInput = {
     history: IAgentContextHistory;
-    aiRole: string;
-    humanRole: string;
 };
 
 export class ConvoStackLangchainChatMessageHistory extends BaseListChatMessageHistory {
     private messages: BaseChatMessage[] = [];
 
-    constructor(fields: ConvostackLangchainChatMessageHistoryInput) {
-        const {history, aiRole, humanRole} = fields;
+    constructor(fields: ConvoStackLangchainChatMessageHistoryInput) {
+        const {history} = fields;
         super();
         this.messages = history.map(m => {
             switch (m.role) {
-                case humanRole:
+                case HUMAN_ROLE:
                     return new HumanChatMessage(m.content);
-                case aiRole:
+                case AI_ROLE:
                     return new AIChatMessage(m.content);
                 // TODO should we add support for these message types?
                 // case "system":

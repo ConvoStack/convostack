@@ -1,5 +1,11 @@
 # @convostack/agent-sse-echo-server
 
+## 0.0.5
+
+### Patch Changes
+
+- Standardize message roles
+
 ## 0.0.4
 
 ### Patch Changes

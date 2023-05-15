@@ -1,5 +1,14 @@
 # @convostack/auth-jwt
 
+## 0.0.5
+
+### Patch Changes
+
+- Standardize message roles
+- Updated dependencies
+  - @convostack/auth@0.0.5
+  - @convostack/models@0.0.5
+
 ## 0.0.4
 
 ### Patch Changes

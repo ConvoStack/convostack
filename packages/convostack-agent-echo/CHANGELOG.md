@@ -1,5 +1,13 @@
 # @convostack/agent-echo
 
+## 0.0.5
+
+### Patch Changes
+
+- Standardize message roles
+- Updated dependencies
+  - @convostack/agent@0.0.5
+
 ## 0.0.4
 
 ### Patch Changes

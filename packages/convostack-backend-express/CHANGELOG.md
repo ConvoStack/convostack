@@ -1,5 +1,16 @@
 # @convostack/backend-express
 
+## 0.0.5
+
+### Patch Changes
+
+- Standardize message roles
+- Updated dependencies
+  - @convostack/shared@0.0.5
+  - @convostack/agent@0.0.5
+  - @convostack/auth@0.0.5
+  - @convostack/models@0.0.5
+
 ## 0.0.4
 
 ### Patch Changes

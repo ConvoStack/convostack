@@ -1,6 +1,6 @@
 {
   "name": "@convostack/agent",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "engines": {
@@ -17,6 +17,7 @@
     "dev": "npm run build -- --watch"
   },
   "devDependencies": {
+    "@convostack/shared": "*",
     "config-tsconfig": "*"
   }
 }

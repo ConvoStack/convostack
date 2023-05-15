@@ -1,5 +1,13 @@
 # be-example-express-sqlite
 
+## 0.0.4
+
+### Patch Changes
+
+- Standardize message roles
+- Updated dependencies
+  - convostack@0.0.6
+
 ## 0.0.3
 
 ### Patch Changes

@@ -1,4 +1,5 @@
 import { IAgent, IAgentMetadata } from "./agent";
+import {AI_ROLE, HUMAN_ROLE} from "@convostack/shared";
 
 export interface IAgentManager {
   getDefaultAgent(): IAgent;
@@ -74,11 +75,13 @@ export class DefaultAgentManager implements IAgentManager {
   }
 
   getAgentHumanRole(key: string): string {
-    return this.agents[key].metadata.humanRole;
+    // TODO consider allowing customization of the Human role string
+    return HUMAN_ROLE;
   }
 
   getAgentAIRole(key: string): string {
-    return this.agents[key].metadata.aiRole;
+    // TODO consider allowing customization of the AI role string
+    return AI_ROLE;
   }
 
   listAvailableAgents(): string[] {
