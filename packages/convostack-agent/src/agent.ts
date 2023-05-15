@@ -1,7 +1,7 @@
 import { IMessage, IUser } from "@convostack/models";
 
 export interface IAgent {
-  // TODO consider optional support for dynamic primers messages?
+  // TODO consider optional support for dynamic primer messages?
   // TODO consider adding an optional stop generating method to cancel a message
   reply(
     context: IAgentContext,
@@ -12,8 +12,6 @@ export interface IAgent {
 export interface IAgentMetadata {
   displayName: string;
   primer: string;
-  humanRole: string;
-  aiRole: string;
   avatarUrl?: string;
 }
 

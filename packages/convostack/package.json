@@ -1,6 +1,6 @@
 {
   "name": "convostack",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -32,6 +32,7 @@
     "@convostack/frontend-react": "*",
     "@convostack/shared": "*",
     "@convostack/storage-engine-prisma-sqlite": "*",
+    "@convostack/langchain-memory": "*",
     "config-tsconfig": "*"
   },
   "devDependencies": {
@@ -60,6 +61,9 @@
     "backend-express.cjs",
     "backend-express.js",
     "backend-express.d.ts",
+    "langchain-memory.cjs",
+    "langchain-memory.js",
+    "langchain-memory.d.ts",
     "frontend-react.cjs",
     "frontend-react.js",
     "frontend-react.d.ts",
@@ -116,6 +120,11 @@
       "types": "./backend-express.d.ts",
       "import": "./backend-express.js",
       "require": "./backend-express.cjs"
+    },
+    "./langchain-memory": {
+      "types": "./langchain-memory.d.ts",
+      "import": "./langchain-memory.js",
+      "require": "./langchain-memory.cjs"
     },
     "./frontend-react": {
       "types": "./frontend-react.d.ts",

@@ -23,6 +23,7 @@
       "src/auth/index.ts",
       "src/auth-jwt/index.ts",
       "src/backend-express/index.ts",
+      "src/langchain-memory/index.ts",
       "src/frontend-react/index.ts",
       "src/models/index.ts",
       "src/shared/index.ts",

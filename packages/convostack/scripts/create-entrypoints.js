@@ -14,6 +14,7 @@ const entrypoints = {
     auth: "auth/index",
     "auth-jwt": "auth-jwt/index",
     "backend-express": "backend-express/index",
+    "langchain-memory": "langchain-memory/index",
     "frontend-react": "frontend-react/index",
     models: "models/index",
     shared: "shared/index",

@@ -1,6 +1,6 @@
 {
-  "name": "@convostack/agent",
-  "version": "0.0.5",
+  "name": "@convostack/langchain-memory",
+  "version": "0.0.6",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "engines": {
@@ -17,7 +17,10 @@
     "dev": "npm run build -- --watch"
   },
   "devDependencies": {
-    "@convostack/shared": "*",
     "config-tsconfig": "*"
+  },
+  "dependencies": {
+    "@convostack/shared": "*",
+    "langchain": "^0.0.75"
   }
 }
