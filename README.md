@@ -1,29 +1,37 @@
-# Convo Stack
+# ConvoStack
 
-Convo Stack Readme.
+ConvoStack is a plug and play embeddable AI chatbot widget and backend deployment framework.
 
-# Getting started
+To learn more about the project and compatible technologies, check out [ConvoStack.ai](https://convostack.ai/).
+
+## Getting started with ConvoStack
+
+To get started with ConvoStack, check out our getting started repo [here](https://github.com/ConvoStack/getting-started)!
+
+## Developing ConvoStack
+
+Only follow these instructions if you're looking to contribute to ConvoStack development. If you're looking to use ConvoStack in your own app, check out the getting started repo [here](https://github.com/ConvoStack/getting-started) instead.
+
+### Monorepo setup
 
 ```bash
-# From repo root, install dependencies
-npm i
+# Clone the monorepo
+https://github.com/ConvoStack/convostack
 
-# Enter dev backend example
-cd examples/be-example-express-sqlite
-# Init dev sqlite db
-npm run migrate
-# Setup dev backend .env
-cp .env.example .env
-# Run the dev backend
-npm run dev
+# Install all dependencies (from root)
+npm install
 
-# Enter dev frontend example
-cd examples/fe-example-react
-# Run the dev frontend
-npm run dev
+# Build
+turbo build
+
+# Watch
+turbo dev
+
+# Run codegen (only necessary after GraphQL or Prisma schema changes)
+turbo codegen
 ```
 
-# Changeset
+### Changeset Workflow
 
 ```bash
 # Add a new changeset
