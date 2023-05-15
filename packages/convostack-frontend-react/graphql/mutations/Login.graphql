@@ -1,9 +1,9 @@
 mutation Login(
-  $email: String!
-  $name: String!
-  $hash: String!
-  $anonymousId: String!
-  $externalId: String!
+  $email: String
+  $name: String
+  $hash: String
+  $anonymousId: String
+  $externalId: String
 ) {
   login(
     email: $email

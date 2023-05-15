@@ -22,3 +22,16 @@ cd examples/fe-example-react
 # Run the dev frontend
 npm run dev
 ```
+
+# Changeset
+
+```bash
+# Add a new changeset
+changeset
+
+# Create new versions of packages
+changeset version
+
+# Publish all changed packages to npm
+changeset publish
+```

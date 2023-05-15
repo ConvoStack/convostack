@@ -148,11 +148,11 @@ export type SubscriptionSubscribeConversationEventsArgs = {
 };
 
 export type LoginMutationVariables = Exact<{
-  email: Scalars['String'];
-  name: Scalars['String'];
-  hash: Scalars['String'];
-  anonymousId: Scalars['String'];
-  externalId: Scalars['String'];
+  email?: InputMaybe<Scalars['String']>;
+  name?: InputMaybe<Scalars['String']>;
+  hash?: InputMaybe<Scalars['String']>;
+  anonymousId?: InputMaybe<Scalars['String']>;
+  externalId?: InputMaybe<Scalars['String']>;
 }>;
 
 
@@ -199,7 +199,7 @@ export type SubscribeConversationEventsSubscription = { __typename?: 'Subscripti
 
 
 export const LoginDocument = `
-    mutation Login($email: String!, $name: String!, $hash: String!, $anonymousId: String!, $externalId: String!) {
+    mutation Login($email: String, $name: String, $hash: String, $anonymousId: String, $externalId: String) {
   login(
     email: $email
     name: $name
