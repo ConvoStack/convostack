@@ -20,6 +20,7 @@ const MessageList: React.FC<MessageListProps> = ({
   setIsAgentTyping,
   data,
 }) => {
+  const [width, setWidth] = useState<null | string>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [conversationEvents, setConversationEvents] = useState<MessageSent[]>(
     []
@@ -82,6 +83,26 @@ const MessageList: React.FC<MessageListProps> = ({
     }
   }, [streams.length]);
 
+  useEffect(() => {
+    const getWidth = () => {
+      if (outerDiv.current) {
+        const newWidth =
+          outerDiv.current.getBoundingClientRect().width.toString() + "px";
+        width !== newWidth && setWidth(newWidth);
+      }
+    };
+
+    getWidth();
+
+    // Call getWidth again whenever the component resizes
+    window.addEventListener("resize", getWidth);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", getWidth);
+    };
+  }, []);
+
   return (
     <div ref={outerDiv} className="bg-white h-full overflow-scroll">
       <div ref={innerDiv} className="flex flex-col">
@@ -94,6 +115,7 @@ const MessageList: React.FC<MessageListProps> = ({
                 message.content && (
                   <Message
                     key={index}
+                    width={width}
                     message={{ text: message.content, author: message.role }}
                     className={
                       index === conversationEvents.length - 1 &&
@@ -106,6 +128,7 @@ const MessageList: React.FC<MessageListProps> = ({
             )}
             {streams.length !== 0 && (
               <Message
+                width={width}
                 message={{ text: streams.join(""), author: "AI" }}
                 className={"mb-3"}
               />
