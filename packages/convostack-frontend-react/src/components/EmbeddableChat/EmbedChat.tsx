@@ -57,14 +57,16 @@ const EmbedChat: React.FC<EmbedChatProps> = ({ id, customStyling }) => {
   return (
     <div
       ref={outerDiv}
-      className={`${customStyling?.embedHeight || "h-64"} ${
+      className={`${customStyling?.embedHeight || "h-96"} ${
         customStyling?.embedWidth || "w-[400px]"
       } max-sm:max-w-[100vw]`}
     >
       {graphqlUrl === "" ? (
         <Loader />
       ) : !embedIsConversationListVisible && embedActiveConversationId ? (
-        <>
+        <div
+          className={`${customStyling?.embedHeight || "h-96"} flex flex-col`}
+        >
           <Header id={id} />
           <MessageList
             style={{ height: `calc(${height} - 112px` }}
@@ -76,7 +78,7 @@ const EmbedChat: React.FC<EmbedChatProps> = ({ id, customStyling }) => {
             isAgentTyping={isAgentTyping}
             activeConversationId={embedActiveConversationId}
           />
-        </>
+        </div>
       ) : (
         <ConversationList id={id} style={{ height: `calc(${height} - 56px` }} />
       )}

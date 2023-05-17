@@ -27,10 +27,8 @@ ReactDOM.render(
       }}
     >
       <MyComponent text={"Dev's existing content"}></MyComponent>
-      <div className="flex flex-col">
-        <p className="text-black text-5xl">TEST</p>
+      <div className="flex flex-row">
         <EmbedChat id={"test"} />
-        <p className="text-black text-5xl">TEST</p>
         <EmbedChat id={"test2"} />
         <EmbedChat id={"test3"} />
         {/* <h1 className="text-center text-5xl text-black">HEY</h1>

@@ -17,14 +17,17 @@ import {
   setEmbedData,
 } from "../redux/slice";
 
-let cleanupFunc: (() => void) | undefined = undefined;
+interface CleanupFuncMap {
+  [key: string]: (() => void) | undefined;
+}
+const cleanupFuncs: CleanupFuncMap = {};
 
-const setCleanupFunc = (cleanup: () => void) => {
-  cleanupFunc = cleanup;
+const setCleanupFunc = (key: string, cleanup: () => void) => {
+  cleanupFuncs[key] = cleanup;
 };
 
-const getCleanupFunc = () => {
-  return cleanupFunc;
+const getCleanupFunc = (key: string) => {
+  return cleanupFuncs[key];
 };
 
 const useConvoStack = () => {
@@ -55,7 +58,7 @@ const useConvoStack = () => {
     context?: { [key: string]: string },
     key?: string
   ): Promise<string> => {
-    const fetchedCleanup = getCleanupFunc();
+    const fetchedCleanup = getCleanupFunc(key || "widget");
     fetchedCleanup && fetchedCleanup();
     if (key) {
       dispatch(setEmbedData({ key: key, value: null }));
@@ -95,7 +98,7 @@ const useConvoStack = () => {
             complete: () => console.log("Subscription completed"),
           }
         );
-        setCleanupFunc(subscriptionCleanup);
+        setCleanupFunc(key || "widget", subscriptionCleanup);
       });
       if (agent) {
         dispatch(setAgent(agent));
@@ -138,7 +141,7 @@ const useConvoStack = () => {
             complete: () => console.log("Subscription completed"),
           }
         );
-        setCleanupFunc(subscriptionCleanup);
+        setCleanupFunc(key || "widget", subscriptionCleanup);
       });
       if (agent) {
         dispatch(setAgent(agent));
