@@ -1,5 +1,13 @@
 # be-example-express-sqlite
 
+## 0.0.6
+
+### Patch Changes
+
+- FE export embed chat component/resolved bug fixes
+- Updated dependencies
+  - convostack@0.0.8
+
 ## 0.0.5
 
 ### Patch Changes

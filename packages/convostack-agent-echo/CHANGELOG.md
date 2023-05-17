@@ -1,5 +1,13 @@
 # @convostack/agent-echo
 
+## 0.0.7
+
+### Patch Changes
+
+- FE export embed chat component/resolved bug fixes
+- Updated dependencies
+  - @convostack/agent@0.0.7
+
 ## 0.0.6
 
 ### Patch Changes

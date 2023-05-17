@@ -1,5 +1,11 @@
 # @convostack/frontend-react
 
+## 0.0.7
+
+### Patch Changes
+
+- FE export embed chat component/resolved bug fixes
+
 ## 0.0.6
 
 ### Patch Changes

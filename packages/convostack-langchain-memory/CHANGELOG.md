@@ -1,5 +1,13 @@
 # @convostack/langchain-memory
 
+## 0.0.8
+
+### Patch Changes
+
+- FE export embed chat component/resolved bug fixes
+- Updated dependencies
+  - @convostack/shared@0.0.7
+
 ## 0.0.7
 
 ### Patch Changes

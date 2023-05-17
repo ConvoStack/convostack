@@ -1,5 +1,25 @@
 # convostack
 
+## 0.0.8
+
+### Patch Changes
+
+- FE export embed chat component/resolved bug fixes
+- Updated dependencies
+  - config-tsconfig@0.0.5
+  - @convostack/agent@0.0.7
+  - @convostack/agent-echo@0.0.7
+  - @convostack/agent-sse@0.0.7
+  - @convostack/agent-sse-echo-server@0.0.7
+  - @convostack/auth@0.0.7
+  - @convostack/auth-jwt@0.0.7
+  - @convostack/backend-express@0.0.7
+  - @convostack/frontend-react@0.0.7
+  - @convostack/langchain-memory@0.0.8
+  - @convostack/models@0.0.7
+  - @convostack/shared@0.0.7
+  - @convostack/storage-engine-prisma-sqlite@0.0.7
+
 ## 0.0.7
 
 ### Patch Changes

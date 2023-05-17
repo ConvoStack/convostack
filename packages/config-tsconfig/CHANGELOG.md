@@ -1,5 +1,11 @@
 # config-tsconfig
 
+## 0.0.5
+
+### Patch Changes
+
+- FE export embed chat component/resolved bug fixes
+
 ## 0.0.4
 
 ### Patch Changes

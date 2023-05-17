@@ -1,5 +1,14 @@
 # @convostack/agent-sse
 
+## 0.0.7
+
+### Patch Changes
+
+- FE export embed chat component/resolved bug fixes
+- Updated dependencies
+  - @convostack/agent@0.0.7
+  - @convostack/shared@0.0.7
+
 ## 0.0.6
 
 ### Patch Changes

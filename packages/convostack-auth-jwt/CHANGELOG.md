@@ -1,5 +1,14 @@
 # @convostack/auth-jwt
 
+## 0.0.7
+
+### Patch Changes
+
+- FE export embed chat component/resolved bug fixes
+- Updated dependencies
+  - @convostack/auth@0.0.7
+  - @convostack/models@0.0.7
+
 ## 0.0.6
 
 ### Patch Changes
