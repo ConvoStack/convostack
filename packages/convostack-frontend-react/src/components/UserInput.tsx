@@ -71,7 +71,7 @@ const UserInput: React.FC<UserInputProps> = ({ isAgentTyping }) => {
           onKeyDown={handleKeyDown}
         />
         {isAgentTyping ? (
-          <ThreeDotsAnimation className="mr-2" />
+          <ThreeDotsAnimation className="mr-2 w-10 h-10 -mb-6 items-center" />
         ) : (
           <button
             onClick={() => handleButtonSubmit(inputValue)}
