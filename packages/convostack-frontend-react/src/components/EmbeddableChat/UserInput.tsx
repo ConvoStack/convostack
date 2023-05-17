@@ -63,7 +63,7 @@ const UserInput: React.FC<UserInputProps> = ({
   }
 
   return (
-    <div className="border-t-1 relative">
+    <div className="border-t-1">
       <div className="w-full min-h-14 bg-off-white sm:rounded-bl-lg sm:rounded-br-lg flex items-center max-h-36 scrollbar-hidden py-4 focus-within:shadow-md">
         <textarea
           placeholder="Please type here..."

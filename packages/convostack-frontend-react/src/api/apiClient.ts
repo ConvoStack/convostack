@@ -10,8 +10,10 @@ const fetchTokens = async (graphqlUrl: string, userData: UserData | undefined ) 
   const refreshToken = localStorage.getItem('refreshTokenConvoStack')
   const accessTokenTime = localStorage.getItem('accessTokenExpiryConvoStack');
   const refreshTokenTime = localStorage.getItem('refreshTokenExpiryConvoStack');
+  const userDataLocalStorage = localStorage.getItem('userDataConvoStack');
   const currentTime = Date.now();
-  if (!accessToken || !refreshToken || currentTime > Number(refreshTokenTime)) {
+  console.log(userDataLocalStorage !== JSON.stringify(userData))
+  if (!accessToken || !refreshToken || currentTime > Number(refreshTokenTime) || userDataLocalStorage !== JSON.stringify(userData)) {
     try {
       const data: LoginMutation = await tempApiClient.request(LoginDocument, userData);
       const { accessToken, refreshToken } = data.login;
@@ -25,6 +27,7 @@ const fetchTokens = async (graphqlUrl: string, userData: UserData | undefined ) 
         "refreshTokenExpiryConvoStack",
         (refreshToken.expAt * 1000).toString()
       );
+      localStorage.setItem("userDataConvoStack", JSON.stringify(userData));
     } catch (error) {
       console.error(error);
     }

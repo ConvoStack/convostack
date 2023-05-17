@@ -12,11 +12,11 @@ ReactDOM.render(
       graphqlUrl="http://localhost:3000/graphql"
       websocketUrl="ws://localhost:3000/graphql"
       userData={{
-        email: "xx.xyz@gmail.com",
-        name: "xx",
+        email: "m@g.com",
+        name: "zxx",
         anonymousId: "",
-        hash: "420",
-        externalId: "xyzextid",
+        hash: "z420",
+        externalId: "m",
       }}
       customStyling={{
         headerColor: "bg-black",

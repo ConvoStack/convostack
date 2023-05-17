@@ -26,7 +26,6 @@ const App: React.FC<Omit<ConvoStackWrapperProps, "children">> = ({
   const { isConversationWindowVisible, toggleWidget } = useConvoStack();
   const [isShowing, setIsShowing] = useState<boolean>(false);
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(setWebsocketlUrl(websocketUrl));
     dispatch(setGraphqlUrl(graphqlUrl));
@@ -46,7 +45,7 @@ const App: React.FC<Omit<ConvoStackWrapperProps, "children">> = ({
 
   return (
     <CustomIconsContext.Provider value={icons}>
-      <div>
+      <div className="z-50">
         {isShowing && (
           <div
             className={
