@@ -187,6 +187,7 @@ const useConvoStack = () => {
         context: context,
       }
     );
+    dispatch(setContext(context));
   };
 
   return {

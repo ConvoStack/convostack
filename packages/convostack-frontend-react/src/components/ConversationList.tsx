@@ -90,15 +90,14 @@ const ConversationList: React.FC<ConversationListProps> = ({
           <>
             {conversationArray.length !== 0 &&
               conversationArray.map((item, index) => (
-                <div key={index}>
-                  <ConversationListItem
-                    title={item.title || ""}
-                    headline={item.lastMessage?.content || ""}
-                    updatedAt={item.lastMessage?.createdAt || ""}
-                    conversationId={item.id}
-                    avatarUrl={item.agent.avatarUrl || ""}
-                  />
-                </div>
+                <ConversationListItem
+                  key={index}
+                  title={item.title || ""}
+                  headline={item.lastMessage?.content || ""}
+                  updatedAt={item.lastMessage?.createdAt || ""}
+                  conversationId={item.id}
+                  avatarUrl={item.agent.avatarUrl || ""}
+                />
               ))}
           </>
         )}
