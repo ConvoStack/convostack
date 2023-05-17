@@ -2,7 +2,7 @@ import { Provider } from "react-redux";
 import App from "./App";
 import store from "./redux";
 import { CustomStyling, CustomIcons, UserData } from "./types/CustomStyling";
-import "../src/output.css";
+import "../src/tailwind.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 export interface ConvoStackWrapperProps {
