@@ -1,7 +1,8 @@
 import { MutableRefObject, useEffect, useRef, useState } from "react";
-import useConvoStack from "../hooks/useConvoStack";
-import LoaderSpinner from "./LoaderSpinner";
-import Message from "./Message";
+import { useDispatch } from "react-redux";
+import useConvoStack from "../../hooks/useConvoStack";
+import LoaderSpinner from "../LoaderSpinner";
+import Message from "../Message";
 
 interface MessageSent {
   content: string;
@@ -11,18 +12,20 @@ interface MessageSent {
 interface MessageListProps {
   isAgentTyping: boolean;
   setIsAgentTyping: (arg: boolean) => void;
+  data: any;
 }
 
 const MessageList: React.FC<MessageListProps> = ({
   isAgentTyping,
   setIsAgentTyping,
+  data,
 }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [conversationEvents, setConversationEvents] = useState<MessageSent[]>(
     []
   );
   const [streams, setStreams] = useState<string[]>([]);
-  const { data } = useConvoStack();
+
   const onNext = (data: any) => {
     const conversationEvent = data.data?.subscribeConversationEvents as any;
     if (conversationEvent.kind === "message_part") {
@@ -80,10 +83,10 @@ const MessageList: React.FC<MessageListProps> = ({
   }, [streams.length]);
 
   return (
-    <div ref={outerDiv} className="bg-white relative h-full overflow-scroll">
-      <div ref={innerDiv} className="relative flex flex-col">
+    <div ref={outerDiv} className="bg-white h-full overflow-scroll">
+      <div ref={innerDiv} className="flex flex-col">
         {isLoading ? (
-          <LoaderSpinner className="mx-auto mt-12" />
+          <LoaderSpinner className="mx-auto mt-12 z-0" />
         ) : (
           <>
             {conversationEvents.map(

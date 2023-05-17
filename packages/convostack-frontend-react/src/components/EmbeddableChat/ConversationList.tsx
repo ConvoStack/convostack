@@ -1,23 +1,19 @@
 import { useGetConversationsQuery } from "@graphql";
 import { useContext, useEffect } from "react";
-import { createApiClient } from "../api/apiClient";
-import { CustomIconsContext } from "../App";
-import PencilSquareIcon from "../assets/PencilSquareIcon";
-import XIcon from "../assets/XIcon";
-import useConvoStack from "../hooks/useConvoStack";
-import ConversationListItem from "./ConversationListItem";
-import LoaderSpinner from "./LoaderSpinner";
+import { createApiClient } from "../../api/apiClient";
+import { CustomIconsContext } from "../../App";
+import PencilSquareIcon from "../../assets/PencilSquareIcon";
+import useConvoStack from "../../hooks/useConvoStack";
+import ConversationListItem from "../ConversationListItem";
+import LoaderSpinner from "../LoaderSpinner";
 
 interface ConversationListProps {
-  onClickClose: () => void;
+  id: string;
 }
 
-const ConversationList: React.FC<ConversationListProps> = ({
-  onClickClose,
-}) => {
+const ConversationList: React.FC<ConversationListProps> = ({ id }) => {
   const icons = useContext(CustomIconsContext);
   const { graphqlUrl, styling, userData, openConversation } = useConvoStack();
-  console.log(userData);
   const { data, isFetching, isLoading } = useGetConversationsQuery(
     createApiClient(graphqlUrl, userData),
     undefined,
@@ -35,22 +31,20 @@ const ConversationList: React.FC<ConversationListProps> = ({
 
   useEffect(() => {
     if (!isFetching && conversationArray.length === 0) {
-      openConversation(null);
+      openConversation(null, undefined, undefined, id);
     }
   }, [isFetching]);
 
   return (
     <>
       <div
-        className={`w-full min-h-16 py-4 ${
+        className={`py-4 ${
           styling?.headerColor || "bg-blue-gradient"
-        } sm:rounded-tl-lg sm:rounded-tr-lg sm:flex justify-between items-center hidden`}
+        } flex justify-between items-center`}
       >
         <div
-          className="left-0 absolute hover:cursor-pointer"
-          onClick={() => {
-            openConversation(null);
-          }}
+          className="left-0 hover:cursor-pointer"
+          onClick={() => openConversation(null, undefined, undefined, id)}
         >
           {icons?.createNewConversationIcon || (
             <PencilSquareIcon className="w-6 h-6 ml-4" />
@@ -62,29 +56,7 @@ const ConversationList: React.FC<ConversationListProps> = ({
           </p>
         </div>
       </div>
-      <div
-        className={`w-full min-h-36 ${
-          styling?.headerColor || "bg-blue-gradient"
-        } sm:rounded-tl-lg sm:rounded-tr-lg flex flex-wrap items-center py-4 sm:hidden justify-between`}
-      >
-        <div
-          className="hover:cursor-pointer"
-          onClick={() => openConversation(null)}
-        >
-          {icons?.createNewConversationIcon || (
-            <PencilSquareIcon className="w-6 h-6 ml-4" />
-          )}
-        </div>
-        <div className="mx-auto">
-          <p className="font-semibold mx-auto">
-            {styling?.headerText || "ConvoStack Chat"}
-          </p>
-        </div>
-        <div className="hover:cursor-pointer" onClick={onClickClose}>
-          <XIcon className="w-6 h-6 mr-4" />
-        </div>
-      </div>
-      <div className="bg-white flex-grow overflow-y-scroll flex flex-col sm:rounded-b-lg pb-4">
+      <div className="h-[312px] bg-white overflow-y-scroll flex flex-col pb-4">
         {isLoading ? (
           <LoaderSpinner className="mx-auto mt-8" />
         ) : (
@@ -98,6 +70,7 @@ const ConversationList: React.FC<ConversationListProps> = ({
                     updatedAt={item.lastMessage?.createdAt || ""}
                     conversationId={item.id}
                     avatarUrl={item.agent.avatarUrl || ""}
+                    id={id}
                   />
                 </div>
               ))}

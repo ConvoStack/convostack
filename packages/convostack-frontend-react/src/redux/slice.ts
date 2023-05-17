@@ -9,9 +9,12 @@ export interface ConvoStackState {
   agent: string | null;
   isConversationWindowVisible: boolean;
   isConversationListVisible: boolean;
-  isCreatingNewConversation: boolean;
   styling: CustomStyling | null;
-  userData: UserData | undefined
+  userData: UserData | undefined;
+  data: any;
+  embedActiveConversationId: { [key: string]: string | null };
+  embedIsConversationListVisible: { [key: string]: boolean }; 
+  embedData: { [key: string]: any };
 }
 
 const initialState: ConvoStackState = {
@@ -22,9 +25,12 @@ const initialState: ConvoStackState = {
   agent: null,
   isConversationWindowVisible: false,
   isConversationListVisible: false,
-  isCreatingNewConversation: false,
   styling: null,
   userData: undefined,
+  data: null,
+  embedActiveConversationId: {},
+  embedIsConversationListVisible: {},
+  embedData: {}
 };
 
 const conversationSlice = createSlice({
@@ -52,14 +58,26 @@ const conversationSlice = createSlice({
     setAgent(state, action) {
       state.agent = action.payload;
     },
-    setIsCreatingNewConversation(state, action) {
-      state.isCreatingNewConversation = action.payload;
-    },
     setStyling(state, action) {
       state.styling = action.payload
     },
     setUserData(state, action) {
       state.userData = action.payload
+    },
+    setData(state, action) {
+      state.data = action.payload
+    },
+    setEmbedConversationId(state, action) {
+      const { key, value } = action.payload
+      state.embedActiveConversationId[key] = value
+    },
+    setEmbedIsConversationListVisible(state, action) {
+      const { key, value } = action.payload
+      state.embedIsConversationListVisible[key] = value
+    },
+    setEmbedData(state, action) {
+      const { key, value } = action.payload
+      state.embedData[key] = value
     }
   },
 });
@@ -72,9 +90,12 @@ export const {
   setShowConversationWindow, 
   setisConversationListVisible, 
   setAgent, 
-  setIsCreatingNewConversation, 
   setStyling, 
-  setUserData 
+  setUserData,
+  setData,
+  setEmbedConversationId,
+  setEmbedIsConversationListVisible,
+  setEmbedData
 } = conversationSlice.actions;
 
 export default conversationSlice.reducer;

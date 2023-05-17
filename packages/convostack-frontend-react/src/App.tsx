@@ -1,4 +1,3 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createContext, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import ConversationWindow from "./components/ConversationWindow";
@@ -25,10 +24,8 @@ const App: React.FC<Omit<ConvoStackWrapperProps, "children">> = ({
   icons,
 }) => {
   const { isConversationWindowVisible, toggleWidget } = useConvoStack();
-  const queryClient = new QueryClient();
   const [isShowing, setIsShowing] = useState<boolean>(false);
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(setWebsocketlUrl(websocketUrl));
     dispatch(setGraphqlUrl(graphqlUrl));
@@ -47,49 +44,45 @@ const App: React.FC<Omit<ConvoStackWrapperProps, "children">> = ({
   }, [isConversationWindowVisible]);
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <CustomIconsContext.Provider value={icons}>
-        <div>
-          {isShowing && (
+    <CustomIconsContext.Provider value={icons}>
+      <div className="z-50">
+        {isShowing && (
+          <div
+            className={
+              isConversationWindowVisible
+                ? "animate-conversation-window-fade-enter"
+                : "animate-conversation-window-fade-out"
+            }
+          >
+            <ConversationWindow
+              onClickClose={() => toggleWidget(!isConversationWindowVisible)}
+            />
+          </div>
+        )}
+        <div className="sm:hidden fixed">
+          {!isShowing && (
             <div
               className={
                 isConversationWindowVisible
-                  ? "animate-conversation-window-fade-enter"
-                  : "animate-conversation-window-fade-out"
+                  ? "animate-conversation-window-fade-out"
+                  : ""
               }
             >
-              <ConversationWindow
+              <LaunchButton
                 onClickClose={() => toggleWidget(!isConversationWindowVisible)}
+                isConversationWindowVisible={isConversationWindowVisible}
               />
             </div>
           )}
-          <div className="sm:hidden fixed">
-            {!isShowing && (
-              <div
-                className={
-                  isConversationWindowVisible
-                    ? "animate-conversation-window-fade-out"
-                    : ""
-                }
-              >
-                <LaunchButton
-                  onClickClose={() =>
-                    toggleWidget(!isConversationWindowVisible)
-                  }
-                  isConversationWindowVisible={isConversationWindowVisible}
-                />
-              </div>
-            )}
-          </div>
-          <div className="max-sm:hidden">
-            <LaunchButton
-              onClickClose={() => toggleWidget(!isConversationWindowVisible)}
-              isConversationWindowVisible={isConversationWindowVisible}
-            />
-          </div>
         </div>
-      </CustomIconsContext.Provider>
-    </QueryClientProvider>
+        <div className="max-sm:hidden">
+          <LaunchButton
+            onClickClose={() => toggleWidget(!isConversationWindowVisible)}
+            isConversationWindowVisible={isConversationWindowVisible}
+          />
+        </div>
+      </div>
+    </CustomIconsContext.Provider>
   );
 };
 

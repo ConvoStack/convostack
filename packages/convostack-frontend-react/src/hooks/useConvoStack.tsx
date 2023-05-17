@@ -1,14 +1,20 @@
-import { UpdateConversationContextDocument } from "@graphql";
+import {
+  SubscribeConversationEventsDocument,
+  UpdateConversationContextDocument,
+} from "@graphql";
 import { useDispatch, useSelector } from "react-redux";
-import { createApiClient } from "../api/apiClient";
+import { createApiClient, createWsClient } from "../api/apiClient";
 import {
   setConversationId,
   setContext,
   setShowConversationWindow,
   setisConversationListVisible,
   setAgent,
-  setIsCreatingNewConversation,
   ConvoStackState,
+  setData,
+  setEmbedIsConversationListVisible,
+  setEmbedConversationId,
+  setEmbedData,
 } from "../redux/slice";
 
 const useConvoStack = () => {
@@ -16,50 +22,125 @@ const useConvoStack = () => {
   const {
     graphqlUrl,
     websocketUrl,
-    activeConversationId,
     isConversationWindowVisible,
-    isConversationListVisible,
-    agent,
-    context,
-    isCreatingNewConversation,
     styling,
     userData,
+    agent,
+    context,
+    activeConversationId,
+    isConversationListVisible,
+    data,
   } = useSelector((state: any) => state.conversation as ConvoStackState);
-
   const toggleWidget = (arg: boolean) => {
-    dispatch(setShowConversationWindow(arg));
+    if (activeConversationId && !isConversationWindowVisible) {
+      openConversation(activeConversationId);
+    } else {
+      dispatch(setShowConversationWindow(arg));
+    }
   };
 
   const openConversation = (
     conversationId: string | null,
     agent?: string | null,
-    context?: { [key: string]: string }
+    context?: { [key: string]: string },
+    key?: string
   ) => {
-    if (conversationId === null) {
-      dispatch(setIsCreatingNewConversation(true));
+    if (key) {
+      dispatch(setEmbedData({ key: key, value: null }));
+      createWsClient(websocketUrl, graphqlUrl, userData).subscribe(
+        {
+          query: SubscribeConversationEventsDocument,
+          variables: {
+            conversationId: conversationId,
+            agent: agent,
+            context: context,
+          },
+        },
+        {
+          next: (data: any) => {
+            if (
+              data.data?.subscribeConversationEvents.kind ===
+              "conversation_metadata"
+            ) {
+              dispatch(
+                setEmbedConversationId({
+                  key: key,
+                  value: data.data?.subscribeConversationEvents.payload.id,
+                })
+              );
+            }
+            dispatch(setEmbedData({ key: key, value: data }));
+          },
+          error: (error: any) => console.error("Subscription error:", error),
+          complete: () => console.log("Subscription completed"),
+        }
+      );
+      if (agent) {
+        dispatch(setAgent(agent));
+      }
+      if (context) {
+        dispatch(setContext(context));
+      }
+      dispatch(setEmbedIsConversationListVisible({ key: key, value: false }));
     } else {
-      dispatch(setConversationId(conversationId));
+      dispatch(setData(null));
+      createWsClient(websocketUrl, graphqlUrl, userData).subscribe(
+        {
+          query: SubscribeConversationEventsDocument,
+          variables: {
+            conversationId: conversationId,
+            agent: agent,
+            context: context,
+          },
+        },
+        {
+          next: (data: any) => {
+            if (
+              data.data?.subscribeConversationEvents.kind ===
+              "conversation_metadata"
+            ) {
+              dispatch(
+                setConversationId(
+                  data.data?.subscribeConversationEvents.payload.id
+                )
+              );
+            }
+            dispatch(setData(data));
+          },
+          error: (error: any) => console.error("Subscription error:", error),
+          complete: () => console.log("Subscription completed"),
+        }
+      );
+      if (agent) {
+        dispatch(setAgent(agent));
+      }
+      if (context) {
+        dispatch(setContext(context));
+      }
+      dispatch(setisConversationListVisible(false));
+      dispatch(setShowConversationWindow(true));
     }
-    if (agent) {
-      dispatch(setAgent(agent));
-    }
-    if (context) {
-      dispatch(setContext(context));
-    }
-    dispatch(setisConversationListVisible(false));
-    dispatch(setShowConversationWindow(true));
   };
 
-  const openConversationList = () => {
-    dispatch(setisConversationListVisible(true));
-    dispatch(setShowConversationWindow(true));
+  const openConversationList = (key?: string) => {
+    if (key) {
+      dispatch(setEmbedIsConversationListVisible({ key: key, value: true }));
+    } else {
+      dispatch(setisConversationListVisible(true));
+      dispatch(setShowConversationWindow(true));
+    }
   };
 
   const setActiveConversationId = (
     conversationId: string | null,
-    context?: { [key: string]: string }
+    context?: { [key: string]: string },
+    key?: string
   ) => {
-    dispatch(setConversationId(conversationId));
+    if (key) {
+      dispatch(setEmbedConversationId({ key: key, value: conversationId }));
+    } else {
+      dispatch(setConversationId(conversationId));
+    }
     if (context) {
       dispatch(setContext(context));
     }
@@ -88,7 +169,7 @@ const useConvoStack = () => {
     activeConversationId,
     isConversationWindowVisible,
     isConversationListVisible,
-    isCreatingNewConversation,
+    data,
     toggleWidget,
     openConversation,
     setActiveConversationId,

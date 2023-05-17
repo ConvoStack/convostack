@@ -21,13 +21,15 @@ const Header: React.FC<HeaderProps> = ({ onClickClose }) => {
       >
         <div
           className="left-0 absolute hover:cursor-pointer"
-          onClick={() => setActiveConversationId(null)}
+          onClick={() => {
+            setActiveConversationId(null);
+          }}
         >
           {icons?.backArrowIcon || <ArrowLeftIcon className="w-6 h-6 ml-4" />}
         </div>
         <div className="flex w-full">
           <p className="font-semibold mx-auto">
-            {styling?.headerText || "Convo Stack Chat"}
+            {styling?.headerText || "ConvoStack Chat"}
           </p>
         </div>
       </div>
@@ -43,7 +45,7 @@ const Header: React.FC<HeaderProps> = ({ onClickClose }) => {
           {icons?.backArrowIcon || <ArrowLeftIcon className="w-6 h-6 ml-4" />}
         </div>
         <p className="font-semibold mx-auto">
-          {styling?.headerText || "Convo Stack Chat"}
+          {styling?.headerText || "ConvoStack Chat"}
         </p>
         <div className="hover:cursor-pointer" onClick={onClickClose}>
           <XIcon className="w-6 h-6 mr-4" />

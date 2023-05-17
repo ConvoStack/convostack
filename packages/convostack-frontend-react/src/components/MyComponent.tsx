@@ -10,9 +10,6 @@ const MyComponent: React.FC<MyComponentProps> = ({ text }) => {
     isConversationWindowVisible,
     openConversationList,
     openConversation,
-    // TODO activeConversationId unused (fix)
-    // @ts-ignore
-    activeConversationId,
   } = useConvoStack();
   return (
     <div className="flex flex-col">
@@ -34,6 +31,18 @@ const MyComponent: React.FC<MyComponentProps> = ({ text }) => {
         className="bg-red-500 mb-8"
       >
         open new chat
+      </button>
+      <button
+        onClick={() => openConversation(null, undefined, undefined, "test")}
+        className="bg-red-500 mb-8"
+      >
+        open embed chat
+      </button>
+      <button
+        onClick={() => openConversationList("test")}
+        className="bg-red-500 mb-8"
+      >
+        open embed convo list
       </button>
     </div>
   );

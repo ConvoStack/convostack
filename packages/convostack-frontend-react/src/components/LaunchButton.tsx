@@ -30,7 +30,7 @@ const LaunchButton: React.FC<LaunchButtonProps> = ({
   document.addEventListener("mouseup", handleMouseReleased);
   return (
     <button
-      className={`fixed bottom-4 ${
+      className={`z-50 fixed bottom-4 ${
         styling?.widgetLocation === "left"
           ? "left-3 sm:left-4"
           : "right-3 sm:right-4"

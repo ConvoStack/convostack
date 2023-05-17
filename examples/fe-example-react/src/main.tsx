@@ -11,8 +11,8 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       graphqlUrl="http://localhost:3000/graphql"
       websocketUrl="ws://localhost:3000/graphql"
       userData={{
-        email: "xx.xyz@gmail.com",
-        name: "xx",
+        email: "xzx.xyz@gmail.com",
+        name: "zzzzz",
         anonymousId: "",
         hash: "420",
         externalId: "xyzextid",
