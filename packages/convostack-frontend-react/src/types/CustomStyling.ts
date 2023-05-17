@@ -9,6 +9,11 @@ export type CustomStyling = {
   widgetWindowWidth?: string
 }
 
+export type CustomEmbedStyling = {
+  embedHeight?: string
+  embedWidth?: string
+}
+
 export type CustomIcons = {
   widgetLaunchButtonOpenIcon?: React.ReactNode
   widgetLaunchButtonCloseIcon?: React.ReactNode

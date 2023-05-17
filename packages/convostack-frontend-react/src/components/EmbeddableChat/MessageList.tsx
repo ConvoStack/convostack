@@ -13,12 +13,14 @@ interface MessageListProps {
   isAgentTyping: boolean;
   setIsAgentTyping: (arg: boolean) => void;
   data: any;
+  style: React.CSSProperties;
 }
 
 const MessageList: React.FC<MessageListProps> = ({
   isAgentTyping,
   setIsAgentTyping,
   data,
+  style,
 }) => {
   const [width, setWidth] = useState<null | string>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -91,20 +93,15 @@ const MessageList: React.FC<MessageListProps> = ({
         width !== newWidth && setWidth(newWidth);
       }
     };
-
     getWidth();
-
-    // Call getWidth again whenever the component resizes
     window.addEventListener("resize", getWidth);
-
-    // Clean up the event listener on component unmount
     return () => {
       window.removeEventListener("resize", getWidth);
     };
   }, []);
 
   return (
-    <div ref={outerDiv} className="bg-white h-full overflow-auto">
+    <div ref={outerDiv} className="bg-white h-full overflow-auto" style={style}>
       <div ref={innerDiv} className="flex flex-col">
         {isLoading ? (
           <LoaderSpinner className="mx-auto mt-12 z-0" />

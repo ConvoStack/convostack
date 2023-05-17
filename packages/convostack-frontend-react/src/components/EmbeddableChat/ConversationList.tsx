@@ -9,9 +9,10 @@ import LoaderSpinner from "../LoaderSpinner";
 
 interface ConversationListProps {
   id: string;
+  style: React.CSSProperties;
 }
 
-const ConversationList: React.FC<ConversationListProps> = ({ id }) => {
+const ConversationList: React.FC<ConversationListProps> = ({ id, style }) => {
   const icons = useContext(CustomIconsContext);
   const { graphqlUrl, styling, userData, openConversation } = useConvoStack();
   const { data, isFetching, isLoading } = useGetConversationsQuery(
@@ -38,7 +39,7 @@ const ConversationList: React.FC<ConversationListProps> = ({ id }) => {
   return (
     <>
       <div
-        className={`py-4 ${
+        className={`h-14 py-4 ${
           styling?.headerColor || "bg-blue-gradient"
         } flex justify-between items-center`}
       >
@@ -56,7 +57,10 @@ const ConversationList: React.FC<ConversationListProps> = ({ id }) => {
           </p>
         </div>
       </div>
-      <div className="h-[312px] bg-white overflow-y-auto flex flex-col pb-4">
+      <div
+        className="bg-white overflow-y-auto flex flex-col pb-4"
+        style={style}
+      >
         {isLoading ? (
           <LoaderSpinner className="mx-auto mt-8" />
         ) : (

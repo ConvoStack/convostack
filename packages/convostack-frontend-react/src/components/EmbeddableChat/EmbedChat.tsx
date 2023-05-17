@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { MutableRefObject, useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import useConvoStack from "../../hooks/useConvoStack";
 import Loader from "../Loader";
@@ -12,15 +12,19 @@ import {
   setEmbedData,
   setEmbedIsConversationListVisible,
 } from "../../redux/slice";
+import { CustomEmbedStyling } from "../../types/CustomStyling";
 
 interface EmbedChatProps {
   id: string;
+  customStyling?: CustomEmbedStyling;
 }
 
-const EmbedChat: React.FC<EmbedChatProps> = ({ id }) => {
+const EmbedChat: React.FC<EmbedChatProps> = ({ id, customStyling }) => {
   const { graphqlUrl } = useConvoStack();
   const [isAgentTyping, setIsAgentTyping] = useState(false);
   const dispatch = useDispatch();
+  const outerDiv = useRef() as MutableRefObject<HTMLDivElement>;
+  const [height, setHeight] = useState<null | string>(null);
   useEffect(() => {
     dispatch(setEmbedConversationId({ key: id, value: null }));
     dispatch(setEmbedIsConversationListVisible({ key: id, value: false }));
@@ -36,14 +40,34 @@ const EmbedChat: React.FC<EmbedChatProps> = ({ id }) => {
   const embedData = useSelector(
     (state: any) => state.conversation.embedData[id]
   );
+  useEffect(() => {
+    const getHeight = () => {
+      if (outerDiv.current) {
+        const newHeight =
+          outerDiv.current.getBoundingClientRect().height.toString() + "px";
+        height !== newHeight && setHeight(newHeight);
+      }
+    };
+    getHeight();
+    window.addEventListener("resize", getHeight);
+    return () => {
+      window.removeEventListener("resize", getHeight);
+    };
+  }, []);
   return (
-    <div className="h-64 w-[400px]">
+    <div
+      ref={outerDiv}
+      className={`${customStyling?.embedHeight || "h-64"} ${
+        customStyling?.embedWidth || "w-[400px]"
+      } max-sm:max-w-[100vw]`}
+    >
       {graphqlUrl === "" ? (
         <Loader />
       ) : !embedIsConversationListVisible && embedActiveConversationId ? (
         <>
           <Header id={id} />
           <MessageList
+            style={{ height: `calc(${height} - 112px` }}
             isAgentTyping={isAgentTyping}
             setIsAgentTyping={setIsAgentTyping}
             data={embedData}
@@ -54,7 +78,7 @@ const EmbedChat: React.FC<EmbedChatProps> = ({ id }) => {
           />
         </>
       ) : (
-        <ConversationList id={id} />
+        <ConversationList id={id} style={{ height: `calc(${height} - 56px` }} />
       )}
     </div>
   );

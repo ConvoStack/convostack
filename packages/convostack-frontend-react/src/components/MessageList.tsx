@@ -88,13 +88,8 @@ const MessageList: React.FC<MessageListProps> = ({
         width !== newWidth && setWidth(newWidth);
       }
     };
-
     getWidth();
-
-    // Call getWidth again whenever the component resizes
     window.addEventListener("resize", getWidth);
-
-    // Clean up the event listener on component unmount
     return () => {
       window.removeEventListener("resize", getWidth);
     };
