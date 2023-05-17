@@ -78,7 +78,15 @@ export const conversationResolvers: Resolvers = {
           updatedAt: convo.updatedAt.toISOString(),
           lastMessage
         };
-      }));
+      })).then(conversations => {
+        return conversations.sort((a, b) => {
+          const aLastMessageTime = a.lastMessage ? new Date(a.lastMessage.updatedAt).getTime() : new Date(a.updatedAt).getTime();
+          const bLastMessageTime = b.lastMessage ? new Date(b.lastMessage.updatedAt).getTime() : new Date(b.updatedAt).getTime();
+
+          // Sorting in descending order. For ascending order swap `bLastMessageTime - aLastMessageTime`
+          return bLastMessageTime - aLastMessageTime;
+        });
+      });
     }
   },
   Subscription: {
