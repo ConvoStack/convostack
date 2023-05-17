@@ -39,7 +39,7 @@ const ConversationListItem: React.FC<ConversationListProps> = ({
       return date.toLocaleDateString();
     }
   };
-  const onConversationListItemClicked = () => {
+  const onConversationListItemClicked = async () => {
     if (id) {
       openConversation(conversationId, undefined, undefined, id);
     } else {

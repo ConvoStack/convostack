@@ -22,7 +22,6 @@ const EmbedChat: React.FC<EmbedChatProps> = ({ id }) => {
   const [isAgentTyping, setIsAgentTyping] = useState(false);
   const dispatch = useDispatch();
   useEffect(() => {
-    console.log("hit");
     dispatch(setEmbedConversationId({ key: id, value: null }));
     dispatch(setEmbedIsConversationListVisible({ key: id, value: false }));
     dispatch(setEmbedData({ key: id, value: null }));

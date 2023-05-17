@@ -97,7 +97,6 @@ export const {
   setEmbedConversationId,
   setEmbedIsConversationListVisible,
   setEmbedData,
-  setActiveSubscription
 } = conversationSlice.actions;
 
 export default conversationSlice.reducer;

@@ -17,6 +17,16 @@ import {
   setEmbedData,
 } from "../redux/slice";
 
+let cleanupFunc: (() => void) | undefined = undefined;
+
+const setCleanupFunc = (cleanup: () => void) => {
+  cleanupFunc = cleanup;
+};
+
+const getCleanupFunc = () => {
+  return cleanupFunc;
+};
+
 const useConvoStack = () => {
   const dispatch = useDispatch();
   const {
@@ -44,37 +54,49 @@ const useConvoStack = () => {
     agent?: string | null,
     context?: { [key: string]: string },
     key?: string
-  ) => {
+  ): Promise<string> => {
+    const fetchedCleanup = getCleanupFunc();
+    fetchedCleanup && fetchedCleanup();
     if (key) {
       dispatch(setEmbedData({ key: key, value: null }));
-      createWsClient(websocketUrl, graphqlUrl, userData).subscribe(
-        {
-          query: SubscribeConversationEventsDocument,
-          variables: {
-            conversationId: conversationId,
-            agent: agent,
-            context: context,
+      const promise = new Promise<string>((resolve, reject) => {
+        const subscriptionCleanup = createWsClient(
+          websocketUrl,
+          graphqlUrl,
+          userData
+        ).subscribe(
+          {
+            query: SubscribeConversationEventsDocument,
+            variables: {
+              conversationId: conversationId,
+              agent: agent,
+              context: context,
+            },
           },
-        },
-        {
-          next: (data: any) => {
-            if (
-              data.data?.subscribeConversationEvents.kind ===
-              "conversation_metadata"
-            ) {
-              dispatch(
-                setEmbedConversationId({
-                  key: key,
-                  value: data.data?.subscribeConversationEvents.payload.id,
-                })
-              );
-            }
-            dispatch(setEmbedData({ key: key, value: data }));
-          },
-          error: (error: any) => console.error("Subscription error:", error),
-          complete: () => console.log("Subscription completed"),
-        }
-      );
+          {
+            next: (data: any) => {
+              if (
+                data.data?.subscribeConversationEvents.kind ===
+                "conversation_metadata"
+              ) {
+                const generatedConvoId =
+                  data.data?.subscribeConversationEvents.payload.id;
+                dispatch(
+                  setEmbedConversationId({
+                    key: key,
+                    value: generatedConvoId,
+                  })
+                );
+                resolve(generatedConvoId);
+              }
+              dispatch(setEmbedData({ key: key, value: data }));
+            },
+            error: (error: any) => reject(error),
+            complete: () => console.log("Subscription completed"),
+          }
+        );
+        setCleanupFunc(subscriptionCleanup);
+      });
       if (agent) {
         dispatch(setAgent(agent));
       }
@@ -82,40 +104,42 @@ const useConvoStack = () => {
         dispatch(setContext(context));
       }
       dispatch(setEmbedIsConversationListVisible({ key: key, value: false }));
+      return promise;
     } else {
       dispatch(setData(null));
-      const subscribedClient = createWsClient(
-        websocketUrl,
-        graphqlUrl,
-        userData
-      );
-      subscribedClient.subscribe(
-        {
-          query: SubscribeConversationEventsDocument,
-          variables: {
-            conversationId: conversationId,
-            agent: agent,
-            context: context,
+      const promise = new Promise<string>((resolve, reject) => {
+        const subscriptionCleanup = createWsClient(
+          websocketUrl,
+          graphqlUrl,
+          userData
+        ).subscribe(
+          {
+            query: SubscribeConversationEventsDocument,
+            variables: {
+              conversationId: conversationId,
+              agent: agent,
+              context: context,
+            },
           },
-        },
-        {
-          next: (data: any) => {
-            if (
-              data.data?.subscribeConversationEvents.kind ===
-              "conversation_metadata"
-            ) {
-              dispatch(
-                setConversationId(
-                  data.data?.subscribeConversationEvents.payload.id
-                )
-              );
-            }
-            dispatch(setData(data));
-          },
-          error: (error: any) => console.error("Subscription error:", error),
-          complete: () => console.log("Subscription completed"),
-        }
-      );
+          {
+            next: (data: any) => {
+              if (
+                data.data?.subscribeConversationEvents.kind ===
+                "conversation_metadata"
+              ) {
+                const generatedConvoId =
+                  data.data?.subscribeConversationEvents.payload.id;
+                dispatch(setConversationId(generatedConvoId));
+                resolve(generatedConvoId);
+              }
+              dispatch(setData(data));
+            },
+            error: (error: any) => reject(error),
+            complete: () => console.log("Subscription completed"),
+          }
+        );
+        setCleanupFunc(subscriptionCleanup);
+      });
       if (agent) {
         dispatch(setAgent(agent));
       }
@@ -124,6 +148,7 @@ const useConvoStack = () => {
       }
       dispatch(setIsConversationListVisible(false));
       dispatch(setShowConversationWindow(true));
+      return promise;
     }
   };
 
