@@ -1,5 +1,11 @@
 # schema-graphql
 
+## 0.0.6
+
+### Patch Changes
+
+- Updates to prisma cli, misc UI updates
+
 ## 0.0.5
 
 ### Patch Changes

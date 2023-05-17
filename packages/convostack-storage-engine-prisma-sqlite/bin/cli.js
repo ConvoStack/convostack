@@ -36,7 +36,7 @@ function cleanup(dirPath) {
     }
 }
 
-if (command === "migrate") {
+if (command === "migrate" || command === "studio") {
     const dbUrlIndex = args.indexOf("--db-url");
     const dirIndex = args.indexOf("--dir");
     const dbUrl = dbUrlIndex !== -1 ? args[dbUrlIndex + 1] : null;
@@ -52,24 +52,34 @@ if (command === "migrate") {
         process.exit(1);
     }
 
-    dir = setup(dir);
+    if (command === 'migrate') {
+        dir = setup(dir);
 
-    const migrateProcess = spawn("npx", ["prisma", "migrate", "dev", `--schema=${path.join(dir, "schema.prisma")}`], {
-        env: {
-            ...process.env,
-            __CONVOSTACK_PRISMA_DATABASE_URL: dbUrl
-        },
-        stdio: "inherit"
-    });
+        const migrateProcess = spawn("npx", ["prisma", "migrate", "dev", `--schema=${path.join(dir, "schema.prisma")}`], {
+            env: {
+                ...process.env,
+                __CONVOSTACK_PRISMA_DATABASE_URL: dbUrl
+            },
+            stdio: "inherit"
+        });
 
-    migrateProcess.on("error", (err) => {
-        cleanup(path.join(dir, './tmpgen'))
-        console.error(err);
-    });
+        migrateProcess.on("error", (err) => {
+            cleanup(path.join(dir, './tmpgen'))
+            console.error(err);
+        });
 
-    migrateProcess.on("close", (code) => {
-        cleanup(path.join(dir, './tmpgen'))
-    });
+        migrateProcess.on("close", (code) => {
+            cleanup(path.join(dir, './tmpgen'))
+        });
+    } else {
+        const studioProcess = spawn("npx", ["prisma", "studio", `--schema=${path.join(dir, "schema.prisma")}`], {
+            env: {
+                ...process.env,
+                __CONVOSTACK_PRISMA_DATABASE_URL: dbUrl
+            },
+            stdio: "inherit"
+        });
+    }
 } else {
     console.error(`Invalid command: ${command}`);
 }

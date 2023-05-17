@@ -104,7 +104,7 @@ const MessageList: React.FC<MessageListProps> = ({
   }, []);
 
   return (
-    <div ref={outerDiv} className="bg-white h-full overflow-scroll">
+    <div ref={outerDiv} className="bg-white h-full overflow-auto">
       <div ref={innerDiv} className="flex flex-col">
         {isLoading ? (
           <LoaderSpinner className="mx-auto mt-12 z-0" />

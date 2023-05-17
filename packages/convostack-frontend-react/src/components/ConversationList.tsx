@@ -83,7 +83,7 @@ const ConversationList: React.FC<ConversationListProps> = ({
           <XIcon className="w-6 h-6 mr-4" />
         </div>
       </div>
-      <div className="bg-white flex-grow overflow-y-scroll flex flex-col sm:rounded-b-lg pb-4">
+      <div className="bg-white flex-grow overflow-y-auto flex flex-col sm:rounded-b-lg pb-4">
         {isLoading ? (
           <LoaderSpinner className="mx-auto mt-8" />
         ) : (

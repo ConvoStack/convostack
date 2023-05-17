@@ -1,5 +1,11 @@
 # @convostack/agent-sse-echo-server
 
+## 0.0.8
+
+### Patch Changes
+
+- Updates to prisma cli, misc UI updates
+
 ## 0.0.7
 
 ### Patch Changes

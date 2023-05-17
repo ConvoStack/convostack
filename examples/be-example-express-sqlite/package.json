@@ -1,11 +1,12 @@
 {
   "name": "be-example-express-sqlite",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "private": true,
   "scripts": {
     "dev": "ts-node server-demo.ts",
     "dev-sse": "ts-node server-sse-demo.ts",
-    "migrate": "npx convostack-storage-engine-prisma-sqlite migrate --dir ./sqlite-storage --db-url \"file:./dev.db\""
+    "migrate": "npx convostack-storage-engine-prisma-sqlite migrate --dir ./sqlite-storage --db-url \"file:./dev.db\"",
+    "studio": "npx convostack-storage-engine-prisma-sqlite studio --dir ./sqlite-storage --db-url \"file:./dev.db\""
   },
   "dependencies": {
     "@types/express": "^4.17.17",
