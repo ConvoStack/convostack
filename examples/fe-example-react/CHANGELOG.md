@@ -1,5 +1,13 @@
 # fe-example-react
 
+## 0.0.5
+
+### Patch Changes
+
+- Added embed component/styling in FE, reduced react version dep to 17.0.2, updated conversation ordering
+- Updated dependencies
+  - convostack@0.0.7
+
 ## 0.0.4
 
 ### Patch Changes
