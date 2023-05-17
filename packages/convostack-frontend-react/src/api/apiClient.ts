@@ -6,23 +6,23 @@ import { UserData } from '../types/CustomStyling';
 
 const fetchTokens = async (graphqlUrl: string, userData: UserData | undefined ) => {
   const tempApiClient = new GraphQLClient(graphqlUrl);
-  const accessToken = localStorage.getItem('accessToken')
-  const refreshToken = localStorage.getItem('refreshToken')
-  const accessTokenTime = localStorage.getItem('accessTokenExpiry');
-  const refreshTokenTime = localStorage.getItem('refreshTokenExpiry');
+  const accessToken = localStorage.getItem('accessTokenConvoStack')
+  const refreshToken = localStorage.getItem('refreshTokenConvoStack')
+  const accessTokenTime = localStorage.getItem('accessTokenExpiryConvoStack');
+  const refreshTokenTime = localStorage.getItem('refreshTokenExpiryConvoStack');
   const currentTime = Date.now();
   if (!accessToken || !refreshToken || currentTime > Number(refreshTokenTime)) {
     try {
       const data: LoginMutation = await tempApiClient.request(LoginDocument, userData);
       const { accessToken, refreshToken } = data.login;
-      localStorage.setItem("accessToken", accessToken.token);
+      localStorage.setItem("accessTokenConvoStack", accessToken.token);
       localStorage.setItem(
-        "accessTokenExpiry",
+        "accessTokenExpiryConvoStack",
         (accessToken.expAt * 1000).toString()
       );
-      localStorage.setItem("refreshToken", refreshToken.token);
+      localStorage.setItem("refreshTokenConvoStack", refreshToken.token);
       localStorage.setItem(
-        "refreshTokenExpiry",
+        "refreshTokenExpiryConvoStack",
         (refreshToken.expAt * 1000).toString()
       );
     } catch (error) {
@@ -34,9 +34,9 @@ const fetchTokens = async (graphqlUrl: string, userData: UserData | undefined ) 
           refreshToken: refreshToken,
         });
       const { accessToken } = data.refreshAuth;
-      localStorage.setItem("accessToken", accessToken.token);
+      localStorage.setItem("accessTokenConvoStack", accessToken.token);
       localStorage.setItem(
-        "accessTokenExpiry",
+        "accessTokenExpiryConvoStack",
         (accessToken.expAt * 1000).toString()
       );
     } catch (error) {
@@ -47,9 +47,9 @@ const fetchTokens = async (graphqlUrl: string, userData: UserData | undefined ) 
 
 export const createApiClient = (graphqlUrl: string, userData?: UserData | undefined) => {
   const authMiddleware: RequestMiddleware = async (request) => {
-    let accessToken = localStorage.getItem('accessToken')
+    let accessToken = localStorage.getItem('accessTokenConvoStack')
     await fetchTokens(graphqlUrl, userData);
-    accessToken = localStorage.getItem('accessToken')
+    accessToken = localStorage.getItem('accessTokenConvoStack')
     return {
       ...request,
       headers: { ...request.headers, Authorization: `Bearer ${accessToken}` },
@@ -63,9 +63,9 @@ export const createWsClient = (wsUrl: string, graphqlUrl: string, userData?: Use
   const wsClient = createClient({
     url: wsUrl,
     connectionParams: async () => {
-      let accessToken = localStorage.getItem('accessToken')
+      let accessToken = localStorage.getItem('accessTokenConvoStack')
       await fetchTokens(graphqlUrl, userData);
-      accessToken = localStorage.getItem('accessToken')
+      accessToken = localStorage.getItem('accessTokenConvoStack')
       return {
         Authorization: `Bearer ${accessToken}`,
       };
