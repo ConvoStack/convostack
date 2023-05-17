@@ -1,5 +1,14 @@
 # @convostack/agent-sse
 
+## 0.0.8
+
+### Patch Changes
+
+- Updates to prisma cli, misc UI updates
+- Updated dependencies
+  - @convostack/agent@0.0.8
+  - @convostack/shared@0.0.8
+
 ## 0.0.7
 
 ### Patch Changes

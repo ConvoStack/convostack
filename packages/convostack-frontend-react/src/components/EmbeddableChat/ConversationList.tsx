@@ -56,7 +56,7 @@ const ConversationList: React.FC<ConversationListProps> = ({ id }) => {
           </p>
         </div>
       </div>
-      <div className="h-[312px] bg-white overflow-y-scroll flex flex-col pb-4">
+      <div className="h-[312px] bg-white overflow-y-auto flex flex-col pb-4">
         {isLoading ? (
           <LoaderSpinner className="mx-auto mt-8" />
         ) : (

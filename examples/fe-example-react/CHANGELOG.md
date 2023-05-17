@@ -1,5 +1,13 @@
 # fe-example-react
 
+## 0.0.7
+
+### Patch Changes
+
+- Updates to prisma cli, misc UI updates
+- Updated dependencies
+  - convostack@0.0.9
+
 ## 0.0.6
 
 ### Patch Changes

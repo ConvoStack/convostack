@@ -1,5 +1,13 @@
 # @convostack/langchain-memory
 
+## 0.0.9
+
+### Patch Changes
+
+- Updates to prisma cli, misc UI updates
+- Updated dependencies
+  - @convostack/shared@0.0.8
+
 ## 0.0.8
 
 ### Patch Changes
