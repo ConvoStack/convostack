@@ -12,7 +12,6 @@ const fetchTokens = async (graphqlUrl: string, userData: UserData | undefined ) 
   const refreshTokenTime = localStorage.getItem('refreshTokenExpiryConvoStack');
   const userDataLocalStorage = localStorage.getItem('userDataConvoStack');
   const currentTime = Date.now();
-  console.log(userDataLocalStorage !== JSON.stringify(userData))
   if (!accessToken || !refreshToken || currentTime > Number(refreshTokenTime) || userDataLocalStorage !== JSON.stringify(userData)) {
     try {
       const data: LoginMutation = await tempApiClient.request(LoginDocument, userData);

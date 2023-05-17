@@ -40,7 +40,6 @@ const ConversationListItem: React.FC<ConversationListProps> = ({
     }
   };
   const onConversationListItemClicked = () => {
-    console.log("HIT", id);
     if (id) {
       openConversation(conversationId, undefined, undefined, id);
     } else {

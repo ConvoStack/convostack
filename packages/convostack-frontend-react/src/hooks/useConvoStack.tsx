@@ -8,7 +8,7 @@ import {
   setConversationId,
   setContext,
   setShowConversationWindow,
-  setisConversationListVisible,
+  setIsConversationListVisible,
   setAgent,
   ConvoStackState,
   setData,
@@ -84,7 +84,12 @@ const useConvoStack = () => {
       dispatch(setEmbedIsConversationListVisible({ key: key, value: false }));
     } else {
       dispatch(setData(null));
-      createWsClient(websocketUrl, graphqlUrl, userData).subscribe(
+      const subscribedClient = createWsClient(
+        websocketUrl,
+        graphqlUrl,
+        userData
+      );
+      subscribedClient.subscribe(
         {
           query: SubscribeConversationEventsDocument,
           variables: {
@@ -117,7 +122,7 @@ const useConvoStack = () => {
       if (context) {
         dispatch(setContext(context));
       }
-      dispatch(setisConversationListVisible(false));
+      dispatch(setIsConversationListVisible(false));
       dispatch(setShowConversationWindow(true));
     }
   };
@@ -126,7 +131,7 @@ const useConvoStack = () => {
     if (key) {
       dispatch(setEmbedIsConversationListVisible({ key: key, value: true }));
     } else {
-      dispatch(setisConversationListVisible(true));
+      dispatch(setIsConversationListVisible(true));
       dispatch(setShowConversationWindow(true));
     }
   };

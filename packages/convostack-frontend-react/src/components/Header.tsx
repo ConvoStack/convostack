@@ -21,9 +21,7 @@ const Header: React.FC<HeaderProps> = ({ onClickClose }) => {
       >
         <div
           className="left-0 absolute hover:cursor-pointer"
-          onClick={() => {
-            setActiveConversationId(null);
-          }}
+          onClick={() => setActiveConversationId(null)}
         >
           {icons?.backArrowIcon || <ArrowLeftIcon className="w-6 h-6 ml-4" />}
         </div>

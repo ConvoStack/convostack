@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { Client } from 'graphql-ws';
 import { CustomStyling, UserData } from '../types/CustomStyling';
 
 export interface ConvoStackState {
@@ -30,7 +31,7 @@ const initialState: ConvoStackState = {
   data: null,
   embedActiveConversationId: {},
   embedIsConversationListVisible: {},
-  embedData: {}
+  embedData: {},
 };
 
 const conversationSlice = createSlice({
@@ -52,7 +53,7 @@ const conversationSlice = createSlice({
     setShowConversationWindow(state, action) {
       state.isConversationWindowVisible = action.payload;
     },
-    setisConversationListVisible(state, action) {
+    setIsConversationListVisible(state, action) {
       state.isConversationListVisible = action.payload;
     },
     setAgent(state, action) {
@@ -88,14 +89,15 @@ export const {
   setConversationId, 
   setContext, 
   setShowConversationWindow, 
-  setisConversationListVisible, 
+  setIsConversationListVisible, 
   setAgent, 
   setStyling, 
   setUserData,
   setData,
   setEmbedConversationId,
   setEmbedIsConversationListVisible,
-  setEmbedData
+  setEmbedData,
+  setActiveSubscription
 } = conversationSlice.actions;
 
 export default conversationSlice.reducer;
