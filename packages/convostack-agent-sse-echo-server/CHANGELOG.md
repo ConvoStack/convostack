@@ -1,5 +1,11 @@
 # @convostack/agent-sse-echo-server
 
+## 0.0.11
+
+### Patch Changes
+
+- Misc frontend updates, adding postgres and mysql to convostack
+
 ## 0.0.10
 
 ### Patch Changes

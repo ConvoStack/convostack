@@ -1,5 +1,11 @@
 # @convostack/frontend-react
 
+## 0.0.12
+
+### Patch Changes
+
+- Misc frontend updates, adding postgres and mysql to convostack
+
 ## 0.0.11
 
 ### Patch Changes

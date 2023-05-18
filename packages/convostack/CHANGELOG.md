@@ -1,5 +1,27 @@
 # convostack
 
+## 0.0.12
+
+### Patch Changes
+
+- Misc frontend updates, adding postgres and mysql to convostack
+- Updated dependencies
+  - config-tsconfig@0.0.9
+  - @convostack/agent@0.0.11
+  - @convostack/agent-echo@0.0.11
+  - @convostack/agent-sse@0.0.11
+  - @convostack/agent-sse-echo-server@0.0.11
+  - @convostack/auth@0.0.11
+  - @convostack/auth-jwt@0.0.11
+  - @convostack/backend-express@0.0.11
+  - @convostack/frontend-react@0.0.12
+  - @convostack/langchain-memory@0.0.12
+  - @convostack/models@0.0.11
+  - @convostack/shared@0.0.11
+  - @convostack/storage-engine-prisma-mysql@0.0.11
+  - @convostack/storage-engine-prisma-postgres@0.0.11
+  - @convostack/storage-engine-prisma-sqlite@0.0.11
+
 ## 0.0.11
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # schema-graphql
 
+## 0.0.9
+
+### Patch Changes
+
+- Misc frontend updates, adding postgres and mysql to convostack
+
 ## 0.0.8
 
 ### Patch Changes

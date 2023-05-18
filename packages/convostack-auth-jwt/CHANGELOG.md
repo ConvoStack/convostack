@@ -1,5 +1,14 @@
 # @convostack/auth-jwt
 
+## 0.0.11
+
+### Patch Changes
+
+- Misc frontend updates, adding postgres and mysql to convostack
+- Updated dependencies
+  - @convostack/auth@0.0.11
+  - @convostack/models@0.0.11
+
 ## 0.0.10
 
 ### Patch Changes
