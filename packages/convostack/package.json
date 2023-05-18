@@ -32,6 +32,8 @@
     "@convostack/frontend-react": "*",
     "@convostack/shared": "*",
     "@convostack/storage-engine-prisma-sqlite": "*",
+    "@convostack/storage-engine-prisma-postgres": "*",
+    "@convostack/storage-engine-prisma-mysql": "*",
     "@convostack/langchain-memory": "*",
     "config-tsconfig": "*"
   },
@@ -76,6 +78,12 @@
     "storage-engine-prisma-sqlite.cjs",
     "storage-engine-prisma-sqlite.js",
     "storage-engine-prisma-sqlite.d.ts",
+    "storage-engine-prisma-postgres.cjs",
+    "storage-engine-prisma-postgres.js",
+    "storage-engine-prisma-postgres.d.ts",
+    "storage-engine-prisma-mysql.cjs",
+    "storage-engine-prisma-mysql.js",
+    "storage-engine-prisma-mysql.d.ts",
     "index.cjs",
     "index.js",
     "index.d.ts"
@@ -145,6 +153,16 @@
       "types": "./storage-engine-prisma-sqlite.d.ts",
       "import": "./storage-engine-prisma-sqlite.js",
       "require": "./storage-engine-prisma-sqlite.cjs"
+    },
+    "./storage-engine-prisma-postgres": {
+      "types": "./storage-engine-prisma-postgres.d.ts",
+      "import": "./storage-engine-prisma-postgres.js",
+      "require": "./storage-engine-prisma-postgres.cjs"
+    },
+    "./storage-engine-prisma-mysql": {
+      "types": "./storage-engine-prisma-mysql.d.ts",
+      "import": "./storage-engine-prisma-mysql.js",
+      "require": "./storage-engine-prisma-mysql.cjs"
     },
     "./package.json": "./package.json"
   }
