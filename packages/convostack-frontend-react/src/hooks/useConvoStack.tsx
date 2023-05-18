@@ -15,6 +15,7 @@ import {
   setEmbedIsConversationListVisible,
   setEmbedConversationId,
   setEmbedData,
+  setCreatedFirstConversation,
 } from "../redux/slice";
 
 interface CleanupFuncMap {
@@ -43,6 +44,7 @@ const useConvoStack = () => {
     activeConversationId,
     isConversationListVisible,
     data,
+    createdFirstConversation,
   } = useSelector((state: any) => state.conversation as ConvoStackState);
   const toggleWidget = (arg: boolean) => {
     if (activeConversationId && !isConversationWindowVisible) {
@@ -55,7 +57,7 @@ const useConvoStack = () => {
   const openConversation = (
     conversationId: string | null,
     agent?: string | null,
-    context?: { [key: string]: string },
+    context?: { [key: string]: string } | null,
     key?: string
   ): Promise<string> => {
     const fetchedCleanup = getCleanupFunc(key || "widget");
@@ -107,6 +109,7 @@ const useConvoStack = () => {
         dispatch(setContext(context));
       }
       dispatch(setEmbedIsConversationListVisible({ key: key, value: false }));
+      dispatch(setCreatedFirstConversation(true));
       return promise;
     } else {
       dispatch(setData(null));
@@ -151,6 +154,7 @@ const useConvoStack = () => {
       }
       dispatch(setIsConversationListVisible(false));
       dispatch(setShowConversationWindow(true));
+      dispatch(setCreatedFirstConversation(true));
       return promise;
     }
   };
@@ -204,6 +208,7 @@ const useConvoStack = () => {
     isConversationWindowVisible,
     isConversationListVisible,
     data,
+    createdFirstConversation,
     toggleWidget,
     openConversation,
     setActiveConversationId,

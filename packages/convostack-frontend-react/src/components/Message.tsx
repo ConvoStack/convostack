@@ -25,6 +25,30 @@ const Message: React.FC<MessageProps> = ({
         children={message.text}
         remarkPlugins={[remarkGfm]}
         className="text-sm text-left"
+        components={{
+          h1: ({ ...props }) => <h1 className="text-4xl" {...props} />,
+          h2: ({ ...props }) => <h2 className="text-3xl" {...props} />,
+          h3: ({ ...props }) => <h3 className="text-2xl" {...props} />,
+          ol: ({ ...props }) => (
+            <ol className="list-decimal list-inside" {...props} />
+          ),
+          ul: ({ ...props }) => (
+            <ul className="list-disc list-inside" {...props} />
+          ),
+          blockquote: ({ ...props }) => (
+            <blockquote
+              className="border-l-4 border-gray-300 pl-4 my-4"
+              {...props}
+            />
+          ),
+          code: ({ ...props }) => (
+            <code
+              className="text-sm bg-gray-200 p-1 rounded-md whitespace-pre-wrap break-all"
+              {...props}
+              style={{ whiteSpace: "pre-line" }}
+            />
+          ),
+        }}
       />
     </div>
   );

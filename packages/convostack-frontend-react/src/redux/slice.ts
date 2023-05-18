@@ -16,6 +16,7 @@ export interface ConvoStackState {
   embedActiveConversationId: { [key: string]: string | null };
   embedIsConversationListVisible: { [key: string]: boolean }; 
   embedData: { [key: string]: any };
+  createdFirstConversation: boolean;
 }
 
 const initialState: ConvoStackState = {
@@ -32,6 +33,7 @@ const initialState: ConvoStackState = {
   embedActiveConversationId: {},
   embedIsConversationListVisible: {},
   embedData: {},
+  createdFirstConversation: false,
 };
 
 const conversationSlice = createSlice({
@@ -79,6 +81,9 @@ const conversationSlice = createSlice({
     setEmbedData(state, action) {
       const { key, value } = action.payload
       state.embedData[key] = value
+    },
+    setCreatedFirstConversation(state, action) {
+      state.createdFirstConversation = action.payload 
     }
   },
 });
@@ -97,6 +102,7 @@ export const {
   setEmbedConversationId,
   setEmbedIsConversationListVisible,
   setEmbedData,
+  setCreatedFirstConversation
 } = conversationSlice.actions;
 
 export default conversationSlice.reducer;

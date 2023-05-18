@@ -4,7 +4,7 @@ import { RequestMiddleware } from 'graphql-request/src/types';
 import { createClient } from 'graphql-ws';
 import { UserData } from '../types/CustomStyling';
 
-const fetchTokens = async (graphqlUrl: string, userData: UserData | undefined ) => {
+export const fetchTokens = async (graphqlUrl: string, userData: UserData | undefined ) => {
   const tempApiClient = new GraphQLClient(graphqlUrl);
   const accessToken = localStorage.getItem('accessTokenConvoStack')
   const refreshToken = localStorage.getItem('refreshTokenConvoStack')
@@ -14,6 +14,7 @@ const fetchTokens = async (graphqlUrl: string, userData: UserData | undefined ) 
   const currentTime = Date.now();
   if (!accessToken || !refreshToken || currentTime > Number(refreshTokenTime) || userDataLocalStorage !== JSON.stringify(userData)) {
     try {
+      localStorage.setItem("userDataConvoStack", JSON.stringify(userData));
       const data: LoginMutation = await tempApiClient.request(LoginDocument, userData);
       const { accessToken, refreshToken } = data.login;
       localStorage.setItem("accessTokenConvoStack", accessToken.token);
@@ -26,7 +27,6 @@ const fetchTokens = async (graphqlUrl: string, userData: UserData | undefined ) 
         "refreshTokenExpiryConvoStack",
         (refreshToken.expAt * 1000).toString()
       );
-      localStorage.setItem("userDataConvoStack", JSON.stringify(userData));
     } catch (error) {
       console.error(error);
     }

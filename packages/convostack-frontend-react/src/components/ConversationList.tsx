@@ -16,13 +16,17 @@ const ConversationList: React.FC<ConversationListProps> = ({
   onClickClose,
 }) => {
   const icons = useContext(CustomIconsContext);
-  const { graphqlUrl, styling, userData, openConversation } = useConvoStack();
+  const {
+    graphqlUrl,
+    styling,
+    userData,
+    openConversation,
+    agent,
+    context,
+    createdFirstConversation,
+  } = useConvoStack();
   const { data, isFetching, isLoading } = useGetConversationsQuery(
-    createApiClient(graphqlUrl, userData),
-    undefined,
-    {
-      staleTime: 0,
-    }
+    createApiClient(graphqlUrl, userData)
   );
   const conversationArray =
     data !== undefined &&
@@ -31,10 +35,13 @@ const ConversationList: React.FC<ConversationListProps> = ({
     data?.getConversations.length > 0
       ? data.getConversations
       : [];
-
   useEffect(() => {
-    if (!isFetching && conversationArray.length === 0) {
-      openConversation(null);
+    if (
+      !createdFirstConversation &&
+      !isFetching &&
+      conversationArray.length === 0
+    ) {
+      openConversation(null, agent, context);
     }
   }, [isFetching]);
 

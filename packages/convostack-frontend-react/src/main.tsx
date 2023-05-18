@@ -12,11 +12,11 @@ ReactDOM.render(
       graphqlUrl="http://localhost:3000/graphql"
       websocketUrl="ws://localhost:3000/graphql"
       userData={{
-        email: "m@g.com",
-        name: "zxx",
+        email: "",
+        name: "",
         anonymousId: "",
-        hash: "z420",
-        externalId: "m",
+        hash: "",
+        externalId: "-------------",
       }}
       customStyling={{
         headerColor: "bg-black",
@@ -31,8 +31,6 @@ ReactDOM.render(
         <EmbedChat id={"test"} />
         <EmbedChat id={"test2"} />
         <EmbedChat id={"test3"} />
-        {/* <h1 className="text-center text-5xl text-black">HEY</h1>
-        <div className="border border-black w-10 h-10 " /> */}
       </div>
     </ConvoStackWrapper>
   </>,
