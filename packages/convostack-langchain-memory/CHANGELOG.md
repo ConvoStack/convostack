@@ -1,5 +1,13 @@
 # @convostack/langchain-memory
 
+## 0.0.10
+
+### Patch Changes
+
+- UI updates
+- Updated dependencies
+  - @convostack/shared@0.0.9
+
 ## 0.0.9
 
 ### Patch Changes
