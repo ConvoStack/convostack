@@ -7,7 +7,10 @@ import {createServer} from "http";
 import * as dotenv from "dotenv";
 import {DefaultAgentManager} from "convostack/agent";
 import {AgentEcho} from "convostack/agent-echo";
-        
+import {IStorageEngine} from "convostack/models";
+import {StorageEnginePrismaPostgres} from "convostack/storage-engine-prisma-postgres";
+import {StorageEnginePrismaMySQL} from "convostack/storage-engine-prisma-mysql";
+
 dotenv.config();
 
 const port = process.env.PORT || "3000";
@@ -25,8 +28,25 @@ const main = async () => {
     const app = express();
     app.use(cors(corsOptions));
     const httpServer = createServer(app);
-    const storage = new StorageEnginePrismaSQLite(process.env.DATABASE_URL);
-    await storage.init();
+
+    let storage: IStorageEngine;
+    switch (process.env.STORAGE_ENGINE) {
+        case 'sqlite':
+            storage = new StorageEnginePrismaSQLite(process.env.DATABASE_URL);
+            await (storage as StorageEnginePrismaSQLite).init();
+            break;
+        case 'postgres':
+            storage = new StorageEnginePrismaPostgres(process.env.DATABASE_URL);
+            await (storage as StorageEnginePrismaPostgres).init();
+            break;
+        case 'mysql':
+            storage = new StorageEnginePrismaMySQL(process.env.DATABASE_URL);
+            await (storage as StorageEnginePrismaMySQL).init();
+            break;
+        default:
+            throw new Error(`Invalid storage engine: ${process.env.STORAGE_ENGINE}`)
+    }
+
     const backend = new ConvoStackBackendExpress({
         basePath: "/",
         storage,

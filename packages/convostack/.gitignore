@@ -34,6 +34,12 @@ shared.d.ts
 storage-engine-prisma-sqlite.cjs
 storage-engine-prisma-sqlite.js
 storage-engine-prisma-sqlite.d.ts
+storage-engine-prisma-postgres.cjs
+storage-engine-prisma-postgres.js
+storage-engine-prisma-postgres.d.ts
+storage-engine-prisma-mysql.cjs
+storage-engine-prisma-mysql.js
+storage-engine-prisma-mysql.d.ts
 index.cjs
 index.js
 index.d.ts

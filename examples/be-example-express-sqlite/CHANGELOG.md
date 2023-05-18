@@ -1,5 +1,13 @@
 # be-example-express-sqlite
 
+## 0.0.10
+
+### Patch Changes
+
+- Misc frontend updates, adding postgres and mysql to convostack
+- Updated dependencies
+  - convostack@0.0.12
+
 ## 0.0.9
 
 ### Patch Changes

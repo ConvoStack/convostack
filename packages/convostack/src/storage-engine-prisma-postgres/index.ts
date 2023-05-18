@@ -1,0 +1,1 @@
+export * from '@convostack/storage-engine-prisma-postgres';

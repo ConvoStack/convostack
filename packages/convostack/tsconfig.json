@@ -27,7 +27,9 @@
       "src/frontend-react/index.ts",
       "src/models/index.ts",
       "src/shared/index.ts",
-      "src/storage-engine-prisma-sqlite/index.ts"
+      "src/storage-engine-prisma-sqlite/index.ts",
+      "src/storage-engine-prisma-postgres/index.ts",
+      "src/storage-engine-prisma-mysql/index.ts"
     ]
   }
 }

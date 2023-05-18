@@ -1,5 +1,16 @@
 # @convostack/backend-express
 
+## 0.0.11
+
+### Patch Changes
+
+- Misc frontend updates, adding postgres and mysql to convostack
+- Updated dependencies
+  - @convostack/agent@0.0.11
+  - @convostack/auth@0.0.11
+  - @convostack/models@0.0.11
+  - @convostack/shared@0.0.11
+
 ## 0.0.10
 
 ### Patch Changes

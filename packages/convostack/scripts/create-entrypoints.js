@@ -18,7 +18,9 @@ const entrypoints = {
     "frontend-react": "frontend-react/index",
     models: "models/index",
     shared: "shared/index",
-    "storage-engine-prisma-sqlite": "storage-engine-prisma-sqlite/index"
+    "storage-engine-prisma-sqlite": "storage-engine-prisma-sqlite/index",
+    "storage-engine-prisma-postgres": "storage-engine-prisma-postgres/index",
+    "storage-engine-prisma-mysql": "storage-engine-prisma-mysql/index",
 };
 
 // Entrypoints in this list will
