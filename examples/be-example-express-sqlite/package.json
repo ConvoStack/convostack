@@ -3,8 +3,8 @@
   "version": "0.0.9",
   "private": true,
   "scripts": {
-    "dev": "ts-node server-demo.ts",
-    "dev-sse": "ts-node server-sse-demo.ts",
+    "dev": "nodemon src/server-demo.ts",
+    "dev-sse": "nodemon src/server-sse-demo.ts",
     "migrate": "npx convostack-storage-engine-prisma-sqlite migrate --dir ./sqlite-storage --db-url \"file:./dev.db\"",
     "studio": "npx convostack-storage-engine-prisma-sqlite studio --dir ./sqlite-storage --db-url \"file:./dev.db\""
   },
