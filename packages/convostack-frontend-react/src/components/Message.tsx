@@ -48,6 +48,9 @@ const Message: React.FC<MessageProps> = ({
               style={{ whiteSpace: "pre-line" }}
             />
           ),
+          a: ({ ...props }) => (
+            <a className="underline" target="_blank" {...props} />
+          ),
         }}
       />
     </div>
