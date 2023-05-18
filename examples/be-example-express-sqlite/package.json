@@ -13,6 +13,7 @@
     "convostack": "*",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "nodemon": "^2.0.22"
   }
 }
