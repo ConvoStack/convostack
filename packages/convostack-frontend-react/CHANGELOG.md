@@ -1,5 +1,11 @@
 # @convostack/frontend-react
 
+## 0.0.11
+
+### Patch Changes
+
+- FE markdown and prisma login fix.
+
 ## 0.0.10
 
 ### Patch Changes

@@ -1,5 +1,25 @@
 # convostack
 
+## 0.0.11
+
+### Patch Changes
+
+- FE markdown and prisma login fix.
+- Updated dependencies
+  - config-tsconfig@0.0.8
+  - @convostack/agent@0.0.10
+  - @convostack/agent-echo@0.0.10
+  - @convostack/agent-sse@0.0.10
+  - @convostack/agent-sse-echo-server@0.0.10
+  - @convostack/auth@0.0.10
+  - @convostack/auth-jwt@0.0.10
+  - @convostack/backend-express@0.0.10
+  - @convostack/frontend-react@0.0.11
+  - @convostack/langchain-memory@0.0.11
+  - @convostack/models@0.0.10
+  - @convostack/shared@0.0.10
+  - @convostack/storage-engine-prisma-sqlite@0.0.10
+
 ## 0.0.10
 
 ### Patch Changes

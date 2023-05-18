@@ -1,5 +1,13 @@
 # @convostack/langchain-memory
 
+## 0.0.11
+
+### Patch Changes
+
+- FE markdown and prisma login fix.
+- Updated dependencies
+  - @convostack/shared@0.0.10
+
 ## 0.0.10
 
 ### Patch Changes

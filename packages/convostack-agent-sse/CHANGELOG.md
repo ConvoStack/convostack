@@ -1,5 +1,14 @@
 # @convostack/agent-sse
 
+## 0.0.10
+
+### Patch Changes
+
+- FE markdown and prisma login fix.
+- Updated dependencies
+  - @convostack/agent@0.0.10
+  - @convostack/shared@0.0.10
+
 ## 0.0.9
 
 ### Patch Changes

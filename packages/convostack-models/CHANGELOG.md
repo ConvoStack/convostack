@@ -1,5 +1,11 @@
 # @convostack/models
 
+## 0.0.10
+
+### Patch Changes
+
+- FE markdown and prisma login fix.
+
 ## 0.0.9
 
 ### Patch Changes

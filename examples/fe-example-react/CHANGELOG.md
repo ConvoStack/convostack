@@ -1,5 +1,13 @@
 # fe-example-react
 
+## 0.0.9
+
+### Patch Changes
+
+- FE markdown and prisma login fix.
+- Updated dependencies
+  - convostack@0.0.11
+
 ## 0.0.8
 
 ### Patch Changes

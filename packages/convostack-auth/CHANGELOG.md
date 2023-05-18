@@ -1,5 +1,13 @@
 # @convostack/auth
 
+## 0.0.10
+
+### Patch Changes
+
+- FE markdown and prisma login fix.
+- Updated dependencies
+  - @convostack/models@0.0.10
+
 ## 0.0.9
 
 ### Patch Changes

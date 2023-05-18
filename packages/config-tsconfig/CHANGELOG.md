@@ -1,5 +1,11 @@
 # config-tsconfig
 
+## 0.0.8
+
+### Patch Changes
+
+- FE markdown and prisma login fix.
+
 ## 0.0.7
 
 ### Patch Changes
