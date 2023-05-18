@@ -57,6 +57,7 @@ const MessageList: React.FC<MessageListProps> = ({
     if (data !== null) {
       onNext(data);
     } else {
+      setIsLoading(true);
       setConversationEvents([]);
     }
   }, [data]);

@@ -62,14 +62,26 @@ const useConvoStack = () => {
   ): Promise<string> => {
     const fetchedCleanup = getCleanupFunc(key || "widget");
     fetchedCleanup && fetchedCleanup();
+    const wsClient = createWsClient(websocketUrl, graphqlUrl, userData);
+    wsClient.on("closed", (socket: any) => {
+      if (!socket.wasClean) {
+        dispatch(setData(null));
+        if (conversationId === null) {
+          wsClient.dispose();
+          if (key) {
+            dispatch(
+              setEmbedIsConversationListVisible({ key: key, value: true })
+            );
+          } else {
+            dispatch(setIsConversationListVisible(true));
+          }
+        }
+      }
+    });
     if (key) {
       dispatch(setEmbedData({ key: key, value: null }));
       const promise = new Promise<string>((resolve, reject) => {
-        const subscriptionCleanup = createWsClient(
-          websocketUrl,
-          graphqlUrl,
-          userData
-        ).subscribe(
+        const subscriptionCleanup = wsClient.subscribe(
           {
             query: SubscribeConversationEventsDocument,
             variables: {
@@ -114,11 +126,7 @@ const useConvoStack = () => {
     } else {
       dispatch(setData(null));
       const promise = new Promise<string>((resolve, reject) => {
-        const subscriptionCleanup = createWsClient(
-          websocketUrl,
-          graphqlUrl,
-          userData
-        ).subscribe(
+        const subscriptionCleanup = wsClient.subscribe(
           {
             query: SubscribeConversationEventsDocument,
             variables: {
@@ -173,6 +181,10 @@ const useConvoStack = () => {
     context?: { [key: string]: string },
     key?: string
   ) => {
+    if (!conversationId) {
+      const fetchedCleanup = getCleanupFunc(key || "widget");
+      fetchedCleanup && fetchedCleanup();
+    }
     if (key) {
       dispatch(setEmbedConversationId({ key: key, value: conversationId }));
     } else {
