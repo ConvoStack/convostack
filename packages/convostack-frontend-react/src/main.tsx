@@ -16,7 +16,7 @@ ReactDOM.render(
         name: "",
         anonymousId: "",
         hash: "",
-        externalId: "-------------",
+        externalId: "]]]][[]][",
       }}
       customStyling={{
         headerColor: "bg-black",

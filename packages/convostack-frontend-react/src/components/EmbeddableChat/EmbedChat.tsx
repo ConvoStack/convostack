@@ -54,6 +54,7 @@ const EmbedChat: React.FC<EmbedChatProps> = ({ id, customStyling }) => {
       window.removeEventListener("resize", getHeight);
     };
   }, []);
+
   return (
     <div
       ref={outerDiv}

@@ -4,8 +4,8 @@ import store from "./redux";
 import { CustomStyling, CustomIcons, UserData } from "./types/CustomStyling";
 import "../src/tailwind.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { createApiClient, fetchTokens } from "./api/apiClient";
-import { useEffect } from "react";
+import { fetchTokens } from "./api/apiClient";
+import { useEffect, useState } from "react";
 
 export interface ConvoStackWrapperProps {
   graphqlUrl: string;
@@ -24,25 +24,35 @@ const ConvoStackWrapper: React.FC<ConvoStackWrapperProps> = ({
   icons,
   children,
 }) => {
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const fetchData = async () => {
       await fetchTokens(graphqlUrl, userData);
     };
 
-    fetchData();
+    fetchData()
+      .then(() => {
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error(error);
+        setIsLoading(false);
+      });
   }, []);
 
   const queryClient = new QueryClient();
   return (
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>
-        <App
-          graphqlUrl={graphqlUrl}
-          websocketUrl={websocketUrl}
-          userData={userData}
-          customStyling={customStyling}
-          icons={icons}
-        />
+        {!isLoading && (
+          <App
+            graphqlUrl={graphqlUrl}
+            websocketUrl={websocketUrl}
+            userData={userData}
+            customStyling={customStyling}
+            icons={icons}
+          />
+        )}
         {children}
       </Provider>
     </QueryClientProvider>
