@@ -1,5 +1,11 @@
 # schema-graphql
 
+## 0.0.7
+
+### Patch Changes
+
+- UI updates
+
 ## 0.0.6
 
 ### Patch Changes

@@ -1,5 +1,25 @@
 # convostack
 
+## 0.0.10
+
+### Patch Changes
+
+- UI updates
+- Updated dependencies
+  - config-tsconfig@0.0.7
+  - @convostack/agent@0.0.9
+  - @convostack/agent-echo@0.0.9
+  - @convostack/agent-sse@0.0.9
+  - @convostack/agent-sse-echo-server@0.0.9
+  - @convostack/auth@0.0.9
+  - @convostack/auth-jwt@0.0.9
+  - @convostack/backend-express@0.0.9
+  - @convostack/frontend-react@0.0.9
+  - @convostack/langchain-memory@0.0.10
+  - @convostack/models@0.0.9
+  - @convostack/shared@0.0.9
+  - @convostack/storage-engine-prisma-sqlite@0.0.9
+
 ## 0.0.9
 
 ### Patch Changes
