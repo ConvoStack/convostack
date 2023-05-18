@@ -1,5 +1,11 @@
 # @convostack/frontend-react
 
+## 0.0.10
+
+### Patch Changes
+
+- fix dist
+
 ## 0.0.9
 
 ### Patch Changes
