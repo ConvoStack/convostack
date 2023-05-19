@@ -12,7 +12,21 @@ export const fetchTokens = async (graphqlUrl: string, userData: UserData | undef
   const refreshTokenTime = localStorage.getItem('refreshTokenExpiryConvoStack');
   const userDataLocalStorage = localStorage.getItem('userDataConvoStack');
   const currentTime = Date.now();
-  if (!accessToken || !refreshToken || currentTime > Number(refreshTokenTime) || userDataLocalStorage !== JSON.stringify(userData)) {
+  if (currentTime > Number(accessTokenTime)) {
+    try {
+      const data: RefreshAuthMutation = await tempApiClient.request(RefreshAuthDocument, {
+          refreshToken: refreshToken,
+        });
+      const { accessToken } = data.refreshAuth;
+      localStorage.setItem("accessTokenConvoStack", accessToken.token);
+      localStorage.setItem(
+        "accessTokenExpiryConvoStack",
+        (accessToken.expAt * 1000).toString()
+      );
+    } catch (error) {
+      console.error(error);
+    }
+  } else if (!accessToken || !refreshToken || currentTime > Number(refreshTokenTime) || userDataLocalStorage !== JSON.stringify(userData)) {
     try {
       localStorage.setItem("userDataConvoStack", JSON.stringify(userData));
       const data: LoginMutation = await tempApiClient.request(LoginDocument, userData);
@@ -26,20 +40,6 @@ export const fetchTokens = async (graphqlUrl: string, userData: UserData | undef
       localStorage.setItem(
         "refreshTokenExpiryConvoStack",
         (refreshToken.expAt * 1000).toString()
-      );
-    } catch (error) {
-      console.error(error);
-    }
-  } else if (currentTime > Number(accessTokenTime)) {
-    try {
-      const data: RefreshAuthMutation = await tempApiClient.request(RefreshAuthDocument, {
-          refreshToken: refreshToken,
-        });
-      const { accessToken } = data.refreshAuth;
-      localStorage.setItem("accessTokenConvoStack", accessToken.token);
-      localStorage.setItem(
-        "accessTokenExpiryConvoStack",
-        (accessToken.expAt * 1000).toString()
       );
     } catch (error) {
       console.error(error);

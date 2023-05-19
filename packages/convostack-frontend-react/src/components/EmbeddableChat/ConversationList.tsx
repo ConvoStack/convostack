@@ -46,7 +46,7 @@ const ConversationList: React.FC<ConversationListProps> = ({ id, style }) => {
       >
         <div
           className="left-0 hover:cursor-pointer"
-          onClick={() => openConversation(null, undefined, undefined, id)}
+          onClick={() => openConversation(null, agent, context, id)}
         >
           {icons?.createNewConversationIcon || (
             <PencilSquareIcon className="w-6 h-6 ml-4" />
