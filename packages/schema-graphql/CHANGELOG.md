@@ -1,5 +1,11 @@
 # schema-graphql
 
+## 0.0.12
+
+### Patch Changes
+
+- FE better loading UX and token fetching
+
 ## 0.0.11
 
 ### Patch Changes
