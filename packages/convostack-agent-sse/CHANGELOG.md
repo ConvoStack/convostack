@@ -1,5 +1,14 @@
 # @convostack/agent-sse
 
+## 0.0.13
+
+### Patch Changes
+
+- Api client fix on FE
+- Updated dependencies
+  - @convostack/agent@0.0.13
+  - @convostack/shared@0.0.13
+
 ## 0.0.12
 
 ### Patch Changes

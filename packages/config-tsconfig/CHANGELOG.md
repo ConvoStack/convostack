@@ -1,5 +1,11 @@
 # config-tsconfig
 
+## 0.0.11
+
+### Patch Changes
+
+- Api client fix on FE
+
 ## 0.0.10
 
 ### Patch Changes

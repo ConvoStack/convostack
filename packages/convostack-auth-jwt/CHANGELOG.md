@@ -1,5 +1,14 @@
 # @convostack/auth-jwt
 
+## 0.0.13
+
+### Patch Changes
+
+- Api client fix on FE
+- Updated dependencies
+  - @convostack/auth@0.0.13
+  - @convostack/models@0.0.13
+
 ## 0.0.12
 
 ### Patch Changes
