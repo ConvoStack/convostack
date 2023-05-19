@@ -1,0 +1,49 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./tmpgen"
+}
+
+datasource db {
+  provider          = "postgresql"
+  url               = env("__CONVOSTACK_PRISMA_DATABASE_URL")
+  shadowDatabaseUrl = env("__CONVOSTACK_PRISMA_SHADOW_DATABASE_URL")
+}
+
+model User {
+  id            String         @id @default(uuid())
+  externalId    String?        @unique
+  anonymousId   String?        @unique
+  email         String?        @unique
+  name          String?
+  conversations Conversation[]
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  messages      Message[]
+}
+
+model Conversation {
+  id        String    @id @default(uuid())
+  title     String
+  agent     String
+  primer    String?
+  context   String    @default("{}")
+  messages  Message[]
+  user      User      @relation(fields: [userId], references: [id])
+  userId    String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Message {
+  id             String       @id @default(uuid())
+  content        String
+  turn           Int
+  role           String
+  pending        Boolean
+  conversationId String
+  conversation   Conversation @relation(fields: [conversationId], references: [id])
+  userId         String?
+  user           User?        @relation(fields: [userId], references: [id])
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+}

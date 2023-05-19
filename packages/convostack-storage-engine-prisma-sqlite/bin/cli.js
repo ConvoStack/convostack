@@ -6,7 +6,7 @@ const { spawn } = require("child_process");
 const args = process.argv.slice(2);
 const command = args[0];
 
-function setup(dirPath) {
+function setup(dirPath, shadowDbUrl) {
     const dir = path.resolve(dirPath);
 
     if (!fs.existsSync(dir)) {
@@ -20,8 +20,13 @@ function setup(dirPath) {
     let data = fs.readFileSync(schemaPath, 'utf8');
 
     // Replace the text
-    const regex = new RegExp('"../src/generated/client"', 'g');
-    data = data.replace(regex, '"./tmpgen"');
+    const clientPathRegex = new RegExp('"../src/generated/client"', 'g');
+    data = data.replace(clientPathRegex, '"./tmpgen"');
+
+    if (shadowDbUrl) {
+        const dbRegex = /env\("__CONVOSTACK_PRISMA_DATABASE_URL"\)/g;
+        data = data.replace(dbRegex, 'env("__CONVOSTACK_PRISMA_DATABASE_URL")\n  shadowDatabaseUrl = env("__CONVOSTACK_PRISMA_SHADOW_DATABASE_URL")');
+    }
 
     // Write the file synchronously
     fs.writeFileSync(destPath, data);
@@ -38,8 +43,10 @@ function cleanup(dirPath) {
 
 if (command === "migrate" || command === "studio") {
     const dbUrlIndex = args.indexOf("--db-url");
+    const shadowDbUrlIndex = args.indexOf("--shadow-db-url");
     const dirIndex = args.indexOf("--dir");
     const dbUrl = dbUrlIndex !== -1 ? args[dbUrlIndex + 1] : null;
+    let shadowDbUrl = shadowDbUrlIndex !== -1 ? args[shadowDbUrlIndex + 1] : null;
     let dir = dirIndex !== -1 ? args[dirIndex + 1] : null;
 
     if (!dbUrl) {
@@ -53,12 +60,13 @@ if (command === "migrate" || command === "studio") {
     }
 
     if (command === 'migrate') {
-        dir = setup(dir);
+        dir = setup(dir, shadowDbUrl);
 
         const migrateProcess = spawn("npx", ["prisma", "migrate", "dev", `--schema=${path.join(dir, "schema.prisma")}`], {
             env: {
                 ...process.env,
-                __CONVOSTACK_PRISMA_DATABASE_URL: dbUrl
+                __CONVOSTACK_PRISMA_DATABASE_URL: dbUrl,
+                __CONVOSTACK_PRISMA_SHADOW_DATABASE_URL: shadowDbUrl,
             },
             stdio: "inherit"
         });

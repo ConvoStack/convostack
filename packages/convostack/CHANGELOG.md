@@ -1,5 +1,15 @@
 # convostack
 
+## 0.0.13
+
+### Patch Changes
+
+- Update prisma clis
+- Updated dependencies
+  - @convostack/storage-engine-prisma-postgres@0.0.12
+  - @convostack/storage-engine-prisma-sqlite@0.0.12
+  - @convostack/storage-engine-prisma-mysql@0.0.12
+
 ## 0.0.12
 
 ### Patch Changes

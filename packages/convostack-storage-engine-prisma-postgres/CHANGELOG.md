@@ -1,5 +1,11 @@
 # @convostack/storage-engine-prisma-postgres
 
+## 0.0.12
+
+### Patch Changes
+
+- Update prisma clis
+
 ## 0.0.11
 
 ### Patch Changes
