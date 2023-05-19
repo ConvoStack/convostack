@@ -1,4 +1,4 @@
-[convostack - v0.0.15](../README.md) / [auth](../modules/auth.md) / IAuthProvider
+[convostack - v0.0.16](../README.md) / [auth](../modules/auth.md) / IAuthProvider
 
 # Interface: IAuthProvider
 

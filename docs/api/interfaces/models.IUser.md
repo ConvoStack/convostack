@@ -1,4 +1,4 @@
-[convostack - v0.0.15](../README.md) / [models](../modules/models.md) / IUser
+[convostack - v0.0.16](../README.md) / [models](../modules/models.md) / IUser
 
 # Interface: IUser
 

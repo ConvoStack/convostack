@@ -1,4 +1,4 @@
-[convostack - v0.0.15](../README.md) / [agent](../modules/agent.md) / IAgentResponse
+[convostack - v0.0.16](../README.md) / [agent](../modules/agent.md) / IAgentResponse
 
 # Interface: IAgentResponse
 

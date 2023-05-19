@@ -1,4 +1,4 @@
-[convostack - v0.0.15](../README.md) / [auth-jwt](../modules/auth_jwt.md) / IAuthJWTOptions
+[convostack - v0.0.16](../README.md) / [auth-jwt](../modules/auth_jwt.md) / IAuthJWTOptions
 
 # Interface: IAuthJWTOptions
 

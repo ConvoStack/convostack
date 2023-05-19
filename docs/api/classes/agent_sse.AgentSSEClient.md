@@ -1,4 +1,4 @@
-[convostack - v0.0.15](../README.md) / [agent-sse](../modules/agent_sse.md) / AgentSSEClient
+[convostack - v0.0.16](../README.md) / [agent-sse](../modules/agent_sse.md) / AgentSSEClient
 
 # Class: AgentSSEClient
 

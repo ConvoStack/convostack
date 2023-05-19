@@ -1,4 +1,4 @@
-[convostack - v0.0.15](../README.md) / [langchain-memory](../modules/langchain_memory.md) / ConvoStackLangchainChatMessageHistory
+[convostack - v0.0.16](../README.md) / [langchain-memory](../modules/langchain_memory.md) / ConvoStackLangchainChatMessageHistory
 
 # Class: ConvoStackLangchainChatMessageHistory
 

@@ -1,4 +1,4 @@
-[convostack - v0.0.15](../README.md) / [auth](../modules/auth.md) / ISuccessfulAuthResponse
+[convostack - v0.0.16](../README.md) / [auth](../modules/auth.md) / ISuccessfulAuthResponse
 
 # Interface: ISuccessfulAuthResponse
 

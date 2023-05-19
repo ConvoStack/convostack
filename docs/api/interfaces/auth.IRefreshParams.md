@@ -1,4 +1,4 @@
-[convostack - v0.0.15](../README.md) / [auth](../modules/auth.md) / IRefreshParams
+[convostack - v0.0.16](../README.md) / [auth](../modules/auth.md) / IRefreshParams
 
 # Interface: IRefreshParams
 

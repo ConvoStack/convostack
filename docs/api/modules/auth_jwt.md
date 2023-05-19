@@ -1,4 +1,4 @@
-[convostack - v0.0.15](../README.md) / auth-jwt
+[convostack - v0.0.16](../README.md) / auth-jwt
 
 # Module: auth-jwt
 

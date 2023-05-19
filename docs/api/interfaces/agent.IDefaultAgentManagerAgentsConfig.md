@@ -1,4 +1,4 @@
-[convostack - v0.0.15](../README.md) / [agent](../modules/agent.md) / IDefaultAgentManagerAgentsConfig
+[convostack - v0.0.16](../README.md) / [agent](../modules/agent.md) / IDefaultAgentManagerAgentsConfig
 
 # Interface: IDefaultAgentManagerAgentsConfig
 

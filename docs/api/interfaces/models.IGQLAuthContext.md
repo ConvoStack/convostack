@@ -1,4 +1,4 @@
-[convostack - v0.0.15](../README.md) / [models](../modules/models.md) / IGQLAuthContext
+[convostack - v0.0.16](../README.md) / [models](../modules/models.md) / IGQLAuthContext
 
 # Interface: IGQLAuthContext
 
