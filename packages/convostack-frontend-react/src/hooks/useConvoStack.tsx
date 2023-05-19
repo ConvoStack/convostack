@@ -54,32 +54,37 @@ const useConvoStack = () => {
     }
   };
 
-  const openConversation = (
+  const openConversation = async (
     conversationId: string | null,
     agent?: string | null,
     context?: { [key: string]: string } | null,
     key?: string
   ): Promise<string> => {
-    const fetchedCleanup = getCleanupFunc(key || "widget");
-    fetchedCleanup && fetchedCleanup();
-    const wsClient = createWsClient(websocketUrl, graphqlUrl, userData);
-    wsClient.on("closed", (socket: any) => {
-      if (!socket.wasClean) {
-        dispatch(setData(null));
-        if (conversationId === null) {
-          wsClient.dispose();
-          if (key) {
-            dispatch(
-              setEmbedIsConversationListVisible({ key: key, value: true })
-            );
-          } else {
-            dispatch(setIsConversationListVisible(true));
-          }
-        }
-      }
-    });
     if (key) {
       dispatch(setEmbedData({ key: key, value: null }));
+      dispatch(setEmbedIsConversationListVisible({ key: key, value: false }));
+      dispatch(setCreatedFirstConversation(true));
+      const fetchedCleanup = getCleanupFunc(key || "widget");
+      fetchedCleanup && fetchedCleanup();
+      while (graphqlUrl === "") {
+        await new Promise((resolve) => setTimeout(resolve, 100)); // Delay for 100 milliseconds before checking again
+      }
+      const wsClient = createWsClient(websocketUrl, graphqlUrl, userData);
+      wsClient.on("closed", (socket: any) => {
+        if (!socket.wasClean) {
+          dispatch(setData(null));
+          if (conversationId === null) {
+            wsClient.dispose();
+            if (key) {
+              dispatch(
+                setEmbedIsConversationListVisible({ key: key, value: true })
+              );
+            } else {
+              dispatch(setIsConversationListVisible(true));
+            }
+          }
+        }
+      });
       const promise = new Promise<string>((resolve, reject) => {
         const subscriptionCleanup = wsClient.subscribe(
           {
@@ -120,11 +125,32 @@ const useConvoStack = () => {
       if (context) {
         dispatch(setContext(context));
       }
-      dispatch(setEmbedIsConversationListVisible({ key: key, value: false }));
-      dispatch(setCreatedFirstConversation(true));
       return promise;
     } else {
       dispatch(setData(null));
+      dispatch(setIsConversationListVisible(false));
+      dispatch(setShowConversationWindow(true));
+      const fetchedCleanup = getCleanupFunc(key || "widget");
+      fetchedCleanup && fetchedCleanup();
+      while (graphqlUrl === "") {
+        await new Promise((resolve) => setTimeout(resolve, 100)); // Delay for 100 milliseconds before checking again
+      }
+      const wsClient = createWsClient(websocketUrl, graphqlUrl, userData);
+      wsClient.on("closed", (socket: any) => {
+        if (!socket.wasClean) {
+          dispatch(setData(null));
+          if (conversationId === null) {
+            wsClient.dispose();
+            if (key) {
+              dispatch(
+                setEmbedIsConversationListVisible({ key: key, value: true })
+              );
+            } else {
+              dispatch(setIsConversationListVisible(true));
+            }
+          }
+        }
+      });
       const promise = new Promise<string>((resolve, reject) => {
         const subscriptionCleanup = wsClient.subscribe(
           {
@@ -160,8 +186,6 @@ const useConvoStack = () => {
       if (context) {
         dispatch(setContext(context));
       }
-      dispatch(setIsConversationListVisible(false));
-      dispatch(setShowConversationWindow(true));
       dispatch(setCreatedFirstConversation(true));
       return promise;
     }
@@ -199,6 +223,10 @@ const useConvoStack = () => {
     conversationId: string,
     context: { [key: string]: string }
   ) => {
+    while (graphqlUrl === "") {
+      // Wait for graphqlUrl to be set
+      await new Promise((resolve) => setTimeout(resolve, 200));
+    }
     await createApiClient(graphqlUrl, userData).request(
       UpdateConversationContextDocument,
       {

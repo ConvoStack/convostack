@@ -27,9 +27,9 @@ const EmbedChat: React.FC<EmbedChatProps> = ({ id, customStyling }) => {
   const [height, setHeight] = useState<null | string>(null);
   useEffect(() => {
     dispatch(setEmbedConversationId({ key: id, value: null }));
-    dispatch(setEmbedIsConversationListVisible({ key: id, value: false }));
+    dispatch(setEmbedIsConversationListVisible({ key: id, value: true }));
     dispatch(setEmbedData({ key: id, value: null }));
-  }, []);
+  }, [id]);
 
   const embedActiveConversationId = useSelector(
     (state: any) => state.conversation.embedActiveConversationId[id]
@@ -64,7 +64,7 @@ const EmbedChat: React.FC<EmbedChatProps> = ({ id, customStyling }) => {
     >
       {graphqlUrl === "" ? (
         <Loader />
-      ) : !embedIsConversationListVisible && embedActiveConversationId ? (
+      ) : !embedIsConversationListVisible ? (
         <div
           className={`${customStyling?.embedHeight || "h-96"} flex flex-col`}
         >

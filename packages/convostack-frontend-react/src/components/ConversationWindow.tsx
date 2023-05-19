@@ -12,7 +12,7 @@ interface ConversationWindowProps {
 const ConversationWindow: React.FC<ConversationWindowProps> = ({
   onClickClose,
 }) => {
-  const { activeConversationId, isConversationListVisible } = useConvoStack();
+  const { isConversationListVisible } = useConvoStack();
   const { styling } = useConvoStack();
   const [isAgentTyping, setIsAgentTyping] = useState(false);
   return (
@@ -23,7 +23,7 @@ const ConversationWindow: React.FC<ConversationWindowProps> = ({
         styling?.widgetWindowHeightOffset || "h-[calc(100vh-230px)]"
       } sm:shadow-xl sm:rounded-lg max-sm:w-full max-sm:h-full sm:max-w-[calc(100vw-32px)] sm:max-h-[calc(100vh-100px)]`}
     >
-      {!isConversationListVisible && activeConversationId ? (
+      {!isConversationListVisible ? (
         <>
           <Header onClickClose={onClickClose} />
           <MessageList

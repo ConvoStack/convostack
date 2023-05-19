@@ -26,7 +26,7 @@ const initialState: ConvoStackState = {
   context: null,
   agent: null,
   isConversationWindowVisible: false,
-  isConversationListVisible: false,
+  isConversationListVisible: true,
   styling: null,
   userData: undefined,
   data: null,
