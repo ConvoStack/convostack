@@ -1,5 +1,13 @@
 # convostack
 
+## 0.0.14
+
+### Patch Changes
+
+- Remove env-based redis
+- Updated dependencies
+  - @convostack/backend-express@0.0.12
+
 ## 0.0.13
 
 ### Patch Changes

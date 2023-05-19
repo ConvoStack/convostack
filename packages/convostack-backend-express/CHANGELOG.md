@@ -1,5 +1,11 @@
 # @convostack/backend-express
 
+## 0.0.12
+
+### Patch Changes
+
+- Remove env-based redis
+
 ## 0.0.11
 
 ### Patch Changes

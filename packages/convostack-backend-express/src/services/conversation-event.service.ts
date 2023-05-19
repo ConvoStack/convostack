@@ -15,23 +15,27 @@ export class ConversationEventService {
 
   constructor(private storage: IStorageEngine) {
     // TODO use config eng here
-    if (process.env.NODE_ENV === "production") {
-      const options: RedisOptions = {
-        host: "localhost", // replace with your Redis host
-        port: 6379 // replace with your Redis port
-      };
-
-      this.pubSub = new RedisPubSub({
-        connection: options
-      });
-
-      this.cache = new Redis(options);
-    } else {
-      this.pubSub = new InMemoryPubSub();
-      this.cache = new LRU.LRUCache<string, ConversationEvent[]>({
-        max: 1000,
-      });
-    }
+    // if (process.env.NODE_ENV === "production") {
+    //   const options: RedisOptions = {
+    //     host: "localhost", // replace with your Redis host
+    //     port: 6379 // replace with your Redis port
+    //   };
+    //
+    //   this.pubSub = new RedisPubSub({
+    //     connection: options
+    //   });
+    //
+    //   this.cache = new Redis(options);
+    // } else {
+    //   this.pubSub = new InMemoryPubSub();
+    //   this.cache = new LRU.LRUCache<string, ConversationEvent[]>({
+    //     max: 1000,
+    //   });
+    // }
+    this.pubSub = new InMemoryPubSub();
+    this.cache = new LRU.LRUCache<string, ConversationEvent[]>({
+      max: 1000,
+    });
   }
 
   private async getConversationEvents(
