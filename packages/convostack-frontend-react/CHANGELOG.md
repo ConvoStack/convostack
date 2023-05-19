@@ -1,5 +1,11 @@
 # @convostack/frontend-react
 
+## 0.0.13
+
+### Patch Changes
+
+- New FE and BE updates
+
 ## 0.0.12
 
 ### Patch Changes
