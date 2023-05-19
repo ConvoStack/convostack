@@ -14,7 +14,8 @@ interface ConversationListProps {
 
 const ConversationList: React.FC<ConversationListProps> = ({ id, style }) => {
   const icons = useContext(CustomIconsContext);
-  const { graphqlUrl, styling, userData, openConversation } = useConvoStack();
+  const { graphqlUrl, styling, userData, openConversation, agent, context } =
+    useConvoStack();
   const { data, isFetching, isLoading } = useGetConversationsQuery(
     createApiClient(graphqlUrl, userData),
     undefined,
@@ -32,7 +33,7 @@ const ConversationList: React.FC<ConversationListProps> = ({ id, style }) => {
 
   useEffect(() => {
     if (!isFetching && conversationArray.length === 0) {
-      openConversation(null, undefined, undefined, id);
+      openConversation(null, agent, context, id);
     }
   }, [isFetching]);
 
