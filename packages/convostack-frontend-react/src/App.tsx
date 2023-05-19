@@ -22,6 +22,7 @@ const App: React.FC<Omit<ConvoStackWrapperProps, "children">> = ({
   userData,
   customStyling,
   icons,
+  CustomMessage,
 }) => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -55,6 +56,7 @@ const App: React.FC<Omit<ConvoStackWrapperProps, "children">> = ({
           >
             <ConversationWindow
               onClickClose={() => toggleWidget(!isConversationWindowVisible)}
+              CustomMessage={CustomMessage}
             />
           </div>
         )}

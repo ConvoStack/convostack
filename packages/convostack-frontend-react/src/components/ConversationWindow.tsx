@@ -2,15 +2,18 @@ import { useState } from "react";
 import useConvoStack from "../hooks/useConvoStack";
 import ConversationList from "./ConversationList";
 import Header from "./Header";
+import { MessageProps } from "./Message";
 import MessageList from "./MessageList";
 import UserInput from "./UserInput";
 
 interface ConversationWindowProps {
   onClickClose: () => void;
+  CustomMessage?: React.ComponentType<MessageProps>;
 }
 
 const ConversationWindow: React.FC<ConversationWindowProps> = ({
   onClickClose,
+  CustomMessage,
 }) => {
   const { isConversationListVisible } = useConvoStack();
   const { styling } = useConvoStack();
@@ -29,6 +32,7 @@ const ConversationWindow: React.FC<ConversationWindowProps> = ({
           <MessageList
             isAgentTyping={isAgentTyping}
             setIsAgentTyping={setIsAgentTyping}
+            CustomMessage={CustomMessage}
           />
           <UserInput isAgentTyping={isAgentTyping} />
         </>

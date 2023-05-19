@@ -13,13 +13,19 @@ import {
   setEmbedIsConversationListVisible,
 } from "../../redux/slice";
 import { CustomEmbedStyling } from "../../types/CustomStyling";
+import { MessageProps } from "../Message";
 
 interface EmbedChatProps {
   id: string;
   customStyling?: CustomEmbedStyling;
+  CustomMessage?: React.ComponentType<MessageProps>;
 }
 
-const EmbedChat: React.FC<EmbedChatProps> = ({ id, customStyling }) => {
+const EmbedChat: React.FC<EmbedChatProps> = ({
+  id,
+  customStyling,
+  CustomMessage,
+}) => {
   const { graphqlUrl } = useConvoStack();
   const [isAgentTyping, setIsAgentTyping] = useState(false);
   const dispatch = useDispatch();
@@ -74,6 +80,7 @@ const EmbedChat: React.FC<EmbedChatProps> = ({ id, customStyling }) => {
             isAgentTyping={isAgentTyping}
             setIsAgentTyping={setIsAgentTyping}
             data={embedData}
+            CustomMessage={CustomMessage}
           />
           <UserInput
             isAgentTyping={isAgentTyping}

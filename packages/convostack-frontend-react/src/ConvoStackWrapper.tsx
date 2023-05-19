@@ -6,6 +6,7 @@ import "../src/tailwind.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { fetchTokens } from "./api/apiClient";
 import { useEffect, useState } from "react";
+import { MessageProps } from "./components/Message";
 
 export interface ConvoStackWrapperProps {
   graphqlUrl: string;
@@ -14,6 +15,7 @@ export interface ConvoStackWrapperProps {
   customStyling?: CustomStyling;
   icons?: CustomIcons;
   children: React.ReactNode;
+  CustomMessage?: React.ComponentType<MessageProps>;
 }
 
 const ConvoStackWrapper: React.FC<ConvoStackWrapperProps> = ({
@@ -23,6 +25,7 @@ const ConvoStackWrapper: React.FC<ConvoStackWrapperProps> = ({
   customStyling,
   icons,
   children,
+  CustomMessage,
 }) => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
@@ -51,6 +54,7 @@ const ConvoStackWrapper: React.FC<ConvoStackWrapperProps> = ({
             userData={userData}
             customStyling={customStyling}
             icons={icons}
+            CustomMessage={CustomMessage}
           />
         )}
         {children}
