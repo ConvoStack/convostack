@@ -22,17 +22,17 @@ const App: React.FC<Omit<ConvoStackWrapperProps, "children">> = ({
   userData,
   customStyling,
   icons,
+  CustomMessage,
 }) => {
-  const { isConversationWindowVisible, toggleWidget } = useConvoStack();
-  const [isShowing, setIsShowing] = useState<boolean>(false);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(setWebsocketlUrl(websocketUrl));
     dispatch(setGraphqlUrl(graphqlUrl));
     if (customStyling !== undefined) dispatch(setStyling(customStyling));
     if (userData !== undefined) dispatch(setUserData(userData));
-  }, [websocketUrl, graphqlUrl, customStyling, userData]);
-
+  }, [websocketUrl, graphqlUrl, customStyling, userData, dispatch]);
+  const { isConversationWindowVisible, toggleWidget } = useConvoStack();
+  const [isShowing, setIsShowing] = useState<boolean>(false);
   useEffect(() => {
     if (isConversationWindowVisible) {
       setIsShowing(true);
@@ -56,6 +56,7 @@ const App: React.FC<Omit<ConvoStackWrapperProps, "children">> = ({
           >
             <ConversationWindow
               onClickClose={() => toggleWidget(!isConversationWindowVisible)}
+              CustomMessage={CustomMessage}
             />
           </div>
         )}

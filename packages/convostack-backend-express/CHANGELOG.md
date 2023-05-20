@@ -1,5 +1,16 @@
 # @convostack/backend-express
 
+## 0.0.15
+
+### Patch Changes
+
+- FE better loading UX and token fetching
+- Updated dependencies
+  - @convostack/agent@0.0.14
+  - @convostack/auth@0.0.14
+  - @convostack/models@0.0.14
+  - @convostack/shared@0.0.14
+
 ## 0.0.14
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @convostack/frontend-react
 
+## 0.0.15
+
+### Patch Changes
+
+- FE better loading UX and token fetching
+
 ## 0.0.14
 
 ### Patch Changes

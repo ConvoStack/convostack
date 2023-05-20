@@ -3,6 +3,8 @@ import { CustomIconsContext } from "../App";
 import ArrowLeftIcon from "../assets/ArrowLeftIcon";
 import XIcon from "../assets/XIcon";
 import useConvoStack from "../hooks/useConvoStack";
+import { useDispatch } from "react-redux";
+import { setIsConversationListVisible } from "../redux/slice";
 
 interface HeaderProps {
   onClickClose: () => void;
@@ -11,6 +13,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ onClickClose }) => {
   const icons = useContext(CustomIconsContext);
   const { setActiveConversationId, styling } = useConvoStack();
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -21,7 +24,10 @@ const Header: React.FC<HeaderProps> = ({ onClickClose }) => {
       >
         <div
           className="left-0 absolute hover:cursor-pointer"
-          onClick={() => setActiveConversationId(null)}
+          onClick={() => {
+            dispatch(setIsConversationListVisible(true));
+            setActiveConversationId(null);
+          }}
         >
           {icons?.backArrowIcon || <ArrowLeftIcon className="w-6 h-6 ml-4" />}
         </div>
@@ -38,7 +44,10 @@ const Header: React.FC<HeaderProps> = ({ onClickClose }) => {
       >
         <div
           className="hover:cursor-pointer"
-          onClick={() => setActiveConversationId(null)}
+          onClick={() => {
+            dispatch(setIsConversationListVisible(true));
+            setActiveConversationId(null);
+          }}
         >
           {icons?.backArrowIcon || <ArrowLeftIcon className="w-6 h-6 ml-4" />}
         </div>

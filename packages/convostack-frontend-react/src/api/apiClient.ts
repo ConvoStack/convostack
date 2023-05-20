@@ -50,8 +50,13 @@ export const fetchTokens = async (graphqlUrl: string, userData: UserData | undef
 export const createApiClient = (graphqlUrl: string, userData?: UserData | undefined) => {
   const authMiddleware: RequestMiddleware = async (request) => {
     let accessToken = localStorage.getItem('accessTokenConvoStack')
-    await fetchTokens(graphqlUrl, userData);
-    accessToken = localStorage.getItem('accessTokenConvoStack')
+    const currentTime = Date.now();
+    const accessTokenTime = localStorage.getItem('accessTokenExpiryConvoStack');
+    if (!accessToken || (currentTime + 60000) > Number(accessTokenTime)) {
+      fetchTokens(graphqlUrl, userData).then(() => {
+        accessToken = localStorage.getItem('accessTokenConvoStack')
+      })
+    }
     return {
       ...request,
       headers: { ...request.headers, Authorization: `Bearer ${accessToken}` },
@@ -66,8 +71,13 @@ export const createWsClient = (wsUrl: string, graphqlUrl: string, userData?: Use
     url: wsUrl,
     connectionParams: async () => {
       let accessToken = localStorage.getItem('accessTokenConvoStack')
-      await fetchTokens(graphqlUrl, userData);
-      accessToken = localStorage.getItem('accessTokenConvoStack')
+      const currentTime = Date.now();
+      const accessTokenTime = localStorage.getItem('accessTokenExpiryConvoStack');
+      if (!accessToken || (currentTime + 60000) > Number(accessTokenTime)) {
+        fetchTokens(graphqlUrl, userData).then(() => {
+          accessToken = localStorage.getItem('accessTokenConvoStack')
+        })
+      }
       return {
         Authorization: `Bearer ${accessToken}`,
       };

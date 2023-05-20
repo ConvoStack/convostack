@@ -1,5 +1,14 @@
 # @convostack/auth-jwt
 
+## 0.0.14
+
+### Patch Changes
+
+- FE better loading UX and token fetching
+- Updated dependencies
+  - @convostack/auth@0.0.14
+  - @convostack/models@0.0.14
+
 ## 0.0.13
 
 ### Patch Changes

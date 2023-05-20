@@ -1,5 +1,13 @@
 # fe-example-react
 
+## 0.0.13
+
+### Patch Changes
+
+- FE better loading UX and token fetching
+- Updated dependencies
+  - convostack@0.0.17
+
 ## 0.0.12
 
 ### Patch Changes

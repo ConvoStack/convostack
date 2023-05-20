@@ -1,5 +1,13 @@
 # @convostack/agent-echo
 
+## 0.0.14
+
+### Patch Changes
+
+- FE better loading UX and token fetching
+- Updated dependencies
+  - @convostack/agent@0.0.14
+
 ## 0.0.13
 
 ### Patch Changes

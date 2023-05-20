@@ -1,7 +1,7 @@
 import { MutableRefObject, useEffect, useRef, useState } from "react";
 import useConvoStack from "../hooks/useConvoStack";
 import LoaderSpinner from "./LoaderSpinner";
-import Message from "./Message";
+import Message, { MessageProps } from "./Message";
 
 interface MessageSent {
   content: string;
@@ -11,12 +11,15 @@ interface MessageSent {
 interface MessageListProps {
   isAgentTyping: boolean;
   setIsAgentTyping: (arg: boolean) => void;
+  CustomMessage?: React.ComponentType<MessageProps>;
 }
 
 const MessageList: React.FC<MessageListProps> = ({
   isAgentTyping,
   setIsAgentTyping,
+  CustomMessage,
 }) => {
+  const MessageComponentToRender = CustomMessage ? CustomMessage : Message;
   const [width, setWidth] = useState<null | string>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [conversationEvents, setConversationEvents] = useState<MessageSent[]>(
@@ -106,7 +109,7 @@ const MessageList: React.FC<MessageListProps> = ({
             {conversationEvents.map(
               (message, index) =>
                 message.content && (
-                  <Message
+                  <MessageComponentToRender
                     key={index}
                     width={width}
                     message={{ text: message.content, author: message.role }}
@@ -120,7 +123,7 @@ const MessageList: React.FC<MessageListProps> = ({
                 )
             )}
             {streams.length !== 0 && (
-              <Message
+              <MessageComponentToRender
                 width={width}
                 message={{ text: streams.join(""), author: "AI" }}
                 className={"mb-3"}

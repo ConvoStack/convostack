@@ -13,13 +13,19 @@ import {
   setEmbedIsConversationListVisible,
 } from "../../redux/slice";
 import { CustomEmbedStyling } from "../../types/CustomStyling";
+import { MessageProps } from "../Message";
 
 interface EmbedChatProps {
   id: string;
   customStyling?: CustomEmbedStyling;
+  CustomMessage?: React.ComponentType<MessageProps>;
 }
 
-const EmbedChat: React.FC<EmbedChatProps> = ({ id, customStyling }) => {
+const EmbedChat: React.FC<EmbedChatProps> = ({
+  id,
+  customStyling,
+  CustomMessage,
+}) => {
   const { graphqlUrl } = useConvoStack();
   const [isAgentTyping, setIsAgentTyping] = useState(false);
   const dispatch = useDispatch();
@@ -27,9 +33,9 @@ const EmbedChat: React.FC<EmbedChatProps> = ({ id, customStyling }) => {
   const [height, setHeight] = useState<null | string>(null);
   useEffect(() => {
     dispatch(setEmbedConversationId({ key: id, value: null }));
-    dispatch(setEmbedIsConversationListVisible({ key: id, value: false }));
+    dispatch(setEmbedIsConversationListVisible({ key: id, value: true }));
     dispatch(setEmbedData({ key: id, value: null }));
-  }, []);
+  }, [id]);
 
   const embedActiveConversationId = useSelector(
     (state: any) => state.conversation.embedActiveConversationId[id]
@@ -64,7 +70,7 @@ const EmbedChat: React.FC<EmbedChatProps> = ({ id, customStyling }) => {
     >
       {graphqlUrl === "" ? (
         <Loader />
-      ) : !embedIsConversationListVisible && embedActiveConversationId ? (
+      ) : !embedIsConversationListVisible ? (
         <div
           className={`${customStyling?.embedHeight || "h-96"} flex flex-col`}
         >
@@ -74,6 +80,7 @@ const EmbedChat: React.FC<EmbedChatProps> = ({ id, customStyling }) => {
             isAgentTyping={isAgentTyping}
             setIsAgentTyping={setIsAgentTyping}
             data={embedData}
+            CustomMessage={CustomMessage}
           />
           <UserInput
             isAgentTyping={isAgentTyping}
