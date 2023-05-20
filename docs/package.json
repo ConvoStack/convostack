@@ -1,0 +1,54 @@
+{
+  "name": "convostack-docs",
+  "homepage": "https://convostack.ai",
+  "version": "0.0.0",
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/ConvoStack/convostack/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ConvoStack/convostack.git"
+  },
+  "author": {
+    "name": "ConvoStack"
+  },
+  "scripts": {
+    "docusaurus": "docusaurus",
+    "docs:start": "npm run docs:gen && docusaurus start",
+    "docs:build": "npm run docs:gen && docusaurus build",
+    "docs:swizzle": "docusaurus swizzle",
+    "docs:deploy": "docusaurus deploy",
+    "docs:clear": "docusaurus clear",
+    "docs:serve": "docusaurus serve",
+    "docs:dev": "npm run docs:gen && docusaurus start",
+    "docs:gen": "npm run docs:gen:gql",
+    "docs:gen:gql": "docusaurus graphql-to-doc"
+  },
+  "dependencies": {
+    "@docusaurus/core": "^2.4.0",
+    "@docusaurus/preset-classic": "^2.4.0",
+    "@graphql-markdown/docusaurus": "^1.18.0",
+    "@mdx-js/react": "^1.6.22",
+    "clsx": "^1.2.1",
+    "docusaurus-plugin-typedoc": "^0.19.2",
+    "graphql": "^16.6.0",
+    "prism-react-renderer": "^1.3.5",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "typedoc": "^0.24.7",
+    "typedoc-plugin-markdown": "^3.15.3"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

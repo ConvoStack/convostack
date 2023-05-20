@@ -30,21 +30,6 @@
       "src/storage-engine-prisma-sqlite/index.ts",
       "src/storage-engine-prisma-postgres/index.ts",
       "src/storage-engine-prisma-mysql/index.ts"
-    ],
-    "sort": [
-      "kind",
-      "visibility",
-      "instance-first",
-      "required-first",
-      "alphabetical"
-    ],
-    "excludePrivate": true,
-    "excludeInternal": true,
-    "excludeExternals": true,
-    "excludeNotDocumented": false,
-    "includeVersion": true,
-    "sourceLinkTemplate": "https://github.com/ConvoStack/convostack/blob/{gitRevision}/{path}#L{line}",
-    "readme": "none",
-    "out": "../../docs/api"
+    ]
   }
 }
