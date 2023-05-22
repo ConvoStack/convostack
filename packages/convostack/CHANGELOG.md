@@ -1,5 +1,27 @@
 # convostack
 
+## 0.0.18
+
+### Patch Changes
+
+- FE: tokens stored in redux, favicon added
+- Updated dependencies
+  - @convostack/frontend-react@0.0.16
+  - config-tsconfig@0.0.13
+  - @convostack/agent@0.0.15
+  - @convostack/agent-echo@0.0.15
+  - @convostack/agent-sse@0.0.15
+  - @convostack/agent-sse-echo-server@0.0.15
+  - @convostack/auth@0.0.15
+  - @convostack/auth-jwt@0.0.15
+  - @convostack/backend-express@0.0.16
+  - @convostack/langchain-memory@0.0.16
+  - @convostack/models@0.0.15
+  - @convostack/shared@0.0.15
+  - @convostack/storage-engine-prisma-mysql@0.0.16
+  - @convostack/storage-engine-prisma-postgres@0.0.16
+  - @convostack/storage-engine-prisma-sqlite@0.0.16
+
 ## 0.0.17
 
 ### Patch Changes

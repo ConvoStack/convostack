@@ -1,5 +1,14 @@
 # @convostack/auth-jwt
 
+## 0.0.15
+
+### Patch Changes
+
+- FE: tokens stored in redux, favicon added
+- Updated dependencies
+  - @convostack/auth@0.0.15
+  - @convostack/models@0.0.15
+
 ## 0.0.14
 
 ### Patch Changes

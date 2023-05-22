@@ -1,5 +1,13 @@
 # @convostack/storage-engine-prisma-postgres
 
+## 0.0.16
+
+### Patch Changes
+
+- FE: tokens stored in redux, favicon added
+- Updated dependencies
+  - @convostack/models@0.0.15
+
 ## 0.0.15
 
 ### Patch Changes

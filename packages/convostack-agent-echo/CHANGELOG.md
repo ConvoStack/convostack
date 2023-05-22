@@ -1,5 +1,13 @@
 # @convostack/agent-echo
 
+## 0.0.15
+
+### Patch Changes
+
+- FE: tokens stored in redux, favicon added
+- Updated dependencies
+  - @convostack/agent@0.0.15
+
 ## 0.0.14
 
 ### Patch Changes

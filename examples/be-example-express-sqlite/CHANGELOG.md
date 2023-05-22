@@ -1,5 +1,13 @@
 # be-example-express-sqlite
 
+## 0.0.15
+
+### Patch Changes
+
+- FE: tokens stored in redux, favicon added
+- Updated dependencies
+  - convostack@0.0.18
+
 ## 0.0.14
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @convostack/langchain-memory
 
+## 0.0.16
+
+### Patch Changes
+
+- FE: tokens stored in redux, favicon added
+- Updated dependencies
+  - @convostack/shared@0.0.15
+
 ## 0.0.15
 
 ### Patch Changes

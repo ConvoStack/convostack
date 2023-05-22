@@ -1,5 +1,11 @@
 # schema-graphql
 
+## 0.0.13
+
+### Patch Changes
+
+- FE: tokens stored in redux, favicon added
+
 ## 0.0.12
 
 ### Patch Changes

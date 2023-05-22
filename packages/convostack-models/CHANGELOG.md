@@ -1,5 +1,11 @@
 # @convostack/models
 
+## 0.0.15
+
+### Patch Changes
+
+- FE: tokens stored in redux, favicon added
+
 ## 0.0.14
 
 ### Patch Changes

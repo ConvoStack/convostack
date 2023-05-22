@@ -1,5 +1,11 @@
 # @convostack/frontend-react
 
+## 0.0.16
+
+### Patch Changes
+
+- FE: tokens stored in redux, favicon added
+
 ## 0.0.15
 
 ### Patch Changes
