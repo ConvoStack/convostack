@@ -26,9 +26,10 @@
         "./packages/convostack-storage-engine-prisma-mysql/src/generated/**"
       ]
     },
-    "generate-docs": {
+    "docs:build": {
       "outputs": [
-        "./docs/**"
+        "./docs/build/**",
+        "./docs/docs/**"
       ]
     }
   }

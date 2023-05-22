@@ -13,11 +13,12 @@
   "author": "ConvoStack",
   "license": "MIT",
   "dependencies": {
+    "@convostack/agent": "*",
+    "@convostack/auth": "*",
+    "@convostack/models": "*",
+    "@convostack/shared": "*",
     "@graphql-tools/schema": "^9.0.19",
     "apollo-server-express": "^3.12.0",
-    "@convostack/auth": "*",
-    "@convostack/agent": "*",
-    "@convostack/shared": "*",
     "class-validator": "^0.14.0",
     "express": "^4.18.2",
     "graphql": "^15.8.0",
@@ -28,11 +29,10 @@
     "graphql-ws": "^5.12.1",
     "ioredis": "^5.3.2",
     "jsonwebtoken": "^9.0.0",
-    "@convostack/models": "*",
+    "lru-cache": "^9.1.1",
     "reflect-metadata": "^0.1.13",
     "type-graphql": "^1.1.1",
-    "ws": "^8.13.0",
-    "lru-cache": "^9.1.1"
+    "ws": "^8.13.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "3.3.1",
@@ -40,13 +40,13 @@
     "@graphql-codegen/typescript": "3.0.4",
     "@graphql-codegen/typescript-resolvers": "3.2.1",
     "@graphql-codegen/typescript-type-graphql": "^2.3.6",
-    "config-tsconfig": "*",
     "@types/express": "^4.17.17",
     "@types/node": "^18.16.3",
+    "config-tsconfig": "*",
     "nodemon": "^2.0.22",
+    "schema-graphql": "*",
     "ts-node": "^10.9.1",
-    "typescript": "^5.0.4",
-    "schema-graphql": "*"
+    "typescript": "^5.0.4"
   },
   "scripts": {
     "build": "mkdir -p ./dist && cp ../schema-graphql/schema.graphql ./dist/schema.graphql && tsup src/index.ts --format cjs --dts",
