@@ -2,59 +2,51 @@ import { RefreshAuthDocument, RefreshAuthMutation, LoginDocument, LoginMutation 
 import { GraphQLClient } from 'graphql-request';
 import { RequestMiddleware } from 'graphql-request/src/types';
 import { createClient } from 'graphql-ws';
+import store from '../redux';
+import { setAccessToken, setAccessTokenExpiry, setRefreshToken, setRefreshTokenExpiry } from '../redux/slice';
 import { UserData } from '../types/CustomStyling';
 
-export const fetchTokens = async (graphqlUrl: string, userData: UserData | undefined ) => {
+export const fetchTokens = async (graphqlUrl?: string, userData?: UserData) => {
+  const { accessToken, accessTokenExpiry, refreshToken, refreshTokenExpiry } = store.getState().conversation;
+  if (!userData) userData = store.getState().conversation.userData;
+  if (!graphqlUrl) graphqlUrl = store.getState().conversation.graphqlUrl;
   const tempApiClient = new GraphQLClient(graphqlUrl);
-  const accessToken = localStorage.getItem('accessTokenConvoStack')
-  const refreshToken = localStorage.getItem('refreshTokenConvoStack')
-  const accessTokenTime = localStorage.getItem('accessTokenExpiryConvoStack');
-  const refreshTokenTime = localStorage.getItem('refreshTokenExpiryConvoStack');
-  const userDataLocalStorage = localStorage.getItem('userDataConvoStack');
   const currentTime = Date.now();
-  if (!accessToken || !refreshToken || currentTime > Number(refreshTokenTime) || userDataLocalStorage !== JSON.stringify(userData)) {
+  if (!accessToken || !refreshToken || (refreshTokenExpiry && currentTime > refreshTokenExpiry)) {
     try {
-      localStorage.setItem("userDataConvoStack", JSON.stringify(userData));
       const data: LoginMutation = await tempApiClient.request(LoginDocument, userData);
       const { accessToken, refreshToken } = data.login;
-      localStorage.setItem("accessTokenConvoStack", accessToken.token);
-      localStorage.setItem(
-        "accessTokenExpiryConvoStack",
-        (accessToken.expAt * 1000).toString()
-      );
-      localStorage.setItem("refreshTokenConvoStack", refreshToken.token);
-      localStorage.setItem(
-        "refreshTokenExpiryConvoStack",
-        (refreshToken.expAt * 1000).toString()
-      );
+      store.dispatch(setAccessToken(accessToken.token));
+      store.dispatch(setAccessTokenExpiry((accessToken.expAt * 1000)));
+      store.dispatch(setRefreshToken(refreshToken.token));
+      store.dispatch(setRefreshTokenExpiry((refreshToken.expAt * 1000)));
     } catch (error) {
       console.error(error);
     }
-  } else if (currentTime > Number(accessTokenTime)) {
+  } else if (accessTokenExpiry && currentTime > accessTokenExpiry) {
     try {
+      console.log('AAAA')
       const data: RefreshAuthMutation = await tempApiClient.request(RefreshAuthDocument, {
           refreshToken: refreshToken,
         });
       const { accessToken } = data.refreshAuth;
-      localStorage.setItem("accessTokenConvoStack", accessToken.token);
-      localStorage.setItem(
-        "accessTokenExpiryConvoStack",
-        (accessToken.expAt * 1000).toString()
-      );
+      store.dispatch(setAccessToken(accessToken.token));
+      store.dispatch(setAccessTokenExpiry((accessToken.expAt * 1000)));
     } catch (error) {
       console.error(error);
     }
   }
 }
 
-export const createApiClient = (graphqlUrl: string, userData?: UserData | undefined) => {
+export const createApiClient = () => {
   const authMiddleware: RequestMiddleware = async (request) => {
-    let accessToken = localStorage.getItem('accessTokenConvoStack')
+    let accessToken = store.getState().conversation.accessToken;
+    const accessTokenExpiry = store.getState().conversation.accessTokenExpiry;
     const currentTime = Date.now();
-    const accessTokenTime = localStorage.getItem('accessTokenExpiryConvoStack');
-    if (!accessToken || (currentTime + 60000) > Number(accessTokenTime)) {
-      fetchTokens(graphqlUrl, userData).then(() => {
-        accessToken = localStorage.getItem('accessTokenConvoStack')
+    if (!accessToken || (accessTokenExpiry && currentTime + 60000 > accessTokenExpiry)) {
+      console.log('BBBBB')
+      fetchTokens().then(() => {
+        accessToken = store.getState().conversation.accessToken;
       })
     }
     return {
@@ -62,20 +54,23 @@ export const createApiClient = (graphqlUrl: string, userData?: UserData | undefi
       headers: { ...request.headers, Authorization: `Bearer ${accessToken}` },
     }
   };
+  const graphqlUrl = store.getState().conversation.graphqlUrl;
   const apiClient = new GraphQLClient(graphqlUrl, { requestMiddleware: authMiddleware })
   return apiClient;
 }
 
-export const createWsClient = (wsUrl: string, graphqlUrl: string, userData?: UserData | undefined) => {
+export const createWsClient = () => {
+  const wsUrl = store.getState().conversation.websocketUrl;
   const wsClient = createClient({
     url: wsUrl,
     connectionParams: async () => {
-      let accessToken = localStorage.getItem('accessTokenConvoStack')
+      let accessToken = store.getState().conversation.accessToken;
+      const accessTokenExpiry = store.getState().conversation.accessTokenExpiry;
       const currentTime = Date.now();
-      const accessTokenTime = localStorage.getItem('accessTokenExpiryConvoStack');
-      if (!accessToken || (currentTime + 60000) > Number(accessTokenTime)) {
-        fetchTokens(graphqlUrl, userData).then(() => {
-          accessToken = localStorage.getItem('accessTokenConvoStack')
+      if (!accessToken || (accessTokenExpiry && currentTime + 60000 > accessTokenExpiry)) {
+        console.log('CCCCC')
+        fetchTokens().then(() => {
+          accessToken = store.getState().conversation.accessToken;
         })
       }
       return {

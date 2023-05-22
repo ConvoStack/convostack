@@ -1,10 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { Client } from 'graphql-ws';
 import { CustomStyling, UserData } from '../types/CustomStyling';
 
 export interface ConvoStackState {
   graphqlUrl: string;
   websocketUrl: string;
+  accessToken: string;
+  refreshToken: string;
+  accessTokenExpiry: number | null;
+  refreshTokenExpiry: number | null;
   activeConversationId: string | null;
   context: { [key: string]: string } | null;
   agent: string | null;
@@ -22,6 +25,10 @@ export interface ConvoStackState {
 const initialState: ConvoStackState = {
   graphqlUrl: "",
   websocketUrl: "",
+  accessToken: "",
+  refreshToken: "",
+  accessTokenExpiry: null,
+  refreshTokenExpiry: null,
   activeConversationId: null,
   context: null,
   agent: null,
@@ -45,6 +52,18 @@ const conversationSlice = createSlice({
     },
     setWebsocketlUrl(state, action) {
       state.websocketUrl = action.payload;
+    },
+    setAccessToken(state, action) {
+      state.accessToken = action.payload;
+    },
+    setRefreshToken(state, action) {
+      state.refreshToken = action.payload;
+    },
+    setAccessTokenExpiry(state, action) {
+      state.accessTokenExpiry = action.payload;
+    },
+    setRefreshTokenExpiry(state, action) {
+      state.refreshTokenExpiry = action.payload;
     },
     setConversationId(state, action) {
       state.activeConversationId = action.payload;
@@ -91,6 +110,10 @@ const conversationSlice = createSlice({
 export const { 
   setGraphqlUrl, 
   setWebsocketlUrl, 
+  setAccessToken,
+  setRefreshToken,
+  setAccessTokenExpiry,
+  setRefreshTokenExpiry,
   setConversationId, 
   setContext, 
   setShowConversationWindow, 

@@ -17,16 +17,14 @@ const ConversationList: React.FC<ConversationListProps> = ({
 }) => {
   const icons = useContext(CustomIconsContext);
   const {
-    graphqlUrl,
     styling,
-    userData,
     openConversation,
     agent,
     context,
     createdFirstConversation,
   } = useConvoStack();
   const { data, isFetching, isLoading } = useGetConversationsQuery(
-    createApiClient(graphqlUrl, userData)
+    createApiClient()
   );
   const conversationArray =
     data !== undefined &&

@@ -44,6 +44,7 @@ const useConvoStack = () => {
     activeConversationId,
     isConversationListVisible,
     data,
+    embedData,
     createdFirstConversation,
   } = useSelector((state: any) => state.conversation as ConvoStackState);
   const toggleWidget = (arg: boolean) => {
@@ -69,7 +70,7 @@ const useConvoStack = () => {
       while (graphqlUrl === "") {
         await new Promise((resolve) => setTimeout(resolve, 100)); // Delay for 100 milliseconds before checking again
       }
-      const wsClient = createWsClient(websocketUrl, graphqlUrl, userData);
+      const wsClient = createWsClient();
       wsClient.on("closed", (socket: any) => {
         if (!socket.wasClean) {
           dispatch(setData(null));
@@ -135,7 +136,7 @@ const useConvoStack = () => {
       while (graphqlUrl === "") {
         await new Promise((resolve) => setTimeout(resolve, 100)); // Delay for 100 milliseconds before checking again
       }
-      const wsClient = createWsClient(websocketUrl, graphqlUrl, userData);
+      const wsClient = createWsClient();
       wsClient.on("closed", (socket: any) => {
         if (!socket.wasClean) {
           dispatch(setData(null));
@@ -227,13 +228,10 @@ const useConvoStack = () => {
       // Wait for graphqlUrl to be set
       await new Promise((resolve) => setTimeout(resolve, 200));
     }
-    await createApiClient(graphqlUrl, userData).request(
-      UpdateConversationContextDocument,
-      {
-        conversationId: conversationId,
-        context: context,
-      }
-    );
+    await createApiClient().request(UpdateConversationContextDocument, {
+      conversationId: conversationId,
+      context: context,
+    });
     dispatch(setContext(context));
   };
 
@@ -248,6 +246,7 @@ const useConvoStack = () => {
     isConversationWindowVisible,
     isConversationListVisible,
     data,
+    embedData,
     createdFirstConversation,
     toggleWidget,
     openConversation,

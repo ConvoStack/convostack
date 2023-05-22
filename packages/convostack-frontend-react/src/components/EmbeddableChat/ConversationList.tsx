@@ -14,10 +14,9 @@ interface ConversationListProps {
 
 const ConversationList: React.FC<ConversationListProps> = ({ id, style }) => {
   const icons = useContext(CustomIconsContext);
-  const { graphqlUrl, styling, userData, openConversation, agent, context } =
-    useConvoStack();
+  const { styling, openConversation, agent, context } = useConvoStack();
   const { data, isFetching, isLoading } = useGetConversationsQuery(
-    createApiClient(graphqlUrl, userData),
+    createApiClient(),
     undefined,
     {
       staleTime: 0,

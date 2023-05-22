@@ -12,10 +12,9 @@ interface UserInputProps {
 
 const UserInput: React.FC<UserInputProps> = ({ isAgentTyping }) => {
   const icons = useContext(CustomIconsContext);
-  const { graphqlUrl, activeConversationId, agent, context, userData } =
-    useConvoStack();
+  const { activeConversationId, agent, context } = useConvoStack();
   const { mutate: sendMessageMutation } = useSendMessageMutation(
-    createApiClient(graphqlUrl, userData)
+    createApiClient()
   );
   const sendMessage = async (message: string) => {
     await sendMessageMutation({

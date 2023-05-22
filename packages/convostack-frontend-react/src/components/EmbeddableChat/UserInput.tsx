@@ -16,9 +16,9 @@ const UserInput: React.FC<UserInputProps> = ({
   activeConversationId,
 }) => {
   const icons = useContext(CustomIconsContext);
-  const { graphqlUrl, agent, context, userData } = useConvoStack();
+  const { agent, context } = useConvoStack();
   const { mutate: sendMessageMutation } = useSendMessageMutation(
-    createApiClient(graphqlUrl, userData)
+    createApiClient()
   );
   const sendMessage = async (message: string) => {
     await sendMessageMutation({
