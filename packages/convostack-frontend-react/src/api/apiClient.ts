@@ -25,7 +25,6 @@ export const fetchTokens = async (graphqlUrl?: string, userData?: UserData) => {
     }
   } else if (accessTokenExpiry && currentTime > accessTokenExpiry) {
     try {
-      console.log('AAAA')
       const data: RefreshAuthMutation = await tempApiClient.request(RefreshAuthDocument, {
           refreshToken: refreshToken,
         });
@@ -44,7 +43,6 @@ export const createApiClient = () => {
     const accessTokenExpiry = store.getState().conversation.accessTokenExpiry;
     const currentTime = Date.now();
     if (!accessToken || (accessTokenExpiry && currentTime + 60000 > accessTokenExpiry)) {
-      console.log('BBBBB')
       fetchTokens().then(() => {
         accessToken = store.getState().conversation.accessToken;
       })
@@ -68,7 +66,6 @@ export const createWsClient = () => {
       const accessTokenExpiry = store.getState().conversation.accessTokenExpiry;
       const currentTime = Date.now();
       if (!accessToken || (accessTokenExpiry && currentTime + 60000 > accessTokenExpiry)) {
-        console.log('CCCCC')
         fetchTokens().then(() => {
           accessToken = store.getState().conversation.accessToken;
         })
