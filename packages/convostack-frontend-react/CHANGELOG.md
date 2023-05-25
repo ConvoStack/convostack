@@ -1,5 +1,17 @@
 # @convostack/frontend-react
 
+## 0.0.19
+
+### Patch Changes
+
+- Make cache interface compatible with redis
+
+## 0.0.18
+
+### Patch Changes
+
+- UI updates, backend exports
+
 ## 0.0.17
 
 ### Patch Changes

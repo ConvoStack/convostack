@@ -17,7 +17,7 @@ export interface IConversationEventServiceOptions {
 export interface IConversationEventServiceCache {
     get(key: string): Promise<string>
 
-    set(key: string, value: string): Promise<void>
+    set(key: string, value: string): Promise<any>
 }
 
 export type IConversationEventServicePubSubEngine = PubSubEngine;

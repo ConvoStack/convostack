@@ -1,4 +1,4 @@
-import {ConvoStackBackendExpress} from "convostack/backend-express";
+import {ConvoStackBackendExpress, IConversationEventServiceOptions} from "convostack/backend-express";
 import express from "express";
 import {StorageEnginePrismaSQLite} from "convostack/storage-engine-prisma-sqlite";
 import cors, {CorsOptions} from "cors";
@@ -10,6 +10,8 @@ import {AgentEcho} from "convostack/agent-echo";
 import {IStorageEngine} from "convostack/models";
 import {StorageEnginePrismaPostgres} from "convostack/storage-engine-prisma-postgres";
 import {StorageEnginePrismaMySQL} from "convostack/storage-engine-prisma-mysql";
+import {RedisPubSub} from "graphql-redis-subscriptions";
+import Redis, {RedisOptions} from "ioredis";
 
 dotenv.config();
 
@@ -47,16 +49,13 @@ const main = async () => {
             throw new Error(`Invalid storage engine: ${process.env.STORAGE_ENGINE}`)
     }
 
-    //   const redisOptions: RedisOptions = {
-    //     host: "localhost", // replace with your Redis host
-    //     port: 6379 // replace with your Redis port
-    //   };
-    //
-    //   pubSub = new RedisPubSub({
-    //     connection: options
-    //   });
-    //
-    //   cache = new Redis(redisOptions);
+    const convEventsOpts = {} as IConversationEventServiceOptions;
+    if (process.env.REDIS_URL) {
+        convEventsOpts.pubSubEngine = new RedisPubSub({
+            connection: process.env.REDIS_URL
+        });
+        convEventsOpts.cache = new Redis(process.env.REDIS_URL);
+    }
 
     const backend = new ConvoStackBackendExpress({
         basePath: "/",

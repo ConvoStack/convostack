@@ -1,5 +1,17 @@
 # convostack-docs
 
+## 0.0.4
+
+### Patch Changes
+
+- Make cache interface compatible with redis
+
+## 0.0.3
+
+### Patch Changes
+
+- UI updates, backend exports
+
 ## 0.0.2
 
 ### Patch Changes

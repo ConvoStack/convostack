@@ -1,5 +1,21 @@
 # @convostack/storage-engine-prisma-sqlite
 
+## 0.0.19
+
+### Patch Changes
+
+- Make cache interface compatible with redis
+- Updated dependencies
+  - @convostack/models@0.0.18
+
+## 0.0.18
+
+### Patch Changes
+
+- UI updates, backend exports
+- Updated dependencies
+  - @convostack/models@0.0.17
+
 ## 0.0.17
 
 ### Patch Changes
