@@ -1,5 +1,13 @@
 # be-example-express-sqlite
 
+## 0.0.16
+
+### Patch Changes
+
+- Create options for pubsub and cache engines
+- Updated dependencies
+  - convostack@0.0.19
+
 ## 0.0.15
 
 ### Patch Changes

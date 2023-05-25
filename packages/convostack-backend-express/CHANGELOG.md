@@ -1,5 +1,16 @@
 # @convostack/backend-express
 
+## 0.0.17
+
+### Patch Changes
+
+- Create options for pubsub and cache engines
+- Updated dependencies
+  - @convostack/agent@0.0.16
+  - @convostack/auth@0.0.16
+  - @convostack/models@0.0.16
+  - @convostack/shared@0.0.16
+
 ## 0.0.16
 
 ### Patch Changes

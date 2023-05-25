@@ -1,7 +1,7 @@
 {
   "name": "convostack-docs",
   "homepage": "https://convostack.ai",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "bugs": {
     "url": "https://github.com/ConvoStack/convostack/issues"

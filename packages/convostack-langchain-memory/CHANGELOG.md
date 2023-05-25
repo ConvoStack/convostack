@@ -1,5 +1,13 @@
 # @convostack/langchain-memory
 
+## 0.0.17
+
+### Patch Changes
+
+- Create options for pubsub and cache engines
+- Updated dependencies
+  - @convostack/shared@0.0.16
+
 ## 0.0.16
 
 ### Patch Changes

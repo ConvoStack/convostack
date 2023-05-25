@@ -26,7 +26,7 @@ export class ConvoStackServices {
     this.auth = config.auth;
     this.storage = config.storage;
     this.agents = config.agents;
-    this.conversationEventService = new ConversationEventService(this.storage);
+    this.conversationEventService = new ConversationEventService(this.storage, this.config.conversationEventServiceOptions);
     this.agentService = new AgentService(this.storage, this.config.agents, this.conversationEventService);
     this.conversationService = new ConversationService(this.storage, this.config.agents);
 

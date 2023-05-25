@@ -118,7 +118,7 @@ export class AgentService {
         },
         false
       );
-    } catch (error) {
+    } catch (error: any) {
       console.log("agent llm error", error);
       throw new Error(error);
     }
