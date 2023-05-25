@@ -54,6 +54,7 @@ export class ConvoStackBackendExpress {
         const basePath = this.getCleanBasePath();
         const server = new ApolloServer({
             schema,
+            cache: "bounded",
             context: async ({req}) => {
                 const authCtx = await this.config.auth.getGQLAuthContextHTTP(req);
                 return {...authCtx, services: this.services, req};

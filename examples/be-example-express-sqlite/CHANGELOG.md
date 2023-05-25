@@ -1,5 +1,21 @@
 # be-example-express-sqlite
 
+## 0.0.21
+
+### Patch Changes
+
+- ApolloServer fix build
+- Updated dependencies
+  - convostack@0.0.24
+
+## 0.0.20
+
+### Patch Changes
+
+- ApolloServer prod config
+- Updated dependencies
+  - convostack@0.0.23
+
 ## 0.0.19
 
 ### Patch Changes

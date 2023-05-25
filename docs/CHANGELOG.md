@@ -1,5 +1,17 @@
 # convostack-docs
 
+## 0.0.7
+
+### Patch Changes
+
+- ApolloServer fix build
+
+## 0.0.6
+
+### Patch Changes
+
+- ApolloServer prod config
+
 ## 0.0.5
 
 ### Patch Changes

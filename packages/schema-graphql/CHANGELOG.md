@@ -1,5 +1,17 @@
 # schema-graphql
 
+## 0.0.19
+
+### Patch Changes
+
+- ApolloServer fix build
+
+## 0.0.18
+
+### Patch Changes
+
+- ApolloServer prod config
+
 ## 0.0.17
 
 ### Patch Changes

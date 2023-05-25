@@ -1,5 +1,27 @@
 # @convostack/backend-express
 
+## 0.0.22
+
+### Patch Changes
+
+- ApolloServer fix build
+- Updated dependencies
+  - @convostack/models@0.0.21
+  - @convostack/shared@0.0.21
+  - @convostack/agent@0.0.21
+  - @convostack/auth@0.0.21
+
+## 0.0.21
+
+### Patch Changes
+
+- ApolloServer prod config
+- Updated dependencies
+  - @convostack/agent@0.0.20
+  - @convostack/auth@0.0.20
+  - @convostack/models@0.0.20
+  - @convostack/shared@0.0.20
+
 ## 0.0.20
 
 ### Patch Changes

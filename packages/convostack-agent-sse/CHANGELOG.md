@@ -1,5 +1,23 @@
 # @convostack/agent-sse
 
+## 0.0.21
+
+### Patch Changes
+
+- ApolloServer fix build
+- Updated dependencies
+  - @convostack/shared@0.0.21
+  - @convostack/agent@0.0.21
+
+## 0.0.20
+
+### Patch Changes
+
+- ApolloServer prod config
+- Updated dependencies
+  - @convostack/agent@0.0.20
+  - @convostack/shared@0.0.20
+
 ## 0.0.19
 
 ### Patch Changes

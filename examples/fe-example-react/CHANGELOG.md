@@ -1,5 +1,21 @@
 # fe-example-react
 
+## 0.0.20
+
+### Patch Changes
+
+- ApolloServer fix build
+- Updated dependencies
+  - convostack@0.0.24
+
+## 0.0.19
+
+### Patch Changes
+
+- ApolloServer prod config
+- Updated dependencies
+  - convostack@0.0.23
+
 ## 0.0.18
 
 ### Patch Changes

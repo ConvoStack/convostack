@@ -1,5 +1,47 @@
 # convostack
 
+## 0.0.24
+
+### Patch Changes
+
+- ApolloServer fix build
+- Updated dependencies
+  - @convostack/storage-engine-prisma-postgres@0.0.22
+  - @convostack/storage-engine-prisma-sqlite@0.0.22
+  - @convostack/storage-engine-prisma-mysql@0.0.22
+  - @convostack/agent-sse-echo-server@0.0.21
+  - @convostack/langchain-memory@0.0.22
+  - @convostack/backend-express@0.0.22
+  - @convostack/frontend-react@0.0.22
+  - @convostack/agent-echo@0.0.21
+  - @convostack/agent-sse@0.0.21
+  - @convostack/auth-jwt@0.0.21
+  - @convostack/models@0.0.21
+  - @convostack/shared@0.0.21
+  - @convostack/agent@0.0.21
+  - @convostack/auth@0.0.21
+
+## 0.0.23
+
+### Patch Changes
+
+- ApolloServer prod config
+- Updated dependencies
+  - @convostack/backend-express@0.0.21
+  - @convostack/agent@0.0.20
+  - @convostack/agent-echo@0.0.20
+  - @convostack/agent-sse@0.0.20
+  - @convostack/agent-sse-echo-server@0.0.20
+  - @convostack/auth@0.0.20
+  - @convostack/auth-jwt@0.0.20
+  - @convostack/frontend-react@0.0.21
+  - @convostack/langchain-memory@0.0.21
+  - @convostack/models@0.0.20
+  - @convostack/shared@0.0.20
+  - @convostack/storage-engine-prisma-mysql@0.0.21
+  - @convostack/storage-engine-prisma-postgres@0.0.21
+  - @convostack/storage-engine-prisma-sqlite@0.0.21
+
 ## 0.0.22
 
 ### Patch Changes

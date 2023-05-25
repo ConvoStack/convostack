@@ -1,5 +1,21 @@
 # @convostack/agent-echo
 
+## 0.0.21
+
+### Patch Changes
+
+- ApolloServer fix build
+- Updated dependencies
+  - @convostack/agent@0.0.21
+
+## 0.0.20
+
+### Patch Changes
+
+- ApolloServer prod config
+- Updated dependencies
+  - @convostack/agent@0.0.20
+
 ## 0.0.19
 
 ### Patch Changes

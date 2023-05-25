@@ -1,5 +1,17 @@
 # @convostack/agent-sse-echo-server
 
+## 0.0.21
+
+### Patch Changes
+
+- ApolloServer fix build
+
+## 0.0.20
+
+### Patch Changes
+
+- ApolloServer prod config
+
 ## 0.0.19
 
 ### Patch Changes
