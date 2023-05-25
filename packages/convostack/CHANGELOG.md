@@ -1,5 +1,26 @@
 # convostack
 
+## 0.0.19
+
+### Patch Changes
+
+- Create options for pubsub and cache engines
+- Updated dependencies
+  - @convostack/backend-express@0.0.17
+  - @convostack/agent@0.0.16
+  - @convostack/agent-echo@0.0.16
+  - @convostack/agent-sse@0.0.16
+  - @convostack/agent-sse-echo-server@0.0.16
+  - @convostack/auth@0.0.16
+  - @convostack/auth-jwt@0.0.16
+  - @convostack/frontend-react@0.0.17
+  - @convostack/langchain-memory@0.0.17
+  - @convostack/models@0.0.16
+  - @convostack/shared@0.0.16
+  - @convostack/storage-engine-prisma-mysql@0.0.17
+  - @convostack/storage-engine-prisma-postgres@0.0.17
+  - @convostack/storage-engine-prisma-sqlite@0.0.17
+
 ## 0.0.18
 
 ### Patch Changes

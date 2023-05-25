@@ -1,5 +1,13 @@
 # @convostack/agent-echo
 
+## 0.0.16
+
+### Patch Changes
+
+- Create options for pubsub and cache engines
+- Updated dependencies
+  - @convostack/agent@0.0.16
+
 ## 0.0.15
 
 ### Patch Changes

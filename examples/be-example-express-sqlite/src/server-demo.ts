@@ -47,6 +47,17 @@ const main = async () => {
             throw new Error(`Invalid storage engine: ${process.env.STORAGE_ENGINE}`)
     }
 
+    //   const redisOptions: RedisOptions = {
+    //     host: "localhost", // replace with your Redis host
+    //     port: 6379 // replace with your Redis port
+    //   };
+    //
+    //   pubSub = new RedisPubSub({
+    //     connection: options
+    //   });
+    //
+    //   cache = new Redis(redisOptions);
+
     const backend = new ConvoStackBackendExpress({
         basePath: "/",
         storage,
@@ -66,7 +77,7 @@ const main = async () => {
                     primer: "This is demo echo agent. Write me a message, and I will send it back to you!"
                 }
             }
-        }, "default")
+        }, "default"),
     });
 
     await backend.init(app, httpServer);

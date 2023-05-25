@@ -1,5 +1,13 @@
 # @convostack/storage-engine-prisma-mysql
 
+## 0.0.17
+
+### Patch Changes
+
+- Create options for pubsub and cache engines
+- Updated dependencies
+  - @convostack/models@0.0.16
+
 ## 0.0.16
 
 ### Patch Changes

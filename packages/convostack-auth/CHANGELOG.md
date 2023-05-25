@@ -1,5 +1,13 @@
 # @convostack/auth
 
+## 0.0.16
+
+### Patch Changes
+
+- Create options for pubsub and cache engines
+- Updated dependencies
+  - @convostack/models@0.0.16
+
 ## 0.0.15
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # fe-example-react
 
+## 0.0.15
+
+### Patch Changes
+
+- Create options for pubsub and cache engines
+- Updated dependencies
+  - convostack@0.0.19
+
 ## 0.0.14
 
 ### Patch Changes

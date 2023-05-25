@@ -1,5 +1,11 @@
 # @convostack/agent-sse-echo-server
 
+## 0.0.16
+
+### Patch Changes
+
+- Create options for pubsub and cache engines
+
 ## 0.0.15
 
 ### Patch Changes
