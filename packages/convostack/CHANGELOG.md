@@ -1,5 +1,26 @@
 # convostack
 
+## 0.0.21
+
+### Patch Changes
+
+- Make cache interface compatible with redis
+- Updated dependencies
+  - @convostack/backend-express@0.0.19
+  - @convostack/agent@0.0.18
+  - @convostack/agent-echo@0.0.18
+  - @convostack/agent-sse@0.0.18
+  - @convostack/agent-sse-echo-server@0.0.18
+  - @convostack/auth@0.0.18
+  - @convostack/auth-jwt@0.0.18
+  - @convostack/frontend-react@0.0.19
+  - @convostack/langchain-memory@0.0.19
+  - @convostack/models@0.0.18
+  - @convostack/shared@0.0.18
+  - @convostack/storage-engine-prisma-mysql@0.0.19
+  - @convostack/storage-engine-prisma-postgres@0.0.19
+  - @convostack/storage-engine-prisma-sqlite@0.0.19
+
 ## 0.0.20
 
 ### Patch Changes

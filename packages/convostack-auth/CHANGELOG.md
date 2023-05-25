@@ -1,5 +1,13 @@
 # @convostack/auth
 
+## 0.0.18
+
+### Patch Changes
+
+- Make cache interface compatible with redis
+- Updated dependencies
+  - @convostack/models@0.0.18
+
 ## 0.0.17
 
 ### Patch Changes

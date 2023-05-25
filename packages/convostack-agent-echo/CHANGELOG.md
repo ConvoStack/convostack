@@ -1,5 +1,13 @@
 # @convostack/agent-echo
 
+## 0.0.18
+
+### Patch Changes
+
+- Make cache interface compatible with redis
+- Updated dependencies
+  - @convostack/agent@0.0.18
+
 ## 0.0.17
 
 ### Patch Changes

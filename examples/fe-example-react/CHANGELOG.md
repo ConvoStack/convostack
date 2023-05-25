@@ -1,5 +1,13 @@
 # fe-example-react
 
+## 0.0.17
+
+### Patch Changes
+
+- Make cache interface compatible with redis
+- Updated dependencies
+  - convostack@0.0.21
+
 ## 0.0.16
 
 ### Patch Changes

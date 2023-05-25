@@ -1,5 +1,11 @@
 # schema-graphql
 
+## 0.0.16
+
+### Patch Changes
+
+- Make cache interface compatible with redis
+
 ## 0.0.15
 
 ### Patch Changes
