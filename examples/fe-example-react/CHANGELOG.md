@@ -1,5 +1,13 @@
 # fe-example-react
 
+## 0.0.16
+
+### Patch Changes
+
+- UI updates, backend exports
+- Updated dependencies
+  - convostack@0.0.20
+
 ## 0.0.15
 
 ### Patch Changes
