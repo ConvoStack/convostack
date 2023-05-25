@@ -1,5 +1,26 @@
 # convostack
 
+## 0.0.22
+
+### Patch Changes
+
+- FE check if document or window are undefined
+- Updated dependencies
+  - @convostack/agent@0.0.19
+  - @convostack/agent-echo@0.0.19
+  - @convostack/agent-sse@0.0.19
+  - @convostack/agent-sse-echo-server@0.0.19
+  - @convostack/auth@0.0.19
+  - @convostack/auth-jwt@0.0.19
+  - @convostack/backend-express@0.0.20
+  - @convostack/frontend-react@0.0.20
+  - @convostack/langchain-memory@0.0.20
+  - @convostack/models@0.0.19
+  - @convostack/shared@0.0.19
+  - @convostack/storage-engine-prisma-mysql@0.0.20
+  - @convostack/storage-engine-prisma-postgres@0.0.20
+  - @convostack/storage-engine-prisma-sqlite@0.0.20
+
 ## 0.0.21
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @convostack/frontend-react
 
+## 0.0.20
+
+### Patch Changes
+
+- FE check if document or window are undefined
+
 ## 0.0.19
 
 ### Patch Changes

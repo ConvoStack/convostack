@@ -1,5 +1,11 @@
 # convostack-docs
 
+## 0.0.5
+
+### Patch Changes
+
+- FE check if document or window are undefined
+
 ## 0.0.4
 
 ### Patch Changes

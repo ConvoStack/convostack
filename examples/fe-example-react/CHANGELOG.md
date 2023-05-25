@@ -1,5 +1,13 @@
 # fe-example-react
 
+## 0.0.18
+
+### Patch Changes
+
+- FE check if document or window are undefined
+- Updated dependencies
+  - convostack@0.0.22
+
 ## 0.0.17
 
 ### Patch Changes

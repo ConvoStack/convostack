@@ -1,5 +1,11 @@
 # schema-graphql
 
+## 0.0.17
+
+### Patch Changes
+
+- FE check if document or window are undefined
+
 ## 0.0.16
 
 ### Patch Changes

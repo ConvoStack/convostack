@@ -1,5 +1,11 @@
 # @convostack/shared
 
+## 0.0.19
+
+### Patch Changes
+
+- FE check if document or window are undefined
+
 ## 0.0.18
 
 ### Patch Changes

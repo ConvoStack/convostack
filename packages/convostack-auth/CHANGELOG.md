@@ -1,5 +1,13 @@
 # @convostack/auth
 
+## 0.0.19
+
+### Patch Changes
+
+- FE check if document or window are undefined
+- Updated dependencies
+  - @convostack/models@0.0.19
+
 ## 0.0.18
 
 ### Patch Changes

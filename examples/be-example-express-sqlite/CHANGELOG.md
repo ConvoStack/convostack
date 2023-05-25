@@ -1,5 +1,13 @@
 # be-example-express-sqlite
 
+## 0.0.19
+
+### Patch Changes
+
+- FE check if document or window are undefined
+- Updated dependencies
+  - convostack@0.0.22
+
 ## 0.0.18
 
 ### Patch Changes
