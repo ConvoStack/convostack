@@ -7,11 +7,15 @@ export type CustomStyling = {
   widgetLocation?: "right" | "left"
   widgetWindowHeightOffset?: string
   widgetWindowWidth?: string
+  headerTextColor?: string
+  iconsColor?: string
 }
 
 export type CustomEmbedStyling = {
   embedHeight?: string
   embedWidth?: string
+  headerTextColor?: string
+  iconsColor?: string
 }
 
 export type CustomIcons = {

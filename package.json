@@ -17,5 +17,8 @@
     "examples/*",
     "packages/*",
     "docs"
-  ]
+  ],
+  "dependencies": {
+    "validator": "^13.9.0"
+  }
 }

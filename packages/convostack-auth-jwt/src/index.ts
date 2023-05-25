@@ -4,6 +4,7 @@ import { IGQLAuthContext, IStorageEngine, IUser } from "@convostack/models";
 import { IAuthProvider, ILoginParams, IRefreshParams, ISuccessfulAuthResponse } from "@convostack/auth";
 import { addSecondsToDate, unixTimestamp, generateRandomID } from "@convostack/shared";
 import { sign, SignOptions, verify, VerifyOptions } from "jsonwebtoken";
+import isEmail from 'validator/lib/isEmail';
 
 type JWT_TOKEN_KIND_ACCESS = "access"
 type JWT_TOKEN_KIND_REFRESH = "refresh"
@@ -305,7 +306,6 @@ export class AuthJWT implements IAuthProvider {
 
   private isValidEmail(email: string): boolean {
     // Regular expression for email validation
-    const emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
-    return emailRegex.test(email);
+    return isEmail(email);
   }
 }

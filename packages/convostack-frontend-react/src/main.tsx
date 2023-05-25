@@ -28,8 +28,8 @@ ReactDOM.render(
     >
       <MyComponent text={"Dev's existing content"}></MyComponent>
       <div className="flex flex-row">
-        {/* <EmbedChat id={"test"} />
-        <EmbedChat id={"test2"} /> */}
+        <EmbedChat id={"test"} />
+        {/* <EmbedChat id={"test2"} /> */}
         {/* <EmbedChat id={"test3"} />
         <EmbedChat id={"test4"} />
         <EmbedChat id={"test5"} />

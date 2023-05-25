@@ -4,12 +4,14 @@ import ArrowLeftIcon from "../../assets/ArrowLeftIcon";
 import useConvoStack from "../../hooks/useConvoStack";
 import { setEmbedIsConversationListVisible } from "../../redux/slice";
 import { useDispatch } from "react-redux";
+import { CustomEmbedStyling } from "../../types/CustomStyling";
 
 interface HeaderProps {
   id: string;
+  customStyling?: CustomEmbedStyling;
 }
 
-const Header: React.FC<HeaderProps> = ({ id }) => {
+const Header: React.FC<HeaderProps> = ({ id, customStyling }) => {
   const icons = useContext(CustomIconsContext);
   const dispatch = useDispatch();
   const { styling, setActiveConversationId } = useConvoStack();
@@ -29,10 +31,19 @@ const Header: React.FC<HeaderProps> = ({ id }) => {
             setActiveConversationId(null, undefined, id);
           }}
         >
-          {icons?.backArrowIcon || <ArrowLeftIcon className="w-6 h-6 ml-4" />}
+          {icons?.backArrowIcon || (
+            <ArrowLeftIcon
+              className="w-6 h-6 ml-4"
+              color={customStyling?.iconsColor}
+            />
+          )}
         </div>
         <div className="flex mx-auto">
-          <p className="font-semibold mx-auto">
+          <p
+            className={`font-semibold mx-auto ${
+              styling?.headerTextColor || ""
+            }`}
+          >
             {styling?.headerText || "Convo Stack Chat"}
           </p>
         </div>

@@ -4,15 +4,21 @@ import { createApiClient } from "../../api/apiClient";
 import { CustomIconsContext } from "../../App";
 import PencilSquareIcon from "../../assets/PencilSquareIcon";
 import useConvoStack from "../../hooks/useConvoStack";
+import { CustomEmbedStyling } from "../../types/CustomStyling";
 import ConversationListItem from "../ConversationListItem";
 import LoaderSpinner from "../LoaderSpinner";
 
 interface ConversationListProps {
   id: string;
   style: React.CSSProperties;
+  customStyling?: CustomEmbedStyling;
 }
 
-const ConversationList: React.FC<ConversationListProps> = ({ id, style }) => {
+const ConversationList: React.FC<ConversationListProps> = ({
+  id,
+  style,
+  customStyling,
+}) => {
   const icons = useContext(CustomIconsContext);
   const { styling, openConversation, agent, context } = useConvoStack();
   const { data, isFetching, isLoading } = useGetConversationsQuery(
@@ -48,11 +54,18 @@ const ConversationList: React.FC<ConversationListProps> = ({ id, style }) => {
           onClick={() => openConversation(null, agent, context, id)}
         >
           {icons?.createNewConversationIcon || (
-            <PencilSquareIcon className="w-6 h-6 ml-4" />
+            <PencilSquareIcon
+              className="w-6 h-6 ml-4"
+              color={customStyling?.iconsColor}
+            />
           )}
         </div>
         <div className="flex w-full">
-          <p className="font-semibold mx-auto">
+          <p
+            className={`font-semibold mx-auto ${
+              styling?.headerTextColor || ""
+            }`}
+          >
             {styling?.headerText || "ConvoStack Chat"}
           </p>
         </div>

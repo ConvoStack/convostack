@@ -55,9 +55,10 @@ const EmbedChat: React.FC<EmbedChatProps> = ({
       }
     };
     getHeight();
-    window.addEventListener("resize", getHeight);
+    typeof window !== undefined && window.addEventListener("resize", getHeight);
     return () => {
-      window.removeEventListener("resize", getHeight);
+      typeof window !== undefined &&
+        window.removeEventListener("resize", getHeight);
     };
   }, []);
 
@@ -74,7 +75,7 @@ const EmbedChat: React.FC<EmbedChatProps> = ({
         <div
           className={`${customStyling?.embedHeight || "h-96"} flex flex-col`}
         >
-          <Header id={id} />
+          <Header id={id} customStyling={customStyling} />
           <MessageList
             style={{ height: `calc(${height} - 112px` }}
             isAgentTyping={isAgentTyping}
@@ -88,7 +89,11 @@ const EmbedChat: React.FC<EmbedChatProps> = ({
           />
         </div>
       ) : (
-        <ConversationList id={id} style={{ height: `calc(${height} - 56px` }} />
+        <ConversationList
+          id={id}
+          style={{ height: `calc(${height} - 56px` }}
+          customStyling={customStyling}
+        />
       )}
     </div>
   );

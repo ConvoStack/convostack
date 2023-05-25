@@ -24,10 +24,12 @@ const LaunchButton: React.FC<LaunchButtonProps> = ({
       setIsMouseDown(false);
       onClickClose();
     }
-    document.removeEventListener("mouseup", handleMouseReleased);
+    typeof document !== undefined &&
+      document.removeEventListener("mouseup", handleMouseReleased);
   };
 
-  document.addEventListener("mouseup", handleMouseReleased);
+  typeof document !== undefined &&
+    document.addEventListener("mouseup", handleMouseReleased);
   return (
     <button
       className={`z-50 fixed bottom-4 ${
@@ -48,6 +50,7 @@ const LaunchButton: React.FC<LaunchButtonProps> = ({
                     ? "w-6 h-6 transform transition-all duration-200"
                     : "w-8 h-8 transform transition-all duration-400"
                 }`}
+                color={styling?.iconsColor}
               />
             )
           : icons?.widgetLaunchButtonCloseIcon || (
@@ -57,6 +60,7 @@ const LaunchButton: React.FC<LaunchButtonProps> = ({
                     ? "w-6 h-6 pt-1 transform transition-all duration-200"
                     : "w-8 h-8 pt-1 transform transition-all duration-400"
                 }`}
+                color={styling?.iconsColor}
               />
             )}
       </div>

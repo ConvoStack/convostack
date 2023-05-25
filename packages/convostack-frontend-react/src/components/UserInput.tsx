@@ -50,7 +50,8 @@ const UserInput: React.FC<UserInputProps> = ({ isAgentTyping }) => {
     setInputValue("");
     if (textarea !== null) textarea.style.height = "auto";
   };
-  const textarea = document.querySelector("textarea");
+  const textarea =
+    typeof document !== undefined ? document.querySelector("textarea") : null;
   if (textarea) {
     textarea.addEventListener("input", function () {
       this.style.height = "auto";

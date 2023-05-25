@@ -57,11 +57,18 @@ const ConversationList: React.FC<ConversationListProps> = ({
           }}
         >
           {icons?.createNewConversationIcon || (
-            <PencilSquareIcon className="w-6 h-6 ml-4" />
+            <PencilSquareIcon
+              className="w-6 h-6 ml-4"
+              color={styling?.iconsColor}
+            />
           )}
         </div>
         <div className="flex w-full">
-          <p className="font-semibold mx-auto">
+          <p
+            className={`font-semibold mx-auto ${
+              styling?.headerTextColor || ""
+            }`}
+          >
             {styling?.headerText || "ConvoStack Chat"}
           </p>
         </div>
@@ -76,16 +83,23 @@ const ConversationList: React.FC<ConversationListProps> = ({
           onClick={() => openConversation(null, agent, context)}
         >
           {icons?.createNewConversationIcon || (
-            <PencilSquareIcon className="w-6 h-6 ml-4" />
+            <PencilSquareIcon
+              className="w-6 h-6 ml-4"
+              color={styling?.iconsColor}
+            />
           )}
         </div>
         <div className="mx-auto">
-          <p className="font-semibold mx-auto">
+          <p
+            className={`font-semibold mx-auto ${
+              styling?.headerTextColor || ""
+            }`}
+          >
             {styling?.headerText || "ConvoStack Chat"}
           </p>
         </div>
         <div className="hover:cursor-pointer" onClick={onClickClose}>
-          <XIcon className="w-6 h-6 mr-4" />
+          <XIcon className="w-6 h-6 mr-4" color={styling?.iconsColor} />
         </div>
       </div>
       <div className="bg-white flex-grow overflow-y-auto flex flex-col sm:rounded-b-lg pb-4">

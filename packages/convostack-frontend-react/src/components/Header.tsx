@@ -29,10 +29,19 @@ const Header: React.FC<HeaderProps> = ({ onClickClose }) => {
             setActiveConversationId(null);
           }}
         >
-          {icons?.backArrowIcon || <ArrowLeftIcon className="w-6 h-6 ml-4" />}
+          {icons?.backArrowIcon || (
+            <ArrowLeftIcon
+              className="w-6 h-6 ml-4"
+              color={styling?.iconsColor}
+            />
+          )}
         </div>
         <div className="flex w-full">
-          <p className="font-semibold mx-auto">
+          <p
+            className={`font-semibold mx-auto ${
+              styling?.headerTextColor || ""
+            }`}
+          >
             {styling?.headerText || "ConvoStack Chat"}
           </p>
         </div>
@@ -49,13 +58,20 @@ const Header: React.FC<HeaderProps> = ({ onClickClose }) => {
             setActiveConversationId(null);
           }}
         >
-          {icons?.backArrowIcon || <ArrowLeftIcon className="w-6 h-6 ml-4" />}
+          {icons?.backArrowIcon || (
+            <ArrowLeftIcon
+              className="w-6 h-6 ml-4"
+              color={styling?.iconsColor}
+            />
+          )}
         </div>
-        <p className="font-semibold mx-auto">
+        <p
+          className={`font-semibold mx-auto ${styling?.headerTextColor || ""}`}
+        >
           {styling?.headerText || "ConvoStack Chat"}
         </p>
         <div className="hover:cursor-pointer" onClick={onClickClose}>
-          <XIcon className="w-6 h-6 mr-4" />
+          <XIcon className="w-6 h-6 mr-4" color={styling?.iconsColor} />
         </div>
       </div>
     </>

@@ -54,7 +54,8 @@ const UserInput: React.FC<UserInputProps> = ({
     setInputValue("");
     if (textarea !== null) textarea.style.height = "auto";
   };
-  const textarea = document.querySelector("textarea");
+  const textarea =
+    typeof document !== undefined ? document.querySelector("textarea") : null;
   if (textarea) {
     textarea.addEventListener("input", function () {
       this.style.height = "auto";
@@ -64,13 +65,13 @@ const UserInput: React.FC<UserInputProps> = ({
 
   return (
     <div className="border-t-1">
-      <div className="w-full min-h-14 bg-off-white sm:rounded-bl-lg sm:rounded-br-lg flex items-center max-h-36 scrollbar-hidden py-4 focus-within:shadow-md">
+      <div className="w-full min-h-14 bg-off-white flex items-center max-h-36 scrollbar-hidden py-4 focus-within:shadow-md">
         <textarea
           placeholder="Please type here..."
           value={inputValue}
           onChange={handleChange}
           rows={1}
-          className="h-auto px-4 max-h-36 w-full bg-off-white rounded-b-md text-slate-500 scrollbar-hidden resize-none focus:outline-none focus:ring-blue-400 focus:ring-0"
+          className="h-auto px-4 max-h-36 w-full bg-off-white text-slate-500 scrollbar-hidden resize-none focus:outline-none focus:ring-blue-400 focus:ring-0"
           onKeyDown={handleKeyDown}
         />
         {isAgentTyping ? (

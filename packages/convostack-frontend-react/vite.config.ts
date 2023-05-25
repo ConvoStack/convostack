@@ -10,6 +10,9 @@ export default defineConfig({
       '@graphql': './graphql/generated/graphql.ts',
     },
   },
+  server: {
+    host: '0.0.0.0',
+  },
   build: {
     outDir: 'dist', 
     lib: {

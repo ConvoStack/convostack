@@ -46,6 +46,7 @@ const useConvoStack = () => {
     data,
     embedData,
     createdFirstConversation,
+    embedActiveConversationId,
   } = useSelector((state: any) => state.conversation as ConvoStackState);
   const toggleWidget = (arg: boolean) => {
     if (activeConversationId && !isConversationWindowVisible) {
@@ -248,6 +249,7 @@ const useConvoStack = () => {
     data,
     embedData,
     createdFirstConversation,
+    embedActiveConversationId,
     toggleWidget,
     openConversation,
     setActiveConversationId,
