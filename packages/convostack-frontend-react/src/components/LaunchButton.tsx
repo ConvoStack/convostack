@@ -24,11 +24,11 @@ const LaunchButton: React.FC<LaunchButtonProps> = ({
       setIsMouseDown(false);
       onClickClose();
     }
-    typeof document !== undefined &&
+    typeof document !== "undefined" &&
       document.removeEventListener("mouseup", handleMouseReleased);
   };
 
-  typeof document !== undefined &&
+  typeof document !== "undefined" &&
     document.addEventListener("mouseup", handleMouseReleased);
   return (
     <button

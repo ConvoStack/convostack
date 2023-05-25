@@ -55,9 +55,10 @@ const EmbedChat: React.FC<EmbedChatProps> = ({
       }
     };
     getHeight();
-    typeof window !== undefined && window.addEventListener("resize", getHeight);
+    typeof window !== "undefined" &&
+      window.addEventListener("resize", getHeight);
     return () => {
-      typeof window !== undefined &&
+      typeof window !== "undefined" &&
         window.removeEventListener("resize", getHeight);
     };
   }, []);

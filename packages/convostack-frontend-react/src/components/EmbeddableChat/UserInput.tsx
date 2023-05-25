@@ -55,7 +55,7 @@ const UserInput: React.FC<UserInputProps> = ({
     if (textarea !== null) textarea.style.height = "auto";
   };
   const textarea =
-    typeof document !== undefined ? document.querySelector("textarea") : null;
+    typeof document !== "undefined" ? document.querySelector("textarea") : null;
   if (textarea) {
     textarea.addEventListener("input", function () {
       this.style.height = "auto";

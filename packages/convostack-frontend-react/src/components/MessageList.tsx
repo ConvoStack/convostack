@@ -93,9 +93,10 @@ const MessageList: React.FC<MessageListProps> = ({
       }
     };
     getWidth();
-    typeof window !== undefined && window.addEventListener("resize", getWidth);
+    typeof window !== "undefined" &&
+      window.addEventListener("resize", getWidth);
     return () => {
-      typeof window !== undefined &&
+      typeof window !== "undefined" &&
         window.removeEventListener("resize", getWidth);
     };
   }, []);
