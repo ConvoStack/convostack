@@ -1,5 +1,14 @@
 # @convostack/agent-sse
 
+## 0.0.22
+
+### Patch Changes
+
+- Update default history ordering
+- Updated dependencies
+  - @convostack/agent@0.0.22
+  - @convostack/shared@0.0.22
+
 ## 0.0.21
 
 ### Patch Changes

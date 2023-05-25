@@ -1,5 +1,13 @@
 # fe-example-react
 
+## 0.0.21
+
+### Patch Changes
+
+- Update default history ordering
+- Updated dependencies
+  - convostack@0.0.25
+
 ## 0.0.20
 
 ### Patch Changes

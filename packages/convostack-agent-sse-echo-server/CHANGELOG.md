@@ -1,5 +1,11 @@
 # @convostack/agent-sse-echo-server
 
+## 0.0.22
+
+### Patch Changes
+
+- Update default history ordering
+
 ## 0.0.21
 
 ### Patch Changes

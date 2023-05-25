@@ -1,5 +1,11 @@
 # convostack-docs
 
+## 0.0.8
+
+### Patch Changes
+
+- Update default history ordering
+
 ## 0.0.7
 
 ### Patch Changes

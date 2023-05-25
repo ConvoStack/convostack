@@ -1,6 +1,6 @@
 {
   "name": "@convostack/langchain-memory",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "engines": {

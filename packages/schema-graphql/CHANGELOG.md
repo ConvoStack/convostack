@@ -1,5 +1,11 @@
 # schema-graphql
 
+## 0.0.20
+
+### Patch Changes
+
+- Update default history ordering
+
 ## 0.0.19
 
 ### Patch Changes

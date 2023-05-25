@@ -1,5 +1,16 @@
 # @convostack/backend-express
 
+## 0.0.23
+
+### Patch Changes
+
+- Update default history ordering
+- Updated dependencies
+  - @convostack/agent@0.0.22
+  - @convostack/auth@0.0.22
+  - @convostack/models@0.0.22
+  - @convostack/shared@0.0.22
+
 ## 0.0.22
 
 ### Patch Changes

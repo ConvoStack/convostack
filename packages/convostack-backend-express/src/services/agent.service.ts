@@ -57,7 +57,7 @@ export class AgentService {
     return lastMessage[0].turn + 1;
   }
 
-  private async getHistory(conversationId: string, mostRecentFirst: boolean = true, skip: number = 0, take: number = 1000): Promise<IMessage[]> {
+  private async getHistory(conversationId: string, mostRecentFirst: boolean = false, skip: number = 0, take: number = 1000): Promise<IMessage[]> {
     const msgs = await this.storage.findMessages({
       conversationId
     }, {
