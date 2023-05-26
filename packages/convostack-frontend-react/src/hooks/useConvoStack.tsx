@@ -121,9 +121,6 @@ const useConvoStack = () => {
         );
         setCleanupFunc(key || "widget", subscriptionCleanup);
       });
-      if (agent) {
-        dispatch(setAgent(agent));
-      }
       if (context) {
         dispatch(setContext(context));
       }
@@ -182,9 +179,6 @@ const useConvoStack = () => {
         );
         setCleanupFunc(key || "widget", subscriptionCleanup);
       });
-      if (agent) {
-        dispatch(setAgent(agent));
-      }
       if (context) {
         dispatch(setContext(context));
       }

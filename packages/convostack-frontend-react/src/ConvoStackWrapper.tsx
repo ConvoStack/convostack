@@ -14,6 +14,7 @@ export interface ConvoStackWrapperProps {
   userData?: UserData;
   customStyling?: CustomStyling;
   icons?: CustomIcons;
+  defaultAgent?: string | null;
   children: React.ReactNode;
   CustomMessage?: React.ComponentType<MessageProps>;
 }
@@ -24,6 +25,7 @@ const ConvoStackWrapper: React.FC<ConvoStackWrapperProps> = ({
   userData,
   customStyling,
   icons,
+  defaultAgent,
   children,
   CustomMessage,
 }) => {
@@ -54,6 +56,7 @@ const ConvoStackWrapper: React.FC<ConvoStackWrapperProps> = ({
             userData={userData}
             customStyling={customStyling}
             icons={icons}
+            defaultAgent={defaultAgent}
             CustomMessage={CustomMessage}
           />
         )}
