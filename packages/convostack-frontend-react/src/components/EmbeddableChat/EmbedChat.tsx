@@ -12,10 +12,10 @@ import {
   setEmbedData,
   setEmbedIsConversationListVisible,
 } from "../../redux/slice";
-import { CustomEmbedStyling } from "../../types/CustomStyling";
+import { CustomEmbedStyling } from "../../types";
 import { MessageProps } from "../Message";
 
-interface EmbedChatProps {
+export interface EmbedChatProps {
   id: string;
   customStyling?: CustomEmbedStyling;
   CustomMessage?: React.ComponentType<MessageProps>;

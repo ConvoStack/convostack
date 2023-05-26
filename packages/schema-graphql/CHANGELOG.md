@@ -1,5 +1,11 @@
 # schema-graphql
 
+## 0.0.23
+
+### Patch Changes
+
+- FE Default Agent and Props
+
 ## 0.0.22
 
 ### Patch Changes

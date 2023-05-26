@@ -4,7 +4,7 @@ import { createApiClient } from "../../api/apiClient";
 import { CustomIconsContext } from "../../App";
 import PencilSquareIcon from "../../assets/PencilSquareIcon";
 import useConvoStack from "../../hooks/useConvoStack";
-import { CustomEmbedStyling } from "../../types/CustomStyling";
+import { CustomEmbedStyling } from "../../types";
 import ConversationListItem from "../ConversationListItem";
 import LoaderSpinner from "../LoaderSpinner";
 

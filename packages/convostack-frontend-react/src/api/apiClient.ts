@@ -4,7 +4,7 @@ import { RequestMiddleware } from 'graphql-request/src/types';
 import { createClient } from 'graphql-ws';
 import store from '../redux';
 import { setAccessToken, setAccessTokenExpiry, setRefreshToken, setRefreshTokenExpiry } from '../redux/slice';
-import { UserData } from '../types/CustomStyling';
+import { UserData } from '../types';
 
 export const fetchTokens = async (graphqlUrl?: string, userData?: UserData) => {
   const { accessToken, accessTokenExpiry, refreshToken, refreshTokenExpiry } = store.getState().conversation;

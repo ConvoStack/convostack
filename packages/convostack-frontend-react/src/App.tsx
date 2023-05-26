@@ -5,12 +5,13 @@ import LaunchButton from "./components/LaunchButton";
 import { ConvoStackWrapperProps } from "./ConvoStackWrapper";
 import useConvoStack from "./hooks/useConvoStack";
 import {
+  setAgent,
   setGraphqlUrl,
   setStyling,
   setUserData,
   setWebsocketlUrl,
 } from "./redux/slice";
-import { CustomIcons } from "./types/CustomStyling";
+import { CustomIcons } from "./types";
 
 export const CustomIconsContext = createContext<CustomIcons | undefined>(
   undefined
@@ -22,15 +23,24 @@ const App: React.FC<Omit<ConvoStackWrapperProps, "children">> = ({
   userData,
   customStyling,
   icons,
+  defaultAgent,
   CustomMessage,
 }) => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(setWebsocketlUrl(websocketUrl));
     dispatch(setGraphqlUrl(graphqlUrl));
+    if (defaultAgent !== undefined) dispatch(setAgent(defaultAgent));
     if (customStyling !== undefined) dispatch(setStyling(customStyling));
     if (userData !== undefined) dispatch(setUserData(userData));
-  }, [websocketUrl, graphqlUrl, customStyling, userData, dispatch]);
+  }, [
+    websocketUrl,
+    graphqlUrl,
+    customStyling,
+    userData,
+    dispatch,
+    defaultAgent,
+  ]);
   const { isConversationWindowVisible, toggleWidget } = useConvoStack();
   const [isShowing, setIsShowing] = useState<boolean>(false);
   useEffect(() => {

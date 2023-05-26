@@ -1,5 +1,13 @@
 # fe-example-react
 
+## 0.0.24
+
+### Patch Changes
+
+- FE Default Agent and Props
+- Updated dependencies
+  - convostack@0.0.28
+
 ## 0.0.23
 
 ### Patch Changes

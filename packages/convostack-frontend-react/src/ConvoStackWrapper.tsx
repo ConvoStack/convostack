@@ -1,7 +1,7 @@
 import { Provider } from "react-redux";
 import App from "./App";
 import store from "./redux";
-import { CustomStyling, CustomIcons, UserData } from "./types/CustomStyling";
+import { CustomStyling, CustomIcons, UserData } from "./types";
 import "../src/tailwind.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { fetchTokens } from "./api/apiClient";
@@ -14,6 +14,7 @@ export interface ConvoStackWrapperProps {
   userData?: UserData;
   customStyling?: CustomStyling;
   icons?: CustomIcons;
+  defaultAgent?: string | null;
   children: React.ReactNode;
   CustomMessage?: React.ComponentType<MessageProps>;
 }
@@ -24,6 +25,7 @@ const ConvoStackWrapper: React.FC<ConvoStackWrapperProps> = ({
   userData,
   customStyling,
   icons,
+  defaultAgent,
   children,
   CustomMessage,
 }) => {
@@ -54,6 +56,7 @@ const ConvoStackWrapper: React.FC<ConvoStackWrapperProps> = ({
             userData={userData}
             customStyling={customStyling}
             icons={icons}
+            defaultAgent={defaultAgent}
             CustomMessage={CustomMessage}
           />
         )}
