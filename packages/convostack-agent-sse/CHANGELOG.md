@@ -1,5 +1,14 @@
 # @convostack/agent-sse
 
+## 0.0.24
+
+### Patch Changes
+
+- Scoped Tailwind Styling
+- Updated dependencies
+  - @convostack/agent@0.0.24
+  - @convostack/shared@0.0.24
+
 ## 0.0.23
 
 ### Patch Changes

@@ -1,5 +1,26 @@
 # convostack
 
+## 0.0.27
+
+### Patch Changes
+
+- Scoped Tailwind Styling
+- Updated dependencies
+  - @convostack/agent@0.0.24
+  - @convostack/agent-echo@0.0.24
+  - @convostack/agent-sse@0.0.24
+  - @convostack/agent-sse-echo-server@0.0.24
+  - @convostack/auth@0.0.24
+  - @convostack/auth-jwt@0.0.24
+  - @convostack/backend-express@0.0.25
+  - @convostack/frontend-react@0.0.25
+  - @convostack/langchain-memory@0.0.25
+  - @convostack/models@0.0.24
+  - @convostack/shared@0.0.24
+  - @convostack/storage-engine-prisma-mysql@0.0.25
+  - @convostack/storage-engine-prisma-postgres@0.0.25
+  - @convostack/storage-engine-prisma-sqlite@0.0.25
+
 ## 0.0.26
 
 ### Patch Changes

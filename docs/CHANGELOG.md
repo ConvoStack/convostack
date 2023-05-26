@@ -1,5 +1,11 @@
 # convostack-docs
 
+## 0.0.10
+
+### Patch Changes
+
+- Scoped Tailwind Styling
+
 ## 0.0.9
 
 ### Patch Changes

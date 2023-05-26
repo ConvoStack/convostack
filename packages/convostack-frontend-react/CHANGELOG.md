@@ -1,5 +1,11 @@
 # @convostack/frontend-react
 
+## 0.0.25
+
+### Patch Changes
+
+- Scoped Tailwind Styling
+
 ## 0.0.24
 
 ### Patch Changes

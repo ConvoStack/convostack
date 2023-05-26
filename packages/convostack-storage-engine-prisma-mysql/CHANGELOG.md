@@ -1,5 +1,13 @@
 # @convostack/storage-engine-prisma-mysql
 
+## 0.0.25
+
+### Patch Changes
+
+- Scoped Tailwind Styling
+- Updated dependencies
+  - @convostack/models@0.0.24
+
 ## 0.0.24
 
 ### Patch Changes

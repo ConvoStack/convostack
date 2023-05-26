@@ -1,5 +1,11 @@
 # config-tsconfig
 
+## 0.0.22
+
+### Patch Changes
+
+- Scoped Tailwind Styling
+
 ## 0.0.21
 
 ### Patch Changes

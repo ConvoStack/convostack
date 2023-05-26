@@ -1,5 +1,13 @@
 # be-example-express-sqlite
 
+## 0.0.24
+
+### Patch Changes
+
+- Scoped Tailwind Styling
+- Updated dependencies
+  - convostack@0.0.27
+
 ## 0.0.23
 
 ### Patch Changes

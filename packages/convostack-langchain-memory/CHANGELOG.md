@@ -1,5 +1,13 @@
 # @convostack/langchain-memory
 
+## 0.0.25
+
+### Patch Changes
+
+- Scoped Tailwind Styling
+- Updated dependencies
+  - @convostack/shared@0.0.24
+
 ## 0.0.24
 
 ### Patch Changes

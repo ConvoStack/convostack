@@ -1,5 +1,13 @@
 # @convostack/auth
 
+## 0.0.24
+
+### Patch Changes
+
+- Scoped Tailwind Styling
+- Updated dependencies
+  - @convostack/models@0.0.24
+
 ## 0.0.23
 
 ### Patch Changes

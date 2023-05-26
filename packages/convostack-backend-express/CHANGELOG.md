@@ -1,5 +1,16 @@
 # @convostack/backend-express
 
+## 0.0.25
+
+### Patch Changes
+
+- Scoped Tailwind Styling
+- Updated dependencies
+  - @convostack/agent@0.0.24
+  - @convostack/auth@0.0.24
+  - @convostack/models@0.0.24
+  - @convostack/shared@0.0.24
+
 ## 0.0.24
 
 ### Patch Changes
