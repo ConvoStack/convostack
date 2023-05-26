@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { CustomStyling, UserData } from '../types/CustomStyling';
+import { CustomStyling, UserData } from '../types';
 
 export interface ConvoStackState {
   graphqlUrl: string;

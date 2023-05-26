@@ -11,7 +11,7 @@ import {
   setUserData,
   setWebsocketlUrl,
 } from "./redux/slice";
-import { CustomIcons } from "./types/CustomStyling";
+import { CustomIcons } from "./types";
 
 export const CustomIconsContext = createContext<CustomIcons | undefined>(
   undefined

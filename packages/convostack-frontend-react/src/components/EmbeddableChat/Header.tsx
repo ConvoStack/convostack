@@ -4,7 +4,7 @@ import ArrowLeftIcon from "../../assets/ArrowLeftIcon";
 import useConvoStack from "../../hooks/useConvoStack";
 import { setEmbedIsConversationListVisible } from "../../redux/slice";
 import { useDispatch } from "react-redux";
-import { CustomEmbedStyling } from "../../types/CustomStyling";
+import { CustomEmbedStyling } from "../../types";
 
 interface HeaderProps {
   id: string;

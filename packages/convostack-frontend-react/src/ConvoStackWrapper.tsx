@@ -1,7 +1,7 @@
 import { Provider } from "react-redux";
 import App from "./App";
 import store from "./redux";
-import { CustomStyling, CustomIcons, UserData } from "./types/CustomStyling";
+import { CustomStyling, CustomIcons, UserData } from "./types";
 import "../src/tailwind.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { fetchTokens } from "./api/apiClient";
