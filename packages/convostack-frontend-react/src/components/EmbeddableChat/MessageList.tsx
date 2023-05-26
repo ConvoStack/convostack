@@ -56,6 +56,7 @@ const MessageList: React.FC<MessageListProps> = ({
   };
   useEffect(() => {
     if (data !== null) {
+      isAgentTyping && handleScrollToBottom("auto");
       onNext(data);
     } else {
       setIsLoading(true);
@@ -67,16 +68,21 @@ const MessageList: React.FC<MessageListProps> = ({
   const innerDiv = useRef() as MutableRefObject<HTMLDivElement>;
   const prevInnerDivHeight = useRef<null | number>(null);
 
-  useEffect(() => {
+  const handleScrollToBottom = (behavior: ScrollBehavior | undefined) => {
     const outerDivHeight = outerDiv.current.clientHeight;
     const innerDivHeight = innerDiv.current.clientHeight;
+
     outerDiv.current.scrollTo({
       top: innerDivHeight - outerDivHeight,
       left: 0,
-      behavior: "smooth",
+      behavior: behavior,
     });
 
     prevInnerDivHeight.current = innerDivHeight;
+  };
+
+  useEffect(() => {
+    handleScrollToBottom("smooth");
   }, [conversationEvents, streams]);
 
   useEffect(() => {
