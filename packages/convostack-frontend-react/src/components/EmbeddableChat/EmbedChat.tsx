@@ -66,16 +66,16 @@ const EmbedChat: React.FC<EmbedChatProps> = ({
   return (
     <div
       ref={outerDiv}
-      className={`${customStyling?.embedHeight || "h-96"} ${
-        customStyling?.embedWidth || "w-[400px]"
-      } max-sm:max-w-[100vw]`}
+      className={`max-sm:max-w-[100vw]`}
+      style={{
+        width: customStyling?.embedWidth || "400px",
+        height: customStyling?.embedHeight || "400px",
+      }}
     >
       {graphqlUrl === "" ? (
         <Loader />
       ) : !embedIsConversationListVisible ? (
-        <div
-          className={`${customStyling?.embedHeight || "h-96"} flex flex-col`}
-        >
+        <div className="flex flex-col">
           <Header id={id} customStyling={customStyling} />
           <MessageList
             style={{ height: `calc(${height} - 112px` }}

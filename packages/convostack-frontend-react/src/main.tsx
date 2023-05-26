@@ -23,7 +23,6 @@ ReactDOM.render(
         headerText: "My Custom Header",
         widgetLaunchButtonColor: "bg-black",
         widgetLocation: "right",
-        widgetWindowWidth: "w-[370px]",
       }}
     >
       <MyComponent text={"Dev's existing content"}></MyComponent>

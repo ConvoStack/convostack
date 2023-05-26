@@ -19,7 +19,7 @@ const ConversationListItem: React.FC<ConversationListProps> = ({
   avatarUrl,
   id,
 }) => {
-  const { openConversation, agent, context } = useConvoStack();
+  const { openConversation } = useConvoStack();
   const timeAgo = (dateString: string) => {
     const date = new Date(dateString);
     const now = new Date();
@@ -41,9 +41,9 @@ const ConversationListItem: React.FC<ConversationListProps> = ({
   };
   const onConversationListItemClicked = async () => {
     if (id) {
-      openConversation(conversationId, agent, context, id);
+      openConversation(conversationId, null, null, id);
     } else {
-      openConversation(conversationId, agent, context);
+      openConversation(conversationId, null, null);
     }
   };
 

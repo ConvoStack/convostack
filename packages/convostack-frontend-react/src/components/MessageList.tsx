@@ -53,10 +53,14 @@ const MessageList: React.FC<MessageListProps> = ({
   };
   useEffect(() => {
     if (data !== null) {
-      onNext(data);
+      handleScrollToBottom("auto").then(() => {
+        setTimeout;
+        onNext(data);
+      });
     } else {
       setIsLoading(true);
       setConversationEvents([]);
+      setStreams([]);
     }
   }, [data]);
 
@@ -64,16 +68,21 @@ const MessageList: React.FC<MessageListProps> = ({
   const innerDiv = useRef() as MutableRefObject<HTMLDivElement>;
   const prevInnerDivHeight = useRef<null | number>(null);
 
-  useEffect(() => {
+  const handleScrollToBottom = async (behavior: ScrollBehavior | undefined) => {
     const outerDivHeight = outerDiv.current.clientHeight;
     const innerDivHeight = innerDiv.current.clientHeight;
-    outerDiv.current.scrollTo({
+
+    await outerDiv.current.scrollTo({
       top: innerDivHeight - outerDivHeight,
       left: 0,
-      behavior: "smooth",
+      behavior: behavior,
     });
 
     prevInnerDivHeight.current = innerDivHeight;
+  };
+
+  useEffect(() => {
+    handleScrollToBottom("smooth");
   }, [conversationEvents, streams]);
 
   useEffect(() => {
