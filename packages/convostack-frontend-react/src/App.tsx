@@ -36,9 +36,23 @@ const App: React.FC<Omit<ConvoStackWrapperProps, "children">> = ({
   useEffect(() => {
     if (isConversationWindowVisible) {
       setIsShowing(true);
+      if (
+        typeof document !== "undefined" &&
+        typeof window !== "undefined" &&
+        window.innerWidth < 640
+      ) {
+        document.body.style.overflow = "hidden";
+      }
     } else {
       setTimeout(() => {
         setIsShowing(false);
+        if (
+          typeof document !== "undefined" &&
+          typeof window !== "undefined" &&
+          window.innerWidth < 640
+        ) {
+          document.body.style.overflow = "scroll";
+        }
       }, 200);
     }
   }, [isConversationWindowVisible]);
@@ -60,7 +74,7 @@ const App: React.FC<Omit<ConvoStackWrapperProps, "children">> = ({
             />
           </div>
         )}
-        <div className="sm:hidden fixed">
+        <div className="sm:hidden">
           {!isShowing && (
             <div
               className={
