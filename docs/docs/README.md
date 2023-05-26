@@ -4,7 +4,18 @@ ConvoStack is a plug and play embeddable AI chatbot widget and backend deploymen
 
 To learn more about the project and compatible technologies, check out [ConvoStack.ai](https://convostack.ai/).
 
-## Getting started with ConvoStack
+## Getting Started
 
-To get started with ConvoStack, check out our getting started
-repo [here](https://github.com/ConvoStack/getting-started)!
+Get your AI chatbot up and running in minutes with one of the following getting started guides:
+
+* [Quickstart: ConvoStack Playground (React, Express, TypeScript)](./getting-started/quickstart-react-express-playground)
+
+# TODO - Insert image/GIF/video of ConvoStack working
+
+## Who should use ConvoStack?
+
+# TODO - libs
+
+## Requirements
+
+# TODO - libs, languages, etc.
