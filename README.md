@@ -6,13 +6,13 @@ To learn more about the project and compatible technologies, check out [ConvoSta
 
 ## Getting started with ConvoStack
 
-To get started with ConvoStack, check out our getting started
-repo [here](https://github.com/ConvoStack/getting-started)!
+To get started with ConvoStack, check out our playground
+repo [here](https://github.com/ConvoStack/playground)!
 
 ## Developing ConvoStack
 
 Only follow these instructions if you're looking to contribute to ConvoStack development. If you're looking to use
-ConvoStack in your own app, check out the getting started repo [here](https://github.com/ConvoStack/getting-started)
+ConvoStack in your own app, check out the playground repo [here](https://github.com/ConvoStack/playground)
 instead.
 
 ### Monorepo setup
