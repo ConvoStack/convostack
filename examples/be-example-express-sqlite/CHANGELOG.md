@@ -1,5 +1,13 @@
 # be-example-express-sqlite
 
+## 0.0.25
+
+### Patch Changes
+
+- FE Default Agent and Props
+- Updated dependencies
+  - convostack@0.0.28
+
 ## 0.0.24
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @convostack/auth
 
+## 0.0.25
+
+### Patch Changes
+
+- FE Default Agent and Props
+- Updated dependencies
+  - @convostack/models@0.0.25
+
 ## 0.0.24
 
 ### Patch Changes

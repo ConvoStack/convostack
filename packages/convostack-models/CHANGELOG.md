@@ -1,5 +1,11 @@
 # @convostack/models
 
+## 0.0.25
+
+### Patch Changes
+
+- FE Default Agent and Props
+
 ## 0.0.24
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @convostack/frontend-react
 
+## 0.0.26
+
+### Patch Changes
+
+- FE Default Agent and Props
+
 ## 0.0.25
 
 ### Patch Changes

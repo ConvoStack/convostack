@@ -1,5 +1,13 @@
 # @convostack/langchain-memory
 
+## 0.0.26
+
+### Patch Changes
+
+- FE Default Agent and Props
+- Updated dependencies
+  - @convostack/shared@0.0.25
+
 ## 0.0.25
 
 ### Patch Changes
