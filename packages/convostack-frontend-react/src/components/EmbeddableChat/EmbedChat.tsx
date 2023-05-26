@@ -66,7 +66,7 @@ const EmbedChat: React.FC<EmbedChatProps> = ({
   return (
     <div
       ref={outerDiv}
-      className={`max-sm:max-w-[100vw]`}
+      className="max-sm:max-w-[100vw] convostack"
       style={{
         width: customStyling?.embedWidth || "400px",
         height: customStyling?.embedHeight || "400px",

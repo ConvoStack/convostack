@@ -22,10 +22,12 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
         headerText: "My Custom Header",
         widgetLaunchButtonColor: "bg-black",
         widgetLocation: "right",
-        widgetWindowWidth: "w-[370px]",
       }}
     >
       <MyComponent text={"Dev's existing content"}></MyComponent>
+      <h3 className="mt-2 w-full text-left text-3xl font-bold tracking-tight md:text-center md:text-5xl lg:text-5xl">
+        Community
+      </h3>
       <div className="flex flex-row">
         <EmbedChat id={"test"} />
         <EmbedChat id={"test2"} />

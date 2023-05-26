@@ -59,7 +59,7 @@ const App: React.FC<Omit<ConvoStackWrapperProps, "children">> = ({
 
   return (
     <CustomIconsContext.Provider value={icons}>
-      <div className="z-50">
+      <div className="z-50 convostack">
         {isShowing && (
           <div
             className={
