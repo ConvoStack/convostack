@@ -32,14 +32,14 @@ const Header: React.FC<HeaderProps> = ({ onClickClose }) => {
           {icons?.backArrowIcon || (
             <ArrowLeftIcon
               className="w-6 h-6 ml-4"
-              color={styling?.iconsColor}
+              color={styling?.iconsColor || "white"}
             />
           )}
         </div>
         <div className="flex w-full">
           <p
-            className={`font-semibold mx-auto ${
-              styling?.headerTextColor || ""
+            className={`font-sans font-semibold mx-auto ${
+              styling?.headerTextColor || "text-white"
             }`}
           >
             {styling?.headerText || "ConvoStack Chat"}
@@ -61,12 +61,14 @@ const Header: React.FC<HeaderProps> = ({ onClickClose }) => {
           {icons?.backArrowIcon || (
             <ArrowLeftIcon
               className="w-6 h-6 ml-4"
-              color={styling?.iconsColor}
+              color={styling?.iconsColor || "white"}
             />
           )}
         </div>
         <p
-          className={`font-semibold mx-auto ${styling?.headerTextColor || ""}`}
+          className={`font-sans font-semibold mx-auto ${
+            styling?.headerTextColor || "text-white"
+          }`}
         >
           {styling?.headerText || "ConvoStack Chat"}
         </p>

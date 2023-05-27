@@ -6,6 +6,9 @@ export default {
   ],
   important: '.convostack',
   theme: {
+    fontFamily: {
+      sans: ['Arial', 'system-ui', 'Avenir', 'Helvetica', 'Arial', 'sans-serif'],
+    },
     extend: {
       animation: {
         'conversation-window-fade-enter': 'conversation-window-fade-enter 0.3s ease-in-out',
@@ -31,6 +34,9 @@ export default {
         'blue-gradient': 'linear-gradient(to bottom, #2563EB, #3B82F6)',
       },
     },
+  },
+  corePlugins: {
+    preflight: false,
   },
   plugins: [],
 }

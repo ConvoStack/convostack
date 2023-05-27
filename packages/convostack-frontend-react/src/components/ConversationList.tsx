@@ -59,14 +59,14 @@ const ConversationList: React.FC<ConversationListProps> = ({
           {icons?.createNewConversationIcon || (
             <PencilSquareIcon
               className="w-6 h-6 ml-4"
-              color={styling?.iconsColor}
+              color={styling?.iconsColor || "white"}
             />
           )}
         </div>
         <div className="flex w-full">
           <p
-            className={`font-semibold mx-auto ${
-              styling?.headerTextColor || ""
+            className={`font-sans font-semibold mx-auto ${
+              styling?.headerTextColor || "text-white"
             }`}
           >
             {styling?.headerText || "ConvoStack Chat"}
@@ -85,14 +85,14 @@ const ConversationList: React.FC<ConversationListProps> = ({
           {icons?.createNewConversationIcon || (
             <PencilSquareIcon
               className="w-6 h-6 ml-4"
-              color={styling?.iconsColor}
+              color={styling?.iconsColor || "white"}
             />
           )}
         </div>
         <div className="mx-auto">
           <p
-            className={`font-semibold mx-auto ${
-              styling?.headerTextColor || ""
+            className={`font-sans font-semibold mx-auto ${
+              styling?.headerTextColor || "text-white"
             }`}
           >
             {styling?.headerText || "ConvoStack Chat"}

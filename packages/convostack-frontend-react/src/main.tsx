@@ -18,12 +18,6 @@ ReactDOM.render(
         hash: "",
         externalId: "9d9999df 99",
       }}
-      customStyling={{
-        headerColor: "bg-black",
-        headerText: "My Custom Header",
-        widgetLaunchButtonColor: "bg-black",
-        widgetLocation: "right",
-      }}
     >
       <MyComponent text={"Dev's existing content"}></MyComponent>
       <div className="flex flex-row">

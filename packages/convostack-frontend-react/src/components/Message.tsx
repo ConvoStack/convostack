@@ -14,7 +14,7 @@ const Message: React.FC<MessageProps> = ({
 }) => {
   return (
     <div
-      className={`rounded-lg px-4 py-2 break-words mt-2 ${
+      className={`font-sans rounded-lg px-4 py-2 break-words mt-2 ${
         message.author === "AI"
           ? "bg-slate-200 mr-auto ml-4 inline-block text-black"
           : "bg-blue-500 ml-auto mr-4 inline-block text-white"

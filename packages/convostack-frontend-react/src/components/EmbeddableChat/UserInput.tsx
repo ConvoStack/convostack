@@ -71,7 +71,7 @@ const UserInput: React.FC<UserInputProps> = ({
           value={inputValue}
           onChange={handleChange}
           rows={1}
-          className="h-auto px-4 max-h-36 w-full bg-off-white text-slate-500 scrollbar-hidden resize-none focus:outline-none focus:ring-blue-400 focus:ring-0"
+          className="font-sans h-auto px-4 max-h-36 w-full bg-off-white text-slate-500 scrollbar-hidden resize-none focus:outline-none focus:ring-blue-400 focus:ring-0"
           onKeyDown={handleKeyDown}
         />
         {isAgentTyping ? (
