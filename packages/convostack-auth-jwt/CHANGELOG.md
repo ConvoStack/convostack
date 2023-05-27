@@ -1,5 +1,14 @@
 # @convostack/auth-jwt
 
+## 0.0.27
+
+### Patch Changes
+
+- Tailwind Scoped on FE
+- Updated dependencies
+  - @convostack/auth@0.0.27
+  - @convostack/models@0.0.27
+
 ## 0.0.26
 
 ### Patch Changes

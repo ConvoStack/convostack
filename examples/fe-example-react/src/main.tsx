@@ -25,9 +25,11 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       }}
     >
       <MyComponent text={"Dev's existing content"}></MyComponent>
-      <h3 className="mt-2 w-full text-left text-3xl font-bold tracking-tight md:text-center md:text-5xl lg:text-5xl">
-        Community
-      </h3>
+      <ol>
+        <li>First item</li>
+        <li>Second item</li>
+        <li>Third item</li>
+      </ol>
       <div className="flex flex-row">
         <EmbedChat id={"test"} />
         <EmbedChat id={"test2"} />

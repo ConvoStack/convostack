@@ -5,7 +5,7 @@ interface MyComponentProps {
 }
 
 const MyComponent: React.FC<MyComponentProps> = ({ text }) => {
-    const {
+  const {
     toggleWidget,
     isConversationWindowVisible,
     openConversationList,

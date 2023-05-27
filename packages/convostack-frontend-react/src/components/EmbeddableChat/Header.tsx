@@ -34,14 +34,14 @@ const Header: React.FC<HeaderProps> = ({ id, customStyling }) => {
           {icons?.backArrowIcon || (
             <ArrowLeftIcon
               className="w-6 h-6 ml-4"
-              color={customStyling?.iconsColor}
+              color={customStyling?.iconsColor || "white"}
             />
           )}
         </div>
         <div className="flex mx-auto">
           <p
-            className={`font-semibold mx-auto ${
-              styling?.headerTextColor || ""
+            className={`font-sans font-semibold mx-auto ${
+              styling?.headerTextColor || "text-white"
             }`}
           >
             {styling?.headerText || "Convo Stack Chat"}

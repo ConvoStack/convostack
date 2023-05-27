@@ -1,5 +1,13 @@
 # convostack-docs
 
+## 0.0.13
+
+### Patch Changes
+
+- Tailwind Scoped on FE
+- Updated dependencies
+  - convostack@0.0.30
+
 ## 0.0.12
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "convostack",
-  "version": "0.0.29",
+  "version": "0.0.30",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -21,20 +21,20 @@
     "dev": "npm run build -- --watch"
   },
   "dependencies": {
-    "@convostack/agent": "0.0.26",
-    "@convostack/agent-echo": "0.0.26",
-    "@convostack/agent-sse": "0.0.26",
-    "@convostack/agent-sse-echo-server": "0.0.26",
-    "@convostack/auth": "0.0.26",
-    "@convostack/auth-jwt": "0.0.26",
-    "@convostack/backend-express": "0.0.27",
-    "@convostack/frontend-react": "0.0.27",
-    "@convostack/langchain-memory": "0.0.27",
-    "@convostack/models": "0.0.26",
-    "@convostack/shared": "0.0.26",
-    "@convostack/storage-engine-prisma-mysql": "0.0.27",
-    "@convostack/storage-engine-prisma-postgres": "0.0.27",
-    "@convostack/storage-engine-prisma-sqlite": "0.0.27"
+    "@convostack/agent": "0.0.27",
+    "@convostack/agent-echo": "0.0.27",
+    "@convostack/agent-sse": "0.0.27",
+    "@convostack/agent-sse-echo-server": "0.0.27",
+    "@convostack/auth": "0.0.27",
+    "@convostack/auth-jwt": "0.0.27",
+    "@convostack/backend-express": "0.0.28",
+    "@convostack/frontend-react": "0.0.28",
+    "@convostack/langchain-memory": "0.0.28",
+    "@convostack/models": "0.0.27",
+    "@convostack/shared": "0.0.27",
+    "@convostack/storage-engine-prisma-mysql": "0.0.28",
+    "@convostack/storage-engine-prisma-postgres": "0.0.28",
+    "@convostack/storage-engine-prisma-sqlite": "0.0.28"
   },
   "devDependencies": {
     "typescript": "^5.0.4",

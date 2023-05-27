@@ -56,14 +56,14 @@ const ConversationList: React.FC<ConversationListProps> = ({
           {icons?.createNewConversationIcon || (
             <PencilSquareIcon
               className="w-6 h-6 ml-4"
-              color={customStyling?.iconsColor}
+              color={customStyling?.iconsColor || "white"}
             />
           )}
         </div>
         <div className="flex w-full">
           <p
-            className={`font-semibold mx-auto ${
-              styling?.headerTextColor || ""
+            className={`font-sans font-semibold mx-auto ${
+              styling?.headerTextColor || "text-white"
             }`}
           >
             {styling?.headerText || "ConvoStack Chat"}

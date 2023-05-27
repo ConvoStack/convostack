@@ -1,5 +1,13 @@
 # fe-example-react
 
+## 0.0.26
+
+### Patch Changes
+
+- Tailwind Scoped on FE
+- Updated dependencies
+  - convostack@0.0.30
+
 ## 0.0.25
 
 ### Patch Changes
