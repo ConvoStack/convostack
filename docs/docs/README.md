@@ -1,3 +1,10 @@
+---
+title: "Welcome to ConvoStack"
+sidebar_label: "Welcome to ConvoStack"
+sidebar_position: 0.1
+hide_table_of_contents: true
+---
+
 # Welcome to ConvoStack
 
 ConvoStack is a plug and play embeddable AI chatbot widget and backend deployment framework.
