@@ -62,7 +62,6 @@ const useConvoStack = () => {
     context?: { [key: string]: string } | null,
     key?: string
   ): Promise<string> => {
-    console.log("conversationId", conversationId);
     if (key) {
       dispatch(setEmbedData({ key: key, value: null }));
       dispatch(setEmbedIsConversationListVisible({ key: key, value: false }));
