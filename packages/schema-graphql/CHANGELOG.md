@@ -1,5 +1,11 @@
 # schema-graphql
 
+## 0.0.25
+
+### Patch Changes
+
+- Tailwind Scoped on FE
+
 ## 0.0.24
 
 ### Patch Changes

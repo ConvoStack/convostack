@@ -1,5 +1,13 @@
 # @convostack/langchain-memory
 
+## 0.0.28
+
+### Patch Changes
+
+- Tailwind Scoped on FE
+- Updated dependencies
+  - @convostack/shared@0.0.27
+
 ## 0.0.27
 
 ### Patch Changes

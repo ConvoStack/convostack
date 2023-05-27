@@ -1,5 +1,11 @@
 # @convostack/frontend-react
 
+## 0.0.28
+
+### Patch Changes
+
+- Tailwind Scoped on FE
+
 ## 0.0.27
 
 ### Patch Changes
