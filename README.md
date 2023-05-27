@@ -4,7 +4,7 @@ ConvoStack is a plug and play embeddable AI chatbot widget and backend deploymen
 
 To learn more about the project and compatible technologies, check out [ConvoStack.ai](https://convostack.ai/).
 
-![](docs/static/img/convostack-explainer.png)
+![](docs/static/img/convostack-explainer-v1.png)
 
 ## Getting started with ConvoStack
 

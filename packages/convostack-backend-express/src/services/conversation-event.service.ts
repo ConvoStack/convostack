@@ -1,26 +1,18 @@
-import {PubSub as InMemoryPubSub, PubSubEngine} from "graphql-subscriptions";
+import {PubSub as InMemoryPubSub} from "graphql-subscriptions";
 import * as LRU from "lru-cache";
 import {ConversationEvent} from "../generated/graphql";
 import {
     CONVERSATION_EVENT_KIND_CONVERSATION_METADATA,
     CONVERSATION_EVENT_KIND_MESSAGE
 } from "@convostack/shared";
-import {IConversation, IMessage, IStorageEngine} from "@convostack/models";
-
-export interface IConversationEventServiceOptions {
-    pubSubEngine?: IConversationEventServicePubSubEngine;
-    pubSubChannelPrefix?: string;
-    cache?: IConversationEventServiceCache;
-    cachePrefix?: string;
-}
-
-export interface IConversationEventServiceCache {
-    get(key: string): Promise<string>
-
-    set(key: string, value: string): Promise<any>
-}
-
-export type IConversationEventServicePubSubEngine = PubSubEngine;
+import {
+    IConversation,
+    IMessage,
+    IStorageEngine,
+    IConversationEventServicePubSubEngine,
+    IConversationEventServiceCache,
+    IConversationEventServiceOptions
+} from "@convostack/models";
 
 export class ConversationEventService {
     private readonly pubSub: IConversationEventServicePubSubEngine;

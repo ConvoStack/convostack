@@ -1,5 +1,11 @@
 # @convostack/agent-sse-echo-server
 
+## 0.0.26
+
+### Patch Changes
+
+- Move caches to models
+
 ## 0.0.25
 
 ### Patch Changes

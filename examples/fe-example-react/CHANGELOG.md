@@ -1,5 +1,13 @@
 # fe-example-react
 
+## 0.0.25
+
+### Patch Changes
+
+- Move caches to models
+- Updated dependencies
+  - convostack@0.0.29
+
 ## 0.0.24
 
 ### Patch Changes

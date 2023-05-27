@@ -1,5 +1,11 @@
 # convostack-docs
 
+## 0.0.12
+
+### Patch Changes
+
+- Move caches to models
+
 ## 0.0.11
 
 ### Patch Changes

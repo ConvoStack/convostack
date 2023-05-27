@@ -1,5 +1,5 @@
 import * as express from "express";
-import {IStorageEngine} from "@convostack/models";
+import {IStorageEngine, IConversationEventServiceOptions} from "@convostack/models";
 import {IAuthProvider} from "@convostack/auth";
 import "reflect-metadata";
 import {ApolloServer, gql} from "apollo-server-express";
@@ -11,7 +11,6 @@ import resolvers from "./resolvers/index";
 import {WebSocketServer} from "ws";
 import {ConvoStackServices} from "./services";
 import {IAgentManager} from "@convostack/agent";
-import {IConversationEventServiceOptions} from "./services/conversation-event.service";
 
 export interface IConvoStackBackendConfiguration {
     basePath?: string;

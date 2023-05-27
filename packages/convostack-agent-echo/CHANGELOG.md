@@ -1,5 +1,13 @@
 # @convostack/agent-echo
 
+## 0.0.26
+
+### Patch Changes
+
+- Move caches to models
+- Updated dependencies
+  - @convostack/agent@0.0.26
+
 ## 0.0.25
 
 ### Patch Changes

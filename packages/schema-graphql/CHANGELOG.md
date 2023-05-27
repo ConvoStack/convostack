@@ -1,5 +1,11 @@
 # schema-graphql
 
+## 0.0.24
+
+### Patch Changes
+
+- Move caches to models
+
 ## 0.0.23
 
 ### Patch Changes
