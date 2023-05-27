@@ -7,8 +7,10 @@
     "dev-sse": "nodemon src/server-sse-demo.ts",
     "migrate-sqlite": "npx convostack-storage-engine-prisma-sqlite migrate --dir ./sqlite-storage --db-url \"file:./dev.db\"",
     "studio-sqlite": "npx convostack-storage-engine-prisma-sqlite studio --dir ./sqlite-storage --db-url \"file:./dev.db\"",
-    "migrate-postgres": "npx convostack-storage-engine-prisma-postgres migrate --dir ./postgres-storage --db-url \"$DATABASE_URL\" --shadow-db-url \"$SHADOW_DATABASE_URL\"",
-    "studio-postgres": "npx convostack-storage-engine-prisma-postgres studio --dir ./postgres-storage --db-url \"$DATABASE_URL\" --shadow-db-url \"$SHADOW_DATABASE_URL\""
+    "migrate-postgres": "source .env && npx convostack-storage-engine-prisma-postgres migrate --dir ./postgres-storage --db-url \"$DATABASE_URL\" --shadow-db-url \"$SHADOW_DATABASE_URL\"",
+    "studio-postgres": "source .env && npx convostack-storage-engine-prisma-postgres studio --dir ./postgres-storage --db-url \"$DATABASE_URL\" --shadow-db-url \"$SHADOW_DATABASE_URL\"",
+    "migrate-mysql": "source .env && npx convostack-storage-engine-prisma-mysql migrate --dir ./mysql-storage --db-url \"$DATABASE_URL\" --shadow-db-url \"$SHADOW_DATABASE_URL\"",
+    "studio-mysql": "source .env && npx convostack-storage-engine-prisma-mysql studio --dir ./mysql-storage --db-url \"$DATABASE_URL\" --shadow-db-url \"$SHADOW_DATABASE_URL\""
   },
   "dependencies": {
     "@types/express": "^4.17.17",

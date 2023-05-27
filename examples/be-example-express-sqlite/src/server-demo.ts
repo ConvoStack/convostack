@@ -1,4 +1,4 @@
-import {ConvoStackBackendExpress, IConversationEventServiceOptions} from "convostack/backend-express";
+import {ConvoStackBackendExpress} from "convostack/backend-express";
 import express from "express";
 import {StorageEnginePrismaSQLite} from "convostack/storage-engine-prisma-sqlite";
 import cors, {CorsOptions} from "cors";
@@ -7,7 +7,7 @@ import {createServer} from "http";
 import * as dotenv from "dotenv";
 import {DefaultAgentManager} from "convostack/agent";
 import {AgentEcho} from "convostack/agent-echo";
-import {IStorageEngine} from "convostack/models";
+import {IStorageEngine, IConversationEventServiceOptions} from "convostack/models";
 import {StorageEnginePrismaPostgres} from "convostack/storage-engine-prisma-postgres";
 import {StorageEnginePrismaMySQL} from "convostack/storage-engine-prisma-mysql";
 import {RedisPubSub} from "graphql-redis-subscriptions";
