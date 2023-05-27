@@ -16,7 +16,7 @@ ReactDOM.render(
         name: "",
         anonymousId: "",
         hash: "",
-        externalId: "9d999999",
+        externalId: "9d9999df 99",
       }}
       customStyling={{
         headerColor: "bg-black",
@@ -28,13 +28,13 @@ ReactDOM.render(
       <MyComponent text={"Dev's existing content"}></MyComponent>
       <div className="flex flex-row">
         <EmbedChat id={"test"} />
-        {/* <EmbedChat id={"test2"} /> */}
-        {/* <EmbedChat id={"test3"} />
+        <EmbedChat id={"test2"} />
+        <EmbedChat id={"test3"} />
         <EmbedChat id={"test4"} />
         <EmbedChat id={"test5"} />
         <EmbedChat id={"test6"} />
         <EmbedChat id={"test7"} />
-        <EmbedChat id={"test8"} /> */}
+        <EmbedChat id={"test8"} />
       </div>
     </ConvoStackWrapper>
   </>,

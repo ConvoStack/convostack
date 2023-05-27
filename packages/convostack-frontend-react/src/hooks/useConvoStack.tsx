@@ -9,7 +9,6 @@ import {
   setContext,
   setShowConversationWindow,
   setIsConversationListVisible,
-  setAgent,
   ConvoStackState,
   setData,
   setEmbedIsConversationListVisible,
@@ -48,6 +47,7 @@ const useConvoStack = () => {
     createdFirstConversation,
     embedActiveConversationId,
   } = useSelector((state: any) => state.conversation as ConvoStackState);
+
   const toggleWidget = (arg: boolean) => {
     if (activeConversationId && !isConversationWindowVisible) {
       openConversation(activeConversationId);
@@ -62,129 +62,85 @@ const useConvoStack = () => {
     context?: { [key: string]: string } | null,
     key?: string
   ): Promise<string> => {
+    console.log("conversationId", conversationId);
     if (key) {
       dispatch(setEmbedData({ key: key, value: null }));
       dispatch(setEmbedIsConversationListVisible({ key: key, value: false }));
       dispatch(setCreatedFirstConversation(true));
-      const fetchedCleanup = getCleanupFunc(key || "widget");
-      fetchedCleanup && fetchedCleanup();
-      while (graphqlUrl === "") {
-        await new Promise((resolve) => setTimeout(resolve, 100)); // Delay for 100 milliseconds before checking again
-      }
-      const wsClient = createWsClient();
-      wsClient.on("closed", (socket: any) => {
-        if (!socket.wasClean) {
+    } else {
+      dispatch(setData(null));
+      dispatch(setIsConversationListVisible(false));
+      dispatch(setShowConversationWindow(true));
+    }
+    const fetchedCleanup = getCleanupFunc(key || "widget");
+    fetchedCleanup && fetchedCleanup();
+    while (graphqlUrl === "") {
+      await new Promise((resolve) => setTimeout(resolve, 100)); // Delay for 100 milliseconds before checking again
+    }
+    const wsClient = createWsClient();
+    wsClient.on("closed", (socket: any) => {
+      if (!socket.wasClean) {
+        if (key) {
+          dispatch(setEmbedData({ key: key, value: null }));
+        } else {
           dispatch(setData(null));
-          if (conversationId === null) {
-            wsClient.dispose();
-            if (key) {
-              dispatch(
-                setEmbedIsConversationListVisible({ key: key, value: true })
-              );
-            } else {
-              dispatch(setIsConversationListVisible(true));
-            }
+        }
+        if (conversationId === null) {
+          wsClient.dispose();
+          if (key) {
+            dispatch(
+              setEmbedIsConversationListVisible({ key: key, value: true })
+            );
+          } else {
+            dispatch(setIsConversationListVisible(true));
           }
         }
-      });
-      const promise = new Promise<string>((resolve, reject) => {
-        const subscriptionCleanup = wsClient.subscribe(
-          {
-            query: SubscribeConversationEventsDocument,
-            variables: {
-              conversationId: conversationId,
-              agent: agent,
-              context: context,
-            },
+      }
+    });
+    const promise = new Promise<string>((resolve, reject) => {
+      const subscriptionCleanup = wsClient.subscribe(
+        {
+          query: SubscribeConversationEventsDocument,
+          variables: {
+            conversationId: conversationId,
+            agent: agent,
+            context: context,
           },
-          {
-            next: (data: any) => {
-              if (
-                data.data?.subscribeConversationEvents.kind ===
-                "conversation_metadata"
-              ) {
-                const generatedConvoId =
-                  data.data?.subscribeConversationEvents.payload.id;
+        },
+        {
+          next: (data: any) => {
+            if (
+              data.data?.subscribeConversationEvents.kind ===
+              "conversation_metadata"
+            ) {
+              const generatedConvoId =
+                data.data?.subscribeConversationEvents.payload.id;
+              if (key) {
                 dispatch(
                   setEmbedConversationId({
                     key: key,
                     value: generatedConvoId,
                   })
                 );
-                resolve(generatedConvoId);
-              }
-              dispatch(setEmbedData({ key: key, value: data }));
-            },
-            error: (error: any) => reject(error),
-            complete: () => console.log("Subscription completed"),
-          }
-        );
-        setCleanupFunc(key || "widget", subscriptionCleanup);
-      });
-      if (context) {
-        dispatch(setContext(context));
-      }
-      return promise;
-    } else {
-      dispatch(setData(null));
-      dispatch(setIsConversationListVisible(false));
-      dispatch(setShowConversationWindow(true));
-      const fetchedCleanup = getCleanupFunc(key || "widget");
-      fetchedCleanup && fetchedCleanup();
-      while (graphqlUrl === "") {
-        await new Promise((resolve) => setTimeout(resolve, 100)); // Delay for 100 milliseconds before checking again
-      }
-      const wsClient = createWsClient();
-      wsClient.on("closed", (socket: any) => {
-        if (!socket.wasClean) {
-          dispatch(setData(null));
-          if (conversationId === null) {
-            wsClient.dispose();
-            if (key) {
-              dispatch(
-                setEmbedIsConversationListVisible({ key: key, value: true })
-              );
-            } else {
-              dispatch(setIsConversationListVisible(true));
-            }
-          }
-        }
-      });
-      const promise = new Promise<string>((resolve, reject) => {
-        const subscriptionCleanup = wsClient.subscribe(
-          {
-            query: SubscribeConversationEventsDocument,
-            variables: {
-              conversationId: conversationId,
-              agent: agent,
-              context: context,
-            },
-          },
-          {
-            next: (data: any) => {
-              if (
-                data.data?.subscribeConversationEvents.kind ===
-                "conversation_metadata"
-              ) {
-                const generatedConvoId =
-                  data.data?.subscribeConversationEvents.payload.id;
+              } else {
                 dispatch(setConversationId(generatedConvoId));
-                resolve(generatedConvoId);
               }
+              resolve(generatedConvoId);
+            }
+            if (key) {
+              dispatch(setEmbedData({ key: key, value: data }));
+            } else {
               dispatch(setData(data));
-            },
-            error: (error: any) => reject(error),
-            complete: () => console.log("Subscription completed"),
-          }
-        );
-        setCleanupFunc(key || "widget", subscriptionCleanup);
-      });
-      if (context) {
-        dispatch(setContext(context));
-      }
-      dispatch(setCreatedFirstConversation(true));
-      return promise;
-    }
+            }
+          },
+          error: (error: any) => reject(error),
+          complete: () => console.log("Subscription completed"),
+        }
+      );
+      setCleanupFunc(key || "widget", subscriptionCleanup);
+    });
+    dispatch(setCreatedFirstConversation(true));
+    return promise;
   };
 
   const openConversationList = (key?: string) => {
