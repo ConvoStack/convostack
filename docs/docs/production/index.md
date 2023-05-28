@@ -49,8 +49,6 @@ respective database systems.
 
 ## CORS and Server Configurations
 
-# TODO - fork this out to the backend docs section
-
 To ensure proper security and access control, it is important to configure CORS (Cross-Origin Resource Sharing) and
 server settings correctly for your ConvoStack deployment.
 
