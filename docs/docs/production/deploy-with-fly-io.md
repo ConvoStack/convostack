@@ -57,6 +57,12 @@ For an example Fly.io Dockerfile, please check out this [guide](backend-dockerfi
 To deploy ConvoStack using Fly.io, you can reference the following example deploy file from
 the [playground](https://github.com/ConvoStack/playground) repo.
 
+### Healthcheck
+
+The healthcheck in the `fly.toml` below calls `[GET] /api/agents` which is an endpoint implemented by the playground
+code, not the ConvoStack backend itself. If you'd like to use an HTTP healthcheck, you should add an endpoint to your
+Express server that will respond to `GET` requests with `200 OK`.
+
 ```toml
 app = "convostack-getting-started"
 primary_region = "iad"
