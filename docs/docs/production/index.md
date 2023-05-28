@@ -22,8 +22,8 @@ a generous free tier!
 # TODO - Redis connection instructions link
 
 To connect ConvoStack to your Redis instance, refer to the ConvoStack documentation for instructions on configuring the
-cache and pub/sub settings. TODO HERE Additionally, consult the Upstash/Fly.io documentation for guidance on setting up
-and managing a Redis instance.
+cache and pub/sub settings [here](../backend/cache-pub-sub-redis). Additionally, consult the Upstash/Fly.io
+documentation for guidance on setting up and managing a Redis instance.
 
 ## Storage with PostgreSQL or MySQL
 
@@ -40,9 +40,7 @@ implementing the handful of methods required by the `convostack/models.IStorageE
 your own backend,
 we would really appreciate it if you share it with the community!
 
-# TODO - link to pg/mysql docs
-
-To set up ConvoStack with PostgreSQL or MySQL, follow the respective documentation TODO.
+To set up ConvoStack with PostgreSQL or MySQL, follow the respective documentation [here](../backend/storage-engines).
 These guides will walk you through the necessary steps to configure the database connection and migrations.
 
 If you need assistance with PostgreSQL, refer to the PostgreSQL documentation, and for MySQL, consult the MySQL
