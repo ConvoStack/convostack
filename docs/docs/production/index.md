@@ -19,7 +19,7 @@ ConvoStack, it is recommended to use Redis. Redis is an in-memory data store tha
 capabilities. One option for hosting Redis is Upstash, a managed Redis service that integrates with Fly.io. It also has
 a generous free tier!
 
-# TODO - Redis connection intstructions link
+# TODO - Redis connection instructions link
 
 To connect ConvoStack to your Redis instance, refer to the ConvoStack documentation for instructions on configuring the
 cache and pub/sub settings. TODO HERE Additionally, consult the Upstash/Fly.io documentation for guidance on setting up
@@ -61,18 +61,18 @@ Since the ConvoStack backend has the option to attach to an existing Express ser
 ```typescript
 // Import ConvoStack and your other dependencies...
 // Import express and createServer
-import {createServer} from "http";
+import { createServer } from "http";
 import express from "express";
 // Import cors (npm i -S cors)
-import cors, {CorsOptions} from "cors";
+import cors, { CorsOptions } from "cors";
 
 // Configure CORS (nothing ConvoStack-specific here...)
 const corsOptions: CorsOptions = {
-    // Replace this list with your own sites
-    origin: ["http://localhost:5173", "https://studio.apollographql.com"],
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    preflightContinue: false,
-    optionsSuccessStatus: 204
+  // Replace this list with your own sites
+  origin: ["http://localhost:5173", "https://studio.apollographql.com"],
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
 };
 
 // Setup your own express server
@@ -88,7 +88,7 @@ const httpServer = createServer(app);
 
 // Setup the ConvoStack backend
 const backend = new ConvoStackBackendExpress({
-    // ConvoStack setup options...
+  // ConvoStack setup options...
 });
 
 // Initialize ConvoStack with your Express app
@@ -96,7 +96,7 @@ await backend.init(app, httpServer);
 
 // Run your server
 httpServer.listen(parseInt(port), host, () => {
-    console.log(`Server is running on http://${host}:${port}/graphql`);
+  console.log(`Server is running on http://${host}:${port}/graphql`);
 });
 ```
 
