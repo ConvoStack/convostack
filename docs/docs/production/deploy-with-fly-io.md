@@ -58,11 +58,6 @@ To deploy ConvoStack using Fly.io, you can reference the following example deplo
 the [playground](https://github.com/ConvoStack/playground) repo.
 
 ```toml
-# fly.toml app configuration file generated for convostack-getting-started on 2023-05-25T01:11:00-04:00
-#
-# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
-#
-
 app = "convostack-getting-started"
 primary_region = "iad"
 
@@ -75,12 +70,25 @@ primary_region = "iad"
   STORAGE_ENGINE = "postgres"
   NODE_ENV = "production"
 
-[http_service]
+[[services]]
   internal_port = 3000
-  force_https = true
+  protocol = "tcp"
   auto_stop_machines = true
   auto_start_machines = true
   min_machines_running = 1
+
+  [[services.ports]]
+    handlers = ["http"]
+    port = "80"
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = "443"
+
+  [services.http_checks]
+    path = "/api/agents"
+    interval = "15s"
+    timeout = "5s"
 
 ```
 
