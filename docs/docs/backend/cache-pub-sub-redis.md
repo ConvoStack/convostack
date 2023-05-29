@@ -35,13 +35,38 @@ import {RedisPubSub} from 'graphql-redis-subscriptions';
    accordingly:
 
 ```typescript
+// Create Redis client
+export const createRedisInstance = (url: string) => {
+   // Create a new Redis instance
+   const redis = new Redis(url);
+
+   // Related to Upstash issue https://community.fly.io/t/upstash-redis-not-reachable-sometimes/9993
+   // and https://community.fly.io/t/upstash-redis-and-could-not-send-http-request-to-instance-connection-error-timed-out-logs/10104
+   // Send a PING command every minute
+   setInterval(() => {
+      redis.ping((error, result) => {
+         if (error) {
+            console.error('Error sending Redis PING command:', error);
+         } else {
+            console.log('Received Redis PONG:', result);
+         }
+      });
+   }, 60 * 1000);
+
+   return redis;
+}
+
 // Setup Redis-based caching and pub/sub if we set the REDIS_URL env var
 const convEventsOpts = {} as IConversationEventServiceOptions;
 if (process.env.REDIS_URL) {
-    convEventsOpts.pubSubEngine = new RedisPubSub({
-        connection: process.env.REDIS_URL
-    });
-    convEventsOpts.cache = new Redis(process.env.REDIS_URL);
+   convEventsOpts.pubSubEngine = new RedisPubSub({
+      subscriber: createRedisInstance(process.env.REDIS_URL),
+      publisher: createRedisInstance(process.env.REDIS_URL),
+      connectionListener: (err) => {
+         console.error(`Redis pub/sub engine error: ${err}`);
+      }
+   });
+   convEventsOpts.cache = createRedisInstance(process.env.REDIS_URL);
 }
 ```
 
