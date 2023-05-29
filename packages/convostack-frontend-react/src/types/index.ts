@@ -29,7 +29,6 @@ export type CustomIcons = {
 export type UserData = {
   email?: string
   name?: string
-  anonymousId?: string
   hash: string
-  externalId?: string
+  userId?: string
 }

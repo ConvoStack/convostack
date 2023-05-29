@@ -13,9 +13,8 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       userData={{
         email: "m@g.com",
         name: "zxx",
-        anonymousId: "",
         hash: "z420",
-        externalId: "m",
+        userId: "m",
       }}
       customStyling={{
         headerColor: "bg-black",

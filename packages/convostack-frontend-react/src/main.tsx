@@ -11,13 +11,6 @@ ReactDOM.render(
     <ConvoStackWrapper
       graphqlUrl="http://localhost:3000/graphql"
       websocketUrl="ws://localhost:3000/graphql"
-      userData={{
-        email: "",
-        name: "",
-        anonymousId: "",
-        hash: "",
-        externalId: "9d9ddd999df 99",
-      }}
     >
       <MyComponent text={"Dev's existing content"}></MyComponent>
       <div className="flex flex-row">

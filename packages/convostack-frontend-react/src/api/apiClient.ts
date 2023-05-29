@@ -12,10 +12,17 @@ export const fetchTokens = async (graphqlUrl?: string, userData?: UserData) => {
   if (!graphqlUrl) graphqlUrl = store.getState().conversation.graphqlUrl;
   const tempApiClient = new GraphQLClient(graphqlUrl);
   const currentTime = Date.now();
+
   if (!accessToken || !refreshToken || (refreshTokenExpiry && currentTime > refreshTokenExpiry)) {
     try {
-      const data: LoginMutation = await tempApiClient.request(LoginDocument, userData);
-      const { accessToken, refreshToken } = data.login;
+      const data: LoginMutation = await tempApiClient.request(LoginDocument, 
+        { email: userData?.email,
+          name: userData?.name,
+          hash: userData?.hash,
+          externalId: userData?.userId
+        }
+      );
+      const { accessToken, refreshToken, anonymousId } = data.login;
       store.dispatch(setAccessToken(accessToken.token));
       store.dispatch(setAccessTokenExpiry((accessToken.expAt * 1000)));
       store.dispatch(setRefreshToken(refreshToken.token));

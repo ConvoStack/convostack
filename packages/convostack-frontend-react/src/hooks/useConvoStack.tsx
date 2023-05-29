@@ -48,7 +48,7 @@ const useConvoStack = () => {
     embedActiveConversationId,
   } = useSelector((state: any) => state.conversation as ConvoStackState);
 
-  const toggleWidget = (arg: boolean) => {
+  const toggleWidget = (arg: boolean): void => {
     if (activeConversationId && !isConversationWindowVisible) {
       openConversation(activeConversationId);
     } else {
@@ -142,7 +142,7 @@ const useConvoStack = () => {
     return promise;
   };
 
-  const openConversationList = (key?: string) => {
+  const openConversationList = (key?: string): void => {
     if (key) {
       dispatch(setEmbedIsConversationListVisible({ key: key, value: true }));
     } else {
@@ -155,7 +155,7 @@ const useConvoStack = () => {
     conversationId: string | null,
     context?: { [key: string]: string },
     key?: string
-  ) => {
+  ): void => {
     if (!conversationId) {
       const fetchedCleanup = getCleanupFunc(key || "widget");
       fetchedCleanup && fetchedCleanup();
@@ -173,7 +173,7 @@ const useConvoStack = () => {
   const updateContext = async (
     conversationId: string,
     context: { [key: string]: string }
-  ) => {
+  ): Promise<void> => {
     while (graphqlUrl === "") {
       // Wait for graphqlUrl to be set
       await new Promise((resolve) => setTimeout(resolve, 200));
