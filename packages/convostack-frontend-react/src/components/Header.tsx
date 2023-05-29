@@ -73,7 +73,10 @@ const Header: React.FC<HeaderProps> = ({ onClickClose }) => {
           {styling?.headerText || "ConvoStack Chat"}
         </p>
         <div className="hover:cursor-pointer" onClick={onClickClose}>
-          <XIcon className="w-6 h-6 mr-4" color={styling?.iconsColor} />
+          <XIcon
+            className="w-6 h-6 mr-4"
+            color={styling?.iconsColor || "white"}
+          />
         </div>
       </div>
     </>

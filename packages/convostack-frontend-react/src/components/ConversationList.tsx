@@ -99,7 +99,10 @@ const ConversationList: React.FC<ConversationListProps> = ({
           </p>
         </div>
         <div className="hover:cursor-pointer" onClick={onClickClose}>
-          <XIcon className="w-6 h-6 mr-4" color={styling?.iconsColor} />
+          <XIcon
+            className="w-6 h-6 mr-4"
+            color={styling?.iconsColor || "white"}
+          />
         </div>
       </div>
       <div className="bg-white flex-grow overflow-y-auto flex flex-col sm:rounded-b-lg pb-4">
