@@ -138,6 +138,11 @@ The playground monorepo is organized into two distinct applications in the `apps
 
 ### Frontend Folder
 
+- The `ConvoStackWrapper` component is initialized in the `apps/frontend/src/App.tsx` file
+  - The `graphqlUrl`, `websocket`, and `customStyling` prop values are defined here
+- The `EmbedChat` components and `useConvoStack` hook are initialized in the `MobilePlayground.tsx` and `WebPlayground.tsx` components
+  - The `useConvoStack` hook is also utilized in the `ContextInput.tsx` file
+
 ### Monorepo folder structure
 
 ```bash
