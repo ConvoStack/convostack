@@ -114,8 +114,7 @@ export class ConversationEventService {
         conversationEvent: ConversationEvent,
         ephemeral: boolean
     ) {
-        // TODO do we need to await this?
-        this.pubSub.publish(`${this.pubSubChannelPrefix}${conversationId}`, {
+        await this.pubSub.publish(`${this.pubSubChannelPrefix}${conversationId}`, {
             conversationEvent
         });
 

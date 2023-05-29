@@ -1,5 +1,11 @@
 # config-tsconfig
 
+## 0.0.26
+
+### Patch Changes
+
+- Await redis ops
+
 ## 0.0.25
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @convostack/langchain-memory
 
+## 0.0.29
+
+### Patch Changes
+
+- Await redis ops
+- Updated dependencies
+  - @convostack/shared@0.0.28
+
 ## 0.0.28
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @convostack/agent-echo
 
+## 0.0.28
+
+### Patch Changes
+
+- Await redis ops
+- Updated dependencies
+  - @convostack/agent@0.0.28
+
 ## 0.0.27
 
 ### Patch Changes

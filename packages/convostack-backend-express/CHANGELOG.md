@@ -1,5 +1,16 @@
 # @convostack/backend-express
 
+## 0.0.29
+
+### Patch Changes
+
+- Await redis ops
+- Updated dependencies
+  - @convostack/agent@0.0.28
+  - @convostack/auth@0.0.28
+  - @convostack/models@0.0.28
+  - @convostack/shared@0.0.28
+
 ## 0.0.28
 
 ### Patch Changes

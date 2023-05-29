@@ -1,5 +1,13 @@
 # convostack-docs
 
+## 0.0.14
+
+### Patch Changes
+
+- Await redis ops
+- Updated dependencies
+  - convostack@0.0.31
+
 ## 0.0.13
 
 ### Patch Changes

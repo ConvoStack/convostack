@@ -1,6 +1,6 @@
 {
   "name": "@convostack/storage-engine-prisma-sqlite",
-  "version": "0.0.28",
+  "version": "0.0.29",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "license": "MIT",

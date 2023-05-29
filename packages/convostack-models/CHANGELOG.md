@@ -1,5 +1,11 @@
 # @convostack/models
 
+## 0.0.28
+
+### Patch Changes
+
+- Await redis ops
+
 ## 0.0.27
 
 ### Patch Changes

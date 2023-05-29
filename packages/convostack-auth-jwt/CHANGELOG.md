@@ -1,5 +1,14 @@
 # @convostack/auth-jwt
 
+## 0.0.28
+
+### Patch Changes
+
+- Await redis ops
+- Updated dependencies
+  - @convostack/auth@0.0.28
+  - @convostack/models@0.0.28
+
 ## 0.0.27
 
 ### Patch Changes

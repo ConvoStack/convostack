@@ -1,5 +1,11 @@
 # @convostack/frontend-react
 
+## 0.0.29
+
+### Patch Changes
+
+- Await redis ops
+
 ## 0.0.28
 
 ### Patch Changes
