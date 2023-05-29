@@ -6,7 +6,6 @@ import {
 } from "@convostack/shared";
 import { IConversation, IMessage, IStorageEngine, IUser } from "@convostack/models";
 import {
-  IAgent,
   IAgentContextHistory,
   IAgentContextUser,
   IAgentHumanMessage,
@@ -110,7 +109,7 @@ export class AgentService {
         role: this.agents.getAgentAIRole(agentKey),
         turn: (await this.getNextTurnNumber(message.conversationId))
       });
-      this.conversationEventService.publishConversationEvent(
+      await this.conversationEventService.publishConversationEvent(
         message.conversationId,
         {
           kind: CONVERSATION_EVENT_KIND_MESSAGE,

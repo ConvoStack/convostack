@@ -1,5 +1,26 @@
 # convostack
 
+## 0.0.31
+
+### Patch Changes
+
+- Await redis ops
+- Updated dependencies
+  - @convostack/backend-express@0.0.29
+  - @convostack/agent@0.0.28
+  - @convostack/agent-echo@0.0.28
+  - @convostack/agent-sse@0.0.28
+  - @convostack/agent-sse-echo-server@0.0.28
+  - @convostack/auth@0.0.28
+  - @convostack/auth-jwt@0.0.28
+  - @convostack/frontend-react@0.0.29
+  - @convostack/langchain-memory@0.0.29
+  - @convostack/models@0.0.28
+  - @convostack/shared@0.0.28
+  - @convostack/storage-engine-prisma-mysql@0.0.29
+  - @convostack/storage-engine-prisma-postgres@0.0.29
+  - @convostack/storage-engine-prisma-sqlite@0.0.29
+
 ## 0.0.30
 
 ### Patch Changes
