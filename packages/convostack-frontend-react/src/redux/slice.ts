@@ -9,7 +9,7 @@ export interface ConvoStackState {
   accessTokenExpiry: number | null;
   refreshTokenExpiry: number | null;
   activeConversationId: string | null;
-  context: { [embedId: string]: string } | null;
+  context: { [key: string]: string } | null;
   defaultAgent: string | null;
   isWidgetWindowVisible: boolean;
   isConversationListVisible: boolean;

@@ -169,7 +169,7 @@ const useConvoStack = () => {
 
   const updateContext = async (
     conversationId: string,
-    context: { [embedId: string]: string }
+    context: { [key: string]: string }
   ): Promise<void> => {
     while (graphqlUrl === "") {
       // Wait for graphqlUrl to be set

@@ -87,15 +87,15 @@ frontend frameworks which the playground monorepo implements.
 
 The ConvoStack backend framework offers several key features and options for easy development and setup:
 
-- **Database Support:**
+- **[Database Support:](../backend/storage-engines)**
   - For development, ConvoStack supports SQLite for convenient setup and local testing.
   - For production, you have the flexibility to choose between Postgres and MySQL, ensuring compatibility with your
     preferred database system.
-- **Caching and Pub/Sub:**
+- **[Caching and Pub/Sub:](../backend/cache-pub-sub-redis)**
   - For development, ConvoStack provides in-memory caching and pub/sub capabilities, enabling efficient data
     management and real-time communication.
   - For production, ConvoStack supports Redis, a widely-used caching and message broker system.
-- **Multiple AI Agent Implementations:**
+- **[Multiple AI Agent Implementations:](../backend/llm-and-chat-agents)**
   - ConvoStack offers various "agent" implementations to suit different use cases (all four are built and running in
     the playground). These include:
     - "OpenAI Chat": an agent powered by OpenAI and Langchain that operates like the popular ChatGPT application.
@@ -113,11 +113,11 @@ The ConvoStack backend framework offers several key features and options for eas
         the `apps/backend` directory to crawl the ConvoStack docs website and load the embeddings into Pinecone.
         Make sure that you have created an index on Pinecone using dimension=1536 and the cosine distance function
         and updated your backend `.env` with the required env vars listed above.
-- **Deployment with Fly.io:**
+- **[Deployment with Fly.io:](../production/deploy-with-fly-io)**
   - ConvoStack deploys seamlessly to Fly.io, providing free and easy hosting options. The included `fly.toml` file
     simplifies the deployment configuration process.
-- **Optional Docker Configuration:**
-  - ConvoStack offers an optional docker-compose.yml configuration for local development using Postgres, MySQL, and
+- **[Optional Docker Configuration:](../production/backend-dockerfile)**
+  - ConvoStack offers an optional `docker-compose.yml` configuration for local development using Postgres, MySQL, and
     Redis. This facilitates a consistent development environment that closely mirrors the production setup.
 
 By leveraging these features provided by the ConvoStack backend framework, you can efficiently develop and deploy
@@ -127,23 +127,23 @@ implementations, and hosting options make it a powerful choice for building conv
 ### Frontend Framework ([source](https://github.com/ConvoStack/playground/tree/master/apps/frontend))
 
 The ConvoStack frontend framework, powered by React, offers out-of-the-box AI chatbot components that connect to your
-backend.
+backend:
 
-- **Core React Components:**
+- **[Core React Components](../frontend/fe-components):**
   - The Widget: like the one running on [ConvoStack.ai](https://convostack.ai/) and this docs site! Customizable via
     the `CustomStyling` prop.
-  - Embedded chat: can be embedded on any page of your website. Also customizable via the `CustomEmbedStyling` prop.
-- **User Data Integration:**
+  - Embedded Chat: can be embedded on any page of your website. Also customizable via the `CustomEmbedStyling` prop.
+- **[useConvoStack Hook](../frontend/use-convostack-hook)**:
+  - The framework provides an exported `useConvoStack` hook that offers functions enabling GraphQL API calls and
+    component state management.
+  - This hook simplifies interaction with the ConvoStack backend, facilitating seamless communication and efficient
+    state management within the chatbot interface.
+- **[User Data Integration:](../frontend/fe-components#props)**
   - By default, the ConvoStack frontend framework does not persist login data. Conversations will be cleared upon
     reloading the page.
   - If desired, you can customize the ConvoStackWrapper configuration in `apps/frontend/src/main.tsx` using
     the `userData` prop to enable data persistence between sessions or even hardcode a demo user for development
     purposes.
-- **useConvoStack Hook:**
-  - The framework provides an exported `useConvoStack` hook that offers functions enabling GraphQL API calls and
-    component state management.
-  - This hook simplifies interaction with the ConvoStack backend, facilitating seamless communication and efficient
-    state management within the chatbot interface.
 - **Vite for Bundling:**
   - The ConvoStack frontend framework utilizes Vite as the bundler. Vite is a fast and efficient build tool that
     enhances development speed and optimizes the performance of the chatbot application.
@@ -164,14 +164,14 @@ and `apps/frontend`.
   - The Express server is defined here
 - All ConvoStack agent implementations live in the `apps/backend/src/agents` directory
   - All agent logic lives in the agent files
-  - There are no limitations on what frameworks, resources, etc. that a ConvoStack agent can use, as long as it
+  - There are no limitations on what frameworks and resources a ConvoStack agent can use, as long as it
     implements the `reply` method of `convostack/agent.IAgent`
 
 ### Frontend Folder
 
 - The `ConvoStackWrapper` component is initialized in the `apps/frontend/src/App.tsx` file
   - The `graphqlUrl`, `websocket`, and `customStyling` prop values are defined here
-- The `EmbedChat` components and `useConvoStack` hook are initialized in the `MobilePlayground.tsx`
+- The `ConvoStackEmbed` components and `useConvoStack` hook are initialized in the `MobilePlayground.tsx`
   and `WebPlayground.tsx` components
   - The `useConvoStack` hook is also utilized in the `ContextInput.tsx` file
 

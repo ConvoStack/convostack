@@ -57,14 +57,14 @@ const openConversation = async (
 
 Description:
 
-- The `openConversation` function is used to open a new or existing conversation for the widget or an EmbedChat component.
+- The `openConversation` function is used to open a new or existing conversation for the widget or an `ConvoStackEmbed` component.
 
 Parameters:
 
 - `conversationId: string | null` - The ID of the conversation to be opened. Pass `null` to create a new conversation.
 - `agent?: string | null` - The agent for the conversation. If `null` is provided, the `defaultAgent` prop value from `ConvoStackWrapper` is used.
 - `context?: { [embedId: string]: string } | null` - Additional context data for the conversation, provided as a JSON object.
-- `embedId?: string`: The `embedId` of the EmbedChat component for which to open the conversation. If provided, it opens a conversation specific to that EmbedChat
+- `embedId?: string`: The `embedId` of the `ConvoStackEmbed` component for which to open the conversation. If provided, it opens a conversation specific to that `ConvoStackEmbed` component. If not provided, it opens a conversation in the widget component.
 
 Return Type:
 
@@ -81,8 +81,13 @@ const conversationId = await openConversation(null, "OpenAI", {
   example: "context",
 });
 
-// Opening a new conversation for a specific EmbedChat component using an embedId
-const conversationId = await openConversation(null, null, null, "embedChatKey");
+// Opening a new conversation for a specific ConvoStackEmbed component using an embedId
+const conversationId = await openConversation(
+  null,
+  null,
+  null,
+  "ConvoStackEmbedKey"
+);
 ```
 
 ### openConversationList
@@ -93,11 +98,11 @@ const openConversationList = (embedId?: string): void
 
 Description:
 
-- The `openConversationList` function opens the conversation list of the widget or an `EmbedChat` component.
+- The `openConversationList` function opens the conversation list of the widget or an `ConvoStackEmbed` component.
 
 Parameters:
 
-- `embedId?: string` - The `embedId` of the EmbedChat component for which to open the conversation list. If provided, it opens the conversation list of the EmbedChat component. If not provided, it opens the conversation list of the widget.
+- `embedId?: string` - The `embedId` of the `ConvoStackEmbed` component for which to open the conversation list. If provided, it opens the conversation list of the `ConvoStackEmbed` component. If not provided, it opens the conversation list of the widget.
 
 Example Usage:
 
@@ -105,7 +110,7 @@ Example Usage:
 // Opening the conversation list of the chatbot widget
 openConversationList();
 
-// Opening the conversation list of an EmbedChat component with the embedId "exampleId"
+// Opening the conversation list of an ConvoStackEmbed component with the embedId "exampleId"
 openConversationList("exampleId");
 ```
 
@@ -114,7 +119,7 @@ openConversationList("exampleId");
 ```typescript
 const updateContext = async (
   conversationId: string,
-  context: { [embedId: string]: string }
+  context: { [key: string]: string }
 ): Promise<void>
 ```
 
@@ -125,7 +130,7 @@ Description:
 Parameters:
 
 - `conversationId: string` - The ID of an existing conversation for which the context needs to be updated.
-- `context: { [embedId: string]: string }` - The new context to be assigned to the conversation. It should be provided as a JSON object where the keys are strings.
+- `context: { [key: string]: string }` - The new context to be assigned to the conversation. It should be provided as a JSON object where the keys are strings.
 
 Example Usage:
 
@@ -147,18 +152,18 @@ const dropSubscription = (embedId?: string): void
 
 Description:
 
-- The dropSubscription function is used to drop the WebSocket connection to the subscription of a specific EmbedChat component or the widget itself. This function is handled automatically by the component itself, so explicitly calling this function should be <u>limited or avoided</u> unless there is a specific need.
+- The dropSubscription function is used to drop the WebSocket connection to the subscription of a specific `ConvoStackEmbed` component or the widget itself. This function is handled automatically by the component itself, so explicitly calling this function should be <u>limited or avoided</u> unless there is a specific need.
 
 Parameters:
 
-- `embedId?: string` - The `embedId` of the EmbedChat component for which to drop the WebSocket connection for. If not provided, it drops the WebSocket connection for the the widget.
+- `embedId?: string` - The `embedId` of the `ConvoStackEmbed` component for which to drop the WebSocket connection for. If not provided, it drops the WebSocket connection for the the widget.
 
 ## useConvoStack() State Variables
 
 ### context
 
 ```typescript
-context: { [embedId: string]: string } | null
+context: { [key: string]: string } | null
 ```
 
 Description
@@ -183,7 +188,7 @@ embedData: { [embedId: string]: any }
 
 Description
 
-- The `embedData` variable stores the currently set conversation data for all the embed chat components. Each embed chat component is identified by a unique `embedId`, and the conversation data associated with each embed chat component is stored in the embedData object.
+- The `embedData` variable stores the currently set conversation data for all the `ConvoStackEmbed` components. Each `ConvoStackEmbed` component is identified by a unique `embedId`, and the conversation data associated with each `ConvoStackEmbed` component is stored in the `embedData` object.
 
 ### isWidgetWindowVisible
 
@@ -211,7 +216,7 @@ isEmbedConversationListVisible: { [embedId: string]: boolean }
 
 Description:
 
-- The `isEmbedConversationListVisible` variable indicates whether the conversation list window is currently visible for each embed chat component, identified by its `embedId`. If the value for a specific `embedId` is `true`, it means the conversation list window is showing for that specific embed chat component. If the value is `false`, it means the conversation list window is not visible for that embed chat component.
+- The `isEmbedConversationListVisible` variable indicates whether the conversation list window is currently visible for each `ConvoStackEmbed` component, identified by its `embedId`. If the value for a specific `embedId` is `true`, it means the conversation list window is showing for that specific `ConvoStackEmbed` component. If the value is `false`, it means the conversation list window is not visible for that `ConvoStackEmbed` component.
 
 ### activeConversationId
 
@@ -231,4 +236,4 @@ embedActiveConversationId: { [embedId: string]: string | null }
 
 Description:
 
-- The `embedActiveConversationId` variable stores the IDs of the currently selected conversations for each embed chat component. Each embed chat component is identified by its `embedId` and the corresponding conversation ID stored in the object. If a conversation is not currently selected for a specific embed component, the value for that `embedId` will be `null`.
+- The `embedActiveConversationId` variable stores the IDs of the currently selected conversations for each `ConvoStackEmbed` component. Each `ConvoStackEmbed` component is identified by its `embedId` and the corresponding conversation ID stored in the object. If a conversation is not currently selected for a specific embed component, the value for that `embedId` will be `null`.

@@ -8,7 +8,7 @@ All ConvoStack components are originally styled in TailwindCSS and exported, so 
 
 ## ConvoStackWrapper
 
-The `ConvoStackWrapper` component serves as the entry point for integrating our chatbot widget into your site. It also provides a shared context for all `ConvoStackEmbed` components you choose to add within your application.
+The `ConvoStackWrapper` component serves as the entry point for integrating our chatbot widget into your site. It also provides a shared Redux Toolkit store for all `ConvoStackEmbed` components you choose to add within your application.
 
 To add the chatbot widget, you need to include the `ConvoStackWrapper` component at the root of your application's component tree:
 
@@ -65,6 +65,15 @@ export interface ConvoStackWrapperProps {
 `icons?: CustomIcons`
 
 - Pass in your own custom SVG React components for specific icons used in the widget. The `icons` object is of type `CustomIcons`
+  ```typescript
+  export type CustomIcons = {
+    widgetLaunchButtonOpenIcon?: React.ReactNode;
+    widgetLaunchButtonCloseIcon?: React.ReactNode;
+    createNewConversationIcon?: React.ReactNode;
+    sendMessageIcon?: React.ReactNode;
+    backArrowIcon?: React.ReactNode;
+  };
+  ```
 
 `defaultAgent?: string | null`
 
@@ -72,7 +81,7 @@ export interface ConvoStackWrapperProps {
 
 `disableWidget?: boolean`
 
-- Setting this prop to true will remove the chatbot widget if you prefer to only use the `ConvoStackEmbed` component.
+- Setting this prop to true will remove the chatbot widget button if you prefer to only use the `ConvoStackEmbed` component.
 
 `children?: React.ReactNode`
 
@@ -121,7 +130,7 @@ export interface ConvoStackEmbedProps {
 
 `defaultAgent: string | null`
 
-- This prop specifies the default agent to be used for new conversations when using the `ConvoStackEmbed` component that has `embedId`. By default, it's `null` or uses the `defaultAgent` value set in the `ConvoStackWrapper` component.
+- This prop specifies the default agent to be used for new conversations when using the `ConvoStackEmbed` component with a specific `embedId`. By default, it's `null` or uses the `defaultAgent` value set in the `ConvoStackWrapper` component.
 
 `customStyling?: CustomEmbedStyling`
 
