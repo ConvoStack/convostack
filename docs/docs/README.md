@@ -27,8 +27,6 @@ To add the ConvoStack framework to an existing repository, run the following com
 npm install convostack
 ```
 
-# TODO - libs
-
 ## Requirements
 
 # TODO - libs, languages, etc.
