@@ -1,5 +1,13 @@
 # @convostack/agent-echo
 
+## 0.0.32
+
+### Patch Changes
+
+- FE Embed New Name
+- Updated dependencies
+  - @convostack/agent@0.0.32
+
 ## 0.0.31
 
 ### Patch Changes

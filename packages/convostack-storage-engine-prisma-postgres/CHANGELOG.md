@@ -1,5 +1,13 @@
 # @convostack/storage-engine-prisma-postgres
 
+## 0.0.33
+
+### Patch Changes
+
+- FE Embed New Name
+- Updated dependencies
+  - @convostack/models@0.0.32
+
 ## 0.0.32
 
 ### Patch Changes

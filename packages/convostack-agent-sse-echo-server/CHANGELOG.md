@@ -1,5 +1,11 @@
 # @convostack/agent-sse-echo-server
 
+## 0.0.32
+
+### Patch Changes
+
+- FE Embed New Name
+
 ## 0.0.31
 
 ### Patch Changes

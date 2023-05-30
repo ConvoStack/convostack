@@ -1,5 +1,13 @@
 # convostack-docs
 
+## 0.0.18
+
+### Patch Changes
+
+- FE Embed New Name
+- Updated dependencies
+  - convostack@0.0.35
+
 ## 0.0.17
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # schema-graphql
 
+## 0.0.30
+
+### Patch Changes
+
+- FE Embed New Name
+
 ## 0.0.29
 
 ### Patch Changes

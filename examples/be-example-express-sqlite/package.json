@@ -1,6 +1,6 @@
 {
   "name": "be-example-express-sqlite",
-  "version": "0.0.31",
+  "version": "0.0.32",
   "private": true,
   "scripts": {
     "dev": "nodemon src/server-demo.ts",

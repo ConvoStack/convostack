@@ -1,5 +1,13 @@
 # fe-example-react
 
+## 0.0.31
+
+### Patch Changes
+
+- FE Embed New Name
+- Updated dependencies
+  - convostack@0.0.35
+
 ## 0.0.30
 
 ### Patch Changes
