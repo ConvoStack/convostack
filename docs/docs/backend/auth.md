@@ -1,3 +1,7 @@
+---
+sidebar_position: 0.4
+---
+
 # Authentication
 
 ConvoStack auth is extremely flexible. Without writing any custom code, you can:

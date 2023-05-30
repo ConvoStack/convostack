@@ -6,7 +6,7 @@ To check out the playground without setting it up yourself, click [here](https:/
 
 By following this guide, you will end up with a runnable local version on your own machine. We estimate that you can go from git clone to running in a couple of minutes. If you don't want to read the details of each step, you can copy/paste the steps directly from the GitHub repo [README](https://github.com/ConvoStack/playground#quickstart).
 
-# TODO screenshot/video of the playground
+![ConvoStack Playground](../../static/img/convostack-playground-demo.png)
 
 ## Requirements & Installation
 
