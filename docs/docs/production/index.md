@@ -19,8 +19,6 @@ ConvoStack, it is recommended to use Redis. Redis is an in-memory data store tha
 capabilities. One option for hosting Redis is Upstash, a managed Redis service that integrates with Fly.io. It also has
 a generous free tier!
 
-# TODO - Redis connection instructions link
-
 To connect ConvoStack to your Redis instance, refer to the ConvoStack documentation for instructions on configuring the
 cache and pub/sub settings [here](../backend/cache-pub-sub-redis). Additionally, consult the Upstash/Fly.io
 documentation for guidance on setting up and managing a Redis instance.
