@@ -2,7 +2,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
 export interface MessageProps {
-  width: null | string;
+  width: string;
   message: { text: string; author: string };
   className?: string;
 }

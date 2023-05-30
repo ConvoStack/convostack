@@ -12,20 +12,9 @@ The `ConvoStackWrapper` component serves as the entry point for integrating our 
 
 To add the chatbot widget, you need to include the `ConvoStackWrapper` component at the root of your application's component tree:
 
-```typescript
-ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <>
-    <ConvoStackWrapper
-      graphqlUrl={"https://example.com/graphql"}
-      websocketUrl={"wss://example.com/graphql"}
-    >
-      <App />
-    </ConvoStackWrapper>
-  </>
-);
-```
+### Props
 
-The `ConvoStackWrapper` component currently has the following props:
+`ConvoStackWrapper` component currently has the following props:
 
 ```typescript
 export interface ConvoStackWrapperProps {
@@ -42,27 +31,27 @@ export interface ConvoStackWrapperProps {
 
 `graphqlUrl: string`
 
-- Allows our ConvoStack components to make API calls to our backend.
+- Allows our ConvoStack components to make API calls to our backend. This prop specifies the URL endpoint for GraphQL API requests.
 
 `websocketUrl: string`
 
-- Enables a WebSocket connection for streaming and sending messages to AI agents.
+- Enables a WebSocket connection for streaming and sending messages to AI agents. This prop specifies the URL endpoint for the WebSocket connection.
 
 `userData?: UserData`
 
-- Stuff
+- Store a user's conversation history by passing in a userData object. The userData object is of type `UserData`.
 
 `customStyling?: CustomStyling`
 
-- Stuff
+- Apply custom styling to the widget component by passing in a `customStyling` object. The `customStyling` object is of type `CustomStyling`.
 
 `icons?: CustomIcons`
 
-- Stuff
+- Pass in your own custom SVG components for specific icons used in the widget. The `icons` object is of type `CustomIcons`
 
 `defaultAgent?: string | null`
 
-- Stuff
+- This prop specifies the default agent ID to be used for new conversations. By default, it's `null`.
 
 `disableWidget?: boolean`
 
@@ -70,17 +59,13 @@ export interface ConvoStackWrapperProps {
 
 `children?: React.ReactNode`
 
-- Stuff
+- The `children` prop represents the content or components that the `ConvoStackWrapper` surrounds. It should typically include your entire application, allowing you to access and utilize the `useConvoStack` hook functions anywhere within your application.
 
 `CustomMessage?: React.ComponentType<MessageProps>`
 
-- Stuff
+- The `CustomMessage` prop allows you to use a custom message component in place of the default `Message` bubble for displaying sent and received messages. The custom component should accept `MessageProps` as its props.
 
-## ConvoStackEmbed
-
-The `ConvoStackEmbed` component allows you to easily embed chat functionality into your website. It can be added multiple times throughout your application as a child of the `ConvoStackWrapper` component. By doing so, all instances of the `ConvoStackEmbed` component will share the same GraphQL and WebSocket URLs, ensuring synchronized data across all components.
-
-Below is an example use case of the `ConvoStackEmbed` component:
+### Example Usage
 
 ```typescript
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
@@ -89,13 +74,17 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       graphqlUrl={"https://example.com/graphql"}
       websocketUrl={"wss://example.com/graphql"}
     >
-      <ConvoStackEmbed embedId={"use case 1"} />
-      <ConvoStackEmbed embedId={"use case 2"} />
       <App />
     </ConvoStackWrapper>
   </>
 );
 ```
+
+## ConvoStackEmbed
+
+The `ConvoStackEmbed` component allows you to easily embed chat functionality into your website. It can be added multiple times throughout your application as a child of the `ConvoStackWrapper` component. By doing so, all instances of the `ConvoStackEmbed` component will share the same GraphQL and WebSocket URLs, ensuring synchronized data across all components.
+
+### Props
 
 `ConvoStackEmbed` has the following props:
 
@@ -114,11 +103,28 @@ export interface ConvoStackEmbedProps {
 
 `customStyling?: CustomEmbedStyling`
 
-- stuff
+- Apply custom styling to the widget component by passing in a `customStyling` object. The `customStyling` object is of type `CustomEmbedStyling`.
 
 `CustomMessage?: React.ComponentType<MessageProps>`
 
-- stuff
+- The `CustomMessage` prop allows you to use a custom message component in place of the default `Message` bubble for displaying sent and received messages. The custom component should accept `MessageProps` as its props.
+
+### Example Usage
+
+```typescript
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+  <>
+    <ConvoStackWrapper
+      graphqlUrl={"https://example.com/graphql"}
+      websocketUrl={"wss://example.com/graphql"}
+    >
+      <ConvoStackEmbed embedId={"id_1"} />
+      <ConvoStackEmbed embedId={"id_2"} />
+      <App />
+    </ConvoStackWrapper>
+  </>
+);
+```
 
 ## Message
 
@@ -127,6 +133,8 @@ By default, the `ConvoStackWrapper` component utilizes the built-in `Message` co
 To use the `CustomMessage` prop, you can provide a custom component that you have created that incorporates the `Message` component according to your own requirements.
 
 Here's an example of how to use the `CustomMessage` prop with `Message`:
+
+### Props
 
 The `Message` component currently has the following props:
 
@@ -140,12 +148,12 @@ export interface MessageProps {
 
 `width: null | string`
 
-- stuff
+- Specifies the width of each message bubble component.
 
 `message: { text: string; author: string }`
 
-- stuff
+- An object that represents the content and author of the message to be displayed in the message bubble.
 
 `className?: string`
 
-- stuff
+- Allows you to apply additional custom CSS classes or Tailwind CSS classes to the message bubble component
