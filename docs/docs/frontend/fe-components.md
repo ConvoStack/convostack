@@ -93,7 +93,7 @@ export interface ConvoStackWrapperProps {
 
 ### Example Usage
 
-```typescript
+```tsx
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <>
     <ConvoStackWrapper
@@ -156,7 +156,7 @@ export interface ConvoStackEmbedProps {
 
 ### Example Usage
 
-```typescript
+```tsx
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <>
     <ConvoStackWrapper
