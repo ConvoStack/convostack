@@ -20,7 +20,7 @@ const MessageList: React.FC<MessageListProps> = ({
   CustomMessage,
 }) => {
   const MessageComponentToRender = CustomMessage ? CustomMessage : Message;
-  const [width, setWidth] = useState<null | string>(null);
+  const [width, setWidth] = useState("130px");
   const [isLoading, setIsLoading] = useState(true);
   const [conversationEvents, setConversationEvents] = useState<MessageSent[]>(
     []
