@@ -1,3 +1,5 @@
+# Get Conversations
+
 ```graphql
 query GetConversations {
     getConversations {

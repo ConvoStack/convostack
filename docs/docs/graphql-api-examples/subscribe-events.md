@@ -1,3 +1,7 @@
+# Subscribe to Conversation Events
+
+Use this subscription to receive conversation message, response token streams, and initially load message history too.
+
 ```graphql
 subscription subscribeConversationEvents {
     event: subscribeConversationEvents(conversationId: "df42e373-d4bc-4705-8053-3537455af554", agent: null) {
@@ -7,10 +11,12 @@ subscription subscribeConversationEvents {
 }
 ```
 
-The first event over the subscription will _always_ be the `conversation_metadata` event.
-This message also contains the "primer" message for the conversation (from the AI).
-The `conversation_metadata` event also provides the `conversation.id` in case the original `subscribeConversationEvents` subscription
-was called without a `conversationId` (the newly-created conversation).
+* The first event over the subscription will _always_ be the `conversation_metadata` event.
+* This message also contains the "primer" message for the conversation (from the AI).
+* The `conversation_metadata` event also provides the `conversation.id` in case the
+  original `subscribeConversationEvents` subscription
+  was called without a `conversationId` (the newly-created conversation).
+
 ```json
 {
   "data": {
@@ -31,6 +37,7 @@ was called without a `conversationId` (the newly-created conversation).
 ```
 
 Example with primer and messages:
+
 ```json
 {
   "data": {

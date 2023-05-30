@@ -1,3 +1,5 @@
+# Refresh Auth Token
+
 ```graphql
 mutation RefreshAuth {
   refreshAuth(
