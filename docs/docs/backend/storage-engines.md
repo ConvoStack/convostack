@@ -30,33 +30,33 @@ the [Prisma documentation](https://www.prisma.io/docs/reference/database-referen
 Here's an example code snippet demonstrating the initialization of different storage engines based on env vars:
 
 ```typescript
-import {StorageEnginePrismaSQLite} from "convostack/storage-engine-prisma-sqlite";
-import {StorageEnginePrismaPostgres} from "convostack/storage-engine-prisma-postgres";
-import {StorageEnginePrismaMySQL} from "convostack/storage-engine-prisma-mysql";
+import { StorageEnginePrismaSQLite } from "convostack/storage-engine-prisma-sqlite";
+import { StorageEnginePrismaPostgres } from "convostack/storage-engine-prisma-postgres";
+import { StorageEnginePrismaMySQL } from "convostack/storage-engine-prisma-mysql";
 
 // Select and init a storage backend depending on the configuration
 let storage;
 switch (process.env.STORAGE_ENGINE) {
-    case 'sqlite':
-        storage = new StorageEnginePrismaSQLite(process.env.DATABASE_URL);
-        await storage.init();
-        break;
-    case 'postgres':
-        storage = new StorageEnginePrismaPostgres(process.env.DATABASE_URL);
-        await storage.init();
-        break;
-    case 'mysql':
-        storage = new StorageEnginePrismaMySQL(process.env.DATABASE_URL);
-        await storage.init();
-        break;
-    default:
-        throw new Error(`Invalid storage engine: ${process.env.STORAGE_ENGINE}`);
+  case "sqlite":
+    storage = new StorageEnginePrismaSQLite(process.env.DATABASE_URL);
+    await storage.init();
+    break;
+  case "postgres":
+    storage = new StorageEnginePrismaPostgres(process.env.DATABASE_URL);
+    await storage.init();
+    break;
+  case "mysql":
+    storage = new StorageEnginePrismaMySQL(process.env.DATABASE_URL);
+    await storage.init();
+    break;
+  default:
+    throw new Error(`Invalid storage engine: ${process.env.STORAGE_ENGINE}`);
 }
 
 // Setup the ConvoStack backend
 const backend = new ConvoStackBackendExpress({
-    storage,
-    // ...
+  storage,
+  // ...
 });
 ```
 
@@ -70,7 +70,7 @@ application to make it simple to set up the engines.
 
 We suggest planning to keep a separate database for ConvoStack, to keep your own application's schema, migrations, and
 data separate from the ConvoStack logic. Running the migration script as ConvoStack is updated will ensure your database
-schema is kept up to date. 
+schema is kept up to date.
 
 ## `package.json` Reference Scripts
 

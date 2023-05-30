@@ -132,8 +132,6 @@ By default, the `ConvoStackWrapper` component utilizes the built-in `Message` co
 
 To use the `CustomMessage` prop, you can provide a custom component that you have created that incorporates the `Message` component according to your own requirements.
 
-Here's an example of how to use the `CustomMessage` prop with `Message`:
-
 ### Props
 
 The `Message` component currently has the following props:
