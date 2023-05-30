@@ -22,7 +22,7 @@ export const fetchTokens = async (graphqlUrl?: string, userData?: UserData) => {
           externalId: userData?.userId
         }
       );
-      const { accessToken, refreshToken, anonymousId } = data.login;
+      const { accessToken, refreshToken } = data.login;
       store.dispatch(setAccessToken(accessToken.token));
       store.dispatch(setAccessTokenExpiry((accessToken.expAt * 1000)));
       store.dispatch(setRefreshToken(refreshToken.token));

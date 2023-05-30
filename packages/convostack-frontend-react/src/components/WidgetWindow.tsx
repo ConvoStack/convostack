@@ -26,7 +26,8 @@ const WidgetWindow: React.FC<WidgetWindowProps> = ({
   const [isAgentTyping, setIsAgentTyping] = useState(false);
   useEffect(() => {
     const getWidthAndHeight = () => {
-      const screenWidth = typeof window !== "undefined" && window.innerWidth;
+      const screenWidth =
+        typeof window !== "undefined" ? window.innerWidth : 650;
       const width =
         screenWidth <= 640 ? "100%" : styling?.widgetWindowWidth || "370px";
       const height =

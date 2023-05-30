@@ -74,7 +74,8 @@ const ConvoStackEmbed: React.FC<ConvoStackEmbedProps> = ({
 
   useEffect(() => {
     const getWidth = () => {
-      const screenWidth = typeof window !== "undefined" && window.innerWidth;
+      const screenWidth =
+        typeof window !== "undefined" ? window.innerWidth : 650;
       const width =
         screenWidth <= 640 ? "100%" : customStyling?.embedWidth || "800px";
       setWidth(width);

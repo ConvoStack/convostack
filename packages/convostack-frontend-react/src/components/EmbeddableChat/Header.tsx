@@ -2,11 +2,8 @@ import { useContext } from "react";
 import { CustomIconsContext } from "../../App";
 import ArrowLeftIcon from "../../assets/ArrowLeftIcon";
 import useConvoStack from "../../hooks/useConvoStack";
-import {
-  ConvoStackState,
-  setIsEmbedConversationListVisible,
-} from "../../redux/slice";
-import { useDispatch, useSelector } from "react-redux";
+import { setIsEmbedConversationListVisible } from "../../redux/slice";
+import { useDispatch } from "react-redux";
 import { CustomEmbedStyling } from "../../types";
 
 interface HeaderProps {
