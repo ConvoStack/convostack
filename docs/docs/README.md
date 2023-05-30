@@ -31,4 +31,24 @@ To add the ConvoStack framework to an existing repository, run the following com
 npm install convostack
 ```
 
+To get the latest version of ConvoStack as we publish new releases, run the following command:
+
+```bash
+npm update convostack --save
+```
+
 ## Requirements
+
+If adding ConvoStack to your repository, below are the following requirements depending on your usage:
+
+**Frontend Requirements:**
+
+`react` (version ^17.0.2 or version ^18.0.0): Integration with ConvoStack frontend components
+
+`react-dom` (version ^17.0.2 or version ^18.0.0): Integration with ConvoStack frontend components
+
+**Backend Requirements:**
+
+`express`: The ConvoStack backend is based on Express and imports a version for itself. Optionally, you can have the ConvoStack backend attach to your own Express app instance. In that case, any relatively recent version of express should suffice (e.g., above 4.17.1)
+
+`langchain` (version ^0.0.67) (Optional): Plug and play ConvoStack Agent integration for Langchain-based Agents
