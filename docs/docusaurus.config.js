@@ -80,12 +80,12 @@ const config = {
                         position: "right",
                     },
                     {
-                        href: "https://github.com/ConvoStack/convostack",
+                        href: "https://twitter.com/ConvoStack",
                         label: "Twitter",
                         position: "right",
                     },
                     {
-                        href: "https://twitter.com/ConvoStack",
+                        href: "https://github.com/ConvoStack/convostack",
                         label: "GitHub",
                         position: "right",
                     },
