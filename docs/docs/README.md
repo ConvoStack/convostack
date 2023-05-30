@@ -11,8 +11,6 @@ ConvoStack is a plug and play embeddable AI chatbot widget and backend deploymen
 
 The core technologies are React (frontend), Express.js (backend), Redis (Cache & Pub/Sub), and Langchain (AI agent framework).
 
-### TODO - Insert video of ConvoStack
-
 ## Learn the Basics
 
 Learn about ConvoStack and what sets it apart from other AI chatbot software:
