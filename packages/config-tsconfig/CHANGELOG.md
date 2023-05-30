@@ -1,5 +1,11 @@
 # config-tsconfig
 
+## 0.0.28
+
+### Patch Changes
+
+- FE Updates
+
 ## 0.0.27
 
 ### Patch Changes

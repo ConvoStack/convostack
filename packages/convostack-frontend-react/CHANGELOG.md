@@ -1,5 +1,11 @@
 # @convostack/frontend-react
 
+## 0.0.31
+
+### Patch Changes
+
+- FE Updates
+
 ## 0.0.30
 
 ### Patch Changes
