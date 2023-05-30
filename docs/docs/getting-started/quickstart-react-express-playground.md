@@ -1,20 +1,15 @@
 # Quickstart Guide
 
-The ConvoStack Playground monorepo is the fastest way to start exploring ConvoStack. If you like learning by example,
-then this is the quick start for you!
+The ConvoStack Playground monorepo is the fastest way to start exploring ConvoStack. If you like learning by example, then this is the quickstart for you!
 
 To check out the playground without setting it up yourself, click [here](https://playground.convostack.ai) for a live
 demo!
 
-By following this guide, you will end up with a runnable local version on your own machine. We estimate that you can go
-from git clone to running in a couple of minutes. If you don't want to read the details of each step, you can copy/paste
-the steps directly from the GitHub repo [README](https://github.com/ConvoStack/playground#quickstart).
+By following this guide, you will end up with a runnable local version on your own machine. We estimate that you can go from `git clone` to running in a couple of minutes. If you don't want to read the details of each step, you can copy/paste the steps directly from the GitHub repo [README](https://github.com/ConvoStack/playground#quickstart).
 
 ![ConvoStack Playground](../../static/img/convostack-playground-demo.png)
 
 ## Requirements & Installation
-
-Click [here](../README.md#requirements) to see the basic requirements for running ConvoStack locally.
 
 To get started, clone the [ConvoStack playground monorepo](https://github.com/ConvoStack/playground):
 
@@ -35,8 +30,7 @@ npm install
 
 ## Environment Setup
 
-To load environment variables from a .env file in the `apps/backend` directory, the playground
-utilizes [dotenv](https://github.com/motdotla/dotenv).
+To load environment variables from a `.env` file in the `apps/backend` directory, the playground utilizes [dotenv](https://github.com/motdotla/dotenv).
 
 You are not required to customize any parameters to run the playground, but you will need to copy the `.env.example`
 file over to `.env` to get it up and running:
@@ -94,37 +88,37 @@ frontend frameworks which the playground monorepo implements.
 The ConvoStack backend framework offers several key features and options for easy development and setup:
 
 - **Database Support:**
-    - For development, ConvoStack supports SQLite for convenient setup and local testing.
-    - For production, you have the flexibility to choose between Postgres and MySQL, ensuring compatibility with your
-      preferred database system.
+  - For development, ConvoStack supports SQLite for convenient setup and local testing.
+  - For production, you have the flexibility to choose between Postgres and MySQL, ensuring compatibility with your
+    preferred database system.
 - **Caching and Pub/Sub:**
-    - For development, ConvoStack provides in-memory caching and pub/sub capabilities, enabling efficient data
-      management and real-time communication.
-    - For production, ConvoStack supports Redis, a widely-used caching and message broker system.
+  - For development, ConvoStack provides in-memory caching and pub/sub capabilities, enabling efficient data
+    management and real-time communication.
+  - For production, ConvoStack supports Redis, a widely-used caching and message broker system.
 - **Multiple AI Agent Implementations:**
-    - ConvoStack offers various "agent" implementations to suit different use cases (all four are built and running in
-      the playground). These include:
-        - "OpenAI Chat": an agent powered by OpenAI and Langchain that operates like the popular ChatGPT application.
-            - Requires `OPENAI_API_KEY` to be set
-        - "Echo Agent": a super-simple agent that showcases a minimalistic ConvoStack implementation with no API keys
-          required.
-        - "OpenAI Conversational QA": an agent powered by OpenAI and Langchain for question and answering given various
-          sources.
-            - Requires `OPENAI_API_KEY` to be set
-        - "ConvoStack Docs Agent": a web crawler and chat QA chain based on Pinecone, OpenAI, and Langchain, which is
-          production-ready for powering chat with your documentation or help center. Powers chat
-          on [ConvoStack.ai](https://convostack.ai/) and this docs site!
-            - Requires `OPENAI_API_KEY`, `PINECONE_API_KEY`, `PINECONE_ENVIRONMENT`, and `PINECONE_INDEX` to be set
-            - Loading the documents requires running the following `npm run pinecone-load-convostack-docs` command in
-              the `apps/backend` directory to crawl the ConvoStack docs website and load the embeddings into Pinecone.
-              Make sure that you have created an index on Pinecone using dimension=1536 and the cosine distance function
-              and updated your backend `.env` with the required env vars listed above.
+  - ConvoStack offers various "agent" implementations to suit different use cases (all four are built and running in
+    the playground). These include:
+    - "OpenAI Chat": an agent powered by OpenAI and Langchain that operates like the popular ChatGPT application.
+      - Requires `OPENAI_API_KEY` to be set
+    - "Echo Agent": a super-simple agent that showcases a minimalistic ConvoStack implementation with no API keys
+      required.
+    - "OpenAI Conversational QA": an agent powered by OpenAI and Langchain for question and answering given various
+      sources.
+      - Requires `OPENAI_API_KEY` to be set
+    - "ConvoStack Docs Agent": a web crawler and chat QA chain based on Pinecone, OpenAI, and Langchain, which is
+      production-ready for powering chat with your documentation or help center. Powers chat
+      on [ConvoStack.ai](https://convostack.ai/) and this docs site!
+      - Requires `OPENAI_API_KEY`, `PINECONE_API_KEY`, `PINECONE_ENVIRONMENT`, and `PINECONE_INDEX` to be set
+      - Loading the documents requires running the following `npm run pinecone-load-convostack-docs` command in
+        the `apps/backend` directory to crawl the ConvoStack docs website and load the embeddings into Pinecone.
+        Make sure that you have created an index on Pinecone using dimension=1536 and the cosine distance function
+        and updated your backend `.env` with the required env vars listed above.
 - **Deployment with Fly.io:**
-    - ConvoStack deploys seamlessly to Fly.io, providing free and easy hosting options. The included `fly.toml` file
-      simplifies the deployment configuration process.
+  - ConvoStack deploys seamlessly to Fly.io, providing free and easy hosting options. The included `fly.toml` file
+    simplifies the deployment configuration process.
 - **Optional Docker Configuration:**
-    - ConvoStack offers an optional docker-compose.yml configuration for local development using Postgres, MySQL, and
-      Redis. This facilitates a consistent development environment that closely mirrors the production setup.
+  - ConvoStack offers an optional docker-compose.yml configuration for local development using Postgres, MySQL, and
+    Redis. This facilitates a consistent development environment that closely mirrors the production setup.
 
 By leveraging these features provided by the ConvoStack backend framework, you can efficiently develop and deploy
 chatbot applications with ease. The framework's flexibility, database support, caching capabilities, agent
@@ -136,27 +130,27 @@ The ConvoStack frontend framework, powered by React, offers out-of-the-box AI ch
 backend.
 
 - **Core React Components:**
-    - The Widget: like the one running on [ConvoStack.ai](https://convostack.ai/) and this docs site! Customizable via
-      the `CustomStyling` prop.
-    - Embedded chat: can be embedded on any page of your website. Also customizable via the `CustomEmbedStyling` prop.
+  - The Widget: like the one running on [ConvoStack.ai](https://convostack.ai/) and this docs site! Customizable via
+    the `CustomStyling` prop.
+  - Embedded chat: can be embedded on any page of your website. Also customizable via the `CustomEmbedStyling` prop.
 - **User Data Integration:**
-    - By default, the ConvoStack frontend framework does not persist login data. Conversations will be cleared upon
-      reloading the page.
-    - If desired, you can customize the ConvoStackWrapper configuration in `apps/frontend/src/main.tsx` using
-      the `userData` prop to enable data persistence between sessions or even hardcode a demo user for development
-      purposes.
+  - By default, the ConvoStack frontend framework does not persist login data. Conversations will be cleared upon
+    reloading the page.
+  - If desired, you can customize the ConvoStackWrapper configuration in `apps/frontend/src/main.tsx` using
+    the `userData` prop to enable data persistence between sessions or even hardcode a demo user for development
+    purposes.
 - **useConvoStack Hook:**
-    - The framework provides an exported `useConvoStack` hook that offers functions enabling GraphQL API calls and
-      component state management.
-    - This hook simplifies interaction with the ConvoStack backend, facilitating seamless communication and efficient
-      state management within the chatbot interface.
+  - The framework provides an exported `useConvoStack` hook that offers functions enabling GraphQL API calls and
+    component state management.
+  - This hook simplifies interaction with the ConvoStack backend, facilitating seamless communication and efficient
+    state management within the chatbot interface.
 - **Vite for Bundling:**
-    - The ConvoStack frontend framework utilizes Vite as the bundler. Vite is a fast and efficient build tool that
-      enhances development speed and optimizes the performance of the chatbot application.
+  - The ConvoStack frontend framework utilizes Vite as the bundler. Vite is a fast and efficient build tool that
+    enhances development speed and optimizes the performance of the chatbot application.
 - **Simplified Hosting:**
-    - The build script of the ConvoStack frontend framework exports to the backend server, eliminating the need for
-      separate static site hosting. This streamlined approach simplifies the deployment process, allowing for a single
-      hosting solution for both the frontend and backend components of the ConvoStack application.
+  - The build script of the ConvoStack frontend framework exports to the backend server, eliminating the need for
+    separate static site hosting. This streamlined approach simplifies the deployment process, allowing for a single
+    hosting solution for both the frontend and backend components of the ConvoStack application.
 
 ## Monorepo Project Structure
 
@@ -166,20 +160,20 @@ and `apps/frontend`.
 ### Backend Folder
 
 - The ConvoStack backend is initialized in the `apps/backend/src/server.ts` file
-    - The agents are connected to the backend in this file
-    - The Express server is defined here
+  - The agents are connected to the backend in this file
+  - The Express server is defined here
 - All ConvoStack agent implementations live in the `apps/backend/src/agents` directory
-    - All agent logic lives in the agent files
-    - There are no limitations on what frameworks, resources, etc. that a ConvoStack agent can use, as long as it
-      implements the `reply` method of `convostack/agent.IAgent`
+  - All agent logic lives in the agent files
+  - There are no limitations on what frameworks, resources, etc. that a ConvoStack agent can use, as long as it
+    implements the `reply` method of `convostack/agent.IAgent`
 
 ### Frontend Folder
 
 - The `ConvoStackWrapper` component is initialized in the `apps/frontend/src/App.tsx` file
-    - The `graphqlUrl`, `websocket`, and `customStyling` prop values are defined here
+  - The `graphqlUrl`, `websocket`, and `customStyling` prop values are defined here
 - The `EmbedChat` components and `useConvoStack` hook are initialized in the `MobilePlayground.tsx`
   and `WebPlayground.tsx` components
-    - The `useConvoStack` hook is also utilized in the `ContextInput.tsx` file
+  - The `useConvoStack` hook is also utilized in the `ContextInput.tsx` file
 
 ### Monorepo folder structure
 
