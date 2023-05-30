@@ -42,6 +42,7 @@ const useConvoStack = () => {
     isEmbedConversationListVisible,
     data,
     embedData,
+    embedDefaultAgent,
     embedActiveConversationId,
   } = useSelector((state: any) => state.conversation as ConvoStackState);
 
@@ -99,12 +100,17 @@ const useConvoStack = () => {
       }
     });
     const promise = new Promise<string>((resolve, reject) => {
+      const selectedAgent = agent
+        ? agent
+        : embedId && embedDefaultAgent[embedId]
+        ? embedDefaultAgent[embedId]
+        : defaultAgent;
       const subscriptionCleanup = wsClient.subscribe(
         {
           query: SubscribeConversationEventsDocument,
           variables: {
             conversationId: conversationId,
-            agent: defaultAgent ? defaultAgent : agent,
+            agent: selectedAgent,
             context: context,
           },
         },

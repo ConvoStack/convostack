@@ -22,8 +22,9 @@ const Header: React.FC<HeaderProps> = ({ onClickClose }) => {
     <>
       <div
         className={`w-full min-h-36 ${
-          styling?.headerColor || "bg-blue-gradient"
+          styling?.headerColor ? "" : "bg-blue-gradient"
         } sm:rounded-tl-lg sm:rounded-tr-lg sm:flex flex-wrap items-center py-4 hidden`}
+        style={{ backgroundColor: styling?.headerColor }}
       >
         <div
           className="left-0 absolute hover:cursor-pointer"
@@ -41,9 +42,8 @@ const Header: React.FC<HeaderProps> = ({ onClickClose }) => {
         </div>
         <div className="flex w-full">
           <p
-            className={`font-sans font-semibold mx-auto ${
-              styling?.headerTextColor || "text-white"
-            }`}
+            className="font-sans font-semibold mx-auto"
+            style={{ color: styling?.headerTextColor || "white" }}
           >
             {styling?.headerText || "ConvoStack Chat"}
           </p>
@@ -51,8 +51,9 @@ const Header: React.FC<HeaderProps> = ({ onClickClose }) => {
       </div>
       <div
         className={`w-full min-h-36 ${
-          styling?.headerColor || "bg-blue-gradient"
+          styling?.headerColor ? "" : "bg-blue-gradient"
         } sm:rounded-tl-lg sm:rounded-tr-lg flex justify-between items-center py-4 sm:hidden`}
+        style={{ backgroundColor: styling?.headerColor }}
       >
         <div
           className="hover:cursor-pointer"
@@ -69,9 +70,8 @@ const Header: React.FC<HeaderProps> = ({ onClickClose }) => {
           )}
         </div>
         <p
-          className={`font-sans font-semibold mx-auto ${
-            styling?.headerTextColor || "text-white"
-          }`}
+          className="font-sans font-semibold mx-auto"
+          style={{ color: styling?.headerTextColor || "white" }}
         >
           {styling?.headerText || "ConvoStack Chat"}
         </p>

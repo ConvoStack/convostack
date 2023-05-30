@@ -24,6 +24,7 @@ export interface ConvoStackWrapperProps {
   customStyling?: CustomStyling;
   icons?: CustomIcons;
   defaultAgent?: string | null;
+  disableWidget?: boolean;
   children: React.ReactNode;
   CustomMessage?: React.ComponentType<MessageProps>;
 }
@@ -45,13 +46,29 @@ export interface ConvoStackWrapperProps {
 
 - Apply custom styling to the widget component by passing in a `customStyling` object. The `customStyling` object is of type `CustomStyling`.
 
+  ```typescript
+  export type CustomStyling = {
+    headerColor?: string;
+    headerText?: string;
+    headerTextColor?: string;
+    widgetLaunchButtonColor?: string;
+    widgetLocation?: "right" | "left";
+    widgetWindowHeightOffset?: string;
+    widgetWindowWidth?: string;
+    iconsColor?: string;
+  };
+  ```
+
+  - For properties `headerColor`, `headerTextColor`, `widgetLaunchButtonColor`, and `iconsColor`, pass in an accepted CSS `color` value.
+  - For properties `widgetWindowWidth` and `widgetWindowHeightOffset`, pass in an accepted CSS `height` and `width` value.
+
 `icons?: CustomIcons`
 
-- Pass in your own custom SVG components for specific icons used in the widget. The `icons` object is of type `CustomIcons`
+- Pass in your own custom SVG React components for specific icons used in the widget. The `icons` object is of type `CustomIcons`
 
 `defaultAgent?: string | null`
 
-- This prop specifies the default agent ID to be used for new conversations. By default, it's `null`.
+- This prop specifies the default agent to be used for new conversations for the widget. By default, it's `null`.
 
 `disableWidget?: boolean`
 
@@ -91,6 +108,7 @@ The `ConvoStackEmbed` component allows you to easily embed chat functionality in
 ```typescript
 export interface ConvoStackEmbedProps {
   embedId: string;
+  defaultAgent?: string | null;
   customStyling?: CustomEmbedStyling;
   CustomMessage?: React.ComponentType<MessageProps>;
 }
@@ -101,9 +119,27 @@ export interface ConvoStackEmbedProps {
 - `ConvoStackEmbed` requires a unique ID to identify and manage its local state before storing it in the backend. This prop is crucial when you have multiple instances of the ConvoStackEmbed component within your application.
 - To prevent interference between multiple ConvoStackEmbed components, make sure to assign a **different id value** to each instance.
 
+`defaultAgent: string | null`
+
+- This prop specifies the default agent to be used for new conversations when using the `ConvoStackEmbed` component that has `embedId`. By default, it's `null` or uses the `defaultAgent` value set in the `ConvoStackWrapper` component.
+
 `customStyling?: CustomEmbedStyling`
 
 - Apply custom styling to the widget component by passing in a `customStyling` object. The `customStyling` object is of type `CustomEmbedStyling`.
+
+  ```typescript
+  export type CustomEmbedStyling = {
+    headerColor?: string;
+    headerText?: string;
+    headerTextColor?: string;
+    embedWidth?: string;
+    embedHeight?: string;
+    iconsColor?: string;
+  };
+  ```
+
+  - For properties `headerColor`, `headerTextColor`, and `iconsColor`, pass in an accepted CSS `color` value.
+  - For properties `embedWidth` and `embedHeight`, pass in an accepted CSS `height` and `width` value.
 
 `CustomMessage?: React.ComponentType<MessageProps>`
 

@@ -23,7 +23,7 @@ const ConversationList: React.FC<ConversationListProps> = ({
 }) => {
   const icons = useContext(CustomIconsContext);
   const { openConversation, context } = useConvoStack();
-  const { styling, defaultAgent } = useSelector(
+  const { embedDefaultAgent, defaultAgent } = useSelector(
     (state: any) => state.conversation as ConvoStackState
   );
   const { data, isFetching, isLoading } = useGetConversationsQuery(
@@ -43,7 +43,12 @@ const ConversationList: React.FC<ConversationListProps> = ({
 
   useEffect(() => {
     if (!isFetching && conversationArray.length === 0) {
-      openConversation(null, defaultAgent, context, embedId);
+      openConversation(
+        null,
+        embedDefaultAgent[embedId] || defaultAgent,
+        context,
+        embedId
+      );
     }
   }, [isFetching]);
 
@@ -51,27 +56,27 @@ const ConversationList: React.FC<ConversationListProps> = ({
     <>
       <div
         className={`h-14 py-4 ${
-          styling?.headerColor || "bg-blue-gradient"
+          customStyling?.headerColor ? "" : "bg-blue-gradient"
         } flex justify-between items-center`}
+        style={{ backgroundColor: customStyling?.headerColor }}
       >
         <div
-          className="left-0 hover:cursor-pointer"
+          className="left-0 absolute hover:cursor-pointer"
           onClick={() => openConversation(null, defaultAgent, context, embedId)}
         >
           {icons?.createNewConversationIcon || (
             <PencilSquareIcon
-              className="w-6 h-6 ml-4"
+              className="w-6 h-6 ml-6"
               color={customStyling?.iconsColor || "white"}
             />
           )}
         </div>
         <div className="flex w-full">
           <p
-            className={`font-sans font-semibold mx-auto ${
-              styling?.headerTextColor || "text-white"
-            }`}
+            className="font-sans font-semibold mx-auto"
+            style={{ color: customStyling?.headerTextColor || "white" }}
           >
-            {styling?.headerText || "ConvoStack Chat"}
+            {customStyling?.headerText || "ConvoStack Chat"}
           </p>
         </div>
       </div>

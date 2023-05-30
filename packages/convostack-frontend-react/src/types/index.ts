@@ -3,18 +3,20 @@ import * as React from "react"
 export type CustomStyling = {
   headerColor?: string
   headerText?: string
+  headerTextColor?: string
   widgetLaunchButtonColor?: string
   widgetLocation?: "right" | "left"
   widgetWindowHeightOffset?: string
   widgetWindowWidth?: string
-  headerTextColor?: string
   iconsColor?: string
 }
 
 export type CustomEmbedStyling = {
-  embedHeight?: string
-  embedWidth?: string
+  headerColor?: string
+  headerText?: string
   headerTextColor?: string
+  embedWidth?: string
+  embedHeight?: string
   iconsColor?: string
 }
 

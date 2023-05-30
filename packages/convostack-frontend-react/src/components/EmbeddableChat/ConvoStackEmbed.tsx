@@ -10,6 +10,7 @@ import {
   ConvoStackState,
   setEmbedConversationId,
   setEmbedData,
+  setEmbedDefaultAgent,
   setIsEmbedConversationListVisible,
 } from "../../redux/slice";
 import { CustomEmbedStyling } from "../../types";
@@ -17,12 +18,14 @@ import { MessageProps } from "../Message";
 
 export interface ConvoStackEmbedProps {
   embedId: string;
+  defaultAgent?: string | null;
   customStyling?: CustomEmbedStyling;
   CustomMessage?: React.ComponentType<MessageProps>;
 }
 
 const ConvoStackEmbed: React.FC<ConvoStackEmbedProps> = ({
   embedId,
+  defaultAgent,
   customStyling,
   CustomMessage,
 }) => {
@@ -33,12 +36,14 @@ const ConvoStackEmbed: React.FC<ConvoStackEmbedProps> = ({
   const dispatch = useDispatch();
   const outerDiv = useRef() as MutableRefObject<HTMLDivElement>;
   const [height, setHeight] = useState<null | string>(null);
+  const [width, setWidth] = useState<string>("400px");
   useEffect(() => {
     dispatch(setEmbedConversationId({ embedId: embedId, value: null }));
     dispatch(
       setIsEmbedConversationListVisible({ embedId: embedId, value: true })
     );
     dispatch(setEmbedData({ embedId: embedId, value: null }));
+    dispatch(setEmbedDefaultAgent({ embedId: embedId, value: defaultAgent }));
   }, [embedId]);
 
   const embedActiveConversationId = useSelector(
@@ -67,12 +72,28 @@ const ConvoStackEmbed: React.FC<ConvoStackEmbedProps> = ({
     };
   }, []);
 
+  useEffect(() => {
+    const getWidth = () => {
+      const screenWidth = typeof window !== "undefined" && window.innerWidth;
+      const width =
+        screenWidth <= 640 ? "100%" : customStyling?.embedWidth || "800px";
+      setWidth(width);
+    };
+    getWidth();
+    typeof window !== "undefined" &&
+      window.addEventListener("resize", getWidth);
+    return () => {
+      typeof window !== "undefined" &&
+        window.removeEventListener("resize", getWidth);
+    };
+  }, []);
+
   return (
     <div
       ref={outerDiv}
       className="max-sm:max-w-[100vw] convostack"
       style={{
-        width: customStyling?.embedWidth || "400px",
+        width: width,
         height: customStyling?.embedHeight || "400px",
       }}
     >
@@ -89,6 +110,7 @@ const ConvoStackEmbed: React.FC<ConvoStackEmbedProps> = ({
             CustomMessage={CustomMessage}
           />
           <UserInput
+            embedId={embedId}
             isAgentTyping={isAgentTyping}
             activeConversationId={embedActiveConversationId}
           />

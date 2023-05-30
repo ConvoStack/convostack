@@ -75,9 +75,19 @@ const config = {
                 },
                 items: [
                     {
+                        href: "https://discord.gg/gCGbAm9HXx",
+                        label: "Join Discord",
+                        position: "right",
+                    },
+                    {
                         href: "https://github.com/ConvoStack/convostack",
+                        label: "Twitter",
+                        position: "right",
+                    },
+                    {
+                        href: "https://twitter.com/ConvoStack",
                         label: "GitHub",
-                        position: "right"
+                        position: "right",
                     },
                 ]
             },

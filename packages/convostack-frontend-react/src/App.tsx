@@ -24,6 +24,7 @@ const App: React.FC<Omit<ConvoStackWrapperProps, "children">> = ({
   customStyling,
   icons,
   defaultAgent,
+  disableWidget = false,
   CustomMessage,
 }) => {
   const dispatch = useDispatch();
@@ -69,44 +70,48 @@ const App: React.FC<Omit<ConvoStackWrapperProps, "children">> = ({
 
   return (
     <CustomIconsContext.Provider value={icons}>
-      <div className="z-50 convostack">
-        {isShowing && (
-          <div
-            className={
-              isWidgetWindowVisible
-                ? "animate-conversation-window-fade-enter"
-                : "animate-conversation-window-fade-out"
-            }
-          >
-            <WidgetWindow
-              onClickClose={() => toggleWidgetWindow(!isWidgetWindowVisible)}
-              CustomMessage={CustomMessage}
-            />
-          </div>
-        )}
-        <div className="sm:hidden">
-          {!isShowing && (
+      {!disableWidget && (
+        <div className="z-50 convostack">
+          {isShowing && (
             <div
               className={
                 isWidgetWindowVisible
-                  ? "animate-conversation-window-fade-out"
-                  : ""
+                  ? "animate-conversation-window-fade-enter"
+                  : "animate-conversation-window-fade-out"
               }
             >
-              <LaunchButton
+              <WidgetWindow
                 onClickClose={() => toggleWidgetWindow(!isWidgetWindowVisible)}
-                isWidgetWindowVisible={isWidgetWindowVisible}
+                CustomMessage={CustomMessage}
               />
             </div>
           )}
+          <div className="sm:hidden">
+            {!isShowing && (
+              <div
+                className={
+                  isWidgetWindowVisible
+                    ? "animate-conversation-window-fade-out"
+                    : ""
+                }
+              >
+                <LaunchButton
+                  onClickClose={() =>
+                    toggleWidgetWindow(!isWidgetWindowVisible)
+                  }
+                  isWidgetWindowVisible={isWidgetWindowVisible}
+                />
+              </div>
+            )}
+          </div>
+          <div className="max-sm:hidden">
+            <LaunchButton
+              onClickClose={() => toggleWidgetWindow(!isWidgetWindowVisible)}
+              isWidgetWindowVisible={isWidgetWindowVisible}
+            />
+          </div>
         </div>
-        <div className="max-sm:hidden">
-          <LaunchButton
-            onClickClose={() => toggleWidgetWindow(!isWidgetWindowVisible)}
-            isWidgetWindowVisible={isWidgetWindowVisible}
-          />
-        </div>
-      </div>
+      )}
     </CustomIconsContext.Provider>
   );
 };

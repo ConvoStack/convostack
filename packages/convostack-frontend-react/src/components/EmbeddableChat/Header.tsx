@@ -18,18 +18,16 @@ const Header: React.FC<HeaderProps> = ({ embedId, customStyling }) => {
   const icons = useContext(CustomIconsContext);
   const dispatch = useDispatch();
   const { dropSubscription } = useConvoStack();
-  const { styling } = useSelector(
-    (state: any) => state.conversation as ConvoStackState
-  );
   return (
     <div className="w-full">
       <div
         className={`w-full h-14 ${
-          styling?.headerColor || "bg-blue-gradient"
+          customStyling?.headerColor ? "" : "bg-blue-gradient"
         } flex flex-wrap items-center py-4`}
+        style={{ backgroundColor: customStyling?.headerColor }}
       >
         <div
-          className="left-0 hover:cursor-pointer"
+          className="left-0 absolute hover:cursor-pointer"
           onClick={() => {
             dispatch(
               setIsEmbedConversationListVisible({
@@ -42,18 +40,17 @@ const Header: React.FC<HeaderProps> = ({ embedId, customStyling }) => {
         >
           {icons?.backArrowIcon || (
             <ArrowLeftIcon
-              className="w-6 h-6 ml-4"
+              className="w-6 h-6 ml-6"
               color={customStyling?.iconsColor || "white"}
             />
           )}
         </div>
-        <div className="flex mx-auto">
+        <div className="flex w-full">
           <p
-            className={`font-sans font-semibold mx-auto ${
-              styling?.headerTextColor || "text-white"
-            }`}
+            className="font-sans font-semibold mx-auto"
+            style={{ color: customStyling?.headerTextColor || "white" }}
           >
-            {styling?.headerText || "Convo Stack Chat"}
+            {customStyling?.headerText || "ConvoStack Chat"}
           </p>
         </div>
       </div>

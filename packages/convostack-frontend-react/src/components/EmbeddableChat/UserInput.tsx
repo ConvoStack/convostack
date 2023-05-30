@@ -9,17 +9,19 @@ import ThreeDotsAnimation from "../../lottieAnimations/ThreeDotsAnimation";
 import { ConvoStackState } from "../../redux/slice";
 
 interface UserInputProps {
+  embedId: string;
   isAgentTyping: boolean;
   activeConversationId: string | null;
 }
 
 const UserInput: React.FC<UserInputProps> = ({
+  embedId,
   isAgentTyping,
   activeConversationId,
 }) => {
   const icons = useContext(CustomIconsContext);
   const { context } = useConvoStack();
-  const { defaultAgent } = useSelector(
+  const { embedDefaultAgent, defaultAgent } = useSelector(
     (state: any) => state.conversation as ConvoStackState
   );
   const { mutate: sendMessageMutation } = useSendMessageMutation(
@@ -31,7 +33,7 @@ const UserInput: React.FC<UserInputProps> = ({
         content: message,
       },
       conversationId: activeConversationId,
-      agent: defaultAgent,
+      agent: embedDefaultAgent[embedId] || defaultAgent,
       context: context,
     });
   };

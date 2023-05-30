@@ -15,6 +15,7 @@ export interface ConvoStackWrapperProps {
   customStyling?: CustomStyling;
   icons?: CustomIcons;
   defaultAgent?: string | null;
+  disableWidget?: boolean;
   children: React.ReactNode;
   CustomMessage?: React.ComponentType<MessageProps>;
 }
@@ -26,6 +27,7 @@ const ConvoStackWrapper: React.FC<ConvoStackWrapperProps> = ({
   customStyling,
   icons,
   defaultAgent,
+  disableWidget,
   children,
   CustomMessage,
 }) => {
@@ -57,6 +59,7 @@ const ConvoStackWrapper: React.FC<ConvoStackWrapperProps> = ({
             customStyling={customStyling}
             icons={icons}
             defaultAgent={defaultAgent}
+            disableWidget={disableWidget}
             CustomMessage={CustomMessage}
           />
         )}

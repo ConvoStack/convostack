@@ -46,8 +46,9 @@ const ConversationList: React.FC<ConversationListProps> = ({
     <>
       <div
         className={`w-full min-h-16 py-4 ${
-          styling?.headerColor || "bg-blue-gradient"
+          styling?.headerColor ? "" : "bg-blue-gradient"
         } sm:rounded-tl-lg sm:rounded-tr-lg sm:flex justify-between items-center hidden`}
+        style={{ backgroundColor: styling?.headerColor }}
       >
         <div
           className="left-0 absolute hover:cursor-pointer"
@@ -64,9 +65,8 @@ const ConversationList: React.FC<ConversationListProps> = ({
         </div>
         <div className="flex w-full">
           <p
-            className={`font-sans font-semibold mx-auto ${
-              styling?.headerTextColor || "text-white"
-            }`}
+            className="font-sans font-semibold mx-auto"
+            style={{ color: styling?.headerTextColor || "white" }}
           >
             {styling?.headerText || "ConvoStack Chat"}
           </p>
@@ -74,8 +74,9 @@ const ConversationList: React.FC<ConversationListProps> = ({
       </div>
       <div
         className={`w-full min-h-36 ${
-          styling?.headerColor || "bg-blue-gradient"
+          styling?.headerColor ? "" : "bg-blue-gradient"
         } sm:rounded-tl-lg sm:rounded-tr-lg flex flex-wrap items-center py-4 sm:hidden justify-between`}
+        style={{ backgroundColor: styling?.headerColor }}
       >
         <div
           className="hover:cursor-pointer"
@@ -90,9 +91,8 @@ const ConversationList: React.FC<ConversationListProps> = ({
         </div>
         <div className="mx-auto">
           <p
-            className={`font-sans font-semibold mx-auto ${
-              styling?.headerTextColor || "text-white"
-            }`}
+            className="font-sans font-semibold mx-auto"
+            style={{ color: styling?.headerTextColor || "white" }}
           >
             {styling?.headerText || "ConvoStack Chat"}
           </p>

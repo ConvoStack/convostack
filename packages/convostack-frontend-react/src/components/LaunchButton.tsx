@@ -40,9 +40,10 @@ const LaunchButton: React.FC<LaunchButtonProps> = ({
           ? "left-3 sm:left-4"
           : "right-3 sm:right-4"
       } p-3 ${
-        styling?.widgetLaunchButtonColor || "bg-blue-gradient"
+        styling?.widgetLaunchButtonColor ? "" : "bg-blue-gradient"
       } text-white rounded-full hover:shadow-xl transition-shadow duration-200`}
       onMouseDown={handleMouseDown}
+      style={{ backgroundColor: styling?.widgetLaunchButtonColor }}
     >
       <div style={{ pointerEvents: "none" }}>
         {!isWidgetWindowVisible
