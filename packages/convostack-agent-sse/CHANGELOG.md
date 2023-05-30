@@ -1,5 +1,14 @@
 # @convostack/agent-sse
 
+## 0.0.31
+
+### Patch Changes
+
+- FE changes
+- Updated dependencies
+  - @convostack/agent@0.0.31
+  - @convostack/shared@0.0.31
+
 ## 0.0.30
 
 ### Patch Changes
