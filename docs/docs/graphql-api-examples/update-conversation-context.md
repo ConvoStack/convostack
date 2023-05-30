@@ -1,4 +1,6 @@
-Mutation:
+# Update Conversation Context
+
+## Mutation:
 
 ```graphql
 mutation updateConversationContext($context: JSON!) {
@@ -9,7 +11,7 @@ mutation updateConversationContext($context: JSON!) {
 
 ```
 
-Variables:
+## Variables:
 
 ```json
 {
@@ -19,7 +21,7 @@ Variables:
 }
 ```
 
-Response:
+## Response:
 
 ```json
 {
