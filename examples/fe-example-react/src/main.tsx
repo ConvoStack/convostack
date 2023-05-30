@@ -17,9 +17,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
         userId: "m",
       }}
       customStyling={{
-        headerColor: "bg-black",
         headerText: "My Custom Header",
-        widgetLaunchButtonColor: "bg-black",
         widgetLocation: "right",
       }}
     >
