@@ -1,10 +1,12 @@
 import { useSendMessageMutation } from "@graphql";
 import { FormEvent, useContext, useState } from "react";
+import { useSelector } from "react-redux";
 import { createApiClient } from "../../api/apiClient";
 import { CustomIconsContext } from "../../App";
 import SendMessageIcon from "../../assets/SendMessageIcon";
 import useConvoStack from "../../hooks/useConvoStack";
 import ThreeDotsAnimation from "../../lottieAnimations/ThreeDotsAnimation";
+import { ConvoStackState } from "../../redux/slice";
 
 interface UserInputProps {
   isAgentTyping: boolean;
@@ -16,7 +18,10 @@ const UserInput: React.FC<UserInputProps> = ({
   activeConversationId,
 }) => {
   const icons = useContext(CustomIconsContext);
-  const { agent, context } = useConvoStack();
+  const { context } = useConvoStack();
+  const { defaultAgent } = useSelector(
+    (state: any) => state.conversation as ConvoStackState
+  );
   const { mutate: sendMessageMutation } = useSendMessageMutation(
     createApiClient()
   );
@@ -26,7 +31,7 @@ const UserInput: React.FC<UserInputProps> = ({
         content: message,
       },
       conversationId: activeConversationId,
-      agent: agent,
+      agent: defaultAgent,
       context: context,
     });
   };

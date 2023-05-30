@@ -8,7 +8,7 @@ interface ConversationListProps {
   updatedAt: string;
   conversationId: string | null;
   avatarUrl: string | null;
-  id?: string;
+  embedId?: string;
 }
 
 const ConversationListItem: React.FC<ConversationListProps> = ({
@@ -17,7 +17,7 @@ const ConversationListItem: React.FC<ConversationListProps> = ({
   updatedAt,
   conversationId,
   avatarUrl,
-  id,
+  embedId,
 }) => {
   const { openConversation } = useConvoStack();
   const timeAgo = (dateString: string) => {
@@ -40,8 +40,8 @@ const ConversationListItem: React.FC<ConversationListProps> = ({
     }
   };
   const onConversationListItemClicked = async () => {
-    if (id) {
-      openConversation(conversationId, null, null, id);
+    if (embedId) {
+      openConversation(conversationId, null, null, embedId);
     } else {
       openConversation(conversationId, null, null);
     }

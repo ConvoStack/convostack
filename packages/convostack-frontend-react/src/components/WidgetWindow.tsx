@@ -1,22 +1,26 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import useConvoStack from "../hooks/useConvoStack";
+import { ConvoStackState } from "../redux/slice";
 import ConversationList from "./ConversationList";
 import Header from "./Header";
 import { MessageProps } from "./Message";
 import MessageList from "./MessageList";
 import UserInput from "./UserInput";
 
-interface ConversationWindowProps {
+interface WidgetWindowProps {
   onClickClose: () => void;
   CustomMessage?: React.ComponentType<MessageProps>;
 }
 
-const ConversationWindow: React.FC<ConversationWindowProps> = ({
+const WidgetWindow: React.FC<WidgetWindowProps> = ({
   onClickClose,
   CustomMessage,
 }) => {
   const { isConversationListVisible } = useConvoStack();
-  const { styling } = useConvoStack();
+  const { styling } = useSelector(
+    (state: any) => state.conversation as ConvoStackState
+  );
   const [width, setWidth] = useState("370px");
   const [height, setHeight] = useState("calc(100vh - 230px)");
   const [isAgentTyping, setIsAgentTyping] = useState(false);
@@ -68,4 +72,4 @@ const ConversationWindow: React.FC<ConversationWindowProps> = ({
   );
 };
 
-export default ConversationWindow;
+export default WidgetWindow;

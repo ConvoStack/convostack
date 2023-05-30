@@ -6,19 +6,16 @@ interface MyComponentProps {
 
 const MyComponent: React.FC<MyComponentProps> = ({ text }) => {
   const {
-    toggleWidget,
-    isConversationWindowVisible,
+    toggleWidgetWindow,
+    isWidgetWindowVisible,
     openConversationList,
     openConversation,
-    // TODO activeConversationId unused (fix)
-    // @ts-ignore
-    activeConversationId,
   } = useConvoStack();
   return (
     <div className="flex flex-col">
       <p className="text-black">{text}</p>
       <button
-        onClick={() => toggleWidget(!isConversationWindowVisible)}
+        onClick={() => toggleWidgetWindow(!isWidgetWindowVisible)}
         className="bg-red-500 mb-8"
       >
         test toggle open/close convostack

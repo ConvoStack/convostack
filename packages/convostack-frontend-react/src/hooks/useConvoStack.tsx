@@ -7,71 +7,70 @@ import { createApiClient, createWsClient } from "../api/apiClient";
 import {
   setConversationId,
   setContext,
-  setShowConversationWindow,
+  setShowWidgetWindow,
   setIsConversationListVisible,
   ConvoStackState,
   setData,
-  setEmbedIsConversationListVisible,
+  setIsEmbedConversationListVisible,
   setEmbedConversationId,
   setEmbedData,
   setCreatedFirstConversation,
 } from "../redux/slice";
 
 interface CleanupFuncMap {
-  [key: string]: (() => void) | undefined;
+  [embedId: string]: (() => void) | undefined;
 }
 const cleanupFuncs: CleanupFuncMap = {};
 
-const setCleanupFunc = (key: string, cleanup: () => void) => {
-  cleanupFuncs[key] = cleanup;
+const setCleanupFunc = (embedId: string, cleanup: () => void) => {
+  cleanupFuncs[embedId] = cleanup;
 };
 
-const getCleanupFunc = (key: string) => {
-  return cleanupFuncs[key];
+const getCleanupFunc = (embedId: string) => {
+  return cleanupFuncs[embedId];
 };
 
 const useConvoStack = () => {
   const dispatch = useDispatch();
   const {
     graphqlUrl,
-    websocketUrl,
-    isConversationWindowVisible,
-    styling,
-    userData,
-    agent,
+    isWidgetWindowVisible,
+    defaultAgent,
     context,
     activeConversationId,
     isConversationListVisible,
+    isEmbedConversationListVisible,
     data,
     embedData,
-    createdFirstConversation,
     embedActiveConversationId,
   } = useSelector((state: any) => state.conversation as ConvoStackState);
 
-  const toggleWidget = (arg: boolean): void => {
-    if (activeConversationId && !isConversationWindowVisible) {
+  const toggleWidgetWindow = (arg: boolean): void => {
+    if (activeConversationId && !isWidgetWindowVisible) {
       openConversation(activeConversationId);
     } else {
-      dispatch(setShowConversationWindow(arg));
+      dispatch(setShowWidgetWindow(arg));
     }
   };
 
   const openConversation = async (
     conversationId: string | null,
     agent?: string | null,
-    context?: { [key: string]: string } | null,
-    key?: string
+    context?: { [embedId: string]: string } | null,
+    embedId?: string
   ): Promise<string> => {
-    if (key) {
-      dispatch(setEmbedData({ key: key, value: null }));
-      dispatch(setEmbedIsConversationListVisible({ key: key, value: false }));
+    if (embedId) {
+      dispatch(setEmbedData({ embedId: embedId, value: null }));
+      dispatch(
+        setIsEmbedConversationListVisible({ embedId: embedId, value: false })
+      );
       dispatch(setCreatedFirstConversation(true));
     } else {
       dispatch(setData(null));
       dispatch(setIsConversationListVisible(false));
-      dispatch(setShowConversationWindow(true));
+      dispatch(setShowWidgetWindow(true));
     }
-    const fetchedCleanup = getCleanupFunc(key || "widget");
+    const fetchedCleanup = getCleanupFunc(embedId || "widget");
     fetchedCleanup && fetchedCleanup();
     while (graphqlUrl === "") {
       await new Promise((resolve) => setTimeout(resolve, 100)); // Delay for 100 milliseconds before checking again
@@ -79,16 +78,19 @@ const useConvoStack = () => {
     const wsClient = createWsClient();
     wsClient.on("closed", (socket: any) => {
       if (!socket.wasClean) {
-        if (key) {
-          dispatch(setEmbedData({ key: key, value: null }));
+        if (embedId) {
+          dispatch(setEmbedData({ embedId: embedId, value: null }));
         } else {
           dispatch(setData(null));
         }
         if (conversationId === null) {
           wsClient.dispose();
-          if (key) {
+          if (embedId) {
             dispatch(
-              setEmbedIsConversationListVisible({ key: key, value: true })
+              setIsEmbedConversationListVisible({
+                embedId: embedId,
+                value: true,
+              })
             );
           } else {
             dispatch(setIsConversationListVisible(true));
@@ -102,7 +104,7 @@ const useConvoStack = () => {
           query: SubscribeConversationEventsDocument,
           variables: {
             conversationId: conversationId,
-            agent: agent,
+            agent: defaultAgent ? defaultAgent : agent,
             context: context,
           },
         },
@@ -114,20 +116,21 @@ const useConvoStack = () => {
             ) {
               const generatedConvoId =
                 data.data?.subscribeConversationEvents.payload.id;
-              if (key) {
+              if (embedId) {
                 dispatch(
                   setEmbedConversationId({
-                    key: key,
+                    embedId: embedId,
                     value: generatedConvoId,
                   })
                 );
               } else {
+                console.log("hittt");
                 dispatch(setConversationId(generatedConvoId));
               }
               resolve(generatedConvoId);
             }
-            if (key) {
-              dispatch(setEmbedData({ key: key, value: data }));
+            if (embedId) {
+              dispatch(setEmbedData({ embedId: embedId, value: data }));
             } else {
               dispatch(setData(data));
             }
@@ -136,43 +139,31 @@ const useConvoStack = () => {
           complete: () => console.log("Subscription completed"),
         }
       );
-      setCleanupFunc(key || "widget", subscriptionCleanup);
+      setCleanupFunc(embedId || "widget", subscriptionCleanup);
     });
     dispatch(setCreatedFirstConversation(true));
     return promise;
   };
 
-  const openConversationList = (key?: string): void => {
-    if (key) {
-      dispatch(setEmbedIsConversationListVisible({ key: key, value: true }));
+  const openConversationList = (embedId?: string): void => {
+    if (embedId) {
+      dispatch(
+        setIsEmbedConversationListVisible({ embedId: embedId, value: true })
+      );
     } else {
       dispatch(setIsConversationListVisible(true));
-      dispatch(setShowConversationWindow(true));
+      dispatch(setShowWidgetWindow(true));
     }
   };
 
-  const setActiveConversationId = (
-    conversationId: string | null,
-    context?: { [key: string]: string },
-    key?: string
-  ): void => {
-    if (!conversationId) {
-      const fetchedCleanup = getCleanupFunc(key || "widget");
-      fetchedCleanup && fetchedCleanup();
-    }
-    if (key) {
-      dispatch(setEmbedConversationId({ key: key, value: conversationId }));
-    } else {
-      dispatch(setConversationId(conversationId));
-    }
-    if (context) {
-      dispatch(setContext(context));
-    }
+  const dropSubscription = (embedId?: string): void => {
+    const fetchedCleanup = getCleanupFunc(embedId || "widget");
+    fetchedCleanup && fetchedCleanup();
   };
 
   const updateContext = async (
     conversationId: string,
-    context: { [key: string]: string }
+    context: { [embedId: string]: string }
   ): Promise<void> => {
     while (graphqlUrl === "") {
       // Wait for graphqlUrl to be set
@@ -186,24 +177,19 @@ const useConvoStack = () => {
   };
 
   return {
-    graphqlUrl,
-    websocketUrl,
-    agent,
     context,
-    styling,
-    userData,
-    activeConversationId,
-    isConversationWindowVisible,
-    isConversationListVisible,
     data,
     embedData,
-    createdFirstConversation,
+    isWidgetWindowVisible,
+    isConversationListVisible,
+    isEmbedConversationListVisible,
+    activeConversationId,
     embedActiveConversationId,
-    toggleWidget,
+    toggleWidgetWindow,
     openConversation,
-    setActiveConversationId,
     openConversationList,
     updateContext,
+    dropSubscription,
   };
 };
 

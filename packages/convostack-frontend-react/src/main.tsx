@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import ConvoStackWrapper from "./ConvoStackWrapper";
 import MyComponent from "./components/MyComponent";
-import EmbedChat from "./components/EmbeddableChat/EmbedChat";
+import EmbedChat from "./components/EmbeddableChat/ConvoStackEmbed";
 
 ReactDOM.render(
   <>
@@ -14,14 +14,14 @@ ReactDOM.render(
     >
       <MyComponent text={"Dev's existing content"}></MyComponent>
       <div className="flex flex-row">
-        <EmbedChat id={"test"} />
-        {/* <EmbedChat id={"test2"} />
-        <EmbedChat id={"test3"} />
-        <EmbedChat id={"test4"} />
-        <EmbedChat id={"test5"} />
-        <EmbedChat id={"test6"} />
-        <EmbedChat id={"test7"} />
-        <EmbedChat id={"test8"} /> */}
+        <EmbedChat embedId={"dddd"} />
+        {/* <EmbedChat embedId={"test2"} />
+        <EmbedChat embedId={"test3"} />
+        <EmbedChat embedId={"test4"} />
+        <EmbedChat embedId={"test5"} />
+        <EmbedChat embedId={"test6"} />
+        <EmbedChat embedId={"test7"} />
+        <EmbedChat embedId={"test8"} /> */}
       </div>
     </ConvoStackWrapper>
   </>,

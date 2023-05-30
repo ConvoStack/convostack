@@ -9,16 +9,16 @@ export interface ConvoStackState {
   accessTokenExpiry: number | null;
   refreshTokenExpiry: number | null;
   activeConversationId: string | null;
-  context: { [key: string]: string } | null;
-  agent: string | null;
-  isConversationWindowVisible: boolean;
+  context: { [embedId: string]: string } | null;
+  defaultAgent: string | null;
+  isWidgetWindowVisible: boolean;
   isConversationListVisible: boolean;
   styling: CustomStyling | null;
   userData: UserData | undefined;
   data: any;
-  embedActiveConversationId: { [key: string]: string | null };
-  embedIsConversationListVisible: { [key: string]: boolean }; 
-  embedData: { [key: string]: any };
+  embedActiveConversationId: { [embedId: string]: string | null };
+  isEmbedConversationListVisible: { [embedId: string]: boolean }; 
+  embedData: { [embedId: string]: any };
   createdFirstConversation: boolean;
 }
 
@@ -31,14 +31,14 @@ const initialState: ConvoStackState = {
   refreshTokenExpiry: null,
   activeConversationId: null,
   context: null,
-  agent: null,
-  isConversationWindowVisible: false,
+  defaultAgent: null,
+  isWidgetWindowVisible: false,
   isConversationListVisible: true,
   styling: null,
   userData: undefined,
   data: null,
   embedActiveConversationId: {},
-  embedIsConversationListVisible: {},
+  isEmbedConversationListVisible: {},
   embedData: {},
   createdFirstConversation: false,
 };
@@ -71,14 +71,14 @@ const conversationSlice = createSlice({
     setContext(state, action) {
       state.context = action.payload;
     },
-    setShowConversationWindow(state, action) {
-      state.isConversationWindowVisible = action.payload;
+    setShowWidgetWindow(state, action) {
+      state.isWidgetWindowVisible = action.payload;
     },
     setIsConversationListVisible(state, action) {
       state.isConversationListVisible = action.payload;
     },
-    setAgent(state, action) {
-      state.agent = action.payload;
+    setDefaultAgent(state, action) {
+      state.defaultAgent = action.payload;
     },
     setStyling(state, action) {
       state.styling = action.payload
@@ -90,16 +90,16 @@ const conversationSlice = createSlice({
       state.data = action.payload
     },
     setEmbedConversationId(state, action) {
-      const { key, value } = action.payload
-      state.embedActiveConversationId[key] = value
+      const { embedId, value } = action.payload
+      state.embedActiveConversationId[embedId] = value
     },
-    setEmbedIsConversationListVisible(state, action) {
-      const { key, value } = action.payload
-      state.embedIsConversationListVisible[key] = value
+    setIsEmbedConversationListVisible(state, action) {
+      const { embedId, value } = action.payload
+      state.isEmbedConversationListVisible[embedId] = value
     },
     setEmbedData(state, action) {
-      const { key, value } = action.payload
-      state.embedData[key] = value
+      const { embedId, value } = action.payload
+      state.embedData[embedId] = value
     },
     setCreatedFirstConversation(state, action) {
       state.createdFirstConversation = action.payload 
@@ -116,14 +116,14 @@ export const {
   setRefreshTokenExpiry,
   setConversationId, 
   setContext, 
-  setShowConversationWindow, 
+  setShowWidgetWindow, 
   setIsConversationListVisible, 
-  setAgent, 
+  setDefaultAgent, 
   setStyling, 
   setUserData,
   setData,
   setEmbedConversationId,
-  setEmbedIsConversationListVisible,
+  setIsEmbedConversationListVisible,
   setEmbedData,
   setCreatedFirstConversation
 } = conversationSlice.actions;

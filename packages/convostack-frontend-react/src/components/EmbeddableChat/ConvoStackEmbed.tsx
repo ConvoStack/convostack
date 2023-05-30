@@ -1,6 +1,5 @@
 import { MutableRefObject, useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
-import useConvoStack from "../../hooks/useConvoStack";
 import Loader from "../Loader";
 import UserInput from "./UserInput";
 import ConversationList from "./ConversationList";
@@ -8,43 +7,48 @@ import Header from "./Header";
 import MessageList from "./MessageList";
 import { useDispatch } from "react-redux";
 import {
+  ConvoStackState,
   setEmbedConversationId,
   setEmbedData,
-  setEmbedIsConversationListVisible,
+  setIsEmbedConversationListVisible,
 } from "../../redux/slice";
 import { CustomEmbedStyling } from "../../types";
 import { MessageProps } from "../Message";
 
-export interface EmbedChatProps {
-  id: string;
+export interface ConvoStackEmbedProps {
+  embedId: string;
   customStyling?: CustomEmbedStyling;
   CustomMessage?: React.ComponentType<MessageProps>;
 }
 
-const EmbedChat: React.FC<EmbedChatProps> = ({
-  id,
+const ConvoStackEmbed: React.FC<ConvoStackEmbedProps> = ({
+  embedId,
   customStyling,
   CustomMessage,
 }) => {
-  const { graphqlUrl } = useConvoStack();
+  const { graphqlUrl } = useSelector(
+    (state: any) => state.conversation as ConvoStackState
+  );
   const [isAgentTyping, setIsAgentTyping] = useState(false);
   const dispatch = useDispatch();
   const outerDiv = useRef() as MutableRefObject<HTMLDivElement>;
   const [height, setHeight] = useState<null | string>(null);
   useEffect(() => {
-    dispatch(setEmbedConversationId({ key: id, value: null }));
-    dispatch(setEmbedIsConversationListVisible({ key: id, value: true }));
-    dispatch(setEmbedData({ key: id, value: null }));
-  }, [id]);
+    dispatch(setEmbedConversationId({ embedId: embedId, value: null }));
+    dispatch(
+      setIsEmbedConversationListVisible({ embedId: embedId, value: true })
+    );
+    dispatch(setEmbedData({ embedId: embedId, value: null }));
+  }, [embedId]);
 
   const embedActiveConversationId = useSelector(
-    (state: any) => state.conversation.embedActiveConversationId[id]
+    (state: any) => state.conversation.embedActiveConversationId[embedId]
   );
-  const embedIsConversationListVisible = useSelector(
-    (state: any) => state.conversation.embedIsConversationListVisible[id]
+  const isEmbedConversationListVisible = useSelector(
+    (state: any) => state.conversation.isEmbedConversationListVisible[embedId]
   );
   const embedData = useSelector(
-    (state: any) => state.conversation.embedData[id]
+    (state: any) => state.conversation.embedData[embedId]
   );
   useEffect(() => {
     const getHeight = () => {
@@ -74,9 +78,9 @@ const EmbedChat: React.FC<EmbedChatProps> = ({
     >
       {graphqlUrl === "" ? (
         <Loader />
-      ) : !embedIsConversationListVisible ? (
+      ) : !isEmbedConversationListVisible ? (
         <div className="flex flex-col">
-          <Header id={id} customStyling={customStyling} />
+          <Header embedId={embedId} customStyling={customStyling} />
           <MessageList
             style={{ height: `calc(${height} - 112px` }}
             isAgentTyping={isAgentTyping}
@@ -91,7 +95,7 @@ const EmbedChat: React.FC<EmbedChatProps> = ({
         </div>
       ) : (
         <ConversationList
-          id={id}
+          embedId={embedId}
           style={{ height: `calc(${height} - 56px` }}
           customStyling={customStyling}
         />
@@ -100,4 +104,4 @@ const EmbedChat: React.FC<EmbedChatProps> = ({
   );
 };
 
-export default EmbedChat;
+export default ConvoStackEmbed;

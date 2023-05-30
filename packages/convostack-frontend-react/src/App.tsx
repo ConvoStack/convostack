@@ -1,11 +1,11 @@
 import { createContext, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import ConversationWindow from "./components/ConversationWindow";
+import WidgetWindow from "./components/WidgetWindow";
 import LaunchButton from "./components/LaunchButton";
 import { ConvoStackWrapperProps } from "./ConvoStackWrapper";
 import useConvoStack from "./hooks/useConvoStack";
 import {
-  setAgent,
+  setDefaultAgent,
   setGraphqlUrl,
   setStyling,
   setUserData,
@@ -30,7 +30,7 @@ const App: React.FC<Omit<ConvoStackWrapperProps, "children">> = ({
   useEffect(() => {
     dispatch(setWebsocketlUrl(websocketUrl));
     dispatch(setGraphqlUrl(graphqlUrl));
-    if (defaultAgent !== undefined) dispatch(setAgent(defaultAgent));
+    if (defaultAgent !== undefined) dispatch(setDefaultAgent(defaultAgent));
     if (customStyling !== undefined) dispatch(setStyling(customStyling));
     if (userData !== undefined) dispatch(setUserData(userData));
   }, [
@@ -41,10 +41,10 @@ const App: React.FC<Omit<ConvoStackWrapperProps, "children">> = ({
     dispatch,
     defaultAgent,
   ]);
-  const { isConversationWindowVisible, toggleWidget } = useConvoStack();
+  const { isWidgetWindowVisible, toggleWidgetWindow } = useConvoStack();
   const [isShowing, setIsShowing] = useState<boolean>(false);
   useEffect(() => {
-    if (isConversationWindowVisible) {
+    if (isWidgetWindowVisible) {
       setIsShowing(true);
       if (
         typeof document !== "undefined" &&
@@ -65,7 +65,7 @@ const App: React.FC<Omit<ConvoStackWrapperProps, "children">> = ({
         }
       }, 200);
     }
-  }, [isConversationWindowVisible]);
+  }, [isWidgetWindowVisible]);
 
   return (
     <CustomIconsContext.Provider value={icons}>
@@ -73,13 +73,13 @@ const App: React.FC<Omit<ConvoStackWrapperProps, "children">> = ({
         {isShowing && (
           <div
             className={
-              isConversationWindowVisible
+              isWidgetWindowVisible
                 ? "animate-conversation-window-fade-enter"
                 : "animate-conversation-window-fade-out"
             }
           >
-            <ConversationWindow
-              onClickClose={() => toggleWidget(!isConversationWindowVisible)}
+            <WidgetWindow
+              onClickClose={() => toggleWidgetWindow(!isWidgetWindowVisible)}
               CustomMessage={CustomMessage}
             />
           </div>
@@ -88,22 +88,22 @@ const App: React.FC<Omit<ConvoStackWrapperProps, "children">> = ({
           {!isShowing && (
             <div
               className={
-                isConversationWindowVisible
+                isWidgetWindowVisible
                   ? "animate-conversation-window-fade-out"
                   : ""
               }
             >
               <LaunchButton
-                onClickClose={() => toggleWidget(!isConversationWindowVisible)}
-                isConversationWindowVisible={isConversationWindowVisible}
+                onClickClose={() => toggleWidgetWindow(!isWidgetWindowVisible)}
+                isWidgetWindowVisible={isWidgetWindowVisible}
               />
             </div>
           )}
         </div>
         <div className="max-sm:hidden">
           <LaunchButton
-            onClickClose={() => toggleWidget(!isConversationWindowVisible)}
-            isConversationWindowVisible={isConversationWindowVisible}
+            onClickClose={() => toggleWidgetWindow(!isWidgetWindowVisible)}
+            isWidgetWindowVisible={isWidgetWindowVisible}
           />
         </div>
       </div>

@@ -2,19 +2,25 @@ import { useContext } from "react";
 import { CustomIconsContext } from "../../App";
 import ArrowLeftIcon from "../../assets/ArrowLeftIcon";
 import useConvoStack from "../../hooks/useConvoStack";
-import { setEmbedIsConversationListVisible } from "../../redux/slice";
-import { useDispatch } from "react-redux";
+import {
+  ConvoStackState,
+  setIsEmbedConversationListVisible,
+} from "../../redux/slice";
+import { useDispatch, useSelector } from "react-redux";
 import { CustomEmbedStyling } from "../../types";
 
 interface HeaderProps {
-  id: string;
+  embedId: string;
   customStyling?: CustomEmbedStyling;
 }
 
-const Header: React.FC<HeaderProps> = ({ id, customStyling }) => {
+const Header: React.FC<HeaderProps> = ({ embedId, customStyling }) => {
   const icons = useContext(CustomIconsContext);
   const dispatch = useDispatch();
-  const { styling, setActiveConversationId } = useConvoStack();
+  const { dropSubscription } = useConvoStack();
+  const { styling } = useSelector(
+    (state: any) => state.conversation as ConvoStackState
+  );
   return (
     <div className="w-full">
       <div
@@ -26,9 +32,12 @@ const Header: React.FC<HeaderProps> = ({ id, customStyling }) => {
           className="left-0 hover:cursor-pointer"
           onClick={() => {
             dispatch(
-              setEmbedIsConversationListVisible({ key: id, value: true })
+              setIsEmbedConversationListVisible({
+                embedId: embedId,
+                value: true,
+              })
             );
-            setActiveConversationId(null, undefined, id);
+            dropSubscription(embedId);
           }}
         >
           {icons?.backArrowIcon || (

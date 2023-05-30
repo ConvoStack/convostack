@@ -3,8 +3,8 @@ import { CustomIconsContext } from "../App";
 import ArrowLeftIcon from "../assets/ArrowLeftIcon";
 import XIcon from "../assets/XIcon";
 import useConvoStack from "../hooks/useConvoStack";
-import { useDispatch } from "react-redux";
-import { setIsConversationListVisible } from "../redux/slice";
+import { useDispatch, useSelector } from "react-redux";
+import { ConvoStackState, setIsConversationListVisible } from "../redux/slice";
 
 interface HeaderProps {
   onClickClose: () => void;
@@ -12,7 +12,10 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ onClickClose }) => {
   const icons = useContext(CustomIconsContext);
-  const { setActiveConversationId, styling } = useConvoStack();
+  const { dropSubscription } = useConvoStack();
+  const { styling } = useSelector(
+    (state: any) => state.conversation as ConvoStackState
+  );
   const dispatch = useDispatch();
 
   return (
@@ -26,7 +29,7 @@ const Header: React.FC<HeaderProps> = ({ onClickClose }) => {
           className="left-0 absolute hover:cursor-pointer"
           onClick={() => {
             dispatch(setIsConversationListVisible(true));
-            setActiveConversationId(null);
+            dropSubscription();
           }}
         >
           {icons?.backArrowIcon || (
@@ -55,7 +58,7 @@ const Header: React.FC<HeaderProps> = ({ onClickClose }) => {
           className="hover:cursor-pointer"
           onClick={() => {
             dispatch(setIsConversationListVisible(true));
-            setActiveConversationId(null);
+            dropSubscription();
           }}
         >
           {icons?.backArrowIcon || (

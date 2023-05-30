@@ -1,10 +1,12 @@
 import { useGetConversationsQuery } from "@graphql";
 import { useContext, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { createApiClient } from "../api/apiClient";
 import { CustomIconsContext } from "../App";
 import PencilSquareIcon from "../assets/PencilSquareIcon";
 import XIcon from "../assets/XIcon";
 import useConvoStack from "../hooks/useConvoStack";
+import { ConvoStackState } from "../redux/slice";
 import ConversationListItem from "./ConversationListItem";
 import LoaderSpinner from "./LoaderSpinner";
 
@@ -16,13 +18,10 @@ const ConversationList: React.FC<ConversationListProps> = ({
   onClickClose,
 }) => {
   const icons = useContext(CustomIconsContext);
-  const {
-    styling,
-    openConversation,
-    agent,
-    context,
-    createdFirstConversation,
-  } = useConvoStack();
+  const { openConversation, context } = useConvoStack();
+  const { styling, defaultAgent, createdFirstConversation } = useSelector(
+    (state: any) => state.conversation as ConvoStackState
+  );
   const { data, isFetching, isLoading } = useGetConversationsQuery(
     createApiClient()
   );
@@ -39,7 +38,7 @@ const ConversationList: React.FC<ConversationListProps> = ({
       !isFetching &&
       conversationArray.length === 0
     ) {
-      openConversation(null, agent, context);
+      openConversation(null, defaultAgent, context);
     }
   }, [isFetching]);
 
@@ -53,7 +52,7 @@ const ConversationList: React.FC<ConversationListProps> = ({
         <div
           className="left-0 absolute hover:cursor-pointer"
           onClick={() => {
-            openConversation(null, agent, context);
+            openConversation(null, defaultAgent, context);
           }}
         >
           {icons?.createNewConversationIcon || (
@@ -80,7 +79,7 @@ const ConversationList: React.FC<ConversationListProps> = ({
       >
         <div
           className="hover:cursor-pointer"
-          onClick={() => openConversation(null, agent, context)}
+          onClick={() => openConversation(null, defaultAgent, context)}
         >
           {icons?.createNewConversationIcon || (
             <PencilSquareIcon

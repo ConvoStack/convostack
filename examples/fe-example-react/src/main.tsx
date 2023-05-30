@@ -30,9 +30,9 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
         <li>Third item</li>
       </ol>
       <div className="flex flex-row">
-        <EmbedChat id={"test"} />
+        {/* <EmbedChat id={"test"} />
         <EmbedChat id={"test2"} />
-        <EmbedChat id={"test3"} />
+        <EmbedChat id={"test3"} /> */}
         {/* <h1 className="text-center text-5xl text-black">HEY</h1>
         <div className="border border-black w-10 h-10 " /> */}
       </div>

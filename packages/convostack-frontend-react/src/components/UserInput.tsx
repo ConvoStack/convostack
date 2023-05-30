@@ -12,7 +12,7 @@ interface UserInputProps {
 
 const UserInput: React.FC<UserInputProps> = ({ isAgentTyping }) => {
   const icons = useContext(CustomIconsContext);
-  const { activeConversationId, agent, context } = useConvoStack();
+  const { activeConversationId, context } = useConvoStack();
   const { mutate: sendMessageMutation } = useSendMessageMutation(
     createApiClient()
   );
@@ -22,7 +22,7 @@ const UserInput: React.FC<UserInputProps> = ({ isAgentTyping }) => {
         content: message,
       },
       conversationId: activeConversationId,
-      agent: agent,
+      agent: null,
       context: context,
     });
   };

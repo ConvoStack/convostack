@@ -1,20 +1,23 @@
 import { useContext, useState } from "react";
+import { useSelector } from "react-redux";
 import { CustomIconsContext } from "../App";
 import ArrowDownIcon from "../assets/ArrowDownIcon";
 import ChatBubbleIcon from "../assets/ChatBubbleIcon";
-import useConvoStack from "../hooks/useConvoStack";
+import { ConvoStackState } from "../redux/slice";
 
 interface LaunchButtonProps {
   onClickClose: () => void;
-  isConversationWindowVisible: boolean;
+  isWidgetWindowVisible: boolean;
 }
 
 const LaunchButton: React.FC<LaunchButtonProps> = ({
   onClickClose,
-  isConversationWindowVisible,
+  isWidgetWindowVisible,
 }) => {
   const icons = useContext(CustomIconsContext);
-  const { styling } = useConvoStack();
+  const { styling } = useSelector(
+    (state: any) => state.conversation as ConvoStackState
+  );
   const [isMouseDown, setIsMouseDown] = useState(false);
   const handleMouseDown = () => {
     setIsMouseDown(true);
@@ -42,7 +45,7 @@ const LaunchButton: React.FC<LaunchButtonProps> = ({
       onMouseDown={handleMouseDown}
     >
       <div style={{ pointerEvents: "none" }}>
-        {!isConversationWindowVisible
+        {!isWidgetWindowVisible
           ? icons?.widgetLaunchButtonOpenIcon || (
               <ChatBubbleIcon
                 className={` ${

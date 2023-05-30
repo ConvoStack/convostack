@@ -1,26 +1,31 @@
 import { useGetConversationsQuery } from "@graphql";
 import { useContext, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { createApiClient } from "../../api/apiClient";
 import { CustomIconsContext } from "../../App";
 import PencilSquareIcon from "../../assets/PencilSquareIcon";
 import useConvoStack from "../../hooks/useConvoStack";
+import { ConvoStackState } from "../../redux/slice";
 import { CustomEmbedStyling } from "../../types";
 import ConversationListItem from "../ConversationListItem";
 import LoaderSpinner from "../LoaderSpinner";
 
 interface ConversationListProps {
-  id: string;
+  embedId: string;
   style: React.CSSProperties;
   customStyling?: CustomEmbedStyling;
 }
 
 const ConversationList: React.FC<ConversationListProps> = ({
-  id,
+  embedId,
   style,
   customStyling,
 }) => {
   const icons = useContext(CustomIconsContext);
-  const { styling, openConversation, agent, context } = useConvoStack();
+  const { openConversation, context } = useConvoStack();
+  const { styling, defaultAgent } = useSelector(
+    (state: any) => state.conversation as ConvoStackState
+  );
   const { data, isFetching, isLoading } = useGetConversationsQuery(
     createApiClient(),
     undefined,
@@ -38,7 +43,7 @@ const ConversationList: React.FC<ConversationListProps> = ({
 
   useEffect(() => {
     if (!isFetching && conversationArray.length === 0) {
-      openConversation(null, agent, context, id);
+      openConversation(null, defaultAgent, context, embedId);
     }
   }, [isFetching]);
 
@@ -51,7 +56,7 @@ const ConversationList: React.FC<ConversationListProps> = ({
       >
         <div
           className="left-0 hover:cursor-pointer"
-          onClick={() => openConversation(null, agent, context, id)}
+          onClick={() => openConversation(null, defaultAgent, context, embedId)}
         >
           {icons?.createNewConversationIcon || (
             <PencilSquareIcon
@@ -87,7 +92,7 @@ const ConversationList: React.FC<ConversationListProps> = ({
                   updatedAt={item.lastMessage?.createdAt || ""}
                   conversationId={item.id}
                   avatarUrl={item.agent.avatarUrl || ""}
-                  id={id}
+                  embedId={embedId}
                 />
               ))}
           </>
