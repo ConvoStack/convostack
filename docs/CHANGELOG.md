@@ -1,5 +1,13 @@
 # convostack-docs
 
+## 0.0.15
+
+### Patch Changes
+
+- FE Changes
+- Updated dependencies
+  - convostack@0.0.32
+
 ## 0.0.14
 
 ### Patch Changes

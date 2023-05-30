@@ -1,5 +1,11 @@
 # @convostack/agent-sse-echo-server
 
+## 0.0.29
+
+### Patch Changes
+
+- FE Changes
+
 ## 0.0.28
 
 ### Patch Changes
