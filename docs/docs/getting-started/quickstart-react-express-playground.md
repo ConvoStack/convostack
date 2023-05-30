@@ -1,16 +1,14 @@
 # Quickstart Guide
 
-The ConvoStack Playground monorepo is the fastest way to start exploring ConvoStack. If you like learning by example, then this is the quick start for you!
+The ConvoStack Playground monorepo is the fastest way to start exploring ConvoStack. If you like learning by example, then this is the quickstart for you!
 
 To check out the playground without setting it up yourself, click [here](https://playground.convostack.ai) for a live demo!
 
-By following this guide, you will end up with a runnable local version on your own machine. We estimate that you can go from git clone to running in a couple of minutes. If you don't want to read the details of each step, you can copy/paste the steps directly from the GitHub repo [README](https://github.com/ConvoStack/playground#quickstart).
+By following this guide, you will end up with a runnable local version on your own machine. We estimate that you can go from `git clone` to running in a couple of minutes. If you don't want to read the details of each step, you can copy/paste the steps directly from the GitHub repo [README](https://github.com/ConvoStack/playground#quickstart).
 
 ![ConvoStack Playground](../../static/img/convostack-playground-demo.png)
 
 ## Requirements & Installation
-
-Click [here](../README.md#requirements) to see the basic requirements for running ConvoStack locally.
 
 To get started, clone the [ConvoStack playground monorepo](https://github.com/ConvoStack/playground):
 
@@ -31,7 +29,7 @@ npm install
 
 ## Environment Setup
 
-To load environment variables from a .env file in the `apps/backend` directory, the playground utilizes [dotenv](https://github.com/motdotla/dotenv).
+To load environment variables from a `.env` file in the `apps/backend` directory, the playground utilizes [dotenv](https://github.com/motdotla/dotenv).
 
 You are not required to customize any parameters to run the playground, but you will need to copy the `.env.example` file over to `.env` to get it up and running:
 
