@@ -1,5 +1,6 @@
 import Loadable from "@loadable/component";
 export const ConvoStackDynamic = Loadable(() => import("./ConvoStackWrapper"));
+export const ConvoStackEmbedDynamic = Loadable(() => import("./components/EmbeddableChat/ConvoStackEmbed"));
 export { default as ConvoStackWrapper } from "./ConvoStackWrapper";
 export { default as ConvoStackEmbed } from "./components/EmbeddableChat/ConvoStackEmbed";
 export { default as Message } from "./components/Message";
