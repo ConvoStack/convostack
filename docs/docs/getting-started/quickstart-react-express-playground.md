@@ -189,7 +189,7 @@ and `apps/frontend`.
   │   │   ├── src/ # Express server source
   │   │   │   ├── agents/... # ConvoStack agents for playground demos
   │   │   │   ├── utils/... # Server and agent utils
-  │   │   │   └── server.ts # Server entrypoint <--- ConvoStackBackend is configured and initialized here
+  │   │   │   └── server.ts # Server entrypoint <--- ConvoStackBackendExpress is configured and initialized here
   │   │   ├── Dockerfile # Production deployment Dockerfile (compatible with Fly.io)
   │   │   ├── fly.toml # Fly.io deployment spec
   │   │   ├── package.json # Server dependencies and scripts

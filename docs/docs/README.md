@@ -25,7 +25,7 @@ Get your AI chatbot up and running in minutes with our quickstart guide:
 
 ## Installation
 
-To add the ConvoStack framework to an existing repository, run the following command:
+To add the ConvoStack framework to an existing project, run the following command:
 
 ```bash
 npm install convostack
@@ -39,7 +39,7 @@ npm update convostack --save
 
 ## Requirements
 
-If adding ConvoStack to your repository, below are the following requirements depending on your usage:
+If adding ConvoStack to your project, below are the following requirements depending on your usage:
 
 **Frontend Requirements:**
 
