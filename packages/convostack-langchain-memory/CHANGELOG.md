@@ -1,5 +1,13 @@
 # @convostack/langchain-memory
 
+## 0.0.36
+
+### Patch Changes
+
+- Add ApolloServer options to backend
+- Updated dependencies
+  - @convostack/shared@0.0.35
+
 ## 0.0.35
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # convostack-docs
 
+## 0.0.21
+
+### Patch Changes
+
+- Add ApolloServer options to backend
+- Updated dependencies
+  - convostack@0.0.38
+
 ## 0.0.20
 
 ### Patch Changes

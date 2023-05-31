@@ -1,5 +1,11 @@
 # @convostack/frontend-react
 
+## 0.0.36
+
+### Patch Changes
+
+- Add ApolloServer options to backend
+
 ## 0.0.35
 
 ### Patch Changes
