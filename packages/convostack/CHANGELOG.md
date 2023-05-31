@@ -1,5 +1,26 @@
 # convostack
 
+## 0.0.38
+
+### Patch Changes
+
+- Add ApolloServer options to backend
+- Updated dependencies
+  - @convostack/backend-express@0.0.36
+  - @convostack/agent@0.0.35
+  - @convostack/agent-echo@0.0.35
+  - @convostack/agent-sse@0.0.35
+  - @convostack/agent-sse-echo-server@0.0.35
+  - @convostack/auth@0.0.35
+  - @convostack/auth-jwt@0.0.35
+  - @convostack/frontend-react@0.0.36
+  - @convostack/langchain-memory@0.0.36
+  - @convostack/models@0.0.35
+  - @convostack/shared@0.0.35
+  - @convostack/storage-engine-prisma-mysql@0.0.36
+  - @convostack/storage-engine-prisma-postgres@0.0.36
+  - @convostack/storage-engine-prisma-sqlite@0.0.36
+
 ## 0.0.37
 
 ### Patch Changes

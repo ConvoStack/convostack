@@ -1,5 +1,13 @@
 # @convostack/agent-echo
 
+## 0.0.35
+
+### Patch Changes
+
+- Add ApolloServer options to backend
+- Updated dependencies
+  - @convostack/agent@0.0.35
+
 ## 0.0.34
 
 ### Patch Changes

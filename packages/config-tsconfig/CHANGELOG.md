@@ -1,5 +1,11 @@
 # config-tsconfig
 
+## 0.0.33
+
+### Patch Changes
+
+- Add ApolloServer options to backend
+
 ## 0.0.32
 
 ### Patch Changes

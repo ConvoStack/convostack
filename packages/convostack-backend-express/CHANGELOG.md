@@ -1,5 +1,16 @@
 # @convostack/backend-express
 
+## 0.0.36
+
+### Patch Changes
+
+- Add ApolloServer options to backend
+- Updated dependencies
+  - @convostack/agent@0.0.35
+  - @convostack/auth@0.0.35
+  - @convostack/models@0.0.35
+  - @convostack/shared@0.0.35
+
 ## 0.0.35
 
 ### Patch Changes

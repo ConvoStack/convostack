@@ -1,5 +1,11 @@
 # @convostack/agent-sse-echo-server
 
+## 0.0.35
+
+### Patch Changes
+
+- Add ApolloServer options to backend
+
 ## 0.0.34
 
 ### Patch Changes

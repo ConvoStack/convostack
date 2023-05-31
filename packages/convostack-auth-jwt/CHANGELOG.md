@@ -1,5 +1,14 @@
 # @convostack/auth-jwt
 
+## 0.0.35
+
+### Patch Changes
+
+- Add ApolloServer options to backend
+- Updated dependencies
+  - @convostack/auth@0.0.35
+  - @convostack/models@0.0.35
+
 ## 0.0.34
 
 ### Patch Changes

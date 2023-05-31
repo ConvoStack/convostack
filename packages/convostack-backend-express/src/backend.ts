@@ -2,7 +2,12 @@ import * as express from "express";
 import {IStorageEngine, IConversationEventServiceOptions} from "@convostack/models";
 import {IAuthProvider} from "@convostack/auth";
 import "reflect-metadata";
-import {ApolloServer, gql} from "apollo-server-express";
+import {
+    ApolloServer,
+    Config as ApolloServerConfig,
+    ExpressContext as ApolloServerExpressContext,
+    gql
+} from "apollo-server-express";
 import {useServer} from "graphql-ws/lib/use/ws";
 import {readFileSync} from "fs";
 import {join} from "path";
@@ -49,15 +54,16 @@ export class ConvoStackBackendExpress {
         return basePath;
     }
 
-    async init(app: express.Express, httpServer: any) {
+    async init(app: express.Express, httpServer: any, apolloServerOptions: Partial<ApolloServerConfig<ApolloServerExpressContext>> = {}) {
         const basePath = this.getCleanBasePath();
         const server = new ApolloServer({
+            ...apolloServerOptions,
             schema,
             cache: "bounded",
             context: async ({req}) => {
                 const authCtx = await this.config.auth.getGQLAuthContextHTTP(req);
                 return {...authCtx, services: this.services, req};
-            }
+            },
         });
         await server.start();
         server.applyMiddleware({app, path: basePath + "graphql"});
