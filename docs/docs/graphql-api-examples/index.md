@@ -13,10 +13,10 @@ available endpoints.
 
 ## GraphQL API Playground
 
-You can explore and interact with the ConvoStack GraphQL API using
-the [GraphQL Playground](https://playground.convostack.ai/graphql). The Playground provides a user-friendly interface to
-send GraphQL queries, mutations, and subscriptions to the ConvoStack backend server. It also includes auto-complete
-suggestions and documentation for the available API schema.
+You can explore and interact with the ConvoStack GraphQL API using the Apollo Studio
+[GraphQL Playground](https://studio.apollographql.com/public/ConvoStack-Playground-Schema/variant/current) sandbox.
+The Playground provides a user-friendly interface to send GraphQL queries, mutations, and subscriptions to the
+ConvoStack backend server. It also includes auto-complete suggestions and documentation for the available API schema.
 
 ## Implementing the GraphQL Spec
 
