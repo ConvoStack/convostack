@@ -2,7 +2,7 @@
 // @ts-ignore
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import { ConvoStackWrapper, EmbedChat } from "convostack/frontend-react";
+import { ConvoStackWrapper, ConvoStackEmbed } from "convostack/frontend-react";
 import MyComponent from "./components/MyComponent";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
@@ -28,9 +28,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
         <li>Third item</li>
       </ol>
       <div className="flex flex-row">
-        {/* <EmbedChat id={"test"} />
-        <EmbedChat id={"test2"} />
-        <EmbedChat id={"test3"} /> */}
+        <ConvoStackEmbed embedId="test" />
         {/* <h1 className="text-center text-5xl text-black">HEY</h1>
         <div className="border border-black w-10 h-10 " /> */}
       </div>

@@ -10,7 +10,7 @@ export default function LayoutWrapper(props) {
       defaultAgent={"langchain-pinecone-chat-qa"}
       customStyling={{
         headerText: "Hello, ConvoStack",
-        headerTextColor: "text-white",
+        headerTextColor: "white",
         iconsColor: "white",
       }}
     >

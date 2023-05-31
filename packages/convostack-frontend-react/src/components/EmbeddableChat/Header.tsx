@@ -24,7 +24,7 @@ const Header: React.FC<HeaderProps> = ({ embedId, customStyling }) => {
         style={{ backgroundColor: customStyling?.headerColor }}
       >
         <div
-          className="left-0 absolute hover:cursor-pointer"
+          className="left-0 hover:cursor-pointer"
           onClick={() => {
             dispatch(
               setIsEmbedConversationListVisible({
@@ -37,12 +37,12 @@ const Header: React.FC<HeaderProps> = ({ embedId, customStyling }) => {
         >
           {icons?.backArrowIcon || (
             <ArrowLeftIcon
-              className="w-6 h-6 ml-6"
+              className="w-6 h-6 ml-3"
               color={customStyling?.iconsColor || "white"}
             />
           )}
         </div>
-        <div className="flex w-full">
+        <div className="flex mx-auto">
           <p
             className="font-sans font-semibold mx-auto"
             style={{ color: customStyling?.headerTextColor || "white" }}

@@ -4,6 +4,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import ConvoStackWrapper from "./ConvoStackWrapper";
 import MyComponent from "./components/MyComponent";
+import ConvoStackEmbed from "./components/EmbeddableChat/ConvoStackEmbed";
 
 ReactDOM.render(
   <>
@@ -13,6 +14,7 @@ ReactDOM.render(
       customStyling={{ widgetLocation: "left" }}
     >
       <MyComponent text={"Dev's existing content"}></MyComponent>
+      <ConvoStackEmbed embedId="tester" />
     </ConvoStackWrapper>
   </>,
   document.getElementById("root")
