@@ -1,5 +1,11 @@
 # schema-graphql
 
+## 0.0.32
+
+### Patch Changes
+
+- FE FIX
+
 ## 0.0.31
 
 ### Patch Changes

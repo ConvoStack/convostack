@@ -1,5 +1,16 @@
 # @convostack/backend-express
 
+## 0.0.35
+
+### Patch Changes
+
+- FE FIX
+- Updated dependencies
+  - @convostack/agent@0.0.34
+  - @convostack/auth@0.0.34
+  - @convostack/models@0.0.34
+  - @convostack/shared@0.0.34
+
 ## 0.0.34
 
 ### Patch Changes
