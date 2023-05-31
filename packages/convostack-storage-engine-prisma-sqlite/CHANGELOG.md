@@ -1,5 +1,13 @@
 # @convostack/storage-engine-prisma-sqlite
 
+## 0.0.34
+
+### Patch Changes
+
+- FE Removed Delay Animation
+- Updated dependencies
+  - @convostack/models@0.0.33
+
 ## 0.0.33
 
 ### Patch Changes

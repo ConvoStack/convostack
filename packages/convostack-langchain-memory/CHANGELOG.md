@@ -1,5 +1,13 @@
 # @convostack/langchain-memory
 
+## 0.0.34
+
+### Patch Changes
+
+- FE Removed Delay Animation
+- Updated dependencies
+  - @convostack/shared@0.0.33
+
 ## 0.0.33
 
 ### Patch Changes

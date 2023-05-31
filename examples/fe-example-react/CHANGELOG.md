@@ -1,5 +1,13 @@
 # fe-example-react
 
+## 0.0.32
+
+### Patch Changes
+
+- FE Removed Delay Animation
+- Updated dependencies
+  - convostack@0.0.36
+
 ## 0.0.31
 
 ### Patch Changes

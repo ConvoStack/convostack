@@ -1,5 +1,13 @@
 # convostack-docs
 
+## 0.0.19
+
+### Patch Changes
+
+- FE Removed Delay Animation
+- Updated dependencies
+  - convostack@0.0.36
+
 ## 0.0.18
 
 ### Patch Changes

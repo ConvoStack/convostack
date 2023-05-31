@@ -1,5 +1,14 @@
 # @convostack/auth-jwt
 
+## 0.0.33
+
+### Patch Changes
+
+- FE Removed Delay Animation
+- Updated dependencies
+  - @convostack/auth@0.0.33
+  - @convostack/models@0.0.33
+
 ## 0.0.32
 
 ### Patch Changes

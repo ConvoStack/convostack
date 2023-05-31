@@ -1,5 +1,11 @@
 # @convostack/frontend-react
 
+## 0.0.34
+
+### Patch Changes
+
+- FE Removed Delay Animation
+
 ## 0.0.33
 
 ### Patch Changes

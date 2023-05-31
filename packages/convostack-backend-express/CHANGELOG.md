@@ -1,5 +1,16 @@
 # @convostack/backend-express
 
+## 0.0.34
+
+### Patch Changes
+
+- FE Removed Delay Animation
+- Updated dependencies
+  - @convostack/agent@0.0.33
+  - @convostack/auth@0.0.33
+  - @convostack/models@0.0.33
+  - @convostack/shared@0.0.33
+
 ## 0.0.33
 
 ### Patch Changes

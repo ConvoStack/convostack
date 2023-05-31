@@ -1,5 +1,11 @@
 # schema-graphql
 
+## 0.0.31
+
+### Patch Changes
+
+- FE Removed Delay Animation
+
 ## 0.0.30
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # @convostack/agent-sse
 
+## 0.0.33
+
+### Patch Changes
+
+- FE Removed Delay Animation
+- Updated dependencies
+  - @convostack/agent@0.0.33
+  - @convostack/shared@0.0.33
+
 ## 0.0.32
 
 ### Patch Changes
