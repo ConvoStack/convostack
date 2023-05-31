@@ -1,5 +1,11 @@
 # @convostack/shared
 
+## 0.0.36
+
+### Patch Changes
+
+- Loadable Components FE
+
 ## 0.0.35
 
 ### Patch Changes

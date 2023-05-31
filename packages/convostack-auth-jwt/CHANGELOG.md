@@ -1,5 +1,14 @@
 # @convostack/auth-jwt
 
+## 0.0.36
+
+### Patch Changes
+
+- Loadable Components FE
+- Updated dependencies
+  - @convostack/auth@0.0.36
+  - @convostack/models@0.0.36
+
 ## 0.0.35
 
 ### Patch Changes

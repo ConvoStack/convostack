@@ -1,5 +1,13 @@
 # @convostack/langchain-memory
 
+## 0.0.37
+
+### Patch Changes
+
+- Loadable Components FE
+- Updated dependencies
+  - @convostack/shared@0.0.36
+
 ## 0.0.36
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # schema-graphql
 
+## 0.0.34
+
+### Patch Changes
+
+- Loadable Components FE
+
 ## 0.0.33
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @convostack/frontend-react
 
+## 0.0.37
+
+### Patch Changes
+
+- Loadable Components FE
+
 ## 0.0.36
 
 ### Patch Changes
