@@ -10,7 +10,7 @@ All ConvoStack components are originally styled in TailwindCSS and exported, so 
 
 The `ConvoStackWrapper` component serves as the entry point for integrating our chatbot widget into your site. It also provides a shared Redux Toolkit store for all `ConvoStackEmbed` components you choose to add within your application.
 
-To add the chatbot widget, you need to include the `ConvoStackWrapper` component at the root of your application's component tree. If your website uses Server-side Rendering (SSR), such as the NextJS framework, please refer here on how to properly import ConvoStack components.
+To add the chatbot widget, you need to include the `ConvoStackWrapper` component at the root of your application's component tree.
 
 ### Props
 

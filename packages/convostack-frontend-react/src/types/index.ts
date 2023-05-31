@@ -17,6 +17,7 @@ export type CustomEmbedStyling = {
   headerTextColor?: string
   embedWidth?: string
   embedHeight?: string
+  embedFlex?: string
   iconsColor?: string
 }
 
@@ -31,6 +32,6 @@ export type CustomIcons = {
 export type UserData = {
   email?: string
   name?: string
-  hash: string
+  hash?: string
   userId?: string
 }

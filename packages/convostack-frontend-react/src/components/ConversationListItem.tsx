@@ -60,7 +60,7 @@ const ConversationListItem: React.FC<ConversationListProps> = ({
         />
         <div className="mr-4 w-[calc(100%-96px)]">
           <div className="flex flex-row items-center justify-between">
-            <p className="text-black font-semibold font-sm truncate w-[72%] font-sans">
+            <p className="text-black font-semibold font-sm truncate overflow-hidden font-sans">
               {title}
             </p>
             <div className="flex flex-row items-center">

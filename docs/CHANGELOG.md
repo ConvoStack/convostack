@@ -1,5 +1,13 @@
 # convostack-docs
 
+## 0.0.23
+
+### Patch Changes
+
+- FE Loading Test
+- Updated dependencies
+  - convostack@0.0.40
+
 ## 0.0.22
 
 ### Patch Changes

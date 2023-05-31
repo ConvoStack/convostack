@@ -36,7 +36,6 @@ const ConvoStackEmbed: React.FC<ConvoStackEmbedProps> = ({
   const dispatch = useDispatch();
   const outerDiv = useRef() as MutableRefObject<HTMLDivElement>;
   const [height, setHeight] = useState<null | string>(null);
-  const [width, setWidth] = useState<string>("400px");
   useEffect(() => {
     dispatch(setEmbedConversationId({ embedId: embedId, value: null }));
     dispatch(
@@ -72,30 +71,14 @@ const ConvoStackEmbed: React.FC<ConvoStackEmbedProps> = ({
     };
   }, []);
 
-  useEffect(() => {
-    const getWidth = () => {
-      const screenWidth =
-        typeof window !== "undefined" ? window.innerWidth : 650;
-      const width =
-        screenWidth <= 640 ? "100%" : customStyling?.embedWidth || "800px";
-      setWidth(width);
-    };
-    getWidth();
-    typeof window !== "undefined" &&
-      window.addEventListener("resize", getWidth);
-    return () => {
-      typeof window !== "undefined" &&
-        window.removeEventListener("resize", getWidth);
-    };
-  }, []);
-
   return (
     <div
       ref={outerDiv}
-      className="max-sm:max-w-[100vw] convostack"
+      className="convostack overflow-hidden"
       style={{
-        width: width,
+        width: customStyling?.embedWidth || "auto",
         height: customStyling?.embedHeight || "400px",
+        flex: customStyling?.embedFlex || "",
       }}
     >
       {graphqlUrl === "" ? (

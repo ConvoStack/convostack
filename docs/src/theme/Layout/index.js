@@ -1,13 +1,16 @@
 import React from 'react';
 import Layout from '@theme-original/Layout';
 import Loadable from "@loadable/component"
-import { ConvoStackEmbedProps } from 'convostack/frontend-react';
+import { ConvoStackWrapper } from 'convostack/frontend-react';
 
 export default function LayoutWrapper(props) {
-  const ConvoStackDynamic = Loadable(() => import("../../ConvoStackDynamic"));
+  // const ConvoStackDynamic = Loadable(() => import("../../ConvoStackDynamic"));
   return (
-    <ConvoStackDynamic>
+    <ConvoStackWrapper
+      graphqlUrl="https://playground.convostack.ai/graphql"
+      websocketUrl="wss://playground.convostack.ai/graphql"
+    >
       <Layout {...props} />
-    </ConvoStackDynamic>
+    </ConvoStackWrapper>
   );
 }

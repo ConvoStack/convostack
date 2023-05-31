@@ -1,5 +1,13 @@
 # @convostack/auth
 
+## 0.0.37
+
+### Patch Changes
+
+- FE Loading Test
+- Updated dependencies
+  - @convostack/models@0.0.37
+
 ## 0.0.36
 
 ### Patch Changes

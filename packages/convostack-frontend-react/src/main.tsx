@@ -14,7 +14,13 @@ ReactDOM.render(
       customStyling={{ widgetLocation: "left" }}
     >
       <MyComponent text={"Dev's existing content"}></MyComponent>
-      <ConvoStackEmbed embedId="tester" />
+      <div style={{ display: "flex", flexDirection: "row", width: "100%" }}>
+        <ConvoStackEmbed
+          embedId="tester"
+          customStyling={{ embedWidth: "0px", embedFlex: "1 1 auto" }}
+        />
+        <div style={{ backgroundColor: "red", width: "800px" }} />
+      </div>
     </ConvoStackWrapper>
   </>,
   document.getElementById("root")

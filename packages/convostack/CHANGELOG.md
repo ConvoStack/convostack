@@ -1,5 +1,26 @@
 # convostack
 
+## 0.0.40
+
+### Patch Changes
+
+- FE Loading Test
+- Updated dependencies
+  - @convostack/agent@0.0.37
+  - @convostack/agent-echo@0.0.37
+  - @convostack/agent-sse@0.0.37
+  - @convostack/agent-sse-echo-server@0.0.37
+  - @convostack/auth@0.0.37
+  - @convostack/auth-jwt@0.0.37
+  - @convostack/backend-express@0.0.38
+  - @convostack/frontend-react@0.0.38
+  - @convostack/langchain-memory@0.0.38
+  - @convostack/models@0.0.37
+  - @convostack/shared@0.0.37
+  - @convostack/storage-engine-prisma-mysql@0.0.38
+  - @convostack/storage-engine-prisma-postgres@0.0.38
+  - @convostack/storage-engine-prisma-sqlite@0.0.38
+
 ## 0.0.39
 
 ### Patch Changes
