@@ -1,10 +1,11 @@
 import React from 'react';
 import Layout from '@theme-original/Layout';
-import { ConvoStackWrapper } from 'convostack/frontend-react';
+import ConvoStackDynamic from '../../ConvoStackDynamic';
+import "./style.css"
 
 export default function LayoutWrapper(props) {
   return (
-    <ConvoStackWrapper 
+    <ConvoStackDynamic 
       graphqlUrl="https://playground.convostack.ai/graphql"
       websocketUrl="wss://playground.convostack.ai/graphql"
       defaultAgent={"langchain-pinecone-chat-qa"}
@@ -15,6 +16,6 @@ export default function LayoutWrapper(props) {
       }}
     >
       <Layout {...props} />
-    </ConvoStackWrapper>
+    </ConvoStackDynamic>
   );
 }

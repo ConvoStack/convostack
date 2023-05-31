@@ -130,7 +130,6 @@ const useConvoStack = () => {
                   })
                 );
               } else {
-                console.log("hittt");
                 dispatch(setConversationId(generatedConvoId));
               }
               resolve(generatedConvoId);
