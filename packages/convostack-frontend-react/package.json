@@ -30,6 +30,7 @@
     "codegen": "npx graphql-code-generator --config scripts/codegen.ts"
   },
   "dependencies": {
+    "@loadable/component": "^5.15.3",
     "@reduxjs/toolkit": "^1.9.5",
     "@tanstack/react-query": "^4.29.3",
     "@tanstack/react-query-devtools": "^4.29.3",
@@ -49,6 +50,7 @@
     "@graphql-codegen/client-preset": "^3.0.1",
     "@graphql-codegen/typescript-react-query": "^4.1.0",
     "@graphql-typed-document-node/core": "^3.2.0",
+    "@types/loadable__component": "^5.13.4",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.57.1",
@@ -59,11 +61,11 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",
     "postcss": "^8.4.23",
+    "schema-graphql": "*",
     "tailwindcss": "^3.3.2",
     "typescript": "^5.0.4",
     "vite": "^4.3.0",
     "vite-plugin-dts": "^2.3.0",
-    "schema-graphql": "*",
     "vite-plugin-libcss": "^1.0.6"
   }
 }

@@ -1,29 +1,15 @@
-import BrowserOnly from "@docusaurus/BrowserOnly";
 import React from "react";
+import { ConvoStackWrapper } from "convostack/frontend-react";
 
-const ConvoStackDynamic = ({ children }) => {
+export default function ConvoStackDynamic({ children }: any) {
   return (
-    <BrowserOnly fallback={<></>}>
-      {() => {
-        const ConvoStackWrapper =
-          require("convostack/frontend-react").ConvoStackWrapper;
-        return (
-          <ConvoStackWrapper
-            graphqlUrl="https://playground.convostack.ai/graphql"
-            websocketUrl="wss://playground.convostack.ai/graphql"
-            defaultAgent={"langchain-pinecone-chat-qa"}
-            customStyling={{
-              headerText: "Hello, ConvoStack",
-              headerTextColor: "white",
-              iconsColor: "white",
-            }}
-          >
-            {children}
-          </ConvoStackWrapper>
-        );
-      }}
-    </BrowserOnly>
+    <>
+      <ConvoStackWrapper
+        graphqlUrl="https://playground.convostack.ai/graphql"
+        websocketUrl="wss://playground.convostack.ai/graphql"
+      >
+        {children}
+      </ConvoStackWrapper>
+    </>
   );
-};
-
-export default ConvoStackDynamic;
+}

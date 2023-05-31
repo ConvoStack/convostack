@@ -1,20 +1,11 @@
 import React from 'react';
 import Layout from '@theme-original/Layout';
-import ConvoStackDynamic from '../../ConvoStackDynamic';
-import "./style.css"
+import Loadable from "@loadable/component"
 
 export default function LayoutWrapper(props) {
+  const ConvoStackDynamic = Loadable(() => import("../../ConvoStackDynamic"));
   return (
-    <ConvoStackDynamic 
-      graphqlUrl="https://playground.convostack.ai/graphql"
-      websocketUrl="wss://playground.convostack.ai/graphql"
-      defaultAgent={"langchain-pinecone-chat-qa"}
-      customStyling={{
-        headerText: "Hello, ConvoStack",
-        headerTextColor: "white",
-        iconsColor: "white",
-      }}
-    >
+    <ConvoStackDynamic>
       <Layout {...props} />
     </ConvoStackDynamic>
   );
