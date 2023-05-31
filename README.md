@@ -1,7 +1,7 @@
 # ConvoStack
 
 ConvoStack is a plug and play embeddable AI chatbot widget and backend deployment framework for your website. **It is
-completely free and open source and currently running on this docs website!**
+completely free and open source and currently running on our [docs](https://docs.convostack.ai/) website!**
 
 The core technologies are:
 
