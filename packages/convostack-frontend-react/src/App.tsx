@@ -55,16 +55,8 @@ const App: React.FC<Omit<ConvoStackWrapperProps, "children">> = ({
         document.body.style.overflow = "hidden";
       }
     } else {
-      setTimeout(() => {
-        setIsShowing(false);
-        if (
-          typeof document !== "undefined" &&
-          typeof window !== "undefined" &&
-          window.innerWidth < 640
-        ) {
-          document.body.style.overflow = "scroll";
-        }
-      }, 200);
+      setIsShowing(false);
+      document.body.style.overflow = "scroll";
     }
   }, [isWidgetWindowVisible]);
 
@@ -73,13 +65,7 @@ const App: React.FC<Omit<ConvoStackWrapperProps, "children">> = ({
       {!disableWidget && (
         <div className="z-50 convostack">
           {isShowing && (
-            <div
-              className={
-                isWidgetWindowVisible
-                  ? "animate-conversation-window-fade-enter"
-                  : "animate-conversation-window-fade-out"
-              }
-            >
+            <div>
               <WidgetWindow
                 onClickClose={() => toggleWidgetWindow(!isWidgetWindowVisible)}
                 CustomMessage={CustomMessage}

@@ -18,7 +18,7 @@ quick and effortless setup process, allowing you to be up and running within min
 
 The primary modules of the ConvoStack backend that you are likely to encounter and/or need to customize include:
 
-#### Agents
+#### [Agents](./llm-and-chat-agents)
 
 Agents in ConvoStack encapsulate your chat models, so whenever you wish to create a new 'bot' for your users, you would
 leverage the agents module. This is also where you will find utilities for integrating with other libraries, like
@@ -26,7 +26,14 @@ Langchain to speed up your chat agent development process.
 
 To learn more about creating and managing agents, check out the relevant page in the docs [here](./llm-and-chat-agents).
 
-#### Authentication Middleware
+#### [Storage](./storage-engines)
+
+Storing backend messages, users, and other ConvoStack metadata is critical for the proper function of the backend. We
+provide a handful of built-in SQL database implementations, and you are also free to build your own!
+
+To learn more about storage, check out the relevant page in the docs [here](./storage-engines).
+
+#### [Authentication Middleware](./auth)
 
 While you're unlikely to find authentication implemented by most chat kits, ConvoStack is a little bit different in that
 its a full-stack platform that is built to get you into production. Connecting user data and authentication happens to
@@ -36,14 +43,7 @@ public auth interface.
 
 To learn more about auth, check out the relevant page in the docs [here](./auth).
 
-#### Storage
-
-Storing backend messages, users, and other ConvoStack metadata is critical for the proper function of the backend. We
-provide a handful of built-in SQL database implementations, and you are also free to build your own!
-
-To learn more about storage, check out the relevant page in the docs [here](./storage-engines).
-
-#### Cache and pub/sub
+#### [Cache and pub/sub](./cache-pub-sub-redis.md)
 
 In order to operate ConvoStack in production, we offer options for caching and pub/sub to handle messages across
 multiple instance. We suggest a Redis-based option for going to production, and you are also free to build your own!
