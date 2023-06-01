@@ -1,5 +1,5 @@
 import Loadable from "@loadable/component";
-export const ConvoStackWrapper = Loadable(() => import("./ConvoStackWrapper"));
+export { default as ConvoStackWrapper } from "./ConvoStackWrapper";
 export const ConvoStackWidget = Loadable(() => import("./ConvoStackWidget"));
 export const ConvoStackEmbed = Loadable(() => import("./components/EmbeddableChat/ConvoStackEmbed"));
 export const Messages = Loadable(() => import("./components/Message")); 
