@@ -10,6 +10,7 @@ export default function LayoutWrapper(props) {
         <ConvoStackWidget 
           graphqlUrl='https://playground.convostack.ai/graphql'
           websocketUrl='wss://playground.convostack.ai/graphql'
+          defaultAgent={"langchain-pinecone-chat-qa"}
         />
         <Layout {...props} />
       </ConvoStackWrapper>
