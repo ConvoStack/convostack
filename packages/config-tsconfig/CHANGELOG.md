@@ -1,5 +1,11 @@
 # config-tsconfig
 
+## 0.0.37
+
+### Patch Changes
+
+- Update build
+
 ## 0.0.36
 
 ### Patch Changes
