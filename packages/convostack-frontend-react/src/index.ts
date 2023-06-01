@@ -1,11 +1,7 @@
 import Loadable from "@loadable/component";
 export const ConvoStackWrapper = Loadable(() => import("./ConvoStackWrapper"));
-// export const ConvoStackWrapperProps = Loadable(() => import("./ConvoStackWrapper"));
 export const ConvoStackEmbed = Loadable(() => import("./components/EmbeddableChat/ConvoStackEmbed"));
 export const Messages = Loadable(() => import("./components/Message")); 
-// export { default as ConvoStackWrapper } from "./ConvoStackWrapper";
-// export { default as ConvoStackEmbed } from "./components/EmbeddableChat/ConvoStackEmbed";
-// export { default as Message } from "./components/Message";
 export type { MessageProps } from "./components/Message";
 export type { ConvoStackWrapperProps } from "./ConvoStackWrapper";
 export type { ConvoStackEmbedProps } from "./components/EmbeddableChat/ConvoStackEmbed";

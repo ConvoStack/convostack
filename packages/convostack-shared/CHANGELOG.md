@@ -1,5 +1,11 @@
 # @convostack/shared
 
+## 0.0.38
+
+### Patch Changes
+
+- FE Changes
+
 ## 0.0.37
 
 ### Patch Changes

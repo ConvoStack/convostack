@@ -1,5 +1,13 @@
 # @convostack/agent-echo
 
+## 0.0.38
+
+### Patch Changes
+
+- FE Changes
+- Updated dependencies
+  - @convostack/agent@0.0.38
+
 ## 0.0.37
 
 ### Patch Changes
