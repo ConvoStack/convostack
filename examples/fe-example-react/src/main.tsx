@@ -2,25 +2,30 @@
 // @ts-ignore
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import { ConvoStackWrapper, ConvoStackEmbed } from "convostack/frontend-react";
+import {
+  ConvoStackWrapper,
+  ConvoStackEmbed,
+  ConvoStackWidget,
+} from "convostack/frontend-react";
 import MyComponent from "./components/MyComponent";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <>
-    <ConvoStackWrapper
-      graphqlUrl="http://localhost:3000/graphql"
-      websocketUrl="ws://localhost:3000/graphql"
-      userData={{
-        email: "m@g.com",
-        name: "zxx",
-        hash: "z420",
-        userId: "m",
-      }}
-      customStyling={{
-        headerText: "My Custom Header",
-        widgetLocation: "right",
-      }}
-    >
+    <ConvoStackWrapper>
+      <ConvoStackWidget
+        graphqlUrl="http://localhost:3000/graphql"
+        websocketUrl="ws://localhost:3000/graphql"
+        userData={{
+          email: "m@g.com",
+          name: "zxx",
+          hash: "z420",
+          userId: "m",
+        }}
+        customStyling={{
+          headerText: "My Custom Header",
+          widgetLocation: "right",
+        }}
+      />
       <MyComponent text={"Dev's existing content"}></MyComponent>
       <ol>
         <li>First item</li>

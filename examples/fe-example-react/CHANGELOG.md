@@ -1,5 +1,13 @@
 # fe-example-react
 
+## 0.0.39
+
+### Patch Changes
+
+- FE Separated Wrapper and Widget
+- Updated dependencies
+  - convostack@0.0.43
+
 ## 0.0.38
 
 ### Patch Changes

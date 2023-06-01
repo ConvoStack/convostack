@@ -1,5 +1,13 @@
 # @convostack/langchain-memory
 
+## 0.0.41
+
+### Patch Changes
+
+- FE Separated Wrapper and Widget
+- Updated dependencies
+  - @convostack/shared@0.0.40
+
 ## 0.0.40
 
 ### Patch Changes

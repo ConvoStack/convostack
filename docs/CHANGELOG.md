@@ -1,5 +1,13 @@
 # convostack-docs
 
+## 0.0.26
+
+### Patch Changes
+
+- FE Separated Wrapper and Widget
+- Updated dependencies
+  - convostack@0.0.43
+
 ## 0.0.25
 
 ### Patch Changes

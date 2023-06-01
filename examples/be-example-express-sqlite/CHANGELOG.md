@@ -1,5 +1,13 @@
 # be-example-express-sqlite
 
+## 0.0.40
+
+### Patch Changes
+
+- FE Separated Wrapper and Widget
+- Updated dependencies
+  - convostack@0.0.43
+
 ## 0.0.39
 
 ### Patch Changes

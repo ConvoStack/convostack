@@ -1,5 +1,11 @@
 # config-tsconfig
 
+## 0.0.38
+
+### Patch Changes
+
+- FE Separated Wrapper and Widget
+
 ## 0.0.37
 
 ### Patch Changes

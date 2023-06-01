@@ -1,5 +1,11 @@
 # @convostack/frontend-react
 
+## 0.0.41
+
+### Patch Changes
+
+- FE Separated Wrapper and Widget
+
 ## 0.0.40
 
 ### Patch Changes

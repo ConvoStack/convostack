@@ -1,5 +1,11 @@
 # @convostack/models
 
+## 0.0.40
+
+### Patch Changes
+
+- FE Separated Wrapper and Widget
+
 ## 0.0.39
 
 ### Patch Changes
