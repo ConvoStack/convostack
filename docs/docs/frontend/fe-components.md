@@ -12,6 +12,8 @@ The `ConvoStackWrapper` component serves as the entry point for integrating our 
 
 To add the chatbot widget, you need to include the `ConvoStackWrapper` component at the root of your application's component tree.
 
+_Note: If you are using NextJS, make sure to add [`"use client"`](https://nextjs.org/docs/getting-started/react-essentials#client-components) in files where you are importing ConvoStack._
+
 ### Props
 
 `ConvoStackWrapper` component currently has the following props:
