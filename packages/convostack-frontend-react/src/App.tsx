@@ -2,7 +2,6 @@ import { createContext, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import WidgetWindow from "./components/WidgetWindow";
 import LaunchButton from "./components/LaunchButton";
-import { ConvoStackWrapperProps } from "./ConvoStackWrapper";
 import useConvoStack from "./hooks/useConvoStack";
 import {
   setDefaultAgent,
@@ -12,12 +11,13 @@ import {
   setWebsocketlUrl,
 } from "./redux/slice";
 import { CustomIcons } from "./types";
+import { ConvoStackWidgetProps } from "./ConvoStackWidget";
 
 export const CustomIconsContext = createContext<CustomIcons | undefined>(
   undefined
 );
 
-const App: React.FC<Omit<ConvoStackWrapperProps, "children">> = ({
+const App: React.FC<Omit<ConvoStackWidgetProps, "children">> = ({
   graphqlUrl,
   websocketUrl,
   userData,

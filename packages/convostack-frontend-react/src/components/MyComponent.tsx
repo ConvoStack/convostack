@@ -33,13 +33,13 @@ const MyComponent: React.FC<MyComponentProps> = ({ text }) => {
         open new chat
       </button>
       <button
-        onClick={() => openConversation(null, undefined, undefined, "test")}
+        onClick={() => openConversation(null, undefined, undefined, "tester")}
         className="bg-red-500 mb-8"
       >
         open embed chat
       </button>
       <button
-        onClick={() => openConversationList("test")}
+        onClick={() => openConversationList("tester")}
         className="bg-red-500 mb-8"
       >
         open embed convo list
