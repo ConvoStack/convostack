@@ -1,5 +1,11 @@
 # @convostack/models
 
+## 0.0.42
+
+### Patch Changes
+
+- FE Widget Prop Update
+
 ## 0.0.41
 
 ### Patch Changes

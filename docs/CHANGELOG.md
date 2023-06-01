@@ -1,5 +1,13 @@
 # convostack-docs
 
+## 0.0.28
+
+### Patch Changes
+
+- FE Widget Prop Update
+- Updated dependencies
+  - convostack@0.0.45
+
 ## 0.0.27
 
 ### Patch Changes

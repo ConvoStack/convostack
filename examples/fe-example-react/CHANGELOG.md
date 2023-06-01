@@ -1,5 +1,13 @@
 # fe-example-react
 
+## 0.0.41
+
+### Patch Changes
+
+- FE Widget Prop Update
+- Updated dependencies
+  - convostack@0.0.45
+
 ## 0.0.40
 
 ### Patch Changes

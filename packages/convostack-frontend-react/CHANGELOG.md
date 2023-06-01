@@ -1,5 +1,11 @@
 # @convostack/frontend-react
 
+## 0.0.43
+
+### Patch Changes
+
+- FE Widget Prop Update
+
 ## 0.0.42
 
 ### Patch Changes

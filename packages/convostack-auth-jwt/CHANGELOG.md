@@ -1,5 +1,14 @@
 # @convostack/auth-jwt
 
+## 0.0.42
+
+### Patch Changes
+
+- FE Widget Prop Update
+- Updated dependencies
+  - @convostack/auth@0.0.42
+  - @convostack/models@0.0.42
+
 ## 0.0.41
 
 ### Patch Changes

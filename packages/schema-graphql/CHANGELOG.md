@@ -1,5 +1,11 @@
 # schema-graphql
 
+## 0.0.40
+
+### Patch Changes
+
+- FE Widget Prop Update
+
 ## 0.0.39
 
 ### Patch Changes

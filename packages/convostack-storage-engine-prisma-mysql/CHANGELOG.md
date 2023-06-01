@@ -1,5 +1,13 @@
 # @convostack/storage-engine-prisma-mysql
 
+## 0.0.43
+
+### Patch Changes
+
+- FE Widget Prop Update
+- Updated dependencies
+  - @convostack/models@0.0.42
+
 ## 0.0.42
 
 ### Patch Changes
