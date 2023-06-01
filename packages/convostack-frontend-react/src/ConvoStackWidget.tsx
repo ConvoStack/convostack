@@ -12,11 +12,10 @@ export interface ConvoStackWidgetProps {
   icons?: CustomIcons;
   defaultAgent?: string | null;
   disableWidget?: boolean;
-  children: React.ReactNode;
   CustomMessage?: React.ComponentType<MessageProps>;
 }
 
-const ConvoStackWidget: React.FC<Omit<ConvoStackWidgetProps, "children">> = ({
+const ConvoStackWidget: React.FC<ConvoStackWidgetProps> = ({
   graphqlUrl,
   websocketUrl,
   userData,

@@ -4,22 +4,38 @@ sidebar_position: 0.2
 
 # React Components
 
-All ConvoStack components are originally styled in TailwindCSS and exported, so they don't interfere with the styling of your own website. This allows seamless integration with existing components on your site. There are three React components that make up our component library:
+All ConvoStack components are originally styled in TailwindCSS and exported, so they don't interfere with the styling of your own website. This allows seamless integration with existing components on your site. There are four React components that make up our component library:
 
 ## ConvoStackWrapper
 
-The `ConvoStackWrapper` component serves as the entry point for integrating our chatbot widget into your site. It also provides a shared Redux Toolkit store for all `ConvoStackEmbed` components you choose to add within your application.
+The `ConvoStackWrapper` component serves as the entry point for integrating our chatbot widget into your site as it provides a shared Redux Toolkit store and React Query Client Provider for all ConvoStack components you choose to add within your application.
 
-To add the chatbot widget, you need to include the `ConvoStackWrapper` component at the root of your application's component tree.
+To add, include the `ConvoStackWrapper` component at the root of your application's component tree.
 
-_Note: If you are using NextJS, make sure to add [`"use client"`](https://nextjs.org/docs/getting-started/react-essentials#client-components) in files where you are importing ConvoStack._
+### Example Usage
+
+```tsx
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+  <>
+    <ConvoStackWrapper>
+      <App />
+    </ConvoStackWrapper>
+  </>
+);
+```
+
+## ConvoStackWidget
+
+The `ConvoStackWidget` component adds the chatbot widget to your site at the bottom right or left of your screen and initializes data in the Redux Toolkit store, such as the GraphQL endpoint. This component must always be added within the `ConvoStackWrapper` component.
+
+If you want to only use the `ConvoStackEmbed` component in your site, you must still add the `ConvoStackWidget` component to your application within the `ConvoStackWrapper`; however, set `disableWidget` to `true` if you want to hide the widget from displaying on your website.
 
 ### Props
 
-`ConvoStackWrapper` component currently has the following props:
+`ConvoStackWidget` component currently has the following props:
 
 ```typescript
-export interface ConvoStackWrapperProps {
+export interface ConvoStackWidgetProps {
   graphqlUrl: string;
   websocketUrl: string;
   userData?: UserData;
@@ -27,7 +43,6 @@ export interface ConvoStackWrapperProps {
   icons?: CustomIcons;
   defaultAgent?: string | null;
   disableWidget?: boolean;
-  children: React.ReactNode;
   CustomMessage?: React.ComponentType<MessageProps>;
 }
 ```
@@ -85,10 +100,6 @@ export interface ConvoStackWrapperProps {
 
 - Setting this prop to true will remove the chatbot widget button if you prefer to only use the `ConvoStackEmbed` component.
 
-`children?: React.ReactNode`
-
-- The `children` prop represents the content or components that the `ConvoStackWrapper` surrounds. It should typically include your entire application, allowing you to access and utilize the `useConvoStack` hook functions anywhere within your application.
-
 `CustomMessage?: React.ComponentType<MessageProps>`
 
 - The `CustomMessage` prop allows you to use a custom message component in place of the default `Message` bubble for displaying sent and received messages. The custom component should accept `MessageProps` as its props.
@@ -98,10 +109,11 @@ export interface ConvoStackWrapperProps {
 ```tsx
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <>
-    <ConvoStackWrapper
-      graphqlUrl={"https://example.com/graphql"}
-      websocketUrl={"wss://example.com/graphql"}
-    >
+    <ConvoStackWrapper>
+      <ConvoStackWidget
+        graphqlUrl='https://mywebsite.com/graphql'
+        websocketUrl='wss://mywebsite.com/graphql'
+      >
       <App />
     </ConvoStackWrapper>
   </>

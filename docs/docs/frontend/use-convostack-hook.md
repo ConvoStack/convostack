@@ -62,7 +62,7 @@ Description:
 Parameters:
 
 - `conversationId: string | null` - The ID of the conversation to be opened. Pass `null` to create a new conversation.
-- `agent?: string | null` - The agent for the conversation. If `null` is provided, the `defaultAgent` prop value from `ConvoStackWrapper` is used.
+- `agent?: string | null` - The agent for the conversation. If `null` is provided, the `defaultAgent` prop value from `ConvoStackWidget` is used.
 - `context?: { [embedId: string]: string } | null` - Additional context data for the conversation, provided as a JSON object.
 - `embedId?: string`: The `embedId` of the `ConvoStackEmbed` component for which to open the conversation. If provided, it opens a conversation specific to that `ConvoStackEmbed` component. If not provided, it opens a conversation in the widget component.
 

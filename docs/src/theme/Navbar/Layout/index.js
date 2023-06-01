@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-// import { useConvoStack } from 'convostack/frontend-react';
+import { useConvoStack } from 'convostack/frontend-react';
 import {useThemeConfig} from '@docusaurus/theme-common';
 import {
   useHideableNavbar,
@@ -29,7 +29,7 @@ export default function NavbarLayout({children}) {
       }
     }
   `;
-  // const { isWidgetWindowVisible } = useConvoStack();
+  const { isWidgetWindowVisible } = useConvoStack();
   const mobileSidebar = useNavbarMobileSidebar();
   const {navbarRef, isNavbarVisible} = useHideableNavbar(hideOnScroll);
   return (
@@ -51,7 +51,7 @@ export default function NavbarLayout({children}) {
           'navbar--dark': style === 'dark',
           'navbar--primary': style === 'primary',
           'navbar-sidebar--show': mobileSidebar.shown,
-          // 'hide-navbar-mobile': isWidgetWindowVisible,
+          'hide-navbar-mobile': isWidgetWindowVisible,
         },
       )}>
       {children}

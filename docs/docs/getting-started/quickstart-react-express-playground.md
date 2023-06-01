@@ -132,7 +132,7 @@ backend:
 - **[Core React Components](../frontend/fe-components):**
   - The Widget: like the one running on [ConvoStack.ai](https://convostack.ai/) and this docs site! Customizable via
     the `CustomStyling` prop.
-  - Embedded Chat: can be embedded on any page of your website. Also customizable via the `CustomEmbedStyling` prop.
+  - Embeddable Chat: can be embedded on any page of your website. Also customizable via the `CustomEmbedStyling` prop.
 - **[useConvoStack Hook](../frontend/use-convostack-hook)**:
   - The framework provides an exported `useConvoStack` hook that offers functions enabling GraphQL API calls and
     component state management.
@@ -141,7 +141,7 @@ backend:
 - **[User Data Integration:](../frontend/fe-components#props)**
   - By default, the ConvoStack frontend framework does not persist login data. Conversations will be cleared upon
     reloading the page.
-  - If desired, you can customize the ConvoStackWrapper configuration in `apps/frontend/src/main.tsx` using
+  - If desired, you can customize the `ConvoStackWidget` configuration in `apps/frontend/src/main.tsx` using
     the `userData` prop to enable data persistence between sessions or even hardcode a demo user for development
     purposes.
 - **Vite for Bundling:**
@@ -169,7 +169,7 @@ and `apps/frontend`.
 
 ### Frontend Folder
 
-- The `ConvoStackWrapper` component is initialized in the `apps/frontend/src/App.tsx` file
+- The `ConvoStackWrapper` and `ConvoStackWidget` components are initialized in the `apps/frontend/src/App.tsx` file
   - The `graphqlUrl`, `websocket`, and `customStyling` prop values are defined here
 - The `ConvoStackEmbed` components and `useConvoStack` hook are initialized in the `MobilePlayground.tsx`
   and `WebPlayground.tsx` components
