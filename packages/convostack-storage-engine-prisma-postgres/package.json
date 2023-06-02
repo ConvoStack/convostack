@@ -1,6 +1,6 @@
 {
   "name": "@convostack/storage-engine-prisma-postgres",
-  "version": "0.0.46",
+  "version": "0.0.47",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "engines": {

@@ -81,6 +81,7 @@ const MessageList: React.FC<MessageListProps> = ({
     }
     const outerDivHeight = outerDiv.current.clientHeight;
     const innerDivHeight = innerDiv.current.clientHeight;
+
     outerDiv.current.scrollTo({
       top: innerDivHeight - outerDivHeight,
       left: 0,
