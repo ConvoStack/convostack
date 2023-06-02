@@ -62,7 +62,14 @@ const ConversationList: React.FC<ConversationListProps> = ({
       >
         <div
           className="left-0 hover:cursor-pointer"
-          onClick={() => openConversation(null, defaultAgent, context, embedId)}
+          onClick={() =>
+            openConversation(
+              null,
+              embedDefaultAgent[embedId] || defaultAgent,
+              context,
+              embedId
+            )
+          }
         >
           {icons?.createNewConversationIcon || (
             <PencilSquareIcon

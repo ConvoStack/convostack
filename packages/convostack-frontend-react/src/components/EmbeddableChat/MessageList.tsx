@@ -45,7 +45,7 @@ const MessageList: React.FC<MessageListProps> = ({
       ]);
     } else if (conversationEvent.kind === "message") {
       if (conversationEvent.payload.role === "AI") {
-        setShowMessageLoading(false);
+        setIsAgentMessageLoading(false);
       }
       setConversationEvents((prevConversationEvents) => [
         ...prevConversationEvents,
