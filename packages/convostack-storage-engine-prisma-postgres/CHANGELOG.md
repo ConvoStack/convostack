@@ -1,5 +1,13 @@
 # @convostack/storage-engine-prisma-postgres
 
+## 0.0.44
+
+### Patch Changes
+
+- FE Changes
+- Updated dependencies
+  - @convostack/models@0.0.43
+
 ## 0.0.43
 
 ### Patch Changes

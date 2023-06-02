@@ -1,5 +1,13 @@
 # be-example-express-sqlite
 
+## 0.0.43
+
+### Patch Changes
+
+- FE Changes
+- Updated dependencies
+  - convostack@0.0.46
+
 ## 0.0.42
 
 ### Patch Changes

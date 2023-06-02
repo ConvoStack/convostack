@@ -28,8 +28,8 @@ const MessageList: React.FC<MessageListProps> = ({
   setIsAgentMessageLoading,
 }) => {
   const MessageComponentToRender = CustomMessage ? CustomMessage : Message;
-  const [width, setWidth] = useState("130px");
   const [isLoading, setIsLoading] = useState(true);
+  const [width, setWidth] = useState("130px");
   const [conversationEvents, setConversationEvents] = useState<MessageSent[]>(
     []
   );
@@ -91,7 +91,7 @@ const MessageList: React.FC<MessageListProps> = ({
 
   useEffect(() => {
     handleScrollToBottom("smooth");
-  }, [conversationEvents, streams]);
+  }, [conversationEvents, streams, showMessageLoading]);
 
   useEffect(() => {
     if (streams.length === 0 && isAgentTyping) {
