@@ -1,5 +1,13 @@
 # @convostack/storage-engine-prisma-sqlite
 
+## 0.0.46
+
+### Patch Changes
+
+- FE
+- Updated dependencies
+  - @convostack/models@0.0.45
+
 ## 0.0.45
 
 ### Patch Changes

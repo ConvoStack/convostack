@@ -55,6 +55,7 @@ const ConvoStackEmbed: React.FC<ConvoStackEmbedProps> = ({
   const embedData = useSelector(
     (state: any) => state.conversation.embedData[embedId]
   );
+
   useEffect(() => {
     const getHeight = () => {
       if (outerDiv.current) {
