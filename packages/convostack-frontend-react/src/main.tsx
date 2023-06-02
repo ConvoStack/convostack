@@ -19,9 +19,13 @@ ReactDOM.render(
       <div style={{ display: "flex", flexDirection: "row", width: "100%" }}>
         <ConvoStackEmbed
           embedId="tester"
-          customStyling={{ embedWidth: "0px", embedFlex: "1 1 auto" }}
+          customStyling={{
+            embedWidth: "0px",
+            embedFlex: "1 1 auto",
+            embedHeight: "500px",
+          }}
         />
-        <div style={{ backgroundColor: "red", width: "800px" }} />
+        {/* <div style={{ backgroundColor: "red", width: "800px" }} /> */}
       </div>
     </ConvoStackWrapper>
   </>,

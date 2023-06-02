@@ -1,5 +1,5 @@
 import { useSendMessageMutation } from "@graphql";
-import { FormEvent, useContext, useState } from "react";
+import { FormEvent, useContext, useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { createApiClient } from "../../api/apiClient";
 import { CustomIconsContext } from "../../App";
@@ -12,12 +12,16 @@ interface UserInputProps {
   embedId: string;
   isAgentTyping: boolean;
   activeConversationId: string | null;
+  isAgentMessageLoading: boolean;
+  setIsAgentMessageLoading: (arg: boolean) => void;
 }
 
 const UserInput: React.FC<UserInputProps> = ({
   embedId,
   isAgentTyping,
   activeConversationId,
+  isAgentMessageLoading,
+  setIsAgentMessageLoading,
 }) => {
   const icons = useContext(CustomIconsContext);
   const { context } = useConvoStack();
@@ -27,6 +31,8 @@ const UserInput: React.FC<UserInputProps> = ({
   const { mutate: sendMessageMutation } = useSendMessageMutation(
     createApiClient()
   );
+  const [isMessageSent, setIsMessageSent] = useState(false);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
   const sendMessage = async (message: string) => {
     await sendMessageMutation({
       message: {
@@ -36,18 +42,22 @@ const UserInput: React.FC<UserInputProps> = ({
       agent: embedDefaultAgent[embedId] || defaultAgent,
       context: context,
     });
+    setIsMessageSent(true);
   };
   const [inputValue, setInputValue] = useState("");
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInputValue(event.target.value);
   };
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    await sendMessage(inputValue);
-    setInputValue("");
-    event.preventDefault();
+    if (!isAgentMessageLoading) {
+      await sendMessage(inputValue);
+      setInputValue("");
+      setIsAgentMessageLoading(true);
+      event.preventDefault();
+    }
   };
   const handleKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (event.key === "Enter" && isAgentTyping) {
+    if (event.key === "Enter" && (isAgentTyping || !inputValue)) {
       event.preventDefault();
     } else if (event.key === "Enter" && !event.shiftKey) {
       event.preventDefault();
@@ -57,8 +67,11 @@ const UserInput: React.FC<UserInputProps> = ({
   };
   const handleButtonSubmit = async (inputValue: string) => {
     if (!inputValue || isAgentTyping) return null;
-    await sendMessage(inputValue);
-    setInputValue("");
+    if (isAgentMessageLoading) {
+      await sendMessage(inputValue);
+      setInputValue("");
+      setIsAgentMessageLoading(true);
+    }
     if (textarea !== null) textarea.style.height = "auto";
   };
   const textarea =
@@ -70,11 +83,23 @@ const UserInput: React.FC<UserInputProps> = ({
     });
   }
 
+  useEffect(() => {
+    if (isMessageSent) {
+      const screenWidth =
+        typeof window !== "undefined" ? window.innerWidth : 650;
+      if (screenWidth < 640) {
+        textareaRef?.current?.blur();
+      }
+      setIsMessageSent(false);
+    }
+  }, [isMessageSent]);
+
   return (
     <div className="border-t-1">
       <div className="w-full min-h-14 bg-off-white flex items-center max-h-36 scrollbar-hidden py-4 focus-within:shadow-md">
         <textarea
           placeholder="Please type here..."
+          ref={textareaRef}
           value={inputValue}
           onChange={handleChange}
           rows={1}

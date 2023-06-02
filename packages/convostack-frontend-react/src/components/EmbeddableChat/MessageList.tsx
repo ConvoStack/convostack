@@ -1,4 +1,5 @@
 import { MutableRefObject, useEffect, useRef, useState } from "react";
+import ChatLoadingAnimation from "../../lottieAnimations/ChatLoadingAnimation";
 import LoaderSpinner from "../LoaderSpinner";
 import Message, { MessageProps } from "../Message";
 
@@ -13,6 +14,8 @@ interface MessageListProps {
   data: any;
   style: React.CSSProperties;
   CustomMessage?: React.ComponentType<MessageProps>;
+  isAgentMessageLoading: boolean;
+  setIsAgentMessageLoading: (arg: boolean) => void;
 }
 
 const MessageList: React.FC<MessageListProps> = ({
@@ -21,6 +24,8 @@ const MessageList: React.FC<MessageListProps> = ({
   data,
   style,
   CustomMessage,
+  isAgentMessageLoading,
+  setIsAgentMessageLoading,
 }) => {
   const MessageComponentToRender = CustomMessage ? CustomMessage : Message;
   const [width, setWidth] = useState("130px");
@@ -29,6 +34,7 @@ const MessageList: React.FC<MessageListProps> = ({
     []
   );
   const [streams, setStreams] = useState<string[]>([]);
+  const [showMessageLoading, setShowMessageLoading] = useState(false);
 
   const onNext = (data: any) => {
     const conversationEvent = data.data?.subscribeConversationEvents as any;
@@ -66,19 +72,21 @@ const MessageList: React.FC<MessageListProps> = ({
 
   const outerDiv = useRef() as MutableRefObject<HTMLDivElement>;
   const innerDiv = useRef() as MutableRefObject<HTMLDivElement>;
-  const prevInnerDivHeight = useRef<null | number>(null);
+  const [maxScrollTop, setMaxScrollTop] = useState<number>(0);
 
   const handleScrollToBottom = (behavior: ScrollBehavior | undefined) => {
+    if (outerDiv.current.scrollTop < maxScrollTop) {
+      return;
+    }
     const outerDivHeight = outerDiv.current.clientHeight;
     const innerDivHeight = innerDiv.current.clientHeight;
-
     outerDiv.current.scrollTo({
       top: innerDivHeight - outerDivHeight,
       left: 0,
       behavior: behavior,
     });
-
-    prevInnerDivHeight.current = innerDivHeight;
+    if (maxScrollTop < outerDiv.current.scrollTop)
+      setMaxScrollTop(outerDiv.current.scrollTop);
   };
 
   useEffect(() => {
@@ -90,6 +98,8 @@ const MessageList: React.FC<MessageListProps> = ({
       setIsAgentTyping(false);
     } else if (streams.length > 0 && !isAgentTyping) {
       setIsAgentTyping(true);
+      setIsAgentMessageLoading(false);
+      setShowMessageLoading(false);
     }
   }, [streams.length]);
 
@@ -109,6 +119,19 @@ const MessageList: React.FC<MessageListProps> = ({
         window.removeEventListener("resize", getWidth);
     };
   }, []);
+
+  useEffect(() => {
+    let timeoutId: number;
+
+    if (isAgentMessageLoading) {
+      timeoutId = setTimeout(() => {
+        setShowMessageLoading(true);
+      }, 1500);
+    }
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [isAgentMessageLoading]);
 
   return (
     <div ref={outerDiv} className="bg-white h-full overflow-auto" style={style}>
@@ -132,6 +155,9 @@ const MessageList: React.FC<MessageListProps> = ({
                     }
                   />
                 )
+            )}
+            {isAgentMessageLoading && showMessageLoading && (
+              <ChatLoadingAnimation className="ml-4 w-10 h-10 -mb-6 items-center" />
             )}
             {streams.length !== 0 && (
               <MessageComponentToRender

@@ -36,6 +36,7 @@ const ConvoStackEmbed: React.FC<ConvoStackEmbedProps> = ({
   const dispatch = useDispatch();
   const outerDiv = useRef() as MutableRefObject<HTMLDivElement>;
   const [height, setHeight] = useState<null | string>(null);
+  const [isAgentMessageLoading, setIsAgentMessageLoading] = useState(false);
   useEffect(() => {
     dispatch(setEmbedConversationId({ embedId: embedId, value: null }));
     dispatch(
@@ -84,7 +85,10 @@ const ConvoStackEmbed: React.FC<ConvoStackEmbedProps> = ({
       {graphqlUrl === "" ? (
         <Loader />
       ) : !isEmbedConversationListVisible ? (
-        <div className="flex flex-col">
+        <div
+          className="flex flex-col"
+          style={{ height: customStyling?.embedHeight || "400px" }}
+        >
           <Header embedId={embedId} customStyling={customStyling} />
           <MessageList
             style={{ height: `calc(${height} - 112px` }}
@@ -92,11 +96,15 @@ const ConvoStackEmbed: React.FC<ConvoStackEmbedProps> = ({
             setIsAgentTyping={setIsAgentTyping}
             data={embedData}
             CustomMessage={CustomMessage}
+            isAgentMessageLoading={isAgentMessageLoading}
+            setIsAgentMessageLoading={setIsAgentMessageLoading}
           />
           <UserInput
             embedId={embedId}
             isAgentTyping={isAgentTyping}
             activeConversationId={embedActiveConversationId}
+            isAgentMessageLoading={isAgentMessageLoading}
+            setIsAgentMessageLoading={setIsAgentMessageLoading}
           />
         </div>
       ) : (

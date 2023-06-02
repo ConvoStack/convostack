@@ -24,6 +24,7 @@ const WidgetWindow: React.FC<WidgetWindowProps> = ({
   const [width, setWidth] = useState("370px");
   const [height, setHeight] = useState("calc(100vh - 230px)");
   const [isAgentTyping, setIsAgentTyping] = useState(false);
+  const [isAgentMessageLoading, setIsAgentMessageLoading] = useState(false);
   useEffect(() => {
     const getWidthAndHeight = () => {
       const screenWidth =
@@ -63,8 +64,14 @@ const WidgetWindow: React.FC<WidgetWindowProps> = ({
             isAgentTyping={isAgentTyping}
             setIsAgentTyping={setIsAgentTyping}
             CustomMessage={CustomMessage}
+            isAgentMessageLoading={isAgentMessageLoading}
+            setIsAgentMessageLoading={setIsAgentMessageLoading}
           />
-          <UserInput isAgentTyping={isAgentTyping} />
+          <UserInput
+            isAgentTyping={isAgentTyping}
+            isAgentMessageLoading={isAgentMessageLoading}
+            setIsAgentMessageLoading={setIsAgentMessageLoading}
+          />
         </>
       ) : (
         <ConversationList onClickClose={onClickClose} />
