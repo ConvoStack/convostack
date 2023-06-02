@@ -37,6 +37,7 @@ const ConvoStackEmbed: React.FC<ConvoStackEmbedProps> = ({
   const outerDiv = useRef() as MutableRefObject<HTMLDivElement>;
   const [height, setHeight] = useState<null | string>(null);
   const [isAgentMessageLoading, setIsAgentMessageLoading] = useState(false);
+
   useEffect(() => {
     dispatch(setEmbedConversationId({ embedId: embedId, value: null }));
     dispatch(

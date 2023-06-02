@@ -1,5 +1,11 @@
 # @convostack/agent
 
+## 0.0.47
+
+### Patch Changes
+
+- FE
+
 ## 0.0.46
 
 ### Patch Changes
