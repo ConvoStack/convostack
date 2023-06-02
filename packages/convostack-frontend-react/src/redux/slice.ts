@@ -105,7 +105,7 @@ const conversationSlice = createSlice({
     },
     setEmbedDefaultAgent(state, action) {
       const { embedId, value } = action.payload
-      state.embedActiveConversationId[embedId] = value
+      state.embedDefaultAgent[embedId] = value
     },
     setCreatedFirstConversation(state, action) {
       state.createdFirstConversation = action.payload 

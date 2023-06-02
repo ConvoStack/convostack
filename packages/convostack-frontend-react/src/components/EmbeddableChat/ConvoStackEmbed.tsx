@@ -46,6 +46,10 @@ const ConvoStackEmbed: React.FC<ConvoStackEmbedProps> = ({
     dispatch(setEmbedDefaultAgent({ embedId: embedId, value: defaultAgent }));
   }, [embedId]);
 
+  useEffect(() => {
+    dispatch(setEmbedDefaultAgent({ embedId: embedId, value: defaultAgent }));
+  }, [embedId, defaultAgent]);
+
   const embedActiveConversationId = useSelector(
     (state: any) => state.conversation.embedActiveConversationId[embedId]
   );
