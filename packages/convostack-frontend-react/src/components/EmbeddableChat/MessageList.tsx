@@ -91,7 +91,7 @@ const MessageList: React.FC<MessageListProps> = ({
 
   useEffect(() => {
     handleScrollToBottom("smooth");
-  }, [conversationEvents, streams, showMessageLoading]);
+  }, [conversationEvents, showMessageLoading, streams]);
 
   useEffect(() => {
     if (streams.length === 0 && isAgentTyping) {

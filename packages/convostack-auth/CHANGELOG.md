@@ -1,5 +1,13 @@
 # @convostack/auth
 
+## 0.0.44
+
+### Patch Changes
+
+- FE Tweak
+- Updated dependencies
+  - @convostack/models@0.0.44
+
 ## 0.0.43
 
 ### Patch Changes
