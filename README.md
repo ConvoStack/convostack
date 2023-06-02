@@ -1,6 +1,6 @@
-<img width="1440" alt="Screenshot 2023-06-02 at 2 41 14 AM" src="https://github.com/ConvoStack/convostack/assets/8688852/5a5cff2a-c055-4b3e-a132-11d7983ad922" >
-
 # ConvoStack
+
+<img width="1440" alt="Screenshot 2023-06-02 at 2 41 14 AM" src="https://github.com/ConvoStack/convostack/assets/8688852/5a5cff2a-c055-4b3e-a132-11d7983ad922" >
 
 ConvoStack is a plug and play embeddable AI chatbot widget and backend deployment framework for your website. **It is
 completely free and open source and currently running on our [docs](https://docs.convostack.ai/) website!**
