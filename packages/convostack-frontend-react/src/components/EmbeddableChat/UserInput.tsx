@@ -67,7 +67,8 @@ const UserInput: React.FC<UserInputProps> = ({
   };
   const handleButtonSubmit = async (inputValue: string) => {
     if (!inputValue || isAgentTyping) return null;
-    if (isAgentMessageLoading) {
+    if (!isAgentMessageLoading) {
+      console.log("hit");
       await sendMessage(inputValue);
       setInputValue("");
       setIsAgentMessageLoading(true);
