@@ -44,6 +44,9 @@ const MessageList: React.FC<MessageListProps> = ({
         conversationEvent.payload.chunk,
       ]);
     } else if (conversationEvent.kind === "message") {
+      if (conversationEvent.payload.role === "AI") {
+        setShowMessageLoading(false);
+      }
       setConversationEvents((prevConversationEvents) => [
         ...prevConversationEvents,
         {
@@ -157,7 +160,7 @@ const MessageList: React.FC<MessageListProps> = ({
                 )
             )}
             {isAgentMessageLoading && showMessageLoading && (
-              <ChatLoadingAnimation className="ml-4 w-10 h-10 -mb-6 items-center" />
+              <ChatLoadingAnimation className="ml-4 w-10 h-10 items-center" />
             )}
             {streams.length !== 0 && (
               <MessageComponentToRender
