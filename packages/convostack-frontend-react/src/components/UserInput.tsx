@@ -87,9 +87,9 @@ const UserInput: React.FC<UserInputProps> = ({
 
   return (
     <div className="border-t-1">
-      <div className="w-full min-h-14 bg-off-white sm:rounded-bl-lg sm:rounded-br-lg flex items-center max-h-36 scrollbar-hidden py-4 focus-within:shadow-md">
+      <div className="w-full min-h-14 bg-off-white flex items-center max-h-36 scrollbar-hidden py-4">
         <textarea
-          placeholder="Please type here..."
+          placeholder="Send a message..."
           ref={textareaRef}
           value={inputValue}
           onChange={handleChange}
@@ -110,6 +110,16 @@ const UserInput: React.FC<UserInputProps> = ({
           </button>
         )}
       </div>
+      <p className="font-sans text-center text-xs sm:rounded-bl-lg sm:rounded-br-lg text-gray-400 bg-neutral-200 py-1">
+        Powered by{" "}
+        <a
+          href="https://convostack.ai"
+          target="_blank"
+          className="font-semibold"
+        >
+          ConvoStack.ai
+        </a>
+      </p>
     </div>
   );
 };

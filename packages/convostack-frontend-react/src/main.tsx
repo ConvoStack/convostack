@@ -16,7 +16,7 @@ ReactDOM.render(
         customStyling={{ widgetLocation: "left" }}
       />
       <MyComponent text={"Dev's existing content"}></MyComponent>
-      <div style={{ display: "flex", flexDirection: "row", width: "100%" }}>
+      <div style={{ display: "flex", flexDirection: "row", width: "50%" }}>
         <ConvoStackEmbed
           embedId="tester"
           customStyling={{
