@@ -73,6 +73,7 @@ const MessageList: React.FC<MessageListProps> = ({
 
   const outerDiv = useRef() as MutableRefObject<HTMLDivElement>;
   const innerDiv = useRef() as MutableRefObject<HTMLDivElement>;
+
   const [maxScrollTop, setMaxScrollTop] = useState<number>(0);
 
   const handleScrollToBottom = (behavior: ScrollBehavior | undefined) => {

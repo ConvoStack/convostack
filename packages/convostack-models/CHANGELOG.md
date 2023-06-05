@@ -1,5 +1,11 @@
 # @convostack/models
 
+## 0.0.49
+
+### Patch Changes
+
+- FE Powered By
+
 ## 0.0.48
 
 ### Patch Changes
