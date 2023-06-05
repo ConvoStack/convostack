@@ -6,16 +6,20 @@ import store from '../redux';
 import { setAccessToken, setAccessTokenExpiry, setRefreshToken, setRefreshTokenExpiry } from '../redux/slice';
 import { UserData } from '../types';
 
-export const fetchTokens = async (graphqlUrl?: string, userData?: UserData) => {
+export const fetchTokens = async (graphqlUrl?: string, workspaceId?: string, userData?: UserData) => {
   const { accessToken, accessTokenExpiry, refreshToken, refreshTokenExpiry } = store.getState().conversation;
   if (!userData) userData = store.getState().conversation.userData;
   if (!graphqlUrl) graphqlUrl = store.getState().conversation.graphqlUrl;
+  if (!workspaceId) workspaceId = store.getState().conversation.workspaceId;
   const tempApiClient = new GraphQLClient(graphqlUrl);
+  if (workspaceId) {
+    tempApiClient.setHeader("X-Workspace-Id", workspaceId)
+  }
   const currentTime = Date.now();
 
   if (!accessToken || !refreshToken || (refreshTokenExpiry && currentTime > refreshTokenExpiry)) {
     try {
-      const data: LoginMutation = await tempApiClient.request(LoginDocument, 
+      const data: LoginMutation = await tempApiClient.request(LoginDocument,
         { email: userData?.email,
           name: userData?.name,
           hash: userData?.hash,
@@ -54,9 +58,16 @@ export const createApiClient = () => {
         accessToken = store.getState().conversation.accessToken;
       })
     }
+    const workspaceId = store.getState().conversation.workspaceId;
+    const headers = {
+      Authorization: `Bearer ${accessToken}`,
+    } as any;
+    if (workspaceId) {
+        headers["X-Workspace-Id"] = workspaceId
+    }
     return {
       ...request,
-      headers: { ...request.headers, Authorization: `Bearer ${accessToken}` },
+      headers: { ...request.headers, ...headers },
     }
   };
   const graphqlUrl = store.getState().conversation.graphqlUrl;
@@ -66,6 +77,7 @@ export const createApiClient = () => {
 
 export const createWsClient = () => {
   const wsUrl = store.getState().conversation.websocketUrl;
+  const workspaceId = store.getState().conversation.workspaceId;
   const wsClient = createClient({
     url: wsUrl,
     connectionParams: async () => {
@@ -77,9 +89,13 @@ export const createWsClient = () => {
           accessToken = store.getState().conversation.accessToken;
         })
       }
-      return {
-        Authorization: `Bearer ${accessToken}`,
-      };
+      const params = {
+          Authorization: `Bearer ${accessToken}`,
+      } as any
+      if (workspaceId) {
+          params["X-Workspace-Id"] = workspaceId
+      }
+      return params;
     },
   })
   return wsClient;

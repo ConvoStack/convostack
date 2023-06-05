@@ -9,6 +9,7 @@ import {
   setStyling,
   setUserData,
   setWebsocketlUrl,
+  setWorkspaceId,
 } from "./redux/slice";
 import { CustomIcons } from "./types";
 import { ConvoStackWidgetProps } from "./ConvoStackWidget";
@@ -19,6 +20,7 @@ export const CustomIconsContext = createContext<CustomIcons | undefined>(
 
 const App: React.FC<Omit<ConvoStackWidgetProps, "children">> = ({
   graphqlUrl,
+  workspaceId,
   websocketUrl,
   userData,
   customStyling,
@@ -31,12 +33,14 @@ const App: React.FC<Omit<ConvoStackWidgetProps, "children">> = ({
   useEffect(() => {
     dispatch(setWebsocketlUrl(websocketUrl));
     dispatch(setGraphqlUrl(graphqlUrl));
+    dispatch(setWorkspaceId(workspaceId));
     if (defaultAgent !== undefined) dispatch(setDefaultAgent(defaultAgent));
     if (customStyling !== undefined) dispatch(setStyling(customStyling));
     if (userData !== undefined) dispatch(setUserData(userData));
   }, [
     websocketUrl,
     graphqlUrl,
+    workspaceId,
     customStyling,
     userData,
     dispatch,
