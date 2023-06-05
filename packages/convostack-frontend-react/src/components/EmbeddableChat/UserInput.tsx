@@ -97,7 +97,7 @@ const UserInput: React.FC<UserInputProps> = ({
 
   return (
     <div className="border-t-1">
-      <div className="w-full min-h-14 bg-off-white flex items-center max-h-36 scrollbar-hidden py-4 focus-within:shadow-md">
+      <div className="w-full min-h-14 bg-off-white flex items-center max-h-36 scrollbar-hidden py-4">
         <textarea
           placeholder="Send a message..."
           ref={textareaRef}
