@@ -1,5 +1,13 @@
 # convostack-docs
 
+## 0.0.36
+
+### Patch Changes
+
+- Workspace ID
+- Updated dependencies
+  - convostack@0.0.53
+
 ## 0.0.35
 
 ### Patch Changes

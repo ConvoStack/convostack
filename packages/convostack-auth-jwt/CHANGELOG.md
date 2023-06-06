@@ -1,5 +1,14 @@
 # @convostack/auth-jwt
 
+## 0.0.50
+
+### Patch Changes
+
+- Workspace ID
+- Updated dependencies
+  - @convostack/auth@0.0.50
+  - @convostack/models@0.0.50
+
 ## 0.0.49
 
 ### Patch Changes

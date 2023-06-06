@@ -1,5 +1,13 @@
 # @convostack/langchain-memory
 
+## 0.0.51
+
+### Patch Changes
+
+- Workspace ID
+- Updated dependencies
+  - @convostack/shared@0.0.50
+
 ## 0.0.50
 
 ### Patch Changes

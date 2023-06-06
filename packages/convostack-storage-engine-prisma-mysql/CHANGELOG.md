@@ -1,5 +1,13 @@
 # @convostack/storage-engine-prisma-mysql
 
+## 0.0.51
+
+### Patch Changes
+
+- Workspace ID
+- Updated dependencies
+  - @convostack/models@0.0.50
+
 ## 0.0.50
 
 ### Patch Changes

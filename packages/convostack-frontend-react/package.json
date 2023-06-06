@@ -20,7 +20,7 @@
   "files": [
     "/dist"
   ],
-  "version": "0.0.50",
+  "version": "0.0.51",
   "type": "module",
   "scripts": {
     "dev": "vite",
