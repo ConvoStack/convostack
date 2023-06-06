@@ -15,12 +15,12 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       <ConvoStackWidget
         graphqlUrl="http://localhost:3033/graphql"
         websocketUrl="ws://localhost:3033/graphql"
-        workspaceId="cligostis00091hrgsu93o218"
+        workspaceId="clijh54bz0009wud1v4yhrt8o"
         userData={{
-          email: "m@ggg.com",
+          email: "m@sdfgfsdgg.com",
           name: "zxx",
           hash: "z420",
-          userId: "mmmm",
+          userId: "mmsxsddfmm",
         }}
         customStyling={{
           headerText: "My Custom Header",

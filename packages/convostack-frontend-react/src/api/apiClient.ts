@@ -59,9 +59,9 @@ export const createApiClient = () => {
       })
     }
     const workspaceId = store.getState().conversation.workspaceId;
-    const headers = {
+    const headers: Record<string, string> = {
       Authorization: `Bearer ${accessToken}`,
-    } as any;
+    }
     if (workspaceId) {
         headers["X-Workspace-Id"] = workspaceId
     }
@@ -89,9 +89,9 @@ export const createWsClient = () => {
           accessToken = store.getState().conversation.accessToken;
         })
       }
-      const params = {
+      const params: Record<string, string> = {
           Authorization: `Bearer ${accessToken}`,
-      } as any
+      }
       if (workspaceId) {
           params["X-Workspace-Id"] = workspaceId
       }
