@@ -4,6 +4,7 @@ import { CustomStyling, UserData } from '../types';
 export interface ConvoStackState {
   graphqlUrl: string;
   websocketUrl: string;
+  workspaceId: string;
   accessToken: string;
   refreshToken: string;
   accessTokenExpiry: number | null;
@@ -26,6 +27,7 @@ export interface ConvoStackState {
 const initialState: ConvoStackState = {
   graphqlUrl: "",
   websocketUrl: "",
+  workspaceId: "",
   accessToken: "",
   refreshToken: "",
   accessTokenExpiry: null,
@@ -54,6 +56,9 @@ const conversationSlice = createSlice({
     },
     setWebsocketlUrl(state, action) {
       state.websocketUrl = action.payload;
+    },
+    setWorkspaceId(state, action) {
+      state.workspaceId = action.payload;
     },
     setAccessToken(state, action) {
       state.accessToken = action.payload;
@@ -115,7 +120,8 @@ const conversationSlice = createSlice({
 
 export const { 
   setGraphqlUrl, 
-  setWebsocketlUrl, 
+  setWebsocketlUrl,
+  setWorkspaceId,
   setAccessToken,
   setRefreshToken,
   setAccessTokenExpiry,

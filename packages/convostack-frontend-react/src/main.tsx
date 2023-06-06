@@ -13,6 +13,7 @@ ReactDOM.render(
       <ConvoStackWidget
         graphqlUrl="http://localhost:3000/graphql"
         websocketUrl="ws://localhost:3000/graphql"
+        // workspaceId="<<<hosted workspace id>>>"
         customStyling={{ widgetLocation: "left" }}
       />
       <MyComponent text={"Dev's existing content"}></MyComponent>
