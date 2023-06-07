@@ -17,7 +17,7 @@ dotenv.config();
 
 const port = process.env.PORT || "3000";
 const host = process.env.HOST || "localhost";
-const proxyUrl = 'http://localhost:8088/client'
+const proxyUrl = 'https://playground-proxy.convostack.ai/client'
 console.log("Configuring server...");
 
 const corsOptions: CorsOptions = {
@@ -71,7 +71,7 @@ const main = async () => {
         }),
         agents: new DefaultAgentManager({
             "default": {
-                agent: new AgentHTTPClient(`${proxyUrl}?agentId=${encodeURIComponent('rjKv1v2JHNrwZdWzPP+YOJvsTR11N+7HfItM')}`),
+                agent: new AgentHTTPClient(`${proxyUrl}?agentId=${'kQtIUHbMpTjaXJH8ZQ7YGM3En9Q3K04ge9g9'}`),
                 metadata: {
                     displayName: "Echo Agent",
                     primer: "This is demo echo agent. Write me a message, and I will send it back to you!"
