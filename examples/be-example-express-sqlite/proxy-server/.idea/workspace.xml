@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7f4ab6ca-389f-4a65-81bf-6dc15d09f4e9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../src/server-playground.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../packages/convostack-agent-http/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../packages/convostack-agent-http/src/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../packages/convostack-agent-http/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../packages/convostack-langchain-agent/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../packages/convostack-langchain-agent/src/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../packages/convostack-langchain-agent/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../packages/convostack-playground/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../packages/convostack-playground/src/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../packages/convostack-playground/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../packages/convostack/src/agent-http/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../packages/convostack/src/langchain-agent/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../packages/convostack/src/playground/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../fe-example-react/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../fe-example-react/src/main.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../fe-example-react/tsconfig.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/../../fe-example-react/tsconfig.tsbuildinfo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../packages/convostack/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../../packages/convostack/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../packages/convostack/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../packages/convostack/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../packages/convostack/scripts/create-entrypoints.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../packages/convostack/scripts/create-entrypoints.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../packages/convostack/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../packages/convostack/tsconfig.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="GOROOT" url="file:///usr/local/go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="2QsnVKOz3FLkzseWzjPlGHeKfMe" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "RunOnceActivity.go.vendoring.notification.had.been.shown": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "go.import.settings.migrated": "true",
+    "go.sdk.automatically.set": "true",
+    "last_opened_file_path": "/Users/svarlamov/projects/convostack/examples/be-example-express-sqlite/proxy-server",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VgoProject">
+    <settings-migrated>true</settings-migrated>
+  </component>
+</project>

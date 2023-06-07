@@ -30,6 +30,9 @@
     "@convostack/backend-express": "0.0.51",
     "@convostack/frontend-react": "0.0.51",
     "@convostack/langchain-memory": "0.0.51",
+    "@convostack/langchain-agent": "0.0.50",
+    "@convostack/agent-http": "0.0.50",
+    "@convostack/playground": "0.0.50",
     "@convostack/models": "0.0.50",
     "@convostack/shared": "0.0.50",
     "@convostack/storage-engine-prisma-mysql": "0.0.51",
@@ -66,6 +69,15 @@
     "langchain-memory.cjs",
     "langchain-memory.js",
     "langchain-memory.d.ts",
+    "langchain-agent.cjs",
+    "langchain-agent.js",
+    "langchain-agent.d.ts",
+    "playground.cjs",
+    "playground.js",
+    "playground.d.ts",
+    "agent-http.cjs",
+    "agent-http.js",
+    "agent-http.d.ts",
     "frontend-react.cjs",
     "frontend-react.js",
     "frontend-react.d.ts",
@@ -133,6 +145,21 @@
       "types": "./langchain-memory.d.ts",
       "import": "./langchain-memory.js",
       "require": "./langchain-memory.cjs"
+    },
+    "./langchain-agent": {
+      "types": "./langchain-agent.d.ts",
+      "import": "./langchain-agent.js",
+      "require": "./langchain-agent.cjs"
+    },
+    "./playground": {
+      "types": "./playground.d.ts",
+      "import": "./playground.js",
+      "require": "./playground.cjs"
+    },
+    "./agent-http": {
+      "types": "./agent-http.d.ts",
+      "import": "./agent-http.js",
+      "require": "./agent-http.cjs"
     },
     "./frontend-react": {
       "types": "./frontend-react.d.ts",
