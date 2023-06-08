@@ -1,5 +1,13 @@
 # @convostack/storage-engine-prisma-mysql
 
+## 0.0.52
+
+### Patch Changes
+
+- Add support for one-line hosted dev deploys
+- Updated dependencies
+  - @convostack/models@0.0.51
+
 ## 0.0.51
 
 ### Patch Changes

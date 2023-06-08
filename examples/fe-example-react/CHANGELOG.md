@@ -1,5 +1,13 @@
 # fe-example-react
 
+## 0.0.50
+
+### Patch Changes
+
+- Add support for one-line hosted dev deploys
+- Updated dependencies
+  - convostack@0.0.54
+
 ## 0.0.49
 
 ### Patch Changes

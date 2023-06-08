@@ -1,5 +1,11 @@
 # config-tsconfig
 
+## 0.0.49
+
+### Patch Changes
+
+- Add support for one-line hosted dev deploys
+
 ## 0.0.48
 
 ### Patch Changes

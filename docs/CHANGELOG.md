@@ -1,5 +1,13 @@
 # convostack-docs
 
+## 0.0.37
+
+### Patch Changes
+
+- Add support for one-line hosted dev deploys
+- Updated dependencies
+  - convostack@0.0.54
+
 ## 0.0.36
 
 ### Patch Changes

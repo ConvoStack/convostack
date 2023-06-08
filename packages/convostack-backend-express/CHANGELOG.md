@@ -1,5 +1,16 @@
 # @convostack/backend-express
 
+## 0.0.52
+
+### Patch Changes
+
+- Add support for one-line hosted dev deploys
+- Updated dependencies
+  - @convostack/agent@0.0.51
+  - @convostack/auth@0.0.51
+  - @convostack/models@0.0.51
+  - @convostack/shared@0.0.51
+
 ## 0.0.51
 
 ### Patch Changes

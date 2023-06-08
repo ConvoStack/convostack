@@ -1,5 +1,14 @@
 # @convostack/agent-sse
 
+## 0.0.51
+
+### Patch Changes
+
+- Add support for one-line hosted dev deploys
+- Updated dependencies
+  - @convostack/agent@0.0.51
+  - @convostack/shared@0.0.51
+
 ## 0.0.50
 
 ### Patch Changes

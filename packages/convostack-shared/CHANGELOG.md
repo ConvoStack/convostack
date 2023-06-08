@@ -1,5 +1,11 @@
 # @convostack/shared
 
+## 0.0.51
+
+### Patch Changes
+
+- Add support for one-line hosted dev deploys
+
 ## 0.0.50
 
 ### Patch Changes

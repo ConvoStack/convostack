@@ -1,5 +1,29 @@
 # convostack
 
+## 0.0.54
+
+### Patch Changes
+
+- Add support for one-line hosted dev deploys
+- Updated dependencies
+  - @convostack/agent@0.0.51
+  - @convostack/agent-echo@0.0.51
+  - @convostack/agent-http@0.0.51
+  - @convostack/agent-sse@0.0.51
+  - @convostack/agent-sse-echo-server@0.0.51
+  - @convostack/auth@0.0.51
+  - @convostack/auth-jwt@0.0.51
+  - @convostack/backend-express@0.0.52
+  - @convostack/frontend-react@0.0.52
+  - @convostack/langchain-agent@0.0.51
+  - @convostack/langchain-memory@0.0.52
+  - @convostack/models@0.0.51
+  - @convostack/playground@0.0.51
+  - @convostack/shared@0.0.51
+  - @convostack/storage-engine-prisma-mysql@0.0.52
+  - @convostack/storage-engine-prisma-postgres@0.0.52
+  - @convostack/storage-engine-prisma-sqlite@0.0.52
+
 ## 0.0.53
 
 ### Patch Changes
