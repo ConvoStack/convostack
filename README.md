@@ -29,20 +29,25 @@ Learn about ConvoStack and what sets it apart from other AI chatbot software:
 
 ## Getting Started
 
-Get your AI chatbot up and running in minutes with our [quickstart repo and guide](https://github.com/ConvoStack/quickstart):
+Get your AI chatbot up and running in minutes with our [Quickstart repo and guide](https://github.com/ConvoStack/quickstart):
 
 In the following example, we are connecting a Langchain OpenAI [LLM](https://js.langchain.com/docs/modules/models/llms/) to the chatbot playground.
 
 ```typescript
+import * as dotenv from "dotenv";
+// Configures the OpenAI API key
+dotenv.config();
+
 import { playground } from "convostack/playground";
+import { IAgentContext, IAgentResponse } from "convostack/agent";
 import { OpenAI } from "langchain/llms/openai";
 
 playground({
-  reply(context: IAgentContext): Promise<IAgentResponse> {
+  async reply(context: IAgentContext): Promise<IAgentResponse> {
     // `humanMessage` is the content of each message the user sends via the chatbot playground.
     let humanMessage = context.getHumanMessage().content;
     // `agent` is the OpenAI agent we want to use to respond to each `humanMessage`
-    const agent = new OpenAI();
+    const agent = new OpenAI({ modelName: "gpt-3.5-turbo" });
     // `call` is a simple string-in, string-out method for interacting with the OpenAI agent.
     const resp = await model.call(humanMessage);
     // `resp` is the generated agent's response to the user's `humanMessage`
