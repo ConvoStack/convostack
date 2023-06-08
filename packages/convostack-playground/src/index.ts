@@ -61,7 +61,7 @@ export class PlaygroundAgentProxy {
                     agentId = dataStr.replace('AGENT_ID:', '')
                     this.operation.reset()
                     // TODO Improve formatting
-                    console.log(`[ConvoStack] 🚀 Interact with your Agent live now: https://playground.convostack.ai/dev?agent=${encodeURIComponent(agentId)}`);
+                    console.log(`[ConvoStack] 🚀 Interact with your Agent live now: https://playground.convostack.ai/dev?agent=pxy::${encodeURIComponent(agentId)}`);
                 } else {
                     const message: IProxyMessage = JSON.parse(dataStr);
                     // Delegate request handling to the agent
