@@ -29,20 +29,34 @@ Learn about ConvoStack and what sets it apart from other AI chatbot software:
 
 ## Getting Started
 
-Get your AI chatbot up and running in minutes with our quickstart guide:
+Get your AI chatbot up and running in minutes with our [quickstart guide](https://docs.convostack.ai/getting-started/):
 
-- [Quickstart: ConvoStack Playground (React, Express, TypeScript)](https://docs.convostack.ai/getting-started/quickstart-react-express-playground)
-    - Support and 'chat with your docs' agent
-        - Pinecone
-        - OpenAI
-        - Web crawler for loading docs
-        - Langchain
-    - "ChatGPT" agent
-        - OpenAI
-        - Langchain
-    - Bare-bones Conversational QA agent
-        - OpenAI
-        - Langchain
+In the following example, we are connecting a Langchain OpenAI [LLM](https://js.langchain.com/docs/modules/models/llms/) to the chatbot playground.
+
+```typescript
+import { playground } from "convostack/playground";
+import { OpenAI } from "langchain/llms/openai";
+
+playground({
+  reply(context: IAgentContext): Promise<IAgentResponse> {
+    // `humanMessage` is the content of each message the user sends via the chatbot playground.
+    let humanMessage = context.getHumanMessage().content;
+    // `agent` is the OpenAI agent we want to use to respond to each `humanMessage`
+    const agent = new OpenAI();
+    // `call` is a simple string-in, string-out method for interacting with the OpenAI agent.
+    const resp = await model.call(humanMessage);
+    // `resp` is the generated agent's response to the user's `humanMessage`
+    return {
+      content: resp,
+      contentType: "markdown",
+    };
+  },
+});
+```
+**See the code above in action:**
+![ConvoStack Quickstart Example 1](https://github.com/ConvoStack/convostack/assets/8688852/f917120c-f0a7-440a-96b4-982ba2d4fdad)
+
+Follow our [quickstart guide](https://docs.convostack.ai/getting-started/) for more Langchain + ConvoStack examples.
 
 ## Installation
 
