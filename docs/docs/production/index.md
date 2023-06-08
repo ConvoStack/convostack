@@ -100,7 +100,7 @@ httpServer.listen(parseInt(port), host, () => {
 
 To deploy ConvoStack using Fly.io, check out [this guide](./deploy-with-fly-io).
 
-### Best Redis free tier option: Neon
+### Best Postgres free tier option: Neon
 
 Looking for a free Postgres option? We recommend trying [Neon](https://neon.tech/) with the Fly.io deployment.
 
