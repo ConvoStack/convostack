@@ -391,7 +391,7 @@
 - Update package metadata
 - Updated dependencies
   - convostack@0.0.4
-  - @convostack/agent@0.0.4
+  - convostack/agent@0.0.4
 
 ## 0.0.1
 
@@ -400,4 +400,4 @@
 - Update build and packaging strategy
 - Updated dependencies
   - convostack@0.0.3
-  - @convostack/agent@0.0.3
+  - convostack/agent@0.0.3
