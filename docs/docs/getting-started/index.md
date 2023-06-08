@@ -17,7 +17,7 @@ We will be using **Langchain** for creating the AI agents and **ConvoStack** for
 
 To find all the examples below and an already-created repository with the necessary dependencies, simply clone the ConvoStack Quickstart repo and follow the ReadMe to immediately get started.
 
-[Clone here!]
+[Clone here!](https://github.com/ConvoStack/quickstart)
 
 If instead you want to complete the walkthrough in your own existing Typescript project, follow the steps below:
 
