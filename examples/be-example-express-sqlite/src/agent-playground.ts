@@ -1,10 +1,14 @@
-import {playground, PlaygroundAgentProxy} from "@convostack/playground";
-import {AgentEcho} from "@convostack/agent-echo";
-import {IAgentCallbacks, IAgentContext, IAgentResponse} from "@convostack/agent";
+import { playground, PlaygroundAgentProxy } from "convostack/playground";
+import { AgentEcho } from "convostack/agent-echo";
+import {
+  IAgentCallbacks,
+  IAgentContext,
+  IAgentResponse,
+} from "@convostack/agent";
 
 const agent = new AgentEcho();
 // One-liner for hosted version
-playground(agent)
+playground(agent);
 
 // playground({
 //     reply(context: IAgentContext, callbacks?: IAgentCallbacks): Promise<IAgentResponse> {

@@ -1,6 +1,8 @@
-# Quickstart Guide
+---
+sidebar_position: 0.2
+---
 
-The ConvoStack Playground monorepo is the fastest way to start exploring ConvoStack. If you like learning by example, then this is the quickstart for you!
+# Playground Repository
 
 To check out the playground without setting it up yourself, click [here](https://playground.convostack.ai) for a live
 demo!
