@@ -29,7 +29,7 @@ Learn about ConvoStack and what sets it apart from other AI chatbot software:
 
 ## Getting Started
 
-Get your AI chatbot up and running in minutes with our [quickstart guide](https://docs.convostack.ai/getting-started/):
+Get your AI chatbot up and running in minutes with our [quickstart repo and guide](https://github.com/ConvoStack/quickstart):
 
 In the following example, we are connecting a Langchain OpenAI [LLM](https://js.langchain.com/docs/modules/models/llms/) to the chatbot playground.
 
