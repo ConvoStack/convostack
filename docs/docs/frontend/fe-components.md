@@ -6,6 +6,17 @@ sidebar_position: 0.2
 
 All ConvoStack components are originally styled in TailwindCSS and exported, so they don't interfere with the styling of your own website. This allows seamless integration with existing components on your site. There are four React components that make up our component library:
 
+To ensure ConvoStack frontend components import properly, add the following properties to your tsconfig file:
+
+```typescript
+{
+  ...
+  "moduleResolution": "node",
+  "esModuleInterop": true
+  ...
+}
+```
+
 ## ConvoStackWrapper
 
 The `ConvoStackWrapper` component serves as the entry point for integrating our chatbot widget into your site as it provides a shared Redux Toolkit store and React Query Client Provider for all ConvoStack components you choose to add within your application.
