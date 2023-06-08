@@ -1,0 +1,26 @@
+{
+  "name": "@convostack/agent-http",
+  "version": "0.0.50",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ConvoStack/convostack.git"
+  },
+  "author": "ConvoStack",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs --dts",
+    "dev": "npm run build -- --watch"
+  },
+  "dependencies": {
+    "@convostack/agent": "*",
+    "axios": "^0.26.1"
+  },
+  "devDependencies": {
+    "config-tsconfig": "*"
+  }
+}

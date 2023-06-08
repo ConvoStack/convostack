@@ -1,0 +1,28 @@
+{
+  "name": "@convostack/playground",
+  "version": "0.0.50",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ConvoStack/convostack.git"
+  },
+  "author": "ConvoStack",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs --dts",
+    "dev": "npm run build -- --watch"
+  },
+  "dependencies": {
+    "@convostack/agent": "*",
+    "@types/ws": "^8.5.4",
+    "ws": "^8.13.0",
+    "retry": "^0.13.1"
+  },
+  "devDependencies": {
+    "config-tsconfig": "*"
+  }
+}

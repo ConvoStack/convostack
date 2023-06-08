@@ -22,6 +22,15 @@ backend-express.d.ts
 langchain-memory.cjs
 langchain-memory.js
 langchain-memory.d.ts
+langchain-agent.cjs
+langchain-agent.js
+langchain-agent.d.ts
+playground.cjs
+playground.js
+playground.d.ts
+agent-http.cjs
+agent-http.js
+agent-http.d.ts
 frontend-react.cjs
 frontend-react.js
 frontend-react.d.ts
