@@ -1,4 +1,4 @@
-![My project](https://github.com/ConvoStack/convostack/assets/8688852/ee6df8a3-3938-4120-9eda-c2e847f98d21)
+<img width="80" height="80" alt="Screenshot 2023-06-02 at 2 47 17 AM" src="https://github.com/ConvoStack/convostack/assets/8688852/ee6df8a3-3938-4120-9eda-c2e847f98d21">
 
 # ConvoStack 💬⭐
 
