@@ -1,10 +1,12 @@
-# ConvoStack
+![My project](https://github.com/ConvoStack/convostack/assets/8688852/ee6df8a3-3938-4120-9eda-c2e847f98d21)
+
+# ConvoStack 💬⭐
 
 <img width="1439" alt="Screenshot 2023-06-02 at 2 47 17 AM" src="https://github.com/ConvoStack/convostack/assets/8688852/40fdbf63-4f53-4143-8628-39c934eaaed4">
 
-## What is ConvoStack?
+## Key Features 
 
-ConvoStack is a plug and play embeddable AI chatbot widget and backend deployment framework for your website. **It is
+ConvoStack is a plug-and-play embeddable AI chatbot widget and backend deployment framework for your website. **It is
 completely free and open source and currently running on our [docs](https://docs.convostack.ai/) website!**
 
 The core technologies are:
@@ -20,12 +22,6 @@ the [docs](https://docs.convostack.ai/).
 ## Try it out
 
 To see a live demo of ConvoStack, check out our free [playground](https://playground.convostack.ai)!
-
-## Learn the Basics
-
-Learn about ConvoStack and what sets it apart from other AI chatbot software:
-
-- [Why ConvoStack?](https://docs.convostack.ai/the-basics)
 
 ## Getting Started
 
