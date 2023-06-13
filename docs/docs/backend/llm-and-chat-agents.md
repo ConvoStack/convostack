@@ -23,18 +23,23 @@ To demonstrate, consider the following minimum-viable example of a custom agent 
 "This is my response" to users:
 
 ```typescript
-import {IAgent, IAgentCallbacks, IAgentContext, IAgentResponse} from "convostack/agent";
+import {
+  IAgent,
+  IAgentCallbacks,
+  IAgentContext,
+  IAgentResponse,
+} from "convostack/agent";
 
 export class MyAgent implements IAgent {
-    async reply(
-        context: IAgentContext,
-        callbacks?: IAgentCallbacks
-    ): Promise<IAgentResponse> {
-        // Process the context and callbacks to generate a response
-        return {
-            content: "This is my response"
-        };
-    }
+  async reply(
+    context: IAgentContext,
+    callbacks?: IAgentCallbacks
+  ): Promise<IAgentResponse> {
+    // Process the context and callbacks to generate a response
+    return {
+      content: "This is my response",
+    };
+  }
 }
 ```
 
@@ -46,34 +51,39 @@ function, agents can provide a more interactive experience by sending chunks of 
 Find a simplified streaming example below:
 
 ```typescript
-import {IAgent, IAgentCallbacks, IAgentContext, IAgentResponse} from "convostack/agent";
+import {
+  IAgent,
+  IAgentCallbacks,
+  IAgentContext,
+  IAgentResponse,
+} from "convostack/agent";
 
 export class MyAgent implements IAgent {
-    async reply(
-        context: IAgentContext,
-        callbacks?: IAgentCallbacks
-    ): Promise<IAgentResponse> {
-        // Process the context and callbacks to generate a response
-        // Stream the tokens of the response as we receive them
-        callbacks.onMessagePart({
-            contentChunk: "This"
-        });
-        callbacks.onMessagePart({
-            contentChunk: " is"
-        });
-        callbacks.onMessagePart({
-            contentChunk: " my"
-        });
-        callbacks.onMessagePart({
-            contentChunk: " response"
-        });
-        // Once we have finished getting the response, we return the final response message.
-        // It is not required for the final response to exactly match the streamed data and only this final response
-        // is stored in the conversation history.
-        return {
-            content: "This is my response"
-        };
-    }
+  async reply(
+    context: IAgentContext,
+    callbacks?: IAgentCallbacks
+  ): Promise<IAgentResponse> {
+    // Process the context and callbacks to generate a response
+    // Stream the tokens of the response as we receive them
+    callbacks.onMessagePart({
+      contentChunk: "This",
+    });
+    callbacks.onMessagePart({
+      contentChunk: " is",
+    });
+    callbacks.onMessagePart({
+      contentChunk: " my",
+    });
+    callbacks.onMessagePart({
+      contentChunk: " response",
+    });
+    // Once we have finished getting the response, we return the final response message.
+    // It is not required for the final response to exactly match the streamed data and only this final response
+    // is stored in the conversation history.
+    return {
+      content: "This is my response",
+    };
+  }
 }
 ```
 
@@ -119,74 +129,80 @@ Langchain offers a suite of tools for handling conversation chains powered by la
 a complete example of how Langchain integrates with a ConvoStack agent with streaming and message history:
 
 ```typescript
-import {IAgent, IAgentCallbacks, IAgentContext, IAgentResponse} from "convostack/agent";
-import {ChatOpenAI} from "langchain/chat_models/openai";
 import {
-    SystemMessagePromptTemplate,
-    HumanMessagePromptTemplate,
-    ChatPromptTemplate, MessagesPlaceholder,
+  IAgent,
+  IAgentCallbacks,
+  IAgentContext,
+  IAgentResponse,
+} from "convostack/agent";
+import { ChatOpenAI } from "langchain/chat_models/openai";
+import {
+  SystemMessagePromptTemplate,
+  HumanMessagePromptTemplate,
+  ChatPromptTemplate,
+  MessagesPlaceholder,
 } from "langchain/prompts";
-import {ConversationChain} from "langchain/chains";
-import {BufferMemory} from "langchain/memory";
-import {ConvoStackLangchainChatMessageHistory} from "convostack/langchain-memory";
+import { ConversationChain } from "langchain/chains";
+import { BufferMemory } from "langchain/memory";
+import { ConvoStackLangchainChatMessageHistory } from "convostack/langchain-memory";
 
 export class ExampleLangchainChatAgent implements IAgent {
-    async reply(
-        context: IAgentContext,
-        callbacks?: IAgentCallbacks
-    ): Promise<IAgentResponse> {
-        // Create a new Langchain OpenAI chat model, with streaming
-        const chat = new ChatOpenAI({
-            modelName: 'gpt-3.5-turbo',
-            temperature: 0,
-            streaming: true,
-            callbacks: [
-                {
-                    handleLLMNewToken(token: string) {
-                        // Stream tokens to ConvoStack
-                        callbacks.onMessagePart({
-                            contentChunk: token
-                        });
-                    },
-                },
-            ],
-        });
+  async reply(
+    context: IAgentContext,
+    callbacks?: IAgentCallbacks
+  ): Promise<IAgentResponse> {
+    // Create a new Langchain OpenAI chat model, with streaming
+    const chat = new ChatOpenAI({
+      modelName: "gpt-3.5-turbo",
+      temperature: 0,
+      streaming: true,
+      callbacks: [
+        {
+          handleLLMNewToken(token: string) {
+            // Stream tokens to ConvoStack
+            callbacks.onMessagePart({
+              contentChunk: token,
+            });
+          },
+        },
+      ],
+    });
 
-        // Setup your prompts (note the placeholder for {history})
-        const chatPrompt = ChatPromptTemplate.fromPromptMessages([
-            SystemMessagePromptTemplate.fromTemplate(
-                "The following is a friendly conversation between a human and an AI. The AI is talkative and provides lots of specific details from its context. If the AI does not know the answer to a question, it truthfully says it does not know."
-            ),
-            new MessagesPlaceholder("history"),
-            HumanMessagePromptTemplate.fromTemplate("{input}"),
-        ]);
+    // Setup your prompts (note the placeholder for {history})
+    const chatPrompt = ChatPromptTemplate.fromPromptMessages([
+      SystemMessagePromptTemplate.fromTemplate(
+        "The following is a friendly conversation between a human and an AI. The AI is talkative and provides lots of specific details from its context. If the AI does not know the answer to a question, it truthfully says it does not know."
+      ),
+      new MessagesPlaceholder("history"),
+      HumanMessagePromptTemplate.fromTemplate("{input}"),
+    ]);
 
-        // Setup the chain with a BufferMemory that pulls from the ConvoStack conversation history
-        const chain = new ConversationChain({
-            memory: new BufferMemory({
-                // Use the ConvoStackLangchainChatMessageHistory class to prepare a Langchain-compatible version of the history
-                chatHistory: new ConvoStackLangchainChatMessageHistory({
-                    // Pass the current conversation's message history for loading
-                    history: context.getHistory()
-                }),
-                returnMessages: true,
-                memoryKey: "history",
-            }),
-            prompt: chatPrompt,
-            llm: chat,
-        });
+    // Setup the chain with a BufferMemory that pulls from the ConvoStack conversation history
+    const chain = new ConversationChain({
+      memory: new BufferMemory({
+        // Use the ConvoStackLangchainChatMessageHistory class to prepare a Langchain-compatible version of the history
+        chatHistory: new ConvoStackLangchainChatMessageHistory({
+          // Pass the current conversation's message history for loading
+          history: context.getHistory(),
+        }),
+        returnMessages: true,
+        memoryKey: "history",
+      }),
+      prompt: chatPrompt,
+      llm: chat,
+    });
 
-        // Invoke the chain with the content of the message that the user sent via the ConvoStack frontend
-        const resp = await chain.call({
-            input: context.getHumanMessage().content,
-        });
+    // Invoke the chain with the content of the message that the user sent via the ConvoStack frontend
+    const resp = await chain.call({
+      input: context.getHumanMessage().content,
+    });
 
-        // Send the final response to ConvoStack
-        return {
-            content: resp.response,
-            contentType: "markdown"
-        };
-    }
+    // Send the final response to ConvoStack
+    return {
+      content: resp.response,
+      contentType: "markdown",
+    };
+  }
 }
 ```
 
@@ -196,18 +212,23 @@ Agents can access the conversation history through the `IAgentContext` interface
 that returns the conversation history.
 
 ```typescript
-import {IAgent, IAgentCallbacks, IAgentContext, IAgentResponse} from "convostack/agent";
+import {
+  IAgent,
+  IAgentCallbacks,
+  IAgentContext,
+  IAgentResponse,
+} from "convostack/agent";
 
 export class MyAgent implements IAgent {
-    async reply(
-        context: IAgentContext,
-        callbacks?: IAgentCallbacks
-    ): Promise<IAgentResponse> {
-        // You can always access the history of message objects using the following method:
-        let history = context.getHistory()
-        // You are free to use the history however you see fit. For connecting to langchain, check out our section
-        // on langchain above for pre-built convenience methods.
-    }
+  async reply(
+    context: IAgentContext,
+    callbacks?: IAgentCallbacks
+  ): Promise<IAgentResponse> {
+    // You can always access the history of message objects using the following method:
+    let history = context.getHistory();
+    // You are free to use the history however you see fit. For connecting to langchain, check out our section
+    // on langchain above for pre-built convenience methods.
+  }
 }
 ```
 
@@ -219,17 +240,22 @@ the content of the page that the user is currently looking at. The ConvoStack fr
 code sample below for a minimal example of how to get this context data (called context 'args' on the backend):
 
 ```typescript
-import {IAgent, IAgentCallbacks, IAgentContext, IAgentResponse} from "convostack/agent";
+import {
+  IAgent,
+  IAgentCallbacks,
+  IAgentContext,
+  IAgentResponse,
+} from "convostack/agent";
 
 export class MyAgent implements IAgent {
-    async reply(
-        context: IAgentContext,
-        callbacks?: IAgentCallbacks
-    ): Promise<IAgentResponse> {
-        // Get the arbitrary context data optionally passed in by the client
-        // The type of the context should be a key:value map where the keys must be strings and values can be of any type
-        // Your agent must implement its own handling, checking, and validation of the context data
-        let contextArgs = context.getContextArgs();
-    }
+  async reply(
+    context: IAgentContext,
+    callbacks?: IAgentCallbacks
+  ): Promise<IAgentResponse> {
+    // Get the arbitrary context data optionally passed in by the client
+    // The type of the context should be a key:value map where the keys must be strings and values can be of any type
+    // Your agent must implement its own handling, checking, and validation of the context data
+    let contextArgs = context.getContextArgs();
+  }
 }
 ```

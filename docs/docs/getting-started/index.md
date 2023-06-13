@@ -3,6 +3,7 @@ id: "index"
 title: "Quickstart"
 sidebar_label: "Quickstart"
 sidebar_position: 0.1
+pagination_next: "getting-started/playground"
 ---
 
 # Quickstart Guide

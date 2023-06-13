@@ -21,7 +21,7 @@ Learn about ConvoStack and what sets it apart from other AI chatbot software:
 
 Get your AI chatbot up and running in minutes with our quickstart guide:
 
-- [Quickstart: ConvoStack Playground (React, Express, TypeScript)](./getting-started/quickstart-react-express-playground)
+- [Quickstart Walkthrough](./getting-started)
 
 ## Installation
 
@@ -37,16 +37,16 @@ If adding ConvoStack to your project, below are the following requirements depen
 
 **Node**
 
-* `node`: version >=18
+- `node`: version >=18
 
 **Frontend Requirements:**
 
-* `react` (version ^17.0.2 or version ^18.0.0): Integration with ConvoStack frontend components
+- `react` (version ^17.0.2 or version ^18.0.0): Integration with ConvoStack frontend components
 
-* `react-dom` (version ^17.0.2 or version ^18.0.0): Integration with ConvoStack frontend components
+- `react-dom` (version ^17.0.2 or version ^18.0.0): Integration with ConvoStack frontend components
 
 **Backend Requirements:**
 
-* `express`: The ConvoStack backend is based on Express and imports a version for itself. Optionally, you can have the ConvoStack backend attach to your own Express app instance. In that case, any relatively recent version of express should suffice (e.g., above 4.17.1)
+- `express`: The ConvoStack backend is based on Express and imports a version for itself. Optionally, you can have the ConvoStack backend attach to your own Express app instance. In that case, any relatively recent version of express should suffice (e.g., above 4.17.1)
 
-* `langchain` (version ^0.0.67) (Optional): Plug and play ConvoStack Agent integration for Langchain-based Agents
+- `langchain` (version ^0.0.67) (Optional): Plug and play ConvoStack Agent integration for Langchain-based Agents
