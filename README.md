@@ -1,10 +1,10 @@
-# ConvoStack
+<h1 style="margin-top: 0px">ConvoStack 💬⭐</h1>
 
 <img width="1439" alt="Screenshot 2023-06-02 at 2 47 17 AM" src="https://github.com/ConvoStack/convostack/assets/8688852/40fdbf63-4f53-4143-8628-39c934eaaed4">
 
-## What is ConvoStack?
+## Key Features 
 
-ConvoStack is a plug and play embeddable AI chatbot widget and backend deployment framework for your website. **It is
+ConvoStack is a plug-and-play embeddable AI chatbot widget and backend deployment framework for your website. **It is
 completely free and open source and currently running on our [docs](https://docs.convostack.ai/) website!**
 
 The core technologies are:
@@ -21,28 +21,27 @@ the [docs](https://docs.convostack.ai/).
 
 To see a live demo of ConvoStack, check out our free [playground](https://playground.convostack.ai)!
 
-## Learn the Basics
-
-Learn about ConvoStack and what sets it apart from other AI chatbot software:
-
-- [Why ConvoStack?](https://docs.convostack.ai/the-basics)
-
 ## Getting Started
 
-Get your AI chatbot up and running in minutes with our [quickstart guide](https://docs.convostack.ai/getting-started/):
+Get your AI chatbot up and running in minutes with our [Quickstart repo and guide](https://github.com/ConvoStack/quickstart):
 
 In the following example, we are connecting a Langchain OpenAI [LLM](https://js.langchain.com/docs/modules/models/llms/) to the chatbot playground.
 
 ```typescript
+import * as dotenv from "dotenv";
+// Configures the OpenAI API key
+dotenv.config();
+
 import { playground } from "convostack/playground";
+import { IAgentContext, IAgentResponse } from "convostack/agent";
 import { OpenAI } from "langchain/llms/openai";
 
 playground({
-  reply(context: IAgentContext): Promise<IAgentResponse> {
+  async reply(context: IAgentContext): Promise<IAgentResponse> {
     // `humanMessage` is the content of each message the user sends via the chatbot playground.
     let humanMessage = context.getHumanMessage().content;
     // `agent` is the OpenAI agent we want to use to respond to each `humanMessage`
-    const agent = new OpenAI();
+    const agent = new OpenAI({ modelName: "gpt-3.5-turbo" });
     // `call` is a simple string-in, string-out method for interacting with the OpenAI agent.
     const resp = await model.call(humanMessage);
     // `resp` is the generated agent's response to the user's `humanMessage`
