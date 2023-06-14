@@ -144,6 +144,30 @@ const updatedContext = {
 updateContext("conversation123", updatedContext);
 ```
 
+### sendMessage
+
+```typescript
+sendMessage = async (
+  message: string,
+  conversationId: string | null,
+  agent?: string,
+  newContext?: {
+    [key: string]: string;
+  }
+): void
+```
+
+Description:
+
+- The `sendMessage` function is used to send messages without using the user input box of the widget or the `ConvoStackEmbed` component.
+
+Parameters:
+
+- `message: string` - The content of the message you want to send.
+- `conversationId: string | null` - The ID of the conversation you want to send a message to. To create a new conversation, set this to `null`.
+- `agent` - If null, it will use the agent that was set for the existing conversation.
+- `newContext: { [key: string]: string }` - The context you want to pass in when sending a message.
+
 ### dropSubscription
 
 ```typescript
@@ -152,7 +176,7 @@ const dropSubscription = (embedId?: string): void
 
 Description:
 
-- The dropSubscription function is used to drop the WebSocket connection to the subscription of a specific `ConvoStackEmbed` component or the widget itself. This function is handled automatically by the component itself, so explicitly calling this function should be <u>limited or avoided</u> unless there is a specific need.
+- The `dropSubscription` function is used to drop the WebSocket connection to the subscription of a specific `ConvoStackEmbed` component or the widget itself. This function is handled automatically by the component itself, so explicitly calling this function should be <u>limited or avoided</u> unless there is a specific need.
 
 Parameters:
 

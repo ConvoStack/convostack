@@ -10,15 +10,21 @@ const MyComponent: React.FC<MyComponentProps> = ({ text }) => {
     isWidgetWindowVisible,
     openConversationList,
     openConversation,
+    sendMessage,
+    activeConversationId,
+    embedActiveConversationId,
   } = useConvoStack();
+  console.log(activeConversationId);
   return (
     <div className="flex flex-col">
       <p className="text-black">{text}</p>
       <button
-        onClick={() => toggleWidgetWindow(!isWidgetWindowVisible)}
+        onClick={() =>
+          sendMessage("THIS IS A TEST", embedActiveConversationId["test"])
+        }
         className="bg-red-500 mb-8"
       >
-        test toggle open/close convostack
+        SEND MESSAGE
       </button>
       <button
         onClick={() => openConversationList()}

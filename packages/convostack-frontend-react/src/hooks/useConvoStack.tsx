@@ -1,6 +1,7 @@
 import {
   SubscribeConversationEventsDocument,
   UpdateConversationContextDocument,
+  SendMessageDocument,
 } from "@graphql";
 import { useDispatch, useSelector } from "react-redux";
 import { createApiClient, createWsClient } from "../api/apiClient";
@@ -181,6 +182,24 @@ const useConvoStack = () => {
     dispatch(setContext(context));
   };
 
+  const sendMessage = async (
+    message: string,
+    conversationId: string | null,
+    agent?: string,
+    newContext?: {
+      [key: string]: string;
+    }
+  ) => {
+    await createApiClient().request(SendMessageDocument, {
+      message: {
+        content: message,
+      },
+      conversationId: conversationId || null,
+      agent: agent || null,
+      context: newContext || context,
+    });
+  };
+
   return {
     context,
     data,
@@ -195,6 +214,7 @@ const useConvoStack = () => {
     openConversationList,
     updateContext,
     dropSubscription,
+    sendMessage,
   };
 };
 
