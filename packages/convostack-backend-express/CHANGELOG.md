@@ -1,5 +1,16 @@
 # @convostack/backend-express
 
+## 0.0.54
+
+### Patch Changes
+
+- Textarea fix
+- Updated dependencies
+  - @convostack/agent@0.0.53
+  - @convostack/auth@0.0.53
+  - @convostack/models@0.0.53
+  - @convostack/shared@0.0.53
+
 ## 0.0.53
 
 ### Patch Changes

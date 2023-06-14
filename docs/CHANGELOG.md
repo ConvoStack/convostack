@@ -1,5 +1,13 @@
 # convostack-docs
 
+## 0.0.39
+
+### Patch Changes
+
+- Textarea fix
+- Updated dependencies
+  - convostack@0.0.56
+
 ## 0.0.38
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # @convostack/agent-sse
 
+## 0.0.53
+
+### Patch Changes
+
+- Textarea fix
+- Updated dependencies
+  - @convostack/agent@0.0.53
+  - @convostack/shared@0.0.53
+
 ## 0.0.52
 
 ### Patch Changes

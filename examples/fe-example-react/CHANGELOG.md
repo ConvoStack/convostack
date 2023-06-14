@@ -1,5 +1,13 @@
 # fe-example-react
 
+## 0.0.52
+
+### Patch Changes
+
+- Textarea fix
+- Updated dependencies
+  - convostack@0.0.56
+
 ## 0.0.51
 
 ### Patch Changes

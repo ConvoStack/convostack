@@ -1,5 +1,13 @@
 # @convostack/storage-engine-prisma-sqlite
 
+## 0.0.54
+
+### Patch Changes
+
+- Textarea fix
+- Updated dependencies
+  - @convostack/models@0.0.53
+
 ## 0.0.53
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # @convostack/auth-jwt
 
+## 0.0.53
+
+### Patch Changes
+
+- Textarea fix
+- Updated dependencies
+  - @convostack/auth@0.0.53
+  - @convostack/models@0.0.53
+
 ## 0.0.52
 
 ### Patch Changes

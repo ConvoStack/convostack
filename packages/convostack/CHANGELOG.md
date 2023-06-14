@@ -1,5 +1,29 @@
 # convostack
 
+## 0.0.56
+
+### Patch Changes
+
+- Textarea fix
+- Updated dependencies
+  - @convostack/frontend-react@0.0.54
+  - @convostack/agent@0.0.53
+  - @convostack/agent-echo@0.0.53
+  - @convostack/agent-http@0.0.53
+  - @convostack/agent-sse@0.0.53
+  - @convostack/agent-sse-echo-server@0.0.53
+  - @convostack/auth@0.0.53
+  - @convostack/auth-jwt@0.0.53
+  - @convostack/backend-express@0.0.54
+  - @convostack/langchain-agent@0.0.53
+  - @convostack/langchain-memory@0.0.54
+  - @convostack/models@0.0.53
+  - @convostack/playground@0.0.53
+  - @convostack/shared@0.0.53
+  - @convostack/storage-engine-prisma-mysql@0.0.54
+  - @convostack/storage-engine-prisma-postgres@0.0.54
+  - @convostack/storage-engine-prisma-sqlite@0.0.54
+
 ## 0.0.55
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @convostack/frontend-react
 
+## 0.0.54
+
+### Patch Changes
+
+- Textarea fix
+
 ## 0.0.53
 
 ### Patch Changes

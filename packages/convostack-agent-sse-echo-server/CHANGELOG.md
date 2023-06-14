@@ -1,5 +1,11 @@
 # @convostack/agent-sse-echo-server
 
+## 0.0.53
+
+### Patch Changes
+
+- Textarea fix
+
 ## 0.0.52
 
 ### Patch Changes

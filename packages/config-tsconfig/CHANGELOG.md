@@ -1,5 +1,11 @@
 # config-tsconfig
 
+## 0.0.51
+
+### Patch Changes
+
+- Textarea fix
+
 ## 0.0.50
 
 ### Patch Changes
