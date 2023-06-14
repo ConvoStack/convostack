@@ -75,8 +75,10 @@ const UserInput: React.FC<UserInputProps> = ({
     }
     if (textarea !== null) textarea.style.height = "auto";
   };
-  const textarea =
-    typeof document !== "undefined" ? document.querySelector("textarea") : null;
+  const textarea: HTMLTextAreaElement | null =
+    typeof document !== "undefined"
+      ? document.querySelector("#userInput")
+      : null;
   if (textarea) {
     textarea.addEventListener("input", function () {
       this.style.height = "auto";
@@ -99,6 +101,7 @@ const UserInput: React.FC<UserInputProps> = ({
     <div className="border-t-1">
       <div className="w-full min-h-14 bg-off-white flex items-center max-h-36 scrollbar-hidden py-4">
         <textarea
+          id="userInput"
           placeholder="Send a message..."
           ref={textareaRef}
           value={inputValue}

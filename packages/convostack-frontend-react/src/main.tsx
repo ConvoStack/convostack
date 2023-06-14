@@ -18,6 +18,16 @@ ReactDOM.render(
       />
       <MyComponent text={"Dev's existing content"}></MyComponent>
       <div style={{ display: "flex", flexDirection: "row", width: "50%" }}>
+        <div className="mb-4 w-full">
+          <label htmlFor="name" className="block text-gray-700 font-bold mb-2">
+            Name:
+          </label>
+          <textarea
+            id="name"
+            rows={4}
+            className="w-full border border-gray-300 p-2 rounded-md resize-none"
+          />
+        </div>
         <ConvoStackEmbed
           embedId="tester"
           customStyling={{
@@ -26,6 +36,7 @@ ReactDOM.render(
             embedHeight: "500px",
           }}
         />
+
         {/* <div style={{ backgroundColor: "red", width: "800px" }} /> */}
       </div>
     </ConvoStackWrapper>
