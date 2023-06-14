@@ -1,5 +1,13 @@
 # @convostack/agent-echo
 
+## 0.0.52
+
+### Patch Changes
+
+- SendMessage added to useConvoStack hook
+- Updated dependencies
+  - @convostack/agent@0.0.52
+
 ## 0.0.51
 
 ### Patch Changes

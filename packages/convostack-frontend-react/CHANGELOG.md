@@ -1,5 +1,11 @@
 # @convostack/frontend-react
 
+## 0.0.53
+
+### Patch Changes
+
+- SendMessage added to useConvoStack hook
+
 ## 0.0.52
 
 ### Patch Changes

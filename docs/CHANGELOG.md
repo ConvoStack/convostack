@@ -1,5 +1,13 @@
 # convostack-docs
 
+## 0.0.38
+
+### Patch Changes
+
+- SendMessage added to useConvoStack hook
+- Updated dependencies
+  - convostack@0.0.55
+
 ## 0.0.37
 
 ### Patch Changes

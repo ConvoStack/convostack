@@ -1,5 +1,13 @@
 # @convostack/storage-engine-prisma-postgres
 
+## 0.0.53
+
+### Patch Changes
+
+- SendMessage added to useConvoStack hook
+- Updated dependencies
+  - @convostack/models@0.0.52
+
 ## 0.0.52
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # @convostack/auth-jwt
 
+## 0.0.52
+
+### Patch Changes
+
+- SendMessage added to useConvoStack hook
+- Updated dependencies
+  - @convostack/auth@0.0.52
+  - @convostack/models@0.0.52
+
 ## 0.0.51
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # schema-graphql
 
+## 0.0.50
+
+### Patch Changes
+
+- SendMessage added to useConvoStack hook
+
 ## 0.0.49
 
 ### Patch Changes
