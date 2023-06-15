@@ -16,6 +16,7 @@ import resolvers from "./resolvers/index";
 import {WebSocketServer} from "ws";
 import {ConvoStackServices} from "./services";
 import {IAgentManager} from "@convostack/agent";
+import controllers from "./controllers";
 
 export interface IConvoStackBackendConfiguration {
     basePath?: string;
@@ -81,5 +82,34 @@ export class ConvoStackBackendExpress {
             // serves expressMiddleware at a different path
             path: basePath + "graphql"
         }));
+    }
+
+    async addRestApi(app: express.Express) {
+        const basePath = this.getCleanBasePath();
+        app.use(basePath + 'api*', express.json());
+        const wrapper = (ctr: (req: any, res: any, ctx: any) => any, mustAuthUser: boolean) => {
+            return async (req, res) => {
+                try {
+                    const authCtx = await this.config.auth.getGQLAuthContextHTTP(req)
+                    if (mustAuthUser && !authCtx.user) {
+                        res.status(401)
+                        res.json({
+                            success: false,
+                            message: "This route requires authentication"
+                        })
+                        return
+                    }
+                    await ctr(req, res, {...authCtx, services: this.services, req})
+                } catch (err) {
+                    console.error('[ConvoStack] Controller error: ', err)
+                    res.status(500)
+                    res.json({
+                        success: false,
+                        message: "Internal server error"
+                    })
+                }
+            }
+        }
+        app.post(basePath + 'api/actions/sendMessage', wrapper(controllers.sendMessageController, true))
     }
 }

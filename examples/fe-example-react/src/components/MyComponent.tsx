@@ -6,8 +6,8 @@ interface MyComponentProps {
 
 const MyComponent: React.FC<MyComponentProps> = ({ text }) => {
   const {
-    toggleWidgetWindow,
-    isWidgetWindowVisible,
+    // toggleWidgetWindow,
+    // isWidgetWindowVisible,
     openConversationList,
     openConversation,
     sendMessage,

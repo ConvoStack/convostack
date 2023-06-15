@@ -80,6 +80,7 @@ const main = async () => {
     });
 
     await backend.init(app, httpServer);
+    await backend.addRestApi(app)
 
     console.log(`Starting server on port ${port}...`);
     httpServer.listen(parseInt(port), host, () => {

@@ -25,23 +25,34 @@ export class AgentService {
     return this.conversationEventService.subscribeToConversation(conversation);
   }
 
-  async sendMessage(
+  sendMessage(
     user: IUser,
     conversation: IConversation,
-    message: MessageInput
+    message: MessageInput,
+    onMessageResponse?: (data: IMessage) => Promise<void>,
+    onMessagePartCb?: (data: IAgentMessagePart) => Promise<void>
   ): Promise<IMessage> {
-    const msg = await this.storage.createMessage({
-      turn: (await this.getNextTurnNumber(conversation.id)),
-      role: this.agents.getAgentHumanRole(conversation.agent),
-      pending: false,
-      content: message.content,
-      userId: user.id,
-      conversationId: conversation.id
+    return new Promise<IMessage>(async (resolve, reject) => {
+      try {
+        const msg = await this.storage.createMessage({
+          turn: (await this.getNextTurnNumber(conversation.id)),
+          role: this.agents.getAgentHumanRole(conversation.agent),
+          pending: false,
+          content: message.content,
+          userId: user.id,
+          conversationId: conversation.id
+        });
+        await this.conversationEventService.publishMessage(msg);
+        const history = await this.getHistory(msg.conversationId);
+        resolve(msg);
+        const resp = await this.queryAgent(conversation.agent, conversation, history, user, msg, onMessagePartCb);
+        if (onMessageResponse) {
+          onMessageResponse(resp)
+        }
+      } catch (err) {
+        reject(err)
+      }
     });
-    await this.conversationEventService.publishMessage(msg);
-    const history = await this.getHistory(msg.conversationId);
-    this.queryAgent(conversation.agent, conversation, history, user, msg);
-    return msg;
   }
 
   private async getNextTurnNumber(conversationId: string): Promise<number> {
@@ -68,7 +79,7 @@ export class AgentService {
     return msgs;
   }
 
-  private async queryAgent(agentKey: string, conversation: IConversation, history: IMessage[], user: IUser, message: IMessage) {
+  private async queryAgent(agentKey: string, conversation: IConversation, history: IMessage[], user: IUser, message: IMessage, onMessagePartCb?: (data: IAgentMessagePart) => Promise<void>) {
     try {
       // TODO should probably insert this much sooner as a pending message and then update w/ the final response below
       //      this would help to ensure that we lock in the proper message sequence and have a placeholder in the history.
@@ -89,6 +100,9 @@ export class AgentService {
         }
       }, {
         onMessagePart(data: IAgentMessagePart) {
+          if (onMessagePartCb) {
+            onMessagePartCb(data)
+          }
           ces.publishConversationEvent(
             message.conversationId,
             {
@@ -117,6 +131,7 @@ export class AgentService {
         },
         false
       );
+      return respMessage
     } catch (error: any) {
       console.log("agent llm error", error);
       throw new Error(error);

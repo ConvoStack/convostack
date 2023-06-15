@@ -22,16 +22,31 @@ export class AgentHTTPClient implements IAgent {
 
                 const stream = response.data;
                 let returned = false;
+                let buffer = "";
 
                 stream.on('data', data => {
-                    let msg = JSON.parse(data.toString())
-                    if (msg.content) {
-                        returned = true;
-                        resolve(msg)
-                    } else {
-                        callbacks.onMessagePart(msg)
+                    buffer += data.toString();
+                    let lineBreakIndex = buffer.indexOf('\n');
+                    while (lineBreakIndex != -1) {
+                        const line = buffer.substring(0, lineBreakIndex);
+                        buffer = buffer.substring(lineBreakIndex + 1);
+
+                        if (line.startsWith("{")) {
+                            let msg = JSON.parse(line);
+                            if (msg.content) {
+                                returned = true;
+                                resolve(msg);
+                            } else {
+                                callbacks.onMessagePart(msg);
+                            }
+                        } else {
+                            // Ignore (this is an empty line or malformed JSON)
+                        }
+
+                        lineBreakIndex = buffer.indexOf('\n');
                     }
                 });
+
 
                 stream.on('end', () => {
                     if (!returned) {
