@@ -1,5 +1,13 @@
 # @convostack/langchain-memory
 
+## 0.0.55
+
+### Patch Changes
+
+- Add back http streaming fixes, add optional REST API for express backend
+- Updated dependencies
+  - @convostack/shared@0.0.54
+
 ## 0.0.54
 
 ### Patch Changes

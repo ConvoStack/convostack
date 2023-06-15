@@ -1,5 +1,29 @@
 # convostack
 
+## 0.0.57
+
+### Patch Changes
+
+- Add back http streaming fixes, add optional REST API for express backend
+- Updated dependencies
+  - @convostack/agent@0.0.54
+  - @convostack/agent-echo@0.0.54
+  - @convostack/agent-http@0.0.54
+  - @convostack/agent-sse@0.0.54
+  - @convostack/agent-sse-echo-server@0.0.54
+  - @convostack/auth@0.0.54
+  - @convostack/auth-jwt@0.0.54
+  - @convostack/backend-express@0.0.55
+  - @convostack/frontend-react@0.0.55
+  - @convostack/langchain-agent@0.0.54
+  - @convostack/langchain-memory@0.0.55
+  - @convostack/models@0.0.54
+  - @convostack/playground@0.0.54
+  - @convostack/shared@0.0.54
+  - @convostack/storage-engine-prisma-mysql@0.0.55
+  - @convostack/storage-engine-prisma-postgres@0.0.55
+  - @convostack/storage-engine-prisma-sqlite@0.0.55
+
 ## 0.0.56
 
 ### Patch Changes

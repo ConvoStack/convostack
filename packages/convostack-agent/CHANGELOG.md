@@ -1,5 +1,11 @@
 # @convostack/agent
 
+## 0.0.54
+
+### Patch Changes
+
+- Add back http streaming fixes, add optional REST API for express backend
+
 ## 0.0.53
 
 ### Patch Changes

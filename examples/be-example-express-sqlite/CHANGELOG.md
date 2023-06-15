@@ -1,5 +1,13 @@
 # be-example-express-sqlite
 
+## 0.0.54
+
+### Patch Changes
+
+- Add back http streaming fixes, add optional REST API for express backend
+- Updated dependencies
+  - convostack@0.0.57
+
 ## 0.0.53
 
 ### Patch Changes

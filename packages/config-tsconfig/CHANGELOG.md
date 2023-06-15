@@ -1,5 +1,11 @@
 # config-tsconfig
 
+## 0.0.52
+
+### Patch Changes
+
+- Add back http streaming fixes, add optional REST API for express backend
+
 ## 0.0.51
 
 ### Patch Changes

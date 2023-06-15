@@ -1,5 +1,14 @@
 # @convostack/auth-jwt
 
+## 0.0.54
+
+### Patch Changes
+
+- Add back http streaming fixes, add optional REST API for express backend
+- Updated dependencies
+  - @convostack/auth@0.0.54
+  - @convostack/models@0.0.54
+
 ## 0.0.53
 
 ### Patch Changes

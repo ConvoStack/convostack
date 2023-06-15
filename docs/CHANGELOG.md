@@ -1,5 +1,13 @@
 # convostack-docs
 
+## 0.0.40
+
+### Patch Changes
+
+- Add back http streaming fixes, add optional REST API for express backend
+- Updated dependencies
+  - convostack@0.0.57
+
 ## 0.0.39
 
 ### Patch Changes
