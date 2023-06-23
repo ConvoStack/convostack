@@ -1,5 +1,13 @@
 # @convostack/langchain-memory
 
+## 0.0.56
+
+### Patch Changes
+
+- Fix overflow scroll on body
+- Updated dependencies
+  - @convostack/shared@0.0.55
+
 ## 0.0.55
 
 ### Patch Changes

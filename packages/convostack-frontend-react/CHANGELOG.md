@@ -1,5 +1,11 @@
 # @convostack/frontend-react
 
+## 0.0.56
+
+### Patch Changes
+
+- Fix overflow scroll on body
+
 ## 0.0.55
 
 ### Patch Changes

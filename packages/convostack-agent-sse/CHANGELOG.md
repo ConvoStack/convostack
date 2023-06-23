@@ -1,5 +1,14 @@
 # @convostack/agent-sse
 
+## 0.0.55
+
+### Patch Changes
+
+- Fix overflow scroll on body
+- Updated dependencies
+  - @convostack/agent@0.0.55
+  - @convostack/shared@0.0.55
+
 ## 0.0.54
 
 ### Patch Changes

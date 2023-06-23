@@ -1,5 +1,13 @@
 # @convostack/storage-engine-prisma-sqlite
 
+## 0.0.56
+
+### Patch Changes
+
+- Fix overflow scroll on body
+- Updated dependencies
+  - @convostack/models@0.0.55
+
 ## 0.0.55
 
 ### Patch Changes

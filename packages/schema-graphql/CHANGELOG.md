@@ -1,5 +1,11 @@
 # schema-graphql
 
+## 0.0.53
+
+### Patch Changes
+
+- Fix overflow scroll on body
+
 ## 0.0.52
 
 ### Patch Changes

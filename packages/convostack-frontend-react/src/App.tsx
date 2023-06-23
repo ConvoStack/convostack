@@ -60,7 +60,8 @@ const App: React.FC<Omit<ConvoStackWidgetProps, "children">> = ({
       }
     } else {
       setIsShowing(false);
-      document.body.style.overflow = "scroll";
+      // @ts-ignore
+      document.body.style.overflow = null;
     }
   }, [isWidgetWindowVisible]);
 

@@ -1,5 +1,13 @@
 # convostack-docs
 
+## 0.0.41
+
+### Patch Changes
+
+- Fix overflow scroll on body
+- Updated dependencies
+  - convostack@0.0.58
+
 ## 0.0.40
 
 ### Patch Changes
